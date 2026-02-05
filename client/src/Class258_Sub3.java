@@ -5,7 +5,11 @@
 import jaggl.OpenGL;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.image.PixelGrabber;
+import java.io.ByteArrayInputStream;
+
+import javax.imageio.ImageIO;
 
 class Class258_Sub3 extends Class258 {
     static int anInt8539;
@@ -185,22 +189,48 @@ class Class258_Sub3 extends Class258 {
         anInt8546++;
         if (i != -5901) anInt8550 = 83;
         if (is == null) throw new RuntimeException("");
-        for (; ; ) {
-            try {
-                Image image = Toolkit.getDefaultToolkit().createImage(is);
-                MediaTracker mediatracker = new MediaTracker(Class79.aClient1367);
-                mediatracker.addImage(image, 0);
-                mediatracker.waitForAll();
-                int i_58_ = image.getWidth(Class79.aClient1367);
-                int i_59_ = image.getHeight(Class79.aClient1367);
-                if (mediatracker.isErrorAny() || i_58_ < 0 || i_59_ < 0) throw new RuntimeException("");
-                int[] is_60_ = new int[i_59_ * i_58_];
-                PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_58_, i_59_, is_60_, 0, i_58_);
-                pixelgrabber.grabPixels();
-                return Class348_Sub8.aHa6654.method3662(i_58_, is_60_, (byte) 94, 0, i_58_, i_59_);
-            } catch (InterruptedException interruptedexception) {
-                /* empty */
+        try {
+            BufferedImage bufferedimage = ImageIO.read(new ByteArrayInputStream(is));
+            if (bufferedimage != null) {
+                int i_58_ = bufferedimage.getWidth();
+                int i_59_ = bufferedimage.getHeight();
+                if (i_58_ > 0 && i_59_ > 0) {
+                    int[] is_60_ = new int[i_59_ * i_58_];
+                    bufferedimage.getRGB(0, 0, i_58_, i_59_, is_60_, 0, i_58_);
+                    return Class348_Sub8.aHa6654.method3662(i_58_, is_60_, (byte) 94, 0, i_58_, i_59_);
+                }
             }
+        } catch (Throwable throwable) {
+            /* fall through */
+        }
+
+        if (Boolean.getBoolean("voidclient.image.awt_fallback")) {
+            for (; ; ) {
+                try {
+                    Image image = Toolkit.getDefaultToolkit().createImage(is);
+                    MediaTracker mediatracker = new MediaTracker(Class79.aClient1367);
+                    mediatracker.addImage(image, 0);
+                    mediatracker.waitForAll();
+                    int i_58_ = image.getWidth(Class79.aClient1367);
+                    int i_59_ = image.getHeight(Class79.aClient1367);
+                    if (mediatracker.isErrorAny() || i_58_ < 0 || i_59_ < 0) throw new RuntimeException("");
+                    int[] is_60_ = new int[i_59_ * i_58_];
+                    PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_58_, i_59_, is_60_, 0, i_58_);
+                    pixelgrabber.grabPixels();
+                    return Class348_Sub8.aHa6654.method3662(i_58_, is_60_, (byte) 94, 0, i_58_, i_59_);
+                } catch (InterruptedException interruptedexception) {
+                    /* empty */
+                }
+            }
+        }
+
+        try {
+            if (Loader.trace) {
+                System.err.println("Image decode failed; returning placeholder sprite. Set -Dvoidclient.image.awt_fallback=true to use Toolkit decoding.");
+            }
+            return Class348_Sub8.aHa6654.method3662(1, new int[]{0}, (byte) 94, 0, 1, 1);
+        } catch (Throwable throwable) {
+            throw new RuntimeException(throwable);
         }
     }
 
