@@ -46,7 +46,7 @@ final class Class50_Sub4 extends Class50 {
         anInt5259 = i_10_;
     }
 
-    static final Class158 method472(int i, Class348_Sub49 class348_sub49) {
+    static final Class158 method472(int i, RSBuffer class348_sub49) {
         anInt5263++;
         String string = class348_sub49.readString((byte) 90);
         Class221 class221 = Class158.method1248(127)[class348_sub49.readUnsignedByte(i ^ ~0x6c6e)];

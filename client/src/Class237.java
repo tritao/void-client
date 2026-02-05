@@ -882,7 +882,7 @@ class Class237 {
         }
     }
 
-    final void method1681(Class348_Sub49 class348_sub49, int i, Class361[] class361s, int i_197_, int i_198_, int i_199_, byte i_200_) {
+    final void method1681(RSBuffer class348_sub49, int i, Class361[] class361s, int i_197_, int i_198_, int i_199_, byte i_200_) {
         try {
             anInt3107++;
             if (!this.aBoolean3109) {
@@ -911,7 +911,7 @@ class Class237 {
         }
     }
 
-    private final void method1682(boolean bool, int i, int i_212_, int i_213_, Class348_Sub49 class348_sub49, int i_214_, int i_215_, int i_216_, int i_217_, int i_218_, int i_219_) {
+    private final void method1682(boolean bool, int i, int i_212_, int i_213_, RSBuffer class348_sub49, int i_214_, int i_215_, int i_216_, int i_217_, int i_218_, int i_219_) {
         anInt3125++;
         if (i_213_ != 1) {
             if (i_213_ == 2) {
@@ -1108,7 +1108,7 @@ class Class237 {
         } while (false);
     }
 
-    final void method1684(int i, int i_272_, int i_273_, Class348_Sub49 class348_sub49, int i_274_, int i_275_, int i_276_, Class361[] class361s, int i_277_, int i_278_) {
+    final void method1684(int i, int i_272_, int i_273_, RSBuffer class348_sub49, int i_274_, int i_275_, int i_276_, Class361[] class361s, int i_277_, int i_278_) {
         try {
             if (i_273_ == -1) {
                 anInt3115++;

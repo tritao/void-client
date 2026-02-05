@@ -13,7 +13,7 @@ final class VarBitType {
     int anInt2019;
     int anInt2020;
 
-    final void method1191(int i, Class348_Sub49 class348_sub49) {
+    final void method1191(int i, RSBuffer class348_sub49) {
         if (i == 2048) {
             anInt2018++;
             for (; ; ) {
@@ -24,7 +24,7 @@ final class VarBitType {
         }
     }
 
-    private final void method1192(int i, Class348_Sub49 class348_sub49, byte i_1_) {
+    private final void method1192(int i, RSBuffer class348_sub49, byte i_1_) {
         anInt2014++;
         if (i_1_ != 17) method1194(-80);
         if (i == 1) {

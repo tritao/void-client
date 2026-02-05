@@ -339,7 +339,7 @@ final class Class143 {
     }
 
     Class143(byte[] is) {
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         int i = class348_sub49.readUnsignedByte(255);
         if (i != 0) throw new RuntimeException("");
         boolean bool = class348_sub49.readUnsignedByte(255) == 1;

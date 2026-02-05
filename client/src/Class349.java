@@ -12,7 +12,7 @@ final class Class349 {
     private static float aFloat4305;
     private static float[][] aFloatArrayArray4306 = new float[2][8];
 
-    final void method3446(Class348_Sub49 class348_sub49, Class197 class197) {
+    final void method3446(RSBuffer class348_sub49, Class197 class197) {
         int i = class348_sub49.readUnsignedByte(255);
         this.anIntArray4299[0] = i >> 4;
         this.anIntArray4299[1] = i & 0xf;

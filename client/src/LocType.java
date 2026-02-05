@@ -288,7 +288,7 @@ final class LocType {
         return true;
     }
 
-    final void method479(byte i, Class348_Sub49 class348_sub49) {
+    final void method479(byte i, RSBuffer class348_sub49) {
         anInt867++;
         for (; ; ) {
             int i_33_ = class348_sub49.readUnsignedByte(255);
@@ -326,7 +326,7 @@ final class LocType {
         return false;
     }
 
-    private final void method482(Class348_Sub49 class348_sub49, int i, byte i_38_) {
+    private final void method482(RSBuffer class348_sub49, int i, byte i_38_) {
         anInt960++;
         if (i == 1 || i == 5) {
             if (i == 5 && this.aClass263_933.aBoolean3355) method484(class348_sub49, -528);
@@ -591,7 +591,7 @@ final class LocType {
         }
     }
 
-    private final void method484(Class348_Sub49 class348_sub49, int i) {
+    private final void method484(RSBuffer class348_sub49, int i) {
         if (i != -528) method486(79);
         anInt871++;
         int i_74_ = class348_sub49.readUnsignedByte(255);

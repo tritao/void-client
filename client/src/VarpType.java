@@ -9,7 +9,7 @@ final class VarpType {
     static int anInt2127 = 500;
     static int anInt2128;
 
-    private final void method1251(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    private final void method1251(RSBuffer class348_sub49, int i, int i_0_) {
         if (i == 5) this.anInt2125 = class348_sub49.readUnsignedShort(842397944);
         anInt2126++;
         int i_1_ = 60 % ((i_0_ - 33) / 57);
@@ -48,7 +48,7 @@ final class VarpType {
         } else Class152.aBooleanArray2076[i_4_] = true;
     }
 
-    final void method1253(Class348_Sub49 class348_sub49, boolean bool) {
+    final void method1253(RSBuffer class348_sub49, boolean bool) {
         for (; ; ) {
             int i = class348_sub49.readUnsignedByte(255);
             if (i == 0) break;

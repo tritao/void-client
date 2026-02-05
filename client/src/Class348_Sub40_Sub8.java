@@ -24,7 +24,7 @@ final class Class348_Sub40_Sub8 extends Class348_Sub40 {
     int anInt9164;
     static Class238 aClass238_9165;
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         int i_1_ = i;
         while_151_:
         do {

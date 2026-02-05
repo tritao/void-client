@@ -37,7 +37,7 @@ final class Class106 {
         if (Class101_Sub1.aClass223_5689 == class223) return new Class240(method998(-107), (Class125) interface12);
         if (class223 == Class348_Sub40_Sub21.aClass223_9274) return new Class127(aClass45_1637, (Class288) interface12);
         if (class223 == Class28.aClass223_4997) return new Class127_Sub1(aClass45_1637, (Class288_Sub1) interface12);
-        if (class223 == Class348_Sub49.aClass223_7175) return new Class5_Sub2(aClass45_1637, aClass45_1641, (Class369_Sub2) interface12);
+        if (class223 == RSBuffer.aClass223_7175) return new Class5_Sub2(aClass45_1637, aClass45_1641, (Class369_Sub2) interface12);
         if (class223 == Class313.aClass223_3934) return new Class5_Sub3(aClass45_1637, aClass45_1641, (Class369_Sub1) interface12);
         if (class223 == Class185.aClass223_2489) return new Class5_Sub1(aClass45_1637, aClass45_1641, (Class369_Sub3) interface12);
         if (class223 == Class174.aClass223_2307) return new Class67(aClass45_1637, aClass45_1641, (Class158) interface12);

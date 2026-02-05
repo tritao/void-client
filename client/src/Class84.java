@@ -83,7 +83,7 @@ final class Class84 {
             is = aClass45_1460.method410(-1860, i_15_, i);
         }
         class300 = new Class300();
-        if (is != null) class300.method2275(new Class348_Sub49(is), (byte) -123);
+        if (is != null) class300.method2275(new RSBuffer(is), (byte) -123);
         synchronized (aClass60_1449) {
             aClass60_1449.method582(class300, i, (byte) -106);
         }

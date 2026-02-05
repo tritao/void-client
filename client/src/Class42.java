@@ -125,7 +125,7 @@ final class Class42 {
         return class348_sub50.aString7211;
     }
 
-    private final void method377(int i, Class348_Sub49 class348_sub49, int i_7_) {
+    private final void method377(int i, RSBuffer class348_sub49, int i_7_) {
         anInt571++;
         if (i != 1) {
             if (i == 2) this.anInt605 = class348_sub49.readUnsignedShort(842397944);
@@ -210,7 +210,7 @@ final class Class42 {
         return class348_sub35.anInt6976;
     }
 
-    final void method379(Class348_Sub49 class348_sub49, int i) {
+    final void method379(RSBuffer class348_sub49, int i) {
         if (i < 81) anInt590 = 17;
         anInt610++;
         for (; ; ) {

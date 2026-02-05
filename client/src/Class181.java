@@ -108,7 +108,7 @@ final class Class181 {
         }
     }
 
-    private final void method1368(int i, Class348_Sub49 class348_sub49, int i_16_) {
+    private final void method1368(int i, RSBuffer class348_sub49, int i_16_) {
         if (i >= -43) method1369((byte) -111);
         anInt2396++;
         if (i_16_ == 1) {
@@ -201,7 +201,7 @@ final class Class181 {
         if (i != 2) anInt2398 = 113;
     }
 
-    final void method1370(int i, Class348_Sub49 class348_sub49) {
+    final void method1370(int i, RSBuffer class348_sub49) {
         anInt2400++;
         for (; ; ) {
             int i_24_ = class348_sub49.readUnsignedByte(255);

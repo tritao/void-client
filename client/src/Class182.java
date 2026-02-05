@@ -25,7 +25,7 @@ final class Class182 {
             Class14_Sub4.method254(35, (byte) -101);
             return;
         } else {
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(Class98.method878((Class110_Sub1.method1039((Class348_Sub23_Sub3.aString9043), true)), -125));
+            RSBuffer class348_sub49 = new RSBuffer(Class98.method878((Class110_Sub1.method1039((Class348_Sub23_Sub3.aString9043), true)), -125));
             l = class348_sub49.readLong(-456577760);
             Class348_Sub33.aLong6966 = class348_sub49.readLong(-456577760);
         }
@@ -40,7 +40,7 @@ final class Class182 {
         }
     }
 
-    static final Class50_Sub4 method1374(int i, Class348_Sub49 class348_sub49) {
+    static final Class50_Sub4 method1374(int i, RSBuffer class348_sub49) {
         if (i < 106) aClass346_2449 = null;
         anInt2453++;
         return new Class50_Sub4(class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readMedium(-1), class348_sub49.readUnsignedByte(255));

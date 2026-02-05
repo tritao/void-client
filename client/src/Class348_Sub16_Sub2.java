@@ -119,7 +119,7 @@ final class Class348_Sub16_Sub2 extends Class348_Sub16 {
         anInt8878++;
     }
 
-    static final Class369 method2834(byte i, Class348_Sub49 class348_sub49) {
+    static final Class369 method2834(byte i, RSBuffer class348_sub49) {
         anInt8876++;
         Class221 class221 = Class158.method1248(15)[class348_sub49.readUnsignedByte(255)];
         if (i > -113) aDouble8869 = -1.5911312034627048;

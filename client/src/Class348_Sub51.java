@@ -65,7 +65,7 @@ final class Class348_Sub51 extends Class348 {
     Class239_Sub26 aClass239_Sub26_7272;
     /*synthetic*/ static Class aClass7273;
 
-    private final void method3421(int i, Class348_Sub49 class348_sub49, int i_0_) {
+    private final void method3421(int i, RSBuffer class348_sub49, int i_0_) {
         do {
             try {
                 this.aClass239_Sub10_7232 = new Class239_Sub10(class348_sub49.readUnsignedByte(255), this);
@@ -182,7 +182,7 @@ final class Class348_Sub51 extends Class348 {
         if (bool || this.aClass239_Sub5_7240 == null) this.aClass239_Sub5_7240 = new Class239_Sub5(this);
     }
 
-    private final void method3424(int i, Class348_Sub49 class348_sub49) {
+    private final void method3424(int i, RSBuffer class348_sub49) {
         try {
             if (i == 925) {
                 anInt7266++;
@@ -274,9 +274,9 @@ final class Class348_Sub51 extends Class348 {
         }
     }
 
-    final Class348_Sub49 method3427(int i) {
+    final RSBuffer method3427(int i) {
         anInt7237++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(Class110.method1032(i ^ ~0x18));
+        RSBuffer class348_sub49 = new RSBuffer(Class110.method1032(i ^ ~0x18));
         class348_sub49.writeByte(false, i);
         class348_sub49.writeByte(false, this.aClass239_Sub20_7216.method1808(-32350));
         class348_sub49.writeByte(false, this.aClass239_Sub12_7243.method1771(-32350));
@@ -352,7 +352,7 @@ final class Class348_Sub51 extends Class348 {
         }
     }
 
-    Class348_Sub51(Class348_Sub49 class348_sub49, Class230 class230, int i) {
+    Class348_Sub51(RSBuffer class348_sub49, Class230 class230, int i) {
         try {
             aClass230_7269 = class230;
             aClass199_7221 = new Class199((Class348_Sub23_Sub1.aClass297_8992.aBoolean3777), Class226.anInt2964, Class348_Sub40_Sub29.anInt9372, SignLink.aString3780.indexOf("arm") != -1);

@@ -23,7 +23,7 @@ final class Class211 {
     static int anInt2748;
     boolean aBoolean2749;
 
-    static final boolean method1538(int i, byte i_0_, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final boolean method1538(int i, byte i_0_, PacketBuffer class348_sub49_sub2) {
         anInt2732++;
         int i_1_ = class348_sub49_sub2.readBits((byte) -24, 2);
         System.out.println("Another type: " + i_1_);
@@ -347,7 +347,7 @@ final class Class211 {
         method1542(32402);
     }
 
-    Class211(ha var_ha, Class348_Sub49 class348_sub49, int i) {
+    Class211(ha var_ha, RSBuffer class348_sub49, int i) {
         try {
             if (Class291.anIntArray3726 == null) Class141.method1177((byte) 122);
             this.anInt2731 = class348_sub49.readUnsignedByte(255);

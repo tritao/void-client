@@ -32,7 +32,7 @@ abstract class Class272 {
             else {
                 Class213.aClass238_2773 = Class348_Sub40_Sub8.aClass238_9165;
                 Class348_Sub40_Sub8.aClass238_9165 = null;
-                Class348_Sub49.method3379(2, 13);
+                RSBuffer.method3379(2, 13);
             }
         }
     }

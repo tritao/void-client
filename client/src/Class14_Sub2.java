@@ -35,7 +35,7 @@ final class Class14_Sub2 extends Class14 implements Interface18_Impl2 {
             while (class144.anInt1997 == 0) Class286_Sub5.method2161((byte) -122, 1L);
             if (class144.anInt1997 == 1) {
                 class234 = (Class234) class144.anObject1998;
-                Class348_Sub49 class348_sub49 = Class316.aClass348_Sub51_3959.method3427(24);
+                RSBuffer class348_sub49 = Class316.aClass348_Sub51_3959.method3427(24);
                 class234.method1658((byte) 114, 0, (class348_sub49.anInt7197), (class348_sub49.aByteArray7154));
             }
         } catch (Exception exception) {

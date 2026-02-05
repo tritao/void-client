@@ -24,7 +24,7 @@ final class Class303 {
         if (i != 114) anInt3844 = 87;
     }
 
-    static final Class125 method2287(Class348_Sub49 class348_sub49, byte i) {
+    static final Class125 method2287(RSBuffer class348_sub49, byte i) {
         anInt3846++;
         int i_1_ = class348_sub49.readUnsignedByte(255);
         Class221 class221 = Class158.method1248(87)[class348_sub49.readUnsignedByte(255)];

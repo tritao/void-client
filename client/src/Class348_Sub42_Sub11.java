@@ -23,7 +23,7 @@ final class Class348_Sub42_Sub11 extends Class348_Sub42 {
         aClass351_9590 = null;
     }
 
-    final void method3221(int i, Class348_Sub49 class348_sub49) {
+    final void method3221(int i, RSBuffer class348_sub49) {
         int i_0_ = 81 / ((-39 - i) / 52);
         anInt9583++;
         for (; ; ) {
@@ -170,7 +170,7 @@ final class Class348_Sub42_Sub11 extends Class348_Sub42 {
         return -1;
     }
 
-    private final void method3227(int i, Class348_Sub49 class348_sub49, int i_24_) {
+    private final void method3227(int i, RSBuffer class348_sub49, int i_24_) {
         if (i_24_ != 1) {
             if (i_24_ == 2) {
                 int i_25_ = class348_sub49.readUnsignedByte(255);

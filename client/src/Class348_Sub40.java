@@ -24,7 +24,7 @@ abstract class Class348_Sub40 extends Class348 {
     static int anInt7044;
     boolean aBoolean7045;
 
-    static final Class50_Sub2 method3036(Class348_Sub49 class348_sub49, int i) {
+    static final Class50_Sub2 method3036(RSBuffer class348_sub49, int i) {
         anInt7026++;
         if (i > -4) return null;
         return new Class50_Sub2(class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readMedium(-1), class348_sub49.readMedium(-1), class348_sub49.readUnsignedByte(255));
@@ -244,7 +244,7 @@ abstract class Class348_Sub40 extends Class348 {
         return this.aClass348_Sub40Array7031[i_59_].method3042(i, i_58_ + -633706082);
     }
 
-    void method3049(Class348_Sub49 class348_sub49, int i, int i_60_) {
+    void method3049(RSBuffer class348_sub49, int i, int i_60_) {
         anInt7028++;
         if (i_60_ != 31015) method3038(-16);
     }

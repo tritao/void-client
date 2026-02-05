@@ -432,7 +432,7 @@ final class Class213 {
         return bool_56_;
     }
 
-    private final void method1566(int i, int i_57_, Class348_Sub49 class348_sub49) {
+    private final void method1566(int i, int i_57_, RSBuffer class348_sub49) {
         try {
             if (i != 4) method1564(9);
             if (i_57_ != 1) {
@@ -612,7 +612,7 @@ final class Class213 {
         }
     }
 
-    final void method1569(int i, Class348_Sub49 class348_sub49) {
+    final void method1569(int i, RSBuffer class348_sub49) {
         try {
             if (i != 768) method1565(true, -71);
             for (; ; ) {

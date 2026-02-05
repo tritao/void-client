@@ -46,7 +46,7 @@ final class Class25 {
         }
         if (i_2_ < 6) aClass60_360 = null;
         class38 = new Class38();
-        if (is != null) class38.method364(new Class348_Sub49(is), (byte) 54);
+        if (is != null) class38.method364(new RSBuffer(is), (byte) 54);
         synchronized (aClass60_360) {
             aClass60_360.method582(class38, i, (byte) -109);
         }

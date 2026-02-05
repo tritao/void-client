@@ -45,7 +45,7 @@ final class VarpTypeList {
             if (i >= -17) aClass60_2848 = null;
         }
         class159 = new VarpType();
-        if (is != null) class159.method1253(new Class348_Sub49(is), true);
+        if (is != null) class159.method1253(new RSBuffer(is), true);
         synchronized (aClass60_2848) {
             aClass60_2848.method582(class159, i_1_, (byte) -124);
         }

@@ -21,7 +21,7 @@ final class Class33 {
         if (class117 != null) return class117;
         byte[] is = aClass45_458.method410(-1860, Class5_Sub3.method200(-107, i), Class348_Sub31.method3013(i, bool));
         class117 = new Class117();
-        if (is != null) class117.method1069(0, new Class348_Sub49(is));
+        if (is != null) class117.method1069(0, new RSBuffer(is));
         synchronized (aClass60_460) {
             aClass60_460.method582(class117, i, (byte) -102);
         }

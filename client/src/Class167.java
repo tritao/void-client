@@ -84,7 +84,7 @@ final class Class167 {
 
     static final boolean method1294(byte i, byte[] is) {
         anInt2199++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         if (i > -98) method1294((byte) 73, null);
         int i_0_ = class348_sub49.readUnsignedByte(255);
         if (i_0_ != 2) return false;

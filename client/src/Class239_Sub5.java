@@ -42,7 +42,7 @@ final class Class239_Sub5 extends Class239 {
         return Class239_Sub26.method1833((byte) -128, i_2_, i) || Class348_Sub42_Sub8_Sub2.method3200(i_2_, i, (byte) 96);
     }
 
-    static final void method1741(Class348_Sub49_Sub2 class348_sub49_sub2, byte i) {
+    static final void method1741(PacketBuffer class348_sub49_sub2, byte i) {
         anInt5893++;
         class348_sub49_sub2.startBitAccess(122);
         int i_3_ = Class348_Sub42_Sub11.anInt9591;

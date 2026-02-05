@@ -24,7 +24,7 @@ final class Class326 {
             is = aClass45_4085.method410(-1860, 11, i);
         }
         class254 = new Class254();
-        if (is != null) class254.method1924(new Class348_Sub49(is), (byte) -127);
+        if (is != null) class254.method1924(new RSBuffer(is), (byte) -127);
         synchronized (aClass60_4087) {
             aClass60_4087.method582(class254, i, (byte) -114);
         }

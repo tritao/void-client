@@ -2,12 +2,12 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class348_Sub49_Sub2 extends Class348_Sub49 {
+final class PacketBuffer extends RSBuffer {
     static int anInt9752;
     static int anInt9753;
     private int anInt9754;
     static int anInt9755;
-    private Class77 aClass77_9756;
+    private IsaacCipher aClass77_9756;
     static int[] anIntArray9757;
     static int anInt9758;
     static int anInt9759;
@@ -45,7 +45,7 @@ final class Class348_Sub49_Sub2 extends Class348_Sub49 {
 
     final void method3406(int i, int[] is) {
         anInt9755++;
-        aClass77_9756 = new Class77(is);
+        aClass77_9756 = new IsaacCipher(is);
         if (i > -41) anIntArray9757 = null;
     }
 
@@ -127,13 +127,13 @@ final class Class348_Sub49_Sub2 extends Class348_Sub49 {
         return -anInt9754 + i_22_ * 8;
     }
 
-    final void method3416(int i, Class77 class77) {
+    final void method3416(int i, IsaacCipher class77) {
         int i_23_ = -103 / ((i - 57) / 40);
         aClass77_9756 = class77;
         anInt9766++;
     }
 
-    Class348_Sub49_Sub2(int i) {
+    PacketBuffer(int i) {
         super(i);
     }
 

@@ -49,7 +49,7 @@ final class Class348_Sub16_Sub1 extends Class348_Sub16 {
         }
     }
 
-    static final void method2822(int i, Class348_Sub49_Sub2 class348_sub49_sub2, int i_3_) {
+    static final void method2822(int i, PacketBuffer class348_sub49_sub2, int i_3_) {
         Class101_Sub3.anInt5768 = 0;
         anInt8846++;
         Video.aBoolean979 = false;

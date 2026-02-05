@@ -128,7 +128,7 @@ final class Class153 {
         class42 = new Class42();
         class42.aClass153_593 = this;
         class42.anInt581 = i;
-        if (is != null) class42.method379(new Class348_Sub49(is), 109);
+        if (is != null) class42.method379(new RSBuffer(is), 109);
         class42.method372(-25359);
         synchronized (aClass60_2083) {
             aClass60_2083.method582(class42, i, (byte) -106);

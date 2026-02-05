@@ -72,7 +72,7 @@ final class Class54 {
         if (i_3_ != -74) method501(46);
     }
 
-    Class54(Class348_Sub49 class348_sub49) {
+    Class54(RSBuffer class348_sub49) {
         aByte966 = class348_sub49.readByte(-113);
         this.anInt969 = class348_sub49.readUnsignedShort(842397944);
         this.anInt976 = class348_sub49.readInt((byte) -126);

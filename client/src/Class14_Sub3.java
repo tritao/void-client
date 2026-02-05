@@ -47,7 +47,7 @@ final class Class14_Sub3 extends Class14 implements Interface18_Impl1 {
                     i_2_ = class234.method1656(is, i_3_, (byte) -49, -i_3_ + is.length);
                     if (i_2_ == -1) throw new IOException("EOF");
                 }
-                class348_sub51 = new Class348_Sub51(new Class348_Sub49(is), (Class348_Sub42_Sub8_Sub2.aClass230_10434), 0);
+                class348_sub51 = new Class348_Sub51(new RSBuffer(is), (Class348_Sub42_Sub8_Sub2.aClass230_10434), 0);
             }
         } catch (Exception exception) {
             /* empty */

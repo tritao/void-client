@@ -35,7 +35,7 @@ final class Class92 {
                         Class342.anIntArray4250[Class27.anInt388] = Class348_Sub23_Sub3.anIntArray9042[i_1_];
                         i_2_ = Class27.anInt388++;
                     }
-                    Class348_Sub49 class348_sub49 = new Class348_Sub49(Class348_Sub50.aByteArrayArray7212[i_1_]);
+                    RSBuffer class348_sub49 = new RSBuffer(Class348_Sub50.aByteArrayArray7212[i_1_]);
                     int i_4_ = 0;
                     while (class348_sub49.anInt7197 < Class348_Sub50.aByteArrayArray7212[i_1_].length) {
                         if (i_4_ >= 511 || Class150.anInt2057 >= 1023) break;

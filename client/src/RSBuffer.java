@@ -4,7 +4,7 @@
 
 import java.math.BigInteger;
 
-class Class348_Sub49 extends Class348 {
+class RSBuffer extends Class348 {
     static int anInt7137;
     static int anInt7138;
     static int anInt7139;
@@ -709,7 +709,7 @@ class Class348_Sub49 extends Class348 {
         return ((this.aByteArray7154[this.anInt7197++]) - 128 & 0xff);
     }
 
-    Class348_Sub49(int i) {
+    RSBuffer(int i) {
         this.anInt7197 = 0;
         this.aByteArray7154 = Class37.method359(i, -1);
     }
@@ -753,7 +753,7 @@ class Class348_Sub49 extends Class348 {
         if (i < 22) readUnsignedByte(6);
     }
 
-    Class348_Sub49(byte[] is) {
+    RSBuffer(byte[] is) {
         this.aByteArray7154 = is;
         this.anInt7197 = 0;
     }

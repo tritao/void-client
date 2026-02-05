@@ -5,7 +5,7 @@
 import java.awt.*;
 
 final class Class348_Sub47 extends Class348 {
-    Class348_Sub49_Sub2 aClass348_Sub49_Sub2_7116;
+    PacketBuffer aClass348_Sub49_Sub2_7116;
     static int anInt7117;
     Class351 aClass351_7118;
     int anInt7119;

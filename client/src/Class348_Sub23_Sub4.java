@@ -54,7 +54,7 @@ final class Class348_Sub23_Sub4 extends Class348_Sub23 {
     final void method2964(byte i, OggPacket oggpacket) {
         anInt9063++;
         if (this.anInt6868 <= 0 || "SUB".equals(aString9057)) {
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(oggpacket.getData());
+            RSBuffer class348_sub49 = new RSBuffer(oggpacket.getData());
             int i_2_ = class348_sub49.readUnsignedByte(255);
             if (this.anInt6868 <= 8) {
                 if ((i_2_ | 0x80) == 0) throw new IllegalStateException();
@@ -63,7 +63,7 @@ final class Class348_Sub23_Sub4 extends Class348_Sub23 {
                     anInt9055 = class348_sub49.method3359(-89);
                     anInt9054 = class348_sub49.method3359(-41);
                     if (anInt9055 == 0 || anInt9054 == 0) throw new IllegalStateException();
-                    Class348_Sub49 class348_sub49_3_ = new Class348_Sub49(16);
+                    RSBuffer class348_sub49_3_ = new RSBuffer(16);
                     class348_sub49.method3389(2147483647, 0, 16, (class348_sub49_3_.aByteArray7154));
                     aString9051 = class348_sub49_3_.readString((byte) -91);
                     class348_sub49_3_.anInt7197 = 0;

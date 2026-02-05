@@ -66,10 +66,10 @@ final class Class85 {
             int i_15_ = Class31.anInt425;
             int i_16_ = Class250.anInt3225;
             Class239_Sub8.method1752(-1, i_13_, i_14_);
-            if (Class348_Sub49.anInt7207 == 0) {
+            if (RSBuffer.anInt7207 == 0) {
                 Class17.anInterface4_252 = null;
                 Class17.anInterface4_252 = (Class21.aHa326.method3634(Class21.aHa326.method3665((Class348_Sub16_Sub1.anInt8854), Class239_Sub16.anInt6008), Class21.aHa326.method3624((Class348_Sub16_Sub1.anInt8854), Class239_Sub16.anInt6008)));
-            } else if (Class348_Sub49.anInt7207 == 1 && (Class92.anInterface4Array1525 == null || i_15_ != Class31.anInt425 || i_16_ != Class250.anInt3225)) {
+            } else if (RSBuffer.anInt7207 == 1 && (Class92.anInterface4Array1525 == null || i_15_ != Class31.anInt425 || i_16_ != Class250.anInt3225)) {
                 Class92.anInterface4Array1525 = new Interface4[Class250.anInt3225 * Class31.anInt425];
                 for (int i_17_ = 0; Class92.anInterface4Array1525.length > i_17_; i_17_++)
                     Class92.anInterface4Array1525[i_17_] = (Class21.aHa326.method3634(Class21.aHa326.method3665(Class58.anInt1067, Class344.anInt4267), Class21.aHa326.method3624(Class58.anInt1067, Class344.anInt4267)));

@@ -36,7 +36,7 @@ final class Class277 {
         }
     }
 
-    private final void method2069(int i, Class348_Sub49 class348_sub49, int i_1_) {
+    private final void method2069(int i, RSBuffer class348_sub49, int i_1_) {
         anInt3567++;
         if (i == -1) {
             if (i_1_ != 1) {
@@ -63,7 +63,7 @@ final class Class277 {
         }
     }
 
-    final void method2070(boolean bool, Class348_Sub49 class348_sub49) {
+    final void method2070(boolean bool, RSBuffer class348_sub49) {
         if (bool != true) this.aBoolean3561 = false;
         for (; ; ) {
             int i = class348_sub49.readUnsignedByte(255);

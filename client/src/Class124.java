@@ -227,11 +227,11 @@ final class Class124 {
         anInt1831++;
         boolean bool = false;
         boolean bool_52_ = false;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_53_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_54_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_55_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_56_ = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
+        RSBuffer class348_sub49_53_ = new RSBuffer(is);
+        RSBuffer class348_sub49_54_ = new RSBuffer(is);
+        RSBuffer class348_sub49_55_ = new RSBuffer(is);
+        RSBuffer class348_sub49_56_ = new RSBuffer(is);
         class348_sub49.anInt7197 = -18 + is.length;
         this.anInt1836 = class348_sub49.readUnsignedShort(i ^ 0x3235f8f9);
         this.anInt1817 = class348_sub49.readUnsignedShort(842397944);
@@ -460,13 +460,13 @@ final class Class124 {
 
     private final void method1106(byte[] is, byte i) {
         anInt1828++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_118_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_119_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_120_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_121_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_122_ = new Class348_Sub49(is);
-        Class348_Sub49 class348_sub49_123_ = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
+        RSBuffer class348_sub49_118_ = new RSBuffer(is);
+        RSBuffer class348_sub49_119_ = new RSBuffer(is);
+        RSBuffer class348_sub49_120_ = new RSBuffer(is);
+        RSBuffer class348_sub49_121_ = new RSBuffer(is);
+        RSBuffer class348_sub49_122_ = new RSBuffer(is);
+        RSBuffer class348_sub49_123_ = new RSBuffer(is);
         class348_sub49.anInt7197 = -23 + is.length;
         this.anInt1836 = class348_sub49.readUnsignedShort(842397944);
         this.anInt1817 = class348_sub49.readUnsignedShort(842397944);
@@ -841,7 +841,7 @@ final class Class124 {
         Dimension dimension = canvas.getSize();
         if (i != -99) method1096(57);
         Class85.method828((byte) 38, dimension.height, dimension.width);
-        if (Class348_Sub49.anInt7207 != 1) Class21.aHa326.method3643(canvas, Class59_Sub1.anInt5283, Class107.anInt1651);
+        if (RSBuffer.anInt7207 != 1) Class21.aHa326.method3643(canvas, Class59_Sub1.anInt5283, Class107.anInt1651);
         else Class21.aHa326.method3643(canvas, Class348_Sub16_Sub1.anInt8854, Class239_Sub16.anInt6008);
     }
 

@@ -60,7 +60,7 @@ final class RuntimeException_Sub1 extends RuntimeException {
 
     static final void method4012(byte[] is, byte i) {
         anInt4605++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         int i_7_ = -91 % ((i - -51) / 42);
         boolean bool = false;
         for (; ; ) {

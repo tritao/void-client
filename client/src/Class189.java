@@ -18,7 +18,7 @@ final class Class189 {
     int anInt2533 = 1;
     int anInt2534;
 
-    private final void method1418(int i, int i_0_, Class348_Sub49 class348_sub49, byte i_1_) {
+    private final void method1418(int i, int i_0_, RSBuffer class348_sub49, byte i_1_) {
         if (i_1_ != 94) this.anInt2526 = -81;
         anInt2532++;
         if (i == 1) {
@@ -36,7 +36,7 @@ final class Class189 {
         } else class348_sub49.readByte(-106);
     }
 
-    final void method1419(int i, Class348_Sub49 class348_sub49, byte i_2_) {
+    final void method1419(int i, RSBuffer class348_sub49, byte i_2_) {
         anInt2528++;
         int i_3_ = 93 / ((i_2_ - -24) / 55);
         for (; ; ) {

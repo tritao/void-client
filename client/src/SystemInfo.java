@@ -52,7 +52,7 @@ final class SystemInfo extends Class348 {
         return i_0_;
     }
 
-    final void method2747(int i, Class348_Sub49 class348_sub49) {
+    final void method2747(int i, RSBuffer class348_sub49) {
         class348_sub49.writeByte(false, 5);
         anInt6611++;
         class348_sub49.writeByte(false, anInt6613);

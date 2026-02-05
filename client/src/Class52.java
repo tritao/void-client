@@ -21,7 +21,7 @@ final class Class52 implements Interface12 {
     static int[] anIntArray4906;
     static Class351 aClass351_4907;
 
-    static final Class43 method490(byte i, Class348_Sub49 class348_sub49) {
+    static final Class43 method490(byte i, RSBuffer class348_sub49) {
         anInt4897++;
         Class43 class43 = new Class43();
         class43.anInt615 = class348_sub49.readUnsignedShort(842397944);
@@ -78,7 +78,7 @@ final class Class52 implements Interface12 {
             if (Class348_Sub42_Sub15.aClass56_9660.aBoolean1013) Class64_Sub2.aString5420 += Class251.anInt3236 + "%";
         } else if (Class348_Sub42_Sub15.aClass56_9660 == Class56.aClass56_1043) {
             LocType.aClass311_897 = null;
-            Class348_Sub49.method3379(2, 3);
+            RSBuffer.method3379(2, 3);
         } else {
             Class64_Sub2.aString5420 = class56.aClass274_1015.method2063(Class348_Sub33.anInt6967, 544);
             if (Class348_Sub42_Sub15.aClass56_9660.aBoolean1013) Class64_Sub2.aString5420 += class56.anInt1021 + "%";

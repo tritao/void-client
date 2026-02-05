@@ -74,7 +74,7 @@ final class Class354 {
         int i_1_ = Class318_Sub1_Sub5_Sub2.anIntArray10172[2];
         if (i_1_ < 50) return false;
         class338.aShortArray4194[i] = (short) (Class69.anInt1202 + (Class318_Sub1_Sub5_Sub2.anIntArray10172[0] * Class140.anInt1962 / i_1_));
-        class338.aShortArray4183[i] = (short) ((Class285_Sub2.anInt8498 * Class318_Sub1_Sub5_Sub2.anIntArray10172[i_0_] / i_1_) + Class348_Sub49_Sub2.anInt9759);
+        class338.aShortArray4183[i] = (short) ((Class285_Sub2.anInt8498 * Class318_Sub1_Sub5_Sub2.anIntArray10172[i_0_] / i_1_) + PacketBuffer.anInt9759);
         class338.aShortArray4188[i] = (short) i_1_;
         return true;
     }

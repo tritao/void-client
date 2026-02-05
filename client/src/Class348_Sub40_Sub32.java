@@ -118,13 +118,13 @@ final class Class348_Sub40_Sub32 extends Class348_Sub40 {
         return is;
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_21_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_21_) {
         anInt9414++;
         if (i_21_ != 31015) aClass273_9415 = null;
         if (i == 0) this.aBoolean7045 = class348_sub49.readUnsignedByte(255) == 1;
     }
 
-    static final String method3136(byte i, Class348_Sub49 class348_sub49) {
+    static final String method3136(byte i, RSBuffer class348_sub49) {
         anInt9416++;
         if (i != 64) aShortArray9423 = null;
         return Class373_Sub2.method3607(32767, class348_sub49, -77);

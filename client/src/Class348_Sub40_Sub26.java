@@ -99,7 +99,7 @@ final class Class348_Sub40_Sub26 extends Class348_Sub40 {
         Class348_Sub41.method3157(i_16_, (byte) 123, i_17_, 11, bool);
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_23_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_23_) {
         do {
             try {
                 int i_24_ = i;

@@ -74,7 +74,7 @@ final class Class166 {
         }
         class222 = new Class222();
         class222.aClass166_2886 = this;
-        if (is != null) class222.method1611(new Class348_Sub49(is), false);
+        if (is != null) class222.method1611(new RSBuffer(is), false);
         synchronized (aClass60_2185) {
             aClass60_2185.method582(class222, i_1_, (byte) -116);
         }

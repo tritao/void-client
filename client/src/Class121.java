@@ -18,7 +18,7 @@ final class Class121 {
 
     static final int method1082(int i, boolean bool) {
         anInt1795++;
-        int i_1_ = Class348_Sub49.anInt7207;
+        int i_1_ = RSBuffer.anInt7207;
         while_44_:
         do {
             do {
@@ -44,7 +44,7 @@ final class Class121 {
         Class44.aClass101_624 = Class21.aHa326.method3654();
         r.aClass101_9720 = Class21.aHa326.method3654();
         Class348_Sub42_Sub9_Sub1.anInt10444 = i_4_;
-        Class348_Sub49.anInt7207 = 0;
+        RSBuffer.anInt7207 = 0;
         Class211.anInt2747 = i;
         Class132.anIntArray1909 = null;
         Class92.anInterface4Array1525 = null;

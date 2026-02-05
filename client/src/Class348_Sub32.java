@@ -12,7 +12,7 @@ final class Class348_Sub32 extends Class348 {
     static int anInt6933;
     private int anInt6934;
     private final int anInt6935;
-    private Class348_Sub49 aClass348_Sub49_6936;
+    private RSBuffer aClass348_Sub49_6936;
     private final Class348_Sub1 aClass348_Sub1_6937;
     static int anInt6938;
     static int anInt6939;
@@ -230,7 +230,7 @@ final class Class348_Sub32 extends Class348 {
                 } else i_50_ += anInt6942 - anInt6935;
             }
             if (anInt6934 > 0) {
-                aClass348_Sub49_6936 = new Class348_Sub49(anInt6934 * 2);
+                aClass348_Sub49_6936 = new RSBuffer(anInt6934 * 2);
                 aClass348_Sub49_Sub1_6953 = new Class348_Sub49_Sub1(anInt6934 * 16);
                 aClass356_6932 = new Class356(Class33.method340(anInt6934, (byte) 108));
                 int i_56_ = 0;

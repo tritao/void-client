@@ -45,7 +45,7 @@ final class Class291 {
 
     private final void method2200(byte i, byte[] is) {
         anInt3731++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(Class348_Sub41.method3158(is, -105));
+        RSBuffer class348_sub49 = new RSBuffer(Class348_Sub41.method3158(is, -105));
         int i_2_ = class348_sub49.readUnsignedByte(255);
         if (i_2_ < 5 || i_2_ > 6) throw new RuntimeException();
         if (i_2_ < 6) this.anInt3732 = 0;

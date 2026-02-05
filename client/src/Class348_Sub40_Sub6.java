@@ -44,7 +44,7 @@ final class Class348_Sub40_Sub6 extends Class348_Sub40 {
         aByteArrayArrayArray9134 = null;
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_11_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_11_) {
         int i_12_ = i;
         do {
             if (i_12_ == 0) {

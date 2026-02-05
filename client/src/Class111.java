@@ -22,7 +22,7 @@ final class Class111 {
         byte[] is = aClass45_1718.method410(-1860, 1, i);
         if (i_0_ < 12) return null;
         Class287 class287 = new Class287();
-        class287.method2183(new Class348_Sub49(is), 21890);
+        class287.method2183(new RSBuffer(is), 21890);
         return class287;
     }
 
@@ -93,7 +93,7 @@ final class Class111 {
         try {
             aClass45_1718 = class45;
             aClass45_1718.method407(0, 1);
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(aClass45_1718.method410(-1860, 0, 0));
+            RSBuffer class348_sub49 = new RSBuffer(aClass45_1718.method410(-1860, 0, 0));
             int i_17_ = class348_sub49.readUnsignedByte(255);
             if (i_17_ > 3) {
                 anIntArrayArray1724 = new int[0][];

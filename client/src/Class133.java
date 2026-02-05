@@ -56,7 +56,7 @@ final class Class133 {
         }
     }
 
-    static final void method1141(Class348_Sub49_Sub2 class348_sub49_sub2, int i, int i_0_, int i_1_, Player player) {
+    static final void method1141(PacketBuffer class348_sub49_sub2, int i, int i_0_, int i_1_, Player player) {
         do {
             try {
                 anInt1912++;
@@ -211,7 +211,7 @@ final class Class133 {
                     if ((i_0_ & 0x10) != 0) {
                         int i_35_ = class348_sub49_sub2.readUnsignedByte(255);
                         byte[] is = new byte[i_35_];
-                        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+                        RSBuffer class348_sub49 = new RSBuffer(is);
                         class348_sub49_sub2.method3347(is, 0, i_35_, (byte) -124);
                         Class154.aClass348_Sub49Array2105[i] = class348_sub49;
                         player.method2452((byte) 84, class348_sub49);

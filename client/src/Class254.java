@@ -13,7 +13,7 @@ final class Class254 {
     static int anInt3263;
     static Class114 aClass114_3264 = new Class114(6, 2);
 
-    final void method1924(Class348_Sub49 class348_sub49, byte i) {
+    final void method1924(RSBuffer class348_sub49, byte i) {
         int i_0_ = -47 % ((i - -74) / 49);
         for (; ; ) {
             int i_1_ = class348_sub49.readUnsignedByte(255);
@@ -34,7 +34,7 @@ final class Class254 {
         aClass114_3264 = null;
     }
 
-    private final void method1927(boolean bool, Class348_Sub49 class348_sub49, int i) {
+    private final void method1927(boolean bool, RSBuffer class348_sub49, int i) {
         anInt3257++;
         if (i != 1) {
             if (i == 2) this.anInt3256 = class348_sub49.readInt((byte) -126);

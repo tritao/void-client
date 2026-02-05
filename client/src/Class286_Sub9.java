@@ -198,7 +198,7 @@ final class Class286_Sub9 extends Class286 {
         }
     }
 
-    static final void method2177(int i, int i_22_, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final void method2177(int i, int i_22_, PacketBuffer class348_sub49_sub2) {
         anInt6311++;
         boolean bool = (class348_sub49_sub2.readBits((byte) -24, i) == 1);
         if (bool) Class18.anIntArray279[Class101_Sub3.anInt5768++] = i_22_;

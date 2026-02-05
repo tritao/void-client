@@ -69,7 +69,7 @@ final class Class370 {
 
     private static final int method3580(int i, int i_18_) {
         int i_19_;
-        for (i_19_ = (int) Math.pow(i, 1.0 / (double) i_18_) + 1; Class348_Sub49.method3331(i_18_, (byte) 64, i_19_) > i; i_19_--) {
+        for (i_19_ = (int) Math.pow(i, 1.0 / (double) i_18_) + 1; RSBuffer.method3331(i_18_, (byte) 64, i_19_) > i; i_19_--) {
             /* empty */
         }
         return i_19_;

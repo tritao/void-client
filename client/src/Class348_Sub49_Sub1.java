@@ -4,7 +4,7 @@
 
 import jaclib.memory.Stream;
 
-final class Class348_Sub49_Sub1 extends Class348_Sub49 {
+final class Class348_Sub49_Sub1 extends RSBuffer {
     static int anInt9741;
     static int anInt9742;
     static Class351 aClass351_9743 = new Class351(84, -1);

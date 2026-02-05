@@ -4,7 +4,7 @@
 
 final class Class204 {
     private static byte[] aByteArray2676 = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    private final Class348_Sub49 aClass348_Sub49_2677;
+    private final RSBuffer aClass348_Sub49_2677;
     private int[] anIntArray2678;
     private int[] anIntArray2679;
     private long aLong2680;
@@ -168,11 +168,11 @@ final class Class204 {
     }
 
     public Class204() {
-        aClass348_Sub49_2677 = new Class348_Sub49(null);
+        aClass348_Sub49_2677 = new RSBuffer(null);
     }
 
     Class204(byte[] is) {
-        aClass348_Sub49_2677 = new Class348_Sub49(null);
+        aClass348_Sub49_2677 = new RSBuffer(null);
         method1482(is);
     }
 }

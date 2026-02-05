@@ -72,7 +72,7 @@ final class Class348_Sub10 extends Class348 {
     }
 
     private final void method2787(byte[] is) {
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         anInt6702 = class348_sub49.readInt((byte) -126);
         anInt6716 = class348_sub49.readInt((byte) -126);
         anInt6723 = class348_sub49.readInt((byte) -126);

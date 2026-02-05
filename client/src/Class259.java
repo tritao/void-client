@@ -32,7 +32,7 @@ final class Class259 {
             is = aClass45_3299.method410(-1860, 19, i);
         }
         class160 = new Class160();
-        if (is != null) class160.method1255(new Class348_Sub49(is), -1);
+        if (is != null) class160.method1255(new RSBuffer(is), -1);
         synchronized (aClass60_3303) {
             aClass60_3303.method582(class160, i, (byte) -120);
         }

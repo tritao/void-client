@@ -66,7 +66,7 @@ final class Class218 {
         aClass114_2860 = null;
     }
 
-    private final void method1595(byte i, int i_17_, Class348_Sub49 class348_sub49) {
+    private final void method1595(byte i, int i_17_, RSBuffer class348_sub49) {
         anInt2852++;
         if (i >= 5) {
             if (i_17_ == 1) this.anInt2853 = class348_sub49.readUnsignedShort(842397944);
@@ -96,7 +96,7 @@ final class Class218 {
         return class105;
     }
 
-    final void method1597(byte i, Class348_Sub49 class348_sub49) {
+    final void method1597(byte i, RSBuffer class348_sub49) {
         anInt2850++;
         for (; ; ) {
             int i_20_ = class348_sub49.readUnsignedByte(255);

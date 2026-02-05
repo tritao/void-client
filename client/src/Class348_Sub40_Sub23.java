@@ -24,7 +24,7 @@ final class Class348_Sub40_Sub23 extends Class348_Sub40 {
     private int anInt9322;
     private int anInt9323;
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         anInt9308++;
         if (i_0_ != 31015) aBoolean9307 = true;
         int i_1_ = i;

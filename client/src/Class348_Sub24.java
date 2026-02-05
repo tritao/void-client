@@ -157,7 +157,7 @@ final class Class348_Sub24 extends Class348 {
                     Class348_Sub47 class348_sub47 = Class286_Sub3.method2148((Class348_Sub49_Sub1.aClass351_9743), (Class348_Sub23_Sub2.aClass77_9029), -113);
                     class348_sub47.aClass348_Sub49_Sub2_7116.writeByte(false, 0);
                     int i_14_ = (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197);
-                    Class348_Sub49 class348_sub49 = Class316.aClass348_Sub51_3959.method3427(i ^ 0x2cb0);
+                    RSBuffer class348_sub49 = Class316.aClass348_Sub51_3959.method3427(i ^ 0x2cb0);
                     class348_sub47.aClass348_Sub49_Sub2_7116.writeBytes(class348_sub49.anInt7197, 0, class348_sub49.aByteArray7154, 82);
                     class348_sub47.aClass348_Sub49_Sub2_7116.method3339(96, (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197) + -i_14_);
                     Class348_Sub42_Sub14.method3243(i + -11473, class348_sub47);
@@ -190,7 +190,7 @@ final class Class348_Sub24 extends Class348 {
                             int i_16_ = class348_sub42_sub15.method3245(true);
                             int i_17_ = class348_sub42_sub15.method3248(1);
                             if (i_16_ == 1) {
-                                Class77.anIntArray1303[i_17_] = class348_sub42_sub15.anInt9652;
+                                IsaacCipher.anIntArray1303[i_17_] = class348_sub42_sub15.anInt9652;
                                 Class184.aBoolean2469 |= Class286_Sub6.aBooleanArray6270[i_17_];
                                 Class348_Sub26.anIntArray6890[Class139.method1166(31, Class5_Sub1.anInt8352++)] = i_17_;
                             } else if (i_16_ == 2) {

@@ -42,7 +42,7 @@ final class Class80 {
         return 0;
     }
 
-    final void method807(Class348_Sub49 class348_sub49) {
+    final void method807(RSBuffer class348_sub49) {
         aClass197_1418 = new Class197();
         aClass197_1418.method1452(class348_sub49);
         aClass197_1408 = new Class197();

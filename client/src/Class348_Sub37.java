@@ -28,7 +28,7 @@ final class Class348_Sub37 extends Class348 {
         }
     }
 
-    static final Class348_Sub40 method3031(int i, Class348_Sub49 class348_sub49) {
+    static final Class348_Sub40 method3031(int i, RSBuffer class348_sub49) {
         anInt6996++;
         class348_sub49.readUnsignedByte(255);
         int i_0_ = class348_sub49.readUnsignedByte(255);

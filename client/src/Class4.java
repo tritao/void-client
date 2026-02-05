@@ -28,8 +28,8 @@ final class Class4 {
         this.anInt126 = 0;
         this.aClass348_Sub33_134 = class348_sub33;
         try {
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
-            Class348_Sub49 class348_sub49_0_ = new Class348_Sub49(is);
+            RSBuffer class348_sub49 = new RSBuffer(is);
+            RSBuffer class348_sub49_0_ = new RSBuffer(is);
             class348_sub49.readUnsignedByte(255);
             class348_sub49.anInt7197 += 2;
             int i = class348_sub49.readUnsignedByte(255);//byte

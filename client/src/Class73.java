@@ -34,7 +34,7 @@ final class Class73 implements Interface7 {
         byte[] is = Class369_Sub3.aClass45_8601.method410(-1860, 0, i_0_);
         if (i != 104) method741((byte) 98);
         class189 = new Class189();
-        if (is != null) class189.method1419(i_0_, new Class348_Sub49(is), (byte) 64);
+        if (is != null) class189.method1419(i_0_, new RSBuffer(is), (byte) 64);
         VarpTypeList.aClass60_2844.method582(class189, i_0_, (byte) -114);
         return class189;
     }

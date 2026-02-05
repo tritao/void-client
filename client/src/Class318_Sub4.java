@@ -41,7 +41,7 @@ final class Class318_Sub4 extends Class318 {
         if (i >= -76) return null;
         anInt6413++;
         Class348_Sub42_Sub19 class348_sub42_sub19 = new Class348_Sub42_Sub19();
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         class348_sub49.anInt7197 = -2 + class348_sub49.aByteArray7154.length;
         int i_11_ = class348_sub49.readUnsignedShort(842397944);
         int i_12_ = -12 + -i_11_ + (-2 + (class348_sub49.aByteArray7154).length);

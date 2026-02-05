@@ -110,7 +110,7 @@ final class Class278 {
         class79 = new NPCType();
         class79.anInt1344 = i;
         class79.aClass278_1348 = this;
-        if (is != null) class79.method798(111, new Class348_Sub49(is));
+        if (is != null) class79.method798(111, new RSBuffer(is));
         class79.method799(-117);
         synchronized (aClass60_3577) {
             aClass60_3577.method582(class79, i, (byte) -102);

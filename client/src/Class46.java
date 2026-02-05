@@ -390,7 +390,7 @@ final class Class46 {
         if (i_30_ > -18) this.anInt779 = 13;
     }
 
-    private final Object[] method432(Class348_Sub49 class348_sub49, int i) {
+    private final Object[] method432(RSBuffer class348_sub49, int i) {
         if (i != -1) return null;
         anInt691++;
         int i_33_ = class348_sub49.readUnsignedByte(255);
@@ -406,7 +406,7 @@ final class Class46 {
         return objects;
     }
 
-    final void method433(Class348_Sub49 class348_sub49, boolean bool) {
+    final void method433(RSBuffer class348_sub49, boolean bool) {
         anInt743++;
         int i = class348_sub49.readUnsignedByte(255);
         if (i == 255) i = -1;
@@ -720,7 +720,7 @@ final class Class46 {
         }
     }
 
-    private final int[] method441(boolean bool, Class348_Sub49 class348_sub49) {
+    private final int[] method441(boolean bool, RSBuffer class348_sub49) {
         anInt722++;
         int i = class348_sub49.readUnsignedByte(255);
         if (bool != false) return null;

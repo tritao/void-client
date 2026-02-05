@@ -633,7 +633,7 @@ final class s_Sub2 extends s {
         return var_r_Sub2_169_;
     }
 
-    static final void method4002(Class348_Sub49 class348_sub49, byte i) {
+    static final void method4002(RSBuffer class348_sub49, byte i) {
         anInt8248++;
         byte[] is = new byte[24];
         if (i == 55) {

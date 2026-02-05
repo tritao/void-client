@@ -125,7 +125,7 @@ final class Player extends Class318_Sub1_Sub3_Sub3 {
         return bool;
     }
 
-    final void method2452(byte i, Class348_Sub49 class348_sub49) {
+    final void method2452(byte i, RSBuffer class348_sub49) {
         anInt10547++;
         System.out.println(Arrays.toString(class348_sub49.aByteArray7154));
         class348_sub49.anInt7197 = 0;

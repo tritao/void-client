@@ -140,7 +140,7 @@ final class Class348_Sub17 extends Class348 {
         this.aClass348_Sub19_Sub1Array6800 = new Class348_Sub19_Sub1[128];
         this.aClass23Array6796 = new Class23[128];
         anIntArray6793 = new int[128];
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         int i;
         for (i = 0; ((class348_sub49.aByteArray7154[i + class348_sub49.anInt7197]) != 0); i++) {
             /* empty */

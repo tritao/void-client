@@ -23,7 +23,7 @@ abstract class Class373 {
         if (class181 != null) return class181;
         byte[] is = Class239_Sub12.aClass45_5964.method410(-1860, i_0_, i);
         class181 = new Class181();
-        if (is != null) class181.method1370(24, new Class348_Sub49(is));
+        if (is != null) class181.method1370(24, new RSBuffer(is));
         class181.method1371(4);
         Class5.aClass60_4636.method582(class181, i, (byte) -103);
         return class181;

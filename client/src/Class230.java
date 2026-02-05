@@ -16,7 +16,7 @@ final class Class230 {
         do {
             try {
                 anInt2982++;
-                if (Class348_Sub49.anInt7207 != -1) {
+                if (RSBuffer.anInt7207 != -1) {
                     int[] is_15_ = Class21.aHa326.Y();
                     int i_16_ = is_15_[0];
                     int i_17_ = is_15_[1];
@@ -24,12 +24,12 @@ final class Class230 {
                     int i_19_ = is_15_[3];
                     int i_20_ = i_18_;
                     int i_21_ = i_19_;
-                    if (Class348_Sub49.anInt7207 == 1) {
+                    if (RSBuffer.anInt7207 == 1) {
                         i_20_ = (int) ((double) i_18_ * (double) Class107.anInt1651 / (double) Class239_Sub16.anInt6008);
                         i_21_ = (int) ((double) Class107.anInt1651 * (double) i_19_ / (double) Class239_Sub16.anInt6008);
                     }
                     if (!Class348_Sub16_Sub2.aBoolean8870) {
-                        if (Class348_Sub49.anInt7207 == 1) Class43.method383(0);
+                        if (RSBuffer.anInt7207 == 1) Class43.method383(0);
                         int i_22_ = -Class105_Sub1.anInt8422 + i_4_;
                         int i_23_ = i_6_ + -Class29.anInt403;
                         int i_24_ = -Class348_Sub21.anInt6849 + i_5_;
@@ -40,7 +40,7 @@ final class Class230 {
                         int i_28_ = (Class348_Sub42_Sub9_Sub1.anInt10444 + i_26_ + -Class348_Sub3.anInt6568);
                         int i_29_ = Class59_Sub1.anInt5283 + i_27_;
                         int i_30_ = Class107.anInt1651 + i_28_;
-                        if ((i_27_ < 0 || i_28_ < 0 || i_29_ > Class348_Sub16_Sub1.anInt8854 || (i_30_ > Class239_Sub16.anInt6008)) && Class348_Sub49.anInt7207 != 2) {
+                        if ((i_27_ < 0 || i_28_ < 0 || i_29_ > Class348_Sub16_Sub1.anInt8854 || (i_30_ > Class239_Sub16.anInt6008)) && RSBuffer.anInt7207 != 2) {
                             if (i_29_ <= 0 || i_30_ <= 0 || (Class348_Sub16_Sub1.anInt8854 <= i_27_) || (i_28_ >= Class239_Sub16.anInt6008)) Class348_Sub16_Sub2.aBoolean8870 = true;
                             else {
                                 int i_31_ = i_27_ - Class211.anInt2747;
@@ -50,11 +50,11 @@ final class Class230 {
                                 int i_35_ = 0;
                                 int i_36_ = 0;
                                 double d_37_ = 0.0;
-                                if (Class348_Sub49.anInt7207 == 0) {
+                                if (RSBuffer.anInt7207 == 0) {
                                     d_37_ = d + Class348_Sub42_Sub4.aDouble9517;
                                     i_33_ = i_31_;
                                     i_34_ = i_32_;
-                                } else if (Class348_Sub49.anInt7207 == 1) {
+                                } else if (RSBuffer.anInt7207 == 1) {
                                     i_35_ = i_31_ / Class58.anInt1067;
                                     i_36_ = i_32_ / Class344.anInt4267;
                                     i_33_ = i_35_ * Class58.anInt1067;
@@ -74,7 +74,7 @@ final class Class230 {
                                 if (i_33_ >= 0) {
                                     i_45_ = 0;
                                     i_43_ = (-i_33_ + Class348_Sub16_Sub1.anInt8854);
-                                    if (Class348_Sub49.anInt7207 == 1) {
+                                    if (RSBuffer.anInt7207 == 1) {
                                         i_42_ = i_35_;
                                         i_40_ = -i_35_ + Class31.anInt425;
                                     }
@@ -85,7 +85,7 @@ final class Class230 {
                                     i_44_ = 0;
                                     i_45_ = -i_33_;
                                     i_46_ = i_45_;
-                                    if (Class348_Sub49.anInt7207 == 1) {
+                                    if (RSBuffer.anInt7207 == 1) {
                                         i_42_ = -i_35_;
                                         i_40_ = 0;
                                     }
@@ -103,7 +103,7 @@ final class Class230 {
                                     i_49_ = i_50_;
                                     i_51_ = i_34_;
                                     i_53_ = 0;
-                                    if (Class348_Sub49.anInt7207 == 1) {
+                                    if (RSBuffer.anInt7207 == 1) {
                                         i_41_ = 0;
                                         i_39_ = i_36_;
                                         i_38_ = -i_36_ + Class250.anInt3225;
@@ -117,7 +117,7 @@ final class Class230 {
                                     i_51_ = i_48_;
                                     i_52_ = i_50_;
                                     i_53_ = i_51_;
-                                    if (Class348_Sub49.anInt7207 == 1) {
+                                    if (RSBuffer.anInt7207 == 1) {
                                         i_39_ = -i_36_;
                                         i_38_ = 0;
                                         i_47_ = i_36_ + Class250.anInt3225;
@@ -158,12 +158,12 @@ final class Class230 {
                                         Class59_Sub1_Sub1.method560(class318_sub4, i ^ 0x4b);
                                     }
                                 }
-                                if (Class348_Sub49.anInt7207 == 0) Class21.aHa326.method3687(Class17.anInterface4_252);
+                                if (RSBuffer.anInt7207 == 0) Class21.aHa326.method3687(Class17.anInterface4_252);
                                 Class21.aHa326.F(-i_33_, -i_34_);
                                 Class21.aHa326.b(i_45_, i_48_, i_43_, i_50_, d_37_);
                                 r.method3284(true, (Class348_Sub42_Sub4.aDouble9517 + d_37_));
                                 Class14_Sub2.aDouble8621 = d_37_ + Class348_Sub42_Sub4.aDouble9517;
-                                if (Class348_Sub49.anInt7207 == 1) {
+                                if (RSBuffer.anInt7207 == 1) {
                                     Class328_Sub1_Sub1.anInt8799 = (i_17_ + -Class348_Sub3.anInt6568 - i_34_);
                                     OutputStream_Sub1.anInt95 = i_21_;
                                     Class120.anInt4910 = -Class328.anInt4100 + (i_16_ - i_33_);
@@ -180,24 +180,24 @@ final class Class230 {
                                 if (i_51_ > 0) {
                                     Class21.aHa326.KA(0, i_49_, (Class348_Sub16_Sub1.anInt8854), i_51_ + i_49_);
                                     Class21.aHa326.ya();
-                                    Class21.aHa326.GA(Class77.anInt1290);
+                                    Class21.aHa326.GA(IsaacCipher.anInt1290);
                                     Class258_Sub1.method1960(i_12_, i_4_, i_6_, i_5_, is_0_, is_3_, is_8_, is_9_, is_11_, is, i_2_, i_10_, i_7_, i_1_, bool, bool_13_, i_14_, 1, false);
                                 }
                                 if (i_46_ > 0) {
                                     Class21.aHa326.KA(i_44_, i_53_, i_44_ - -i_46_, i_53_ + i_52_);
                                     Class21.aHa326.ya();
-                                    Class21.aHa326.GA(Class77.anInt1290);
+                                    Class21.aHa326.GA(IsaacCipher.anInt1290);
                                     Class258_Sub1.method1960(i_12_, i_4_, i_6_, i_5_, is_0_, is_3_, is_8_, is_9_, is_11_, is, i_2_, i_10_, i_7_, i_1_, bool, bool_13_, i_14_, 1, false);
                                 }
                                 Class21.aHa326.la();
                                 Class271.method2046();
-                                if (Class348_Sub49.anInt7207 == 0) Class21.aHa326.method3672();
+                                if (RSBuffer.anInt7207 == 0) Class21.aHa326.method3672();
                                 Class348_Sub3.anInt6568 += i_34_;
                                 Class328.anInt4100 += i_33_;
                                 Class348_Sub42_Sub4.aDouble9517 += d_37_;
                                 Class348_Sub40_Sub8.anInt9157 = (-Class348_Sub3.anInt6568 + i_26_ + Class348_Sub42_Sub9_Sub1.anInt10444);
                                 Class339.anInt4211 = (-Class328.anInt4100 + Class211.anInt2747 + i_25_);
-                                if (Class348_Sub49.anInt7207 == 1) {
+                                if (RSBuffer.anInt7207 == 1) {
                                     Class239_Sub24.anInt6095 += i_35_;
                                     Class286.anInt3682 += i_36_;
                                     for (int i_65_ = 0; i_65_ < Class250.anInt3225; i_65_++) {
@@ -213,7 +213,7 @@ final class Class230 {
                         } else {
                             Class339.anInt4211 = i_27_;
                             Class348_Sub40_Sub8.anInt9157 = i_28_;
-                            if (Class348_Sub49.anInt7207 == 2) Class348_Sub42_Sub4.aDouble9517 = -d;
+                            if (RSBuffer.anInt7207 == 2) Class348_Sub42_Sub4.aDouble9517 = -d;
                         }
                     }
                     if (Class348_Sub16_Sub2.aBoolean8870) {
@@ -225,13 +225,13 @@ final class Class230 {
                         Class105_Sub1.anInt8422 = i_4_;
                         Class348_Sub3.anInt6568 = 0;
                         Class348_Sub42_Sub4.aDouble9517 = 0.0;
-                        if (Class348_Sub49.anInt7207 == 0) Class21.aHa326.method3687(Class17.anInterface4_252);
+                        if (RSBuffer.anInt7207 == 0) Class21.aHa326.method3687(Class17.anInterface4_252);
                         Class21.aHa326.la();
                         Class21.aHa326.ya();
-                        Class21.aHa326.GA(Class77.anInt1290);
+                        Class21.aHa326.GA(IsaacCipher.anInt1290);
                         LocType.aClass101_905.method903(Class105_Sub1.anInt8422, Class29.anInt403, Class348_Sub21.anInt6849, Class369_Sub1.anInt8583, Class295.anInt3760, Class27.anInt396);
                         Class21.aHa326.method3638(LocType.aClass101_905);
-                        if (Class348_Sub49.anInt7207 == 1) {
+                        if (RSBuffer.anInt7207 == 1) {
                             Class328_Sub1_Sub1.anInt8799 = i_17_;
                             Class120.anInt4910 = i_16_;
                             OutputStream_Sub1.anInt95 = i_21_;
@@ -250,16 +250,16 @@ final class Class230 {
                         Class258_Sub1.method1960(i_12_, i_4_, i_6_, i_5_, is_0_, is_3_, is_8_, is_9_, is_11_, is, i_2_, i_10_, i_7_, i_1_, bool, bool_13_, i_14_, 1, false);
                         Class271.method2046();
                         Class348_Sub16_Sub2.aBoolean8870 = false;
-                        if (Class348_Sub49.anInt7207 == 0) Class21.aHa326.method3672();
-                        if (Class348_Sub49.anInt7207 == 1) Class202.method1469(-117);
+                        if (RSBuffer.anInt7207 == 0) Class21.aHa326.method3672();
+                        if (RSBuffer.anInt7207 == 1) Class202.method1469(-117);
                     }
-                    if (Class348_Sub49.anInt7207 == 0) Class17.anInterface4_252.method14(Class339.anInt4211, Class348_Sub40_Sub8.anInt9157, Class59_Sub1.anInt5283, Class107.anInt1651, 0, 0, true, true);
+                    if (RSBuffer.anInt7207 == 0) Class17.anInterface4_252.method14(Class339.anInt4211, Class348_Sub40_Sub8.anInt9157, Class59_Sub1.anInt5283, Class107.anInt1651, 0, 0, true, true);
                     Class318_Sub1_Sub1_Sub2.anInt9997++;
                     r.method3284(true, Class348_Sub42_Sub4.aDouble9517);
                     Class318_Sub1_Sub5_Sub1.aDouble10120 = Class348_Sub42_Sub4.aDouble9517;
-                    if (Class348_Sub49.anInt7207 == 0 || Class348_Sub49.anInt7207 == 2) {
-                        if (Class348_Sub49.anInt7207 == 2) {
-                            Class21.aHa326.GA(Class77.anInt1290);
+                    if (RSBuffer.anInt7207 == 0 || RSBuffer.anInt7207 == 2) {
+                        if (RSBuffer.anInt7207 == 2) {
+                            Class21.aHa326.GA(IsaacCipher.anInt1290);
                             Class21.aHa326.ya();
                         }
                         Class193.anInt2590 = i_20_;
@@ -267,7 +267,7 @@ final class Class230 {
                         Class94.anInt1537 = (-Class339.anInt4211 + -Class328.anInt4100 + (i_16_ + Class211.anInt2747));
                         Class318_Sub5.anInt6417 = (-Class348_Sub40_Sub8.anInt9157 + (i_17_ + Class348_Sub42_Sub9_Sub1.anInt10444 + -Class348_Sub3.anInt6568));
                         Class21.aHa326.DA(Class94.anInt1537, Class318_Sub5.anInt6417, Class193.anInt2590, Class129.anInt1879);
-                    } else if (Class348_Sub49.anInt7207 == 1) {
+                    } else if (RSBuffer.anInt7207 == 1) {
                         Class193.anInt2590 = i_20_;
                         Class94.anInt1537 = i_16_ + -Class328.anInt4100;
                         Class318_Sub5.anInt6417 = -Class348_Sub3.anInt6568 + i_17_;
@@ -275,7 +275,7 @@ final class Class230 {
                         Class21.aHa326.DA(Class94.anInt1537, Class318_Sub5.anInt6417, Class193.anInt2590, Class129.anInt1879);
                         Class21.aHa326.KA(Class339.anInt4211, Class348_Sub40_Sub8.anInt9157, (Class339.anInt4211 - -Class59_Sub1.anInt5283), (Class107.anInt1651 + Class348_Sub40_Sub8.anInt9157));
                     }
-                    Class258_Sub1.method1960(i_12_, i_4_, i_6_, i_5_, is_0_, is_3_, is_8_, is_9_, is_11_, is, i_2_, i_10_, i_7_, i_1_, bool, bool_13_, i_14_, Class348_Sub49.anInt7207 != 2 ? 2 : 0, Class348_Sub49.anInt7207 == 1);
+                    Class258_Sub1.method1960(i_12_, i_4_, i_6_, i_5_, is_0_, is_3_, is_8_, is_9_, is_11_, is, i_2_, i_10_, i_7_, i_1_, bool, bool_13_, i_14_, RSBuffer.anInt7207 != 2 ? 2 : 0, RSBuffer.anInt7207 == 1);
                     Class21.aHa326.la();
                     Class21.aHa326.DA(i_16_, i_17_, i_18_, i_19_);
                     if (i == -2) break;

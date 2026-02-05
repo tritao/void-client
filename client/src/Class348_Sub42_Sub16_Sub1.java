@@ -11,7 +11,7 @@ final class Class348_Sub42_Sub16_Sub1 extends Class348_Sub42_Sub16 {
     static boolean aBoolean10450;
     static int anInt10451;
     static int anInt10452;
-    Class348_Sub49 aClass348_Sub49_10453;
+    RSBuffer aClass348_Sub49_10453;
     static int anInt10454;
     static int anInt10455;
     int anInt10456;

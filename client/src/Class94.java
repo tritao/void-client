@@ -23,7 +23,7 @@ final class Class94 {
         if (bool != true) aClass45_1538 = null;
         anInt1535++;
         for (int i = 0; i < 32; i++)
-            Class348_Sub49.aLongArray7206[i] = 0L;
+            RSBuffer.aLongArray7206[i] = 0L;
         for (int i = 0; i < 32; i++)
             Class328_Sub2_Sub1.aLongArray8800[i] = 0L;
         Class101_Sub2.anInt5744 = 0;

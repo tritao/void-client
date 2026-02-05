@@ -36,7 +36,7 @@ final class Class355 {
         else is = aClass45_4368.method410(-1860, 1, i);
         class348_sub42_sub10 = new Class348_Sub42_Sub10();
         class348_sub42_sub10.aClass355_9567 = this;
-        if (is != null) class348_sub42_sub10.method3218(new Class348_Sub49(is), 0);
+        if (is != null) class348_sub42_sub10.method3218(new RSBuffer(is), 0);
         if (i_0_ >= -86) method3473(-12);
         if (i >= 32768) class348_sub42_sub10.method3209(false);
         aClass60_4362.method582(class348_sub42_sub10, i, (byte) -125);

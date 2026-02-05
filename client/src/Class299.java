@@ -4,7 +4,7 @@
 
 abstract class Class299 {
     static int anInt3812;
-    static Class348_Sub49_Sub2 aClass348_Sub49_Sub2_3813 = new Class348_Sub49_Sub2(7500);
+    static PacketBuffer aClass348_Sub49_Sub2_3813 = new PacketBuffer(7500);
     static int anInt3814;
 
     static final int method2253(int i, int i_0_) {
@@ -68,7 +68,7 @@ abstract class Class299 {
             i_14_ += i_16_;
             i_12_ += i_15_;
             if (i_14_ >= 0 && i_13_ >= 1) {
-                Class348_Sub49_Sub2.anIntArray9757[i_13_] = i_9_;
+                PacketBuffer.anIntArray9757[i_13_] = i_9_;
                 i_13_--;
                 i_14_ -= i_13_ << 1;
             }
@@ -86,7 +86,7 @@ abstract class Class299 {
                 } else {
                     int[] is_23_ = Class17.anIntArrayArray255[i_6_ - -i_11_];
                     int[] is_24_ = Class17.anIntArrayArray255[-i_11_ + i_6_];
-                    int i_25_ = Class348_Sub49_Sub2.anIntArray9757[i_11_];
+                    int i_25_ = PacketBuffer.anIntArray9757[i_11_];
                     int i_26_ = i_9_ + i_3_;
                     int i_27_ = i_3_ - i_9_;
                     int i_28_ = i_3_ - -i_25_;
@@ -104,7 +104,7 @@ abstract class Class299 {
             int i_32_ = i_3_ - -i_11_;
             int i_33_ = i_3_ - i_11_;
             if (i_10_ > i_9_) {
-                int i_34_ = (i_9_ <= i_13_ ? i_13_ : Class348_Sub49_Sub2.anIntArray9757[i_9_]);
+                int i_34_ = (i_9_ <= i_13_ ? i_13_ : PacketBuffer.anIntArray9757[i_9_]);
                 int i_35_ = i_34_ + i_3_;
                 int i_36_ = i_3_ + -i_34_;
                 Class135_Sub2.method1156(-27, i_36_, is_30_, i_33_, i_8_);

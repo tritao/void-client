@@ -82,7 +82,7 @@ final class Class31 {
         aClass113_430 = null;
     }
 
-    private final void method329(Class348_Sub49 class348_sub49, int i, int i_1_) {
+    private final void method329(RSBuffer class348_sub49, int i, int i_1_) {
         if (i_1_ != 1) {
             if (i_1_ != 2) {
                 if (i_1_ == 3) anInt421 = class348_sub49.readUnsignedShort(842397944);
@@ -142,7 +142,7 @@ final class Class31 {
         return class105;
     }
 
-    final void method332(int i, Class348_Sub49 class348_sub49) {
+    final void method332(int i, RSBuffer class348_sub49) {
         if (i > -119) method333(119, -71);
         for (; ; ) {
             int i_3_ = class348_sub49.readUnsignedByte(255);

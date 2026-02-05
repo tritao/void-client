@@ -38,7 +38,7 @@ abstract class Class5 implements Interface1 {
         }
     }
 
-    static final Class369_Sub1 method179(int i, Class348_Sub49 class348_sub49) {
+    static final Class369_Sub1 method179(int i, RSBuffer class348_sub49) {
         anInt4629++;
         Class369 class369 = Class348_Sub16_Sub2.method2834((byte) -127, class348_sub49);
         int i_3_ = class348_sub49.readInt((byte) -126);

@@ -78,7 +78,7 @@ final class Class348_Sub40_Sub22 extends Class348_Sub40 {
         aClass114_9285 = null;
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_8_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_8_) {
         anInt9292++;
         if (i_8_ != 31015) method3111(106, 16);
         int i_9_ = i;

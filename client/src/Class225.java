@@ -100,7 +100,7 @@ final class Class225 {
         aClass243_2957 = null;
     }
 
-    final void method1620(Class348_Sub49 class348_sub49, int i) {
+    final void method1620(RSBuffer class348_sub49, int i) {
         for (; ; ) {
             int i_8_ = class348_sub49.readUnsignedByte(255);
             if (i_8_ == 0) break;
@@ -124,7 +124,7 @@ final class Class225 {
         return -1;
     }
 
-    private final void method1622(Class348_Sub49 class348_sub49, int i, int i_12_) {
+    private final void method1622(RSBuffer class348_sub49, int i, int i_12_) {
         anInt2903++;
         if (i_12_ == 1) {
             this.anInt2918 = class348_sub49.readUnsignedShort(i ^ 0x3235f8c8);

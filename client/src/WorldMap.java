@@ -153,7 +153,7 @@ class WorldMap {
         anIntArray1260 = null;
     }
 
-    private static final void method750(ha var_ha, Class348_Sub49 class348_sub49, int i, int i_21_, int i_22_, int i_23_, int[] is, int[] is_24_) {
+    private static final void method750(ha var_ha, RSBuffer class348_sub49, int i, int i_21_, int i_22_, int i_23_, int[] is, int[] is_24_) {
         int i_25_ = class348_sub49.readUnsignedByte(255);
         if ((i_25_ & 0x1) == 0) {
             boolean bool = (i_25_ & 0x2) == 0;
@@ -394,7 +394,7 @@ class WorldMap {
     }
 
     static final void method756(ha var_ha, int i, int i_75_) {
-        Class348_Sub49 class348_sub49 = (new Class348_Sub49(aClass45_1237.method391((aClass348_Sub42_Sub14_1243.aString9625), "area", -29832)));
+        RSBuffer class348_sub49 = (new RSBuffer(aClass45_1237.method391((aClass348_Sub42_Sub14_1243.aString9625), "area", -29832)));
         int i_76_ = class348_sub49.readUnsignedByte(255);
         int[] is = new int[i_76_];
         for (int i_77_ = 0; i_77_ < i_76_; i_77_++)

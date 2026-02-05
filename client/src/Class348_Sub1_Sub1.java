@@ -51,7 +51,7 @@ final class Class348_Sub1_Sub1 extends Class348_Sub1 {
             for (int i_14_ = 0; i_13_ > i_14_; i_14_++) {
                 byte[] is_15_ = is[i_14_];
                 if (is_15_ != null) {
-                    Class348_Sub49 class348_sub49 = new Class348_Sub49(is_15_);
+                    RSBuffer class348_sub49 = new RSBuffer(is_15_);
                     int i_16_ = (Class348_Sub23_Sub3.anIntArray9042[i_14_] >> 8);
                     int i_17_ = 0xff & Class348_Sub23_Sub3.anIntArray9042[i_14_];
                     int i_18_ = -za_Sub2.regionTileX + i_16_ * 64;

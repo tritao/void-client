@@ -46,7 +46,7 @@ final class Class285_Sub1 extends Class285 implements Interface5_Impl1 {
         return stringbuffer.toString();
     }
 
-    static final Class369_Sub3_Sub1 method2128(int i, Class348_Sub49 class348_sub49) {
+    static final Class369_Sub3_Sub1 method2128(int i, RSBuffer class348_sub49) {
         anInt8495++;
         Class369_Sub3 class369_sub3 = Class348_Sub46.method3322(0, class348_sub49);
         int i_5_ = class348_sub49.readShort(13638);

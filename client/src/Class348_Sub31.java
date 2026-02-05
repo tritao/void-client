@@ -190,7 +190,7 @@ abstract class Class348_Sub31 extends Class348 {
         return i & 0xff;
     }
 
-    static final void method3014(Class348_Sub49 class348_sub49, byte i) {
+    static final void method3014(RSBuffer class348_sub49, byte i) {
         anInt6914++;
         if ((class348_sub49.aByteArray7154.length - class348_sub49.anInt7197) >= 1) {
             int i_89_ = class348_sub49.readUnsignedByte(255);
@@ -201,7 +201,7 @@ abstract class Class348_Sub31 extends Class348 {
                     for (int i_91_ = 0; i_91_ < i_90_; i_91_++) {
                         int i_92_ = class348_sub49.readUnsignedShort(842397944);
                         int i_93_ = class348_sub49.readInt((byte) -126);
-                        if ((Class77.anIntArray1303.length > i_92_) && Class286_Sub6.aBooleanArray6270[i_92_] && ((Class239_Sub14.aClass259_5995.method1976(i_92_, -107).aChar2132) != '1' || i_93_ >= -1 && i_93_ <= 1)) Class77.anIntArray1303[i_92_] = i_93_;
+                        if ((IsaacCipher.anIntArray1303.length > i_92_) && Class286_Sub6.aBooleanArray6270[i_92_] && ((Class239_Sub14.aClass259_5995.method1976(i_92_, -107).aChar2132) != '1' || i_93_ >= -1 && i_93_ <= 1)) IsaacCipher.anIntArray1303[i_92_] = i_93_;
                     }
                 }
             }

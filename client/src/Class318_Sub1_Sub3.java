@@ -189,7 +189,7 @@ abstract class Class318_Sub1_Sub3 extends Class318_Sub1 {
         return i_19_;
     }
 
-    static final int method2413(int i, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final int method2413(int i, PacketBuffer class348_sub49_sub2) {
         anInt8749++;
         int i_35_ = class348_sub49_sub2.readBits((byte) -24, 2);
         if (i != 1) aClass262_8744 = null;

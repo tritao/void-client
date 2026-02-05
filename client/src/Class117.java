@@ -27,7 +27,7 @@ final class Class117 {
         aClass351_1766 = null;
     }
 
-    private final void method1065(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    private final void method1065(RSBuffer class348_sub49, int i, int i_0_) {
         if (i_0_ == 1) this.aChar1778 = Class50_Sub1.method462(class348_sub49.readByte(-91), -128);
         else if (i_0_ == 2) this.aChar1779 = Class50_Sub1.method462(class348_sub49.readByte(-119), -128);
         else if (i_0_ == 3) aString1774 = class348_sub49.readString((byte) 86);
@@ -77,7 +77,7 @@ final class Class117 {
         if (i < 85) method1069(111, null);
     }
 
-    final void method1069(int i, Class348_Sub49 class348_sub49) {
+    final void method1069(int i, RSBuffer class348_sub49) {
         anInt1763++;
         for (; ; ) {
             int i_5_ = class348_sub49.readUnsignedByte(i + 255);
@@ -90,7 +90,7 @@ final class Class117 {
     static final void method1070(byte i, int i_6_) {
         if (i < 109) anInt1780 = 10;
         anInt1769++;
-        if (Class348_Sub49_Sub2.anIntArray9757 == null || Class348_Sub49_Sub2.anIntArray9757.length < i_6_) Class348_Sub49_Sub2.anIntArray9757 = new int[i_6_];
+        if (PacketBuffer.anIntArray9757 == null || PacketBuffer.anIntArray9757.length < i_6_) PacketBuffer.anIntArray9757 = new int[i_6_];
     }
 
     private final void method1071(boolean bool) {

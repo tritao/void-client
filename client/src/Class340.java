@@ -8,7 +8,7 @@ final class Class340 {
     private final Class248 aClass248_4212;
     private final BigInteger aBigInteger4213;
     static int anInt4214;
-    private Class348_Sub49 aClass348_Sub49_4215;
+    private RSBuffer aClass348_Sub49_4215;
     private Class314_Sub1[] aClass314_Sub1Array4216;
     private Class112 aClass112_4217;
     private final BigInteger aBigInteger4218;
@@ -68,7 +68,7 @@ final class Class340 {
         if (aClass348_Sub42_Sub16_Sub1_4220.aBoolean9664) {
             return false;
         }
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(aClass348_Sub42_Sub16_Sub1_4220.method3259(i ^ 0x17));
+        RSBuffer class348_sub49 = new RSBuffer(aClass348_Sub42_Sub16_Sub1_4220.method3259(i ^ 0x17));
         class348_sub49.anInt7197 = 5;
         int idxCount = class348_sub49.readUnsignedByte(i ^ 0xf8);
         class348_sub49.anInt7197 += idxCount * 72;

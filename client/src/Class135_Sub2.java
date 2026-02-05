@@ -82,7 +82,7 @@ final class Class135_Sub2 extends Class135 implements Interface8 {
                 Class14_Sub4.method254(35, (byte) -87);
                 return;
             } else {
-                Class348_Sub49 class348_sub49 = (new Class348_Sub49(Class98.method878((Class110_Sub1.method1039(Class348_Sub23_Sub3.aString9043, true)), -126)));
+                RSBuffer class348_sub49 = (new RSBuffer(Class98.method878((Class110_Sub1.method1039(Class348_Sub23_Sub3.aString9043, true)), -126)));
                 l = class348_sub49.readLong(-456577760);
                 Class348_Sub33.aLong6966 = class348_sub49.readLong(-456577760);
             }

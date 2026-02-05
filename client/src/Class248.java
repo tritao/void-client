@@ -28,10 +28,10 @@ final class Class248 {
     private final Class107 aClass107_3205 = new Class107();
     private final Class107 aClass107_3206 = new Class107();
     private long aLong3207;
-    private final Class348_Sub49 aClass348_Sub49_3208 = new Class348_Sub49(4);
+    private final RSBuffer aClass348_Sub49_3208 = new RSBuffer(4);
     private Class202 aClass202_3209;
     private int anInt3210;
-    private final Class348_Sub49 aClass348_Sub49_3211;
+    private final RSBuffer aClass348_Sub49_3211;
     private byte aByte3212 = 0;
     volatile int anInt3213 = 0;
     volatile int anInt3214 = 0;
@@ -154,7 +154,7 @@ final class Class248 {
                             if (class348_sub42_sub16_sub1_14_ == null) throw new IOException();
                             int i_15_ = i_13_ == 0 ? 5 : 9;
                             aClass348_Sub42_Sub16_Sub1_3215 = class348_sub42_sub16_sub1_14_;
-                            aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453 = (new Class348_Sub49((aClass348_Sub42_Sub16_Sub1_3215.aByte10449) + i_15_ + i_12_));
+                            aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453 = (new RSBuffer((aClass348_Sub42_Sub16_Sub1_3215.aByte10449) + i_15_ + i_12_));
                             aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.writeByte(false, i_13_);
                             aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.writeInt((byte) 97, i_12_);
                             aClass348_Sub49_3211.anInt7197 = 0;
@@ -369,6 +369,6 @@ final class Class248 {
     }
 
     public Class248() {
-        aClass348_Sub49_3211 = new Class348_Sub49(8);
+        aClass348_Sub49_3211 = new RSBuffer(8);
     }
 }

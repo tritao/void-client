@@ -36,7 +36,7 @@ final class Class253 {
         return 0x7f & i_10_;
     }
 
-    final void method1921(byte i, Class348_Sub49 class348_sub49) {
+    final void method1921(byte i, RSBuffer class348_sub49) {
         if (i != -69) method1923(-117, -120, null);
         anInt3255++;
         for (; ; ) {
@@ -59,7 +59,7 @@ final class Class253 {
         }
     }
 
-    private final void method1923(int i, int i_13_, Class348_Sub49 class348_sub49) {
+    private final void method1923(int i, int i_13_, RSBuffer class348_sub49) {
         anInt3254++;
         if (i_13_ == 4) {
             if (i != 1) {

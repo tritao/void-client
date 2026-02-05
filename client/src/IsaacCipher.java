@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-final class Class77 {
+final class IsaacCipher {
     private int[] anIntArray1289;
     static int anInt1290 = 0;
     private int anInt1291;
@@ -26,11 +26,11 @@ final class Class77 {
         return bool | (LocalisedText.method2058(i_0_, i, i_1_ ^ 0x1003d) | (0x10000 & i_0_) != 0);
     }
 
-    private Class77() {
+    private IsaacCipher() {
         /* empty */
     }
 
-    Class77(int[] is) {
+    IsaacCipher(int[] is) {
         anIntArray1296 = new int[256];
         anIntArray1289 = new int[256];
         for (int i = 0; is.length > i; i++)

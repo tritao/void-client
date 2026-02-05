@@ -110,7 +110,7 @@ final class Class88 {
                         return;
                     }
                     Class299.aClass348_Sub49_Sub2_3813.anInt7197 = 0;
-                    Class348_Sub49 class348_sub49 = new Class348_Sub49(518);
+                    RSBuffer class348_sub49 = new RSBuffer(518);
                     int[] is = new int[4];
                     is[0] = (int) (Math.random() * 9.9999999E7);
                     is[1] = (int) (9.9999999E7 * Math.random());
@@ -128,7 +128,7 @@ final class Class88 {
                     class348_sub49.method3390(Class348_Sub31.aBigInteger6921, (byte) -76, (Class318_Sub1_Sub4.aBigInteger8762));
                     Class348_Sub3.method2739(0);
                     Class348_Sub47 class348_sub47 = Class203.method1478(true);
-                    Class348_Sub49_Sub2 class348_sub49_sub2 = (class348_sub47.aClass348_Sub49_Sub2_7116);
+                    PacketBuffer class348_sub49_sub2 = (class348_sub47.aClass348_Sub49_Sub2_7116);
                     if (Class239_Sub12.anInt5969 == 2) {
                         if (Class240.anInt4674 != 13) class348_sub49_sub2.writeByte(false, Class178.aClass29_2342.anInt400);
                         else class348_sub49_sub2.writeByte(false, Class178.aClass29_2344.anInt400);
@@ -146,11 +146,11 @@ final class Class88 {
                         s_Sub2.method4002(class348_sub49_sub2, (byte) 55);
                         class348_sub49_sub2.writeString((byte) -5, Class239_Sub12.aString5966);
                         class348_sub49_sub2.writeInt((byte) 120, Class202.anInt2670);
-                        Class348_Sub49 class348_sub49_8_ = Class316.aClass348_Sub51_3959.method3427(24);
+                        RSBuffer class348_sub49_8_ = Class316.aClass348_Sub51_3959.method3427(24);
                         class348_sub49_sub2.writeByte(false, (class348_sub49_8_.anInt7197));
                         class348_sub49_sub2.writeBytes(class348_sub49_8_.anInt7197, 0, (class348_sub49_8_.aByteArray7154), 74);
                         r.aBoolean9719 = true;
-                        Class348_Sub49 class348_sub49_9_ = new Class348_Sub49(Class348_Sub40_Sub20.aClass348_Sub4_9264.method2746((byte) -76));
+                        RSBuffer class348_sub49_9_ = new RSBuffer(Class348_Sub40_Sub20.aClass348_Sub4_9264.method2746((byte) -76));
                         Class348_Sub40_Sub20.aClass348_Sub4_9264.method2747(1, class348_sub49_9_);
                         class348_sub49_sub2.writeBytes((class348_sub49_9_.aByteArray7154).length, 0, (class348_sub49_9_.aByteArray7154), -73);
                         class348_sub49_sub2.writeShort((byte) 107, Class135_Sub1.anInt4718);
@@ -180,7 +180,7 @@ final class Class88 {
                     }
                     Class348_Sub42_Sub14.method3243(-48, class348_sub47);
                     Class239_Sub18.method1802(0);
-                    Class348_Sub23_Sub2.aClass77_9029 = new Class77(is);
+                    Class348_Sub23_Sub2.aClass77_9029 = new IsaacCipher(is);
                     for (int i_10_ = 0; i_10_ < 4; i_10_++)
                         is[i_10_] += 50;
                     Class299.aClass348_Sub49_Sub2_3813.method3406(-111, is);
@@ -225,7 +225,7 @@ final class Class88 {
                 if (Class225.anInt2955 == 6) {
                     Class348_Sub3.method2739(0);
                     Class348_Sub47 class348_sub47 = Class203.method1478(true);
-                    Class348_Sub49_Sub2 class348_sub49_sub2 = (class348_sub47.aClass348_Sub49_Sub2_7116);
+                    PacketBuffer class348_sub49_sub2 = (class348_sub47.aClass348_Sub49_Sub2_7116);
                     class348_sub49_sub2.method3416(-18, Class348_Sub23_Sub2.aClass77_9029);
                     class348_sub49_sub2.method3408((Class178.aClass29_2351.anInt400), 18676);
                     Class348_Sub42_Sub14.method3243(-87, class348_sub47);
@@ -260,7 +260,7 @@ final class Class88 {
                     }
                 } else {
                     if (Class225.anInt2955 == 9) {
-                        Class348_Sub49_Sub2 class348_sub49_sub2 = Class299.aClass348_Sub49_Sub2_3813;
+                        PacketBuffer class348_sub49_sub2 = Class299.aClass348_Sub49_Sub2_3813;
                         if (Class239_Sub12.anInt5969 == 2) {
                             if (!Class348_Sub40_Sub8.aClass238_9165.method1705(Class76.anInt1288, 93)) return;
                             Class348_Sub40_Sub8.aClass238_9165.method1701(Class76.anInt1288, 0, (byte) 60, (class348_sub49_sub2.aByteArray7154));
@@ -342,7 +342,7 @@ final class Class88 {
                             Class225.anInt2955 = 0;
                             Class14_Sub4.method254(2, (byte) -92);
                             Class239_Sub19.method1804(8839);
-                            Class348_Sub49.method3379(2, 7);
+                            RSBuffer.method3379(2, 7);
                             Class348_Sub3.aClass114_6584 = null;
                             return;
                         }
@@ -353,7 +353,7 @@ final class Class88 {
                         Class225.anInt2955 = 12;
                     }
                     if (Class225.anInt2955 == 12) {
-                        Class348_Sub49_Sub2 class348_sub49_sub2 = Class299.aClass348_Sub49_Sub2_3813;
+                        PacketBuffer class348_sub49_sub2 = Class299.aClass348_Sub49_Sub2_3813;
                         class348_sub49_sub2.anInt7197 = 0;
                         if (class348_sub49_sub2.method3404(-1510)) {
                             if (!Class348_Sub40_Sub8.aClass238_9165.method1705(1, 110)) return;

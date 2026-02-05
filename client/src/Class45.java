@@ -130,7 +130,7 @@ final class Class45 {
         if (is == null || (is[0] == 0 && is[1] == 0 && is[2] == 0 && is[3] == 0)) is_14_ = Class50_Sub1.method461(false, anObjectArray656[i_9_], 53146732);
         else {
             is_14_ = Class50_Sub1.method461(true, anObjectArray656[i_9_], 53146732);
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(is_14_);
+            RSBuffer class348_sub49 = new RSBuffer(is_14_);
             class348_sub49.method3367(607818341, is, 5, (class348_sub49.aByteArray7154).length);
         }
         byte[] is_15_;
@@ -146,7 +146,7 @@ final class Class45 {
                 int i_30_ = is_15_.length;
                 int i_31_ = 0xff & is_15_[--i_30_];
                 i_30_ -= 4 * (i_31_ * i_10_);
-                Class348_Sub49 class348_sub49 = new Class348_Sub49(is_15_);
+                RSBuffer class348_sub49 = new RSBuffer(is_15_);
                 int i_32_ = 0;
                 int i_33_ = 0;
                 class348_sub49.anInt7197 = i_30_;
@@ -187,7 +187,7 @@ final class Class45 {
                 int i_16_ = is_15_.length;
                 int i_17_ = 0xff & is_15_[--i_16_];
                 i_16_ -= 4 * (i_10_ * i_17_);
-                Class348_Sub49 class348_sub49 = new Class348_Sub49(is_15_);
+                RSBuffer class348_sub49 = new RSBuffer(is_15_);
                 int[] is_18_ = new int[i_10_];
                 class348_sub49.anInt7197 = i_16_;
                 for (int i_19_ = 0; i_19_ < i_17_; i_19_++) {
@@ -232,7 +232,7 @@ final class Class45 {
     }
 
     static final void method395(int i) throws Exception_Sub1 {
-        if (Class348_Sub49.anInt7207 == 1) Class21.aHa326.method3626(Class339.anInt4211, Class348_Sub40_Sub8.anInt9157);
+        if (RSBuffer.anInt7207 == 1) Class21.aHa326.method3626(Class339.anInt4211, Class348_Sub40_Sub8.anInt9157);
         else Class21.aHa326.method3626(0, 0);
         if (i >= 73) anInt642++;
     }

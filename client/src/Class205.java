@@ -43,7 +43,7 @@ final class Class205 {
             i_9_ += i_12_;
             if (i_11_ >= 0 && i_10_ >= 1) {
                 i_10_--;
-                Class348_Sub49_Sub2.anIntArray9757[i_10_] = i_6_;
+                PacketBuffer.anIntArray9757[i_10_] = i_6_;
                 i_11_ -= i_10_ << 1;
             }
             i_6_++;
@@ -59,7 +59,7 @@ final class Class205 {
                         if (i_19_ <= Class38.anInt513) Class135_Sub2.method1156(-27, i_20_, (Class17.anIntArrayArray255[i_19_]), i_21_, i);
                         if (Class132.anInt1910 <= i_18_) Class135_Sub2.method1156(-27, i_20_, (Class17.anIntArrayArray255[i_18_]), i_21_, i);
                     } else {
-                        int i_22_ = Class348_Sub49_Sub2.anIntArray9757[i_8_];
+                        int i_22_ = PacketBuffer.anIntArray9757[i_8_];
                         int i_23_ = Class85.method831(Class113.anInt1745, i_6_ + i_5_, Class369.anInt4960, -123);
                         int i_24_ = Class85.method831(Class113.anInt1745, -i_6_ + i_5_, Class369.anInt4960, 110);
                         int i_25_ = Class85.method831(Class113.anInt1745, i_22_ + i_5_, Class369.anInt4960, 85);
@@ -91,7 +91,7 @@ final class Class205 {
                         if (Class38.anInt513 >= i_28_) Class135_Sub2.method1156(-27, i_29_, (Class17.anIntArrayArray255[i_28_]), i_30_, i);
                         if (i_27_ >= Class132.anInt1910) Class135_Sub2.method1156(-27, i_29_, (Class17.anIntArrayArray255[i_27_]), i_30_, i);
                     } else {
-                        int i_31_ = (i_6_ > i_10_ ? Class348_Sub49_Sub2.anIntArray9757[i_6_] : i_10_);
+                        int i_31_ = (i_6_ > i_10_ ? PacketBuffer.anIntArray9757[i_6_] : i_10_);
                         int i_32_ = Class85.method831(Class113.anInt1745, i_31_ + i_5_, Class369.anInt4960, 71);
                         int i_33_ = Class85.method831(Class113.anInt1745, -i_31_ + i_5_, Class369.anInt4960, 65);
                         if (i_28_ <= Class38.anInt513) {

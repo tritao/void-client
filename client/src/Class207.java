@@ -234,7 +234,7 @@ final class Class207 {
     }
 
     private static final Class207[] method1517(byte[] is) {
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         class348_sub49.anInt7197 = is.length - 2;
         int i = class348_sub49.readUnsignedShort(842397944);
         Class207[] class207s = new Class207[i];

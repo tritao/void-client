@@ -40,7 +40,7 @@ final class Class244 implements d {
         byte[] is = aClass45_4619.method415((byte) 73, i);
         if (is == null) return null;
         if (bool != false) method1(-58, 1.9039171F, false, -106, -22, -18);
-        Class348_Sub42_Sub5 class348_sub42_sub5 = new Class348_Sub42_Sub5(new Class348_Sub49(is));
+        Class348_Sub42_Sub5 class348_sub42_sub5 = new Class348_Sub42_Sub5(new RSBuffer(is));
         aClass308_4622.method2305(i, class348_sub42_sub5, -1);
         return class348_sub42_sub5;
     }
@@ -80,7 +80,7 @@ final class Class244 implements d {
         try {
             aClass45_4619 = class45_12_;
             aClass45_4624 = class45_13_;
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(class45.method410(-1860, 0, 0));
+            RSBuffer class348_sub49 = new RSBuffer(class45.method410(-1860, 0, 0));
             anInt4625 = class348_sub49.readUnsignedShort(842397944);
             aClass12Array4611 = new Class12[anInt4625];
             for (int i = 0; anInt4625 > i; i++) {

@@ -239,7 +239,7 @@ final class Class255 {
         class213.anInt2769 = i_13_;
         class213.aStringArray2811 = new String[]{null, null, LocalisedText.aClass274_3490.method2063(this.anInt3286, 544), null, null};
         class213.aStringArray2763 = (new String[]{null, null, null, null, LocalisedText.aClass274_3491.method2063(this.anInt3286, 544)});
-        if (is != null) class213.method1569(768, new Class348_Sub49(is));
+        if (is != null) class213.method1569(768, new RSBuffer(is));
         class213.method1563((byte) 92);
         int i_14_ = 4 / ((i - 13) / 59);
         if (class213.anInt2833 != -1) class213.method1570(1, method1940(90, class213.anInt2758), method1940(101, class213.anInt2833));

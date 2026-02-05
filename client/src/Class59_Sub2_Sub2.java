@@ -15,7 +15,7 @@ final class Class59_Sub2_Sub2 extends Class59_Sub2 {
     static int[] anIntArray8684;
     static int anInt8685;
 
-    static final void method569(byte i, Class348_Sub49 class348_sub49) {
+    static final void method569(byte i, RSBuffer class348_sub49) {
         anInt8675++;
         int i_0_ = class348_sub49.readSmart(-128);
         Class373_Sub2.aClass283Array7446 = new Class283[i_0_];

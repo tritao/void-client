@@ -57,7 +57,7 @@ final class Class105_Sub1 extends Class105 {
         anInterface18_Impl3_8403.method68(i_7_, 22809, is, i, i_6_, i_4_, i_3_, i_5_);
     }
 
-    static final Class369_Sub2 method987(int i, Class348_Sub49 class348_sub49) {
+    static final Class369_Sub2 method987(int i, RSBuffer class348_sub49) {
         anInt8405++;
         Class369 class369 = Class348_Sub16_Sub2.method2834((byte) -118, class348_sub49);
         if (i != 743571200) method989(-21, 36, 81);

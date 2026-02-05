@@ -86,7 +86,7 @@ final class Class65 {
             is = aClass45_1141.method410(-1860, 26, i);
         }
         class348_sub42_sub1 = new Class348_Sub42_Sub1();
-        if (is != null) class348_sub42_sub1.method3168(new Class348_Sub49(is), (byte) -101);
+        if (is != null) class348_sub42_sub1.method3168(new RSBuffer(is), (byte) -101);
         synchronized (aClass60_1145) {
             aClass60_1145.method582(class348_sub42_sub1, i, (byte) -114);
         }

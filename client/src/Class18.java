@@ -327,7 +327,7 @@ final class Class18 {
         Class286.anInt3682 = 0;
         Class58.anInt1067 = i_24_;
         Class17.anInterface4_252 = null;
-        Class348_Sub49.anInt7207 = 1;
+        RSBuffer.anInt7207 = 1;
         Class239_Sub12.anInt5965 = i;
         Class85.method828((byte) 38, i_25_, i_21_);
     }

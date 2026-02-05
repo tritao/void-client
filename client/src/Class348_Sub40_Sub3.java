@@ -13,7 +13,7 @@ final class Class348_Sub40_Sub3 extends Class348_Sub40 {
     static int anInt9109 = 104;
     static int anInt9110;
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         int i_1_ = i;
         do {
             if (i_1_ == 0) {

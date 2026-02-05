@@ -62,7 +62,7 @@ final class Class187 {
             is = aClass45_2498.method410(-1860, 35, i_3_);
         }
         class321 = new Class321();
-        if (is != null) class321.method2551(-125, new Class348_Sub49(is));
+        if (is != null) class321.method2551(-125, new RSBuffer(is));
         if (i != -12637) aClass60_2501 = null;
         class321.method2548((byte) 127);
         synchronized (aClass60_2501) {

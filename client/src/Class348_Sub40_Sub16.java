@@ -14,7 +14,7 @@ final class Class348_Sub40_Sub16 extends Class348_Sub40 {
     static int[] anIntArray9230 = {0, -1, 0, 1};
     static int anInt9231;
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         if (i_0_ != 31015) anInt9226 = -83;
         int i_1_ = i;
         do {

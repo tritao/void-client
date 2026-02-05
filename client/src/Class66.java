@@ -45,7 +45,7 @@ final class Class66 {
                     [class348_sub42_sub19.anInt9688]);
             aStringArray1155 = (new String
                     [class348_sub42_sub19.anInt9689]);
-            if ((class348_sub42_sub19.aClass273_9691 == Class90.aClass273_1512) || (class348_sub42_sub19.aClass273_9691) == Class59_Sub1_Sub2.aClass273_8664 || (class348_sub42_sub19.aClass273_9691) == Class77.aClass273_1298) {
+            if ((class348_sub42_sub19.aClass273_9691 == Class90.aClass273_1512) || (class348_sub42_sub19.aClass273_9691) == Class59_Sub1_Sub2.aClass273_8664 || (class348_sub42_sub19.aClass273_9691) == IsaacCipher.aClass273_1298) {
                 int i_1_ = 0;
                 int i_2_ = 0;
                 if (Class168.aClass46_2249 != null) {
@@ -1189,7 +1189,7 @@ final class Class66 {
                     Class64_Sub3.aString5600 = string;
                     Class186.aString2496 = string_142_;
                     RuntimeException_Sub1.anInt4596 = i_143_;
-                    Class348_Sub49.method3379(2, 6);
+                    RSBuffer.method3379(2, 6);
                     return;
                 }
                 return;
@@ -1250,7 +1250,7 @@ final class Class66 {
                         Class348_Sub40_Sub8.aClass238_9165 = null;
                     }
                     RuntimeException_Sub1.anInt4596 = i_144_;
-                    Class348_Sub49.method3379(2, 9);
+                    RSBuffer.method3379(2, 9);
                     return;
                 }
                 return;
@@ -1270,7 +1270,7 @@ final class Class66 {
                     }
                     Class64_Sub3.aString5600 = string;
                     Class186.aString2496 = string_145_;
-                    Class348_Sub49.method3379(2, 5);
+                    RSBuffer.method3379(2, 5);
                     return;
                 }
                 return;
@@ -5001,10 +5001,10 @@ final class Class66 {
                         i_488_ = -1;
                         anIntArray1164 = is_499_;
                         aStringArray1155 = strings;
-                    } else if (i_490_ == 42) anIntArray1149[anInt1173++] = Class77.anIntArray1303[is_489_[i_488_]];
+                    } else if (i_490_ == 42) anIntArray1149[anInt1173++] = IsaacCipher.anIntArray1303[is_489_[i_488_]];
                     else if (i_490_ == 43) {
                         int i_502_ = is_489_[i_488_];
-                        Class77.anIntArray1303[i_502_] = anIntArray1149[--anInt1173];
+                        IsaacCipher.anIntArray1303[i_502_] = anIntArray1149[--anInt1173];
                         Class232.method1647(-128, i_502_);
                         Class184.aBoolean2469 |= Class286_Sub6.aBooleanArray6270[i_502_];
                     } else if (i_490_ == 44) {

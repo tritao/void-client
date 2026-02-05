@@ -48,7 +48,7 @@ final class Class348_Sub44 extends Class348 {
     static final int method3306(byte i) {
         if (i >= -90) anInt7101 = -7;
         anInt7097++;
-        if (Class348_Sub49.anInt7207 == 1) return Class239_Sub16.anInt6008;
+        if (RSBuffer.anInt7207 == 1) return Class239_Sub16.anInt6008;
         return Class107.anInt1651;
     }
 

@@ -17,7 +17,7 @@ final class Class152 {
 
     final byte[] method1214(int i, byte[] is) {
         anInt2074++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         class348_sub49.anInt7197 = is.length - 4;
         int i_0_ = class348_sub49.method3359(-86);
         class348_sub49.anInt7197 = 0;
@@ -31,9 +31,9 @@ final class Class152 {
         if (i != 3) method1217(-39, null);
         anInt2078++;
         if (Class240.anInt4674 != 9) {
-            if (Class240.anInt4674 == 5 || Class240.anInt4674 == 6) Class348_Sub49.method3379(2, 3);
-            else if (Class240.anInt4674 == 12) Class348_Sub49.method3379(2, 3);
-        } else Class348_Sub49.method3379(2, 5);
+            if (Class240.anInt4674 == 5 || Class240.anInt4674 == 6) RSBuffer.method3379(2, 3);
+            else if (Class240.anInt4674 == 12) RSBuffer.method3379(2, 3);
+        } else RSBuffer.method3379(2, 5);
     }
 
     public static void method1216(byte i) {
@@ -70,7 +70,7 @@ final class Class152 {
         this(-1, 1000000, 1000000);
     }
 
-    final void method1218(byte[] is, int i, Class348_Sub49 class348_sub49) {
+    final void method1218(byte[] is, int i, RSBuffer class348_sub49) {
         try {
             if (i != 29123) method1217(-91, null);
             anInt2073++;

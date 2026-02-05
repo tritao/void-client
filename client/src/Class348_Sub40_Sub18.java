@@ -13,7 +13,7 @@ final class Class348_Sub40_Sub18 extends Class348_Sub40 {
     static int anInt9251;
     private int anInt9252;
 
-    static final void method3094(int i, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final void method3094(int i, PacketBuffer class348_sub49_sub2) {
         anInt9247++;
         int i_0_ = 0;
         class348_sub49_sub2.startBitAccess(-87);
@@ -138,7 +138,7 @@ final class Class348_Sub40_Sub18 extends Class348_Sub40 {
         if (i != 32462) aClass319_9245 = null;
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_20_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_20_) {
         int i_21_ = i;
         if (i_21_ == 0) method3095(-124, class348_sub49.readMedium(-1));
         anInt9251++;

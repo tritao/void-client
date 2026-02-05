@@ -115,7 +115,7 @@ final class Class179 {
         if (i != -1) aBoolean2360 = true;
     }
 
-    static final void method1365(int i, byte i_11_, Class348_Sub49 class348_sub49) {
+    static final void method1365(int i, byte i_11_, RSBuffer class348_sub49) {
         if (i_11_ > -113) anInt2361 = -64;
         if (Class374.aClass78_4538 != null) {
             try {

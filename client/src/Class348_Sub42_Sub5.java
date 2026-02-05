@@ -244,7 +244,7 @@ final class Class348_Sub42_Sub5 extends Class348_Sub42 {
         aClass348_Sub40_9527.anInt7036 = 1;
     }
 
-    Class348_Sub42_Sub5(Class348_Sub49 class348_sub49) {
+    Class348_Sub42_Sub5(RSBuffer class348_sub49) {
         int i = class348_sub49.readUnsignedByte(255);
         int i_56_ = 0;
         int i_57_ = 0;

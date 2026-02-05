@@ -16,7 +16,7 @@ final class za_Sub1 extends za {
     static final int method3439(int i) {
         anInt9771++;
         if (i <= 92) return 99;
-        if (Class348_Sub49.anInt7207 == 1) return Class348_Sub16_Sub1.anInt8854;
+        if (RSBuffer.anInt7207 == 1) return Class348_Sub16_Sub1.anInt8854;
         return Class59_Sub1.anInt5283;
     }
 

@@ -33,7 +33,7 @@ final class Class348_Sub40_Sub28 extends Class348_Sub40 {
         if (i != 0) method3122((byte) -98);
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         anInt9370++;
         if (i_0_ != 31015) anInt9364 = -29;
         int i_1_ = i;

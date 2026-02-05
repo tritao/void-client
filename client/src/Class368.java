@@ -42,7 +42,7 @@ final class Class368 {
         }
     }
 
-    final void method3559(int i, Class348_Sub49 class348_sub49) {
+    final void method3559(int i, RSBuffer class348_sub49) {
         anInt4497++;
         if (i == 28105) {
             for (; ; ) {
@@ -85,7 +85,7 @@ final class Class368 {
         return (i & 0x800) != 0;
     }
 
-    private final void method3564(int i, Class348_Sub49 class348_sub49, int i_11_) {
+    private final void method3564(int i, RSBuffer class348_sub49, int i_11_) {
         anInt4486++;
         if (i < -119) {
             if (i_11_ == 1) anInt4506 = class348_sub49.readUnsignedShort(842397944);

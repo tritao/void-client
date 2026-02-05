@@ -48,7 +48,7 @@ final class Class263 {
         class51 = new LocType();
         class51.anInt941 = i_0_;
         class51.aClass263_933 = this;
-        if (is != null) class51.method479((byte) 0, new Class348_Sub49(is));
+        if (is != null) class51.method479((byte) 0, new RSBuffer(is));
         class51.method488(-105);
         if (i != 0) this.aClass60_3361 = null;
         if (!this.aBoolean3359 && class51.aBoolean942) {
@@ -296,7 +296,7 @@ final class Class263 {
     static final void method2013(byte[] is, byte i) {
         if (i != 112) method2007(84, 119, -100, null, 92, -110, 96, 62, 31, 11, 62);
         anInt3357++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         for (; ; ) {
             int i_23_ = class348_sub49.readUnsignedByte(255);
             if (i_23_ == 0) break;

@@ -36,7 +36,7 @@ final class Class185 {
         }
         class253 = new Class253();
         int i_2_ = 50 / ((i - -63) / 56);
-        if (is != null) class253.method1921((byte) -69, new Class348_Sub49(is));
+        if (is != null) class253.method1921((byte) -69, new RSBuffer(is));
         synchronized (aClass60_2479) {
             aClass60_2479.method582(class253, i_1_, (byte) -108);
         }

@@ -61,7 +61,7 @@ final class Class348_Sub40_Sub39 extends Class348_Sub40 {
         Class5_Sub1.aBoolean8335 = false;
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_6_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_6_) {
         if (i_6_ != 31015) aClass70_9485 = null;
         if (i == 0) {
             aClass50Array9481 = new Class50[class348_sub49.readUnsignedByte(255)];

@@ -38,7 +38,7 @@ final class Class321 {
         aClass114_4015 = null;
     }
 
-    private final void method2550(Class348_Sub49 class348_sub49, int i, byte i_0_) {
+    private final void method2550(RSBuffer class348_sub49, int i, byte i_0_) {
         if (i_0_ != 52) anIntArray4014 = null;
         anInt4013++;
         if (i != 1) {
@@ -130,7 +130,7 @@ final class Class321 {
         } else aString4012 = class348_sub49.method3371(-13487);
     }
 
-    final void method2551(int i, Class348_Sub49 class348_sub49) {
+    final void method2551(int i, RSBuffer class348_sub49) {
         int i_19_ = -14 / ((i - -56) / 61);
         anInt3995++;
         for (; ; ) {

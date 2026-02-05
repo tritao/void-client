@@ -78,7 +78,7 @@ final class Class174 {
         aClass45_2306 = null;
     }
 
-    private final void method1335(Class348_Sub49 class348_sub49, int i, byte i_8_) {
+    private final void method1335(RSBuffer class348_sub49, int i, byte i_8_) {
         anInt2287++;
         if (i == 1) anInt2302 = class348_sub49.readUnsignedShort(842397944);
         else if (i == 2) class348_sub49.readUnsignedByte(255);
@@ -97,7 +97,7 @@ final class Class174 {
         if (i_8_ >= -124) this.aLong2301 = 65L;
     }
 
-    final void method1336(int i, Class348_Sub49 class348_sub49) {
+    final void method1336(int i, RSBuffer class348_sub49) {
         for (; ; ) {
             int i_9_ = class348_sub49.readUnsignedByte(255);
             if (i_9_ == 0) break;

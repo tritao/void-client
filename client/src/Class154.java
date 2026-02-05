@@ -18,7 +18,7 @@ final class Class154 {
     private long aLong2102;
     private int anInt2103;
     static int anInt2104;
-    static Class348_Sub49[] aClass348_Sub49Array2105 = new Class348_Sub49[2048];
+    static RSBuffer[] aClass348_Sub49Array2105 = new RSBuffer[2048];
     static int anInt2106;
     static int anInt2107;
 

@@ -15,7 +15,7 @@ final class Class140 {
 
     static final void method1168(int i, int i_0_, Rectangle[] rectangles) throws Exception_Sub1 {
         anInt1957++;
-        if (Class348_Sub49.anInt7207 != 1) Class21.aHa326.method3707(rectangles, i, 0, 0);
+        if (RSBuffer.anInt7207 != 1) Class21.aHa326.method3707(rectangles, i, 0, 0);
         else Class21.aHa326.method3707(rectangles, i, Class339.anInt4211, Class348_Sub40_Sub8.anInt9157);
         if (i_0_ != 0) aClass351_1961 = null;
     }

@@ -19,7 +19,7 @@ final class Class160 {
         if (i <= 11) aBooleanArrayArray2133 = null;
     }
 
-    final void method1255(Class348_Sub49 class348_sub49, int i) {
+    final void method1255(RSBuffer class348_sub49, int i) {
         for (; ; ) {
             int i_0_ = class348_sub49.readUnsignedByte(255);
             if (i_0_ == 0) break;
@@ -29,7 +29,7 @@ final class Class160 {
         anInt2129++;
     }
 
-    private final void method1256(int i, int i_1_, Class348_Sub49 class348_sub49) {
+    private final void method1256(int i, int i_1_, RSBuffer class348_sub49) {
         anInt2136++;
         if (i_1_ != 1) {
             if (i_1_ == 2) this.anInt2135 = 0;

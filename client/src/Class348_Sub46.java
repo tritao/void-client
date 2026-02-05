@@ -68,7 +68,7 @@ final class Class348_Sub46 extends Class348 {
         return Class147.aClass357ArrayArrayArray2029[i][i_2_][i_3_];
     }
 
-    static final Class369_Sub3 method3322(int i, Class348_Sub49 class348_sub49) {
+    static final Class369_Sub3 method3322(int i, RSBuffer class348_sub49) {
         anInt7109++;
         Class369 class369 = Class348_Sub16_Sub2.method2834((byte) -125, class348_sub49);
         int i_4_ = class348_sub49.readUnsignedShort(i ^ 0x3235f8f8);

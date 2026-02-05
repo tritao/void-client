@@ -14,7 +14,7 @@ final class Class222 {
     private int anInt2891;
     static Class351 aClass351_2892 = new Class351(39, 8);
 
-    private final void method1608(int i, Class348_Sub49 class348_sub49, byte i_0_) {
+    private final void method1608(int i, RSBuffer class348_sub49, byte i_0_) {
         anInt2887++;
         if (i == 1) anInt2891 = class348_sub49.readUnsignedShort(842397944);
         else if (i == 2) {
@@ -41,7 +41,7 @@ final class Class222 {
         return class207;
     }
 
-    final void method1611(Class348_Sub49 class348_sub49, boolean bool) {
+    final void method1611(RSBuffer class348_sub49, boolean bool) {
         for (; ; ) {
             int i = class348_sub49.readUnsignedByte(255);
             if (i == 0) break;

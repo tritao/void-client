@@ -75,7 +75,7 @@ public final class client extends GameShell {
                 }
                 if (Class47.anInt846 == 2) {
                     Class193.aClass202_2589 = new Class202((Socket) aa.aClass144_114.anObject1998, Class348_Sub23_Sub1.aClass297_8992, 25000);
-                    Class348_Sub49 class348_sub49 = new Class348_Sub49(5);
+                    RSBuffer class348_sub49 = new RSBuffer(5);
                     class348_sub49.writeByte(false, (Class178.aClass29_2341.anInt400));
                     class348_sub49.writeInt((byte) 103, 634);
                     Class193.aClass202_2589.method1470((class348_sub49.aByteArray7154), 5, 0, -1);
@@ -98,7 +98,7 @@ public final class client extends GameShell {
                 if (Class47.anInt846 == 4) {
                     boolean bool = (Class139.method1167(Class240.anInt4674, (byte) -100) || Class348_Sub42_Sub8.method3196(Class240.anInt4674, -87) || Class340.method2672(Class240.anInt4674, -127));
                     Class267[] class267s = Class267.method2029(105);
-                    Class348_Sub49 class348_sub49 = new Class348_Sub49(class267s.length * 4);
+                    RSBuffer class348_sub49 = new RSBuffer(class267s.length * 4);
                     Class193.aClass202_2589.method1474(class348_sub49.aByteArray7154, 0, (byte) -72, (class348_sub49.aByteArray7154).length);
                     for (int i_1_ = 0; i_1_ < class267s.length; i_1_++)
                         class267s[i_1_].method2030(1, class348_sub49.readInt((byte) -126));
@@ -248,8 +248,8 @@ public final class client extends GameShell {
         Class226.method1624(28962);
         Class355.method3473(12949);
         Class238.method1704((byte) -95);
-        Class77.method782(1);
-        Class348_Sub49_Sub2.method3414(21515);
+        IsaacCipher.method782(1);
+        PacketBuffer.method3414(21515);
         Class169.method1300((byte) -128);
         Class348_Sub26.method2998((byte) -35);
         Class361.method3508(2);
@@ -264,7 +264,7 @@ public final class client extends GameShell {
         Class227.method1627((byte) 116);
         Class19.method284((byte) 51);
         Class54.method501(1);
-        Class348_Sub49.method3376(i ^ ~0x6d);
+        RSBuffer.method3376(i ^ ~0x6d);
         Class348_Sub47.method3323(-44);
         Class318_Sub1_Sub3_Sub3.method2429(-123);
         Class357.method3487(-65);

@@ -28,7 +28,7 @@ final class Class130_Sub1 extends Class130 {
     }
 
     static final void method1134(int i) {
-        Class348_Sub49.method3379(2, 11);
+        RSBuffer.method3379(2, 11);
         anInt5802++;
         if (i < 28) aClass144_5800 = null;
         Class301.method2282(-12648);
@@ -113,7 +113,7 @@ final class Class130_Sub1 extends Class130 {
         GameShell.anInt12 = 0;
         Class318_Sub1_Sub5_Sub1.anInt10123 = 0;
         Class244.anInt4618 = 0;
-        Class348_Sub49.anInt7166 = 0;
+        RSBuffer.anInt7166 = 0;
         Class281.anInt3646 = 0;
         Npc.anInt10504 = 0;
         Player.anInt10547 = 0;
@@ -275,7 +275,7 @@ final class Class130_Sub1 extends Class130 {
         Class318_Sub1_Sub1_Sub2.anInt9978 = 0;
         Class14.anInt5103 = 0;
         Class348_Sub23_Sub2.anInt9021 = 0;
-        Class348_Sub49.anInt7160 = 0;
+        RSBuffer.anInt7160 = 0;
         Class348_Sub44.anInt7097 = 0;
         Class265.anInt4695 = 0;
         Class69.anInt1196 = 0;
@@ -284,7 +284,7 @@ final class Class130_Sub1 extends Class130 {
         Class184.anInt2475 = 0;
         Class82.anInt1438 = 0;
         Class239_Sub25.anInt6104 = 0;
-        Class348_Sub49.anInt7172 = 0;
+        RSBuffer.anInt7172 = 0;
         Class376.anInt4547 = 0;
         Class88.anInt1504 = 0;
         Class243.anInt3163 = 0;
@@ -298,7 +298,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub16_Sub3.anInt8897 = 0;
         aa_Sub3.anInt5205 = 0;
         Class239_Sub28.anInt6139 = 0;
-        Class348_Sub49.anInt7150 = 0;
+        RSBuffer.anInt7150 = 0;
         Class318_Sub1_Sub1_Sub1.anInt9944 = 0;
         MonochromeImageCache.anInt4034 = 0;
         Npc.anInt10495 = 0;
@@ -309,7 +309,7 @@ final class Class130_Sub1 extends Class130 {
         Class238_Sub1.anInt5829 = 0;
         Class64_Sub2.anInt5408 = 0;
         Class243.anInt3157 = 0;
-        Class348_Sub49.anInt7161 = 0;
+        RSBuffer.anInt7161 = 0;
         Class239_Sub17.anInt6025 = 0;
         Class202.anInt2666 = 0;
         Class318_Sub1_Sub4_Sub1.anInt10065 = 0;
@@ -352,7 +352,7 @@ final class Class130_Sub1 extends Class130 {
         Class92.anInt1526 = 0;
         Class314_Sub1.anInt6366 = 0;
         Class348_Sub1.anInt6556 = 0;
-        Class348_Sub49.anInt7194 = 0;
+        RSBuffer.anInt7194 = 0;
         Class348_Sub40_Sub18.anInt9248 = 0;
         Class348_Sub42_Sub5.anInt9525 = 0;
         Class73.anInt4773 = 0;
@@ -438,7 +438,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7529 = 0;
         Class318_Sub1_Sub1_Sub2.anInt9977 = 0;
         Class342.anInt4242 = 0;
-        Class348_Sub49.anInt7179 = 0;
+        RSBuffer.anInt7179 = 0;
         Class66.anInt1153 = 0;
         Class341.anInt4237 = 0;
         Class69.anInt1191 = 0;
@@ -518,10 +518,10 @@ final class Class130_Sub1 extends Class130 {
         ha_Sub3.anInt7946 = 0;
         LocType.anInt958 = 0;
         Class239.anInt3140 = 0;
-        Class77.anInt1302 = 0;
+        IsaacCipher.anInt1302 = 0;
         GlToolkit.anInt7697 = 0;
         Class348_Sub40_Sub30.anInt9393 = 0;
-        Class348_Sub49.anInt7203 = 0;
+        RSBuffer.anInt7203 = 0;
         Class348_Sub16_Sub3.anInt8901 = 0;
         Class348_Sub42_Sub1.anInt9493 = 0;
         Class64_Sub2.anInt5464 = 0;
@@ -551,7 +551,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7611 = 0;
         Class59_Sub2_Sub1.anInt8672 = 0;
         Class15.anInt227 = 0;
-        Class348_Sub49.anInt7151 = 0;
+        RSBuffer.anInt7151 = 0;
         Class318_Sub1_Sub3_Sub4.anInt10344 = 0;
         Class239_Sub18.anInt6038 = 0;
         Class367_Sub11.anInt7402 = 0;
@@ -572,7 +572,7 @@ final class Class130_Sub1 extends Class130 {
         ha_Sub3.anInt7997 = 0;
         Class105_Sub2.anInt8448 = 0;
         Class191.anInt2558 = 0;
-        Class348_Sub49.anInt7163 = 0;
+        RSBuffer.anInt7163 = 0;
         Exception_Sub1.anInt109 = 0;
         anInt5798 = 0;
         GlToolkit.anInt7524 = 0;
@@ -596,7 +596,7 @@ final class Class130_Sub1 extends Class130 {
         Class318_Sub1_Sub1.anInt8722 = 0;
         Class367_Sub3.anInt7302 = 0;
         client.anInt5184 = 0;
-        Class348_Sub49.anInt7139 = 0;
+        RSBuffer.anInt7139 = 0;
         VarpTypeList.anInt2843 = 0;
         Class318_Sub1_Sub5_Sub1.anInt10146 = 0;
         Class66.anInt1162 = 0;
@@ -640,7 +640,7 @@ final class Class130_Sub1 extends Class130 {
         Class5_Sub1.anInt8345 = 0;
         Class101.anInt1594 = 0;
         Class348_Sub42_Sub3.anInt9500 = 0;
-        Class348_Sub49.anInt7170 = 0;
+        RSBuffer.anInt7170 = 0;
         Class213.anInt2832 = 0;
         Class348_Sub40_Sub19.anInt9258 = 0;
         Class348_Sub12.anInt6734 = 0;
@@ -673,7 +673,7 @@ final class Class130_Sub1 extends Class130 {
         Class367_Sub1.anInt7280 = 0;
         Class280.anInt3629 = 0;
         Class154.anInt2104 = 0;
-        Class348_Sub49.anInt7156 = 0;
+        RSBuffer.anInt7156 = 0;
         Class318_Sub1_Sub4_Sub2.anInt10101 = 0;
         GlToolkit.anInt7600 = 0;
         GameShell.anInt4 = 0;
@@ -691,7 +691,7 @@ final class Class130_Sub1 extends Class130 {
         Class286_Sub1.anInt6184 = 0;
         Class237.anInt3105 = 0;
         Class124.anInt1840 = 0;
-        Class77.anInt1295 = 0;
+        IsaacCipher.anInt1295 = 0;
         Class18.anInt278 = 0;
         GlToolkit.anInt7545 = 0;
         Class348_Sub40_Sub37.anInt9464 = 0;
@@ -752,7 +752,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7567 = 0;
         Class280.anInt3628 = 0;
         Class242.anInt3155 = 0;
-        Class348_Sub49.anInt7153 = 0;
+        RSBuffer.anInt7153 = 0;
         Class45.anInt627 = 0;
         Class377.anInt9850 = 0;
         Class348_Sub42_Sub9_Sub1.anInt10439 = 0;
@@ -791,7 +791,7 @@ final class Class130_Sub1 extends Class130 {
         Class239_Sub19.anInt6041 = 0;
         GameShell.anInt1 = 0;
         Class64.anInt1135 = 0;
-        Class348_Sub49_Sub2.anInt9767 = 0;
+        PacketBuffer.anInt9767 = 0;
         VarpDomain.anInt5074 = 0;
         GameShell.anInt24 = 0;
         ha_Sub3.anInt7908 = 0;
@@ -841,7 +841,7 @@ final class Class130_Sub1 extends Class130 {
         ha_Sub3.anInt7986 = 0;
         Class286_Sub9.anInt6319 = 0;
         Class223.anInt2898 = 0;
-        Class348_Sub49.anInt7201 = 0;
+        RSBuffer.anInt7201 = 0;
         Class263.anInt3358 = 0;
         Class279.anInt3597 = 0;
         Class286_Sub6.anInt6267 = 0;
@@ -879,12 +879,12 @@ final class Class130_Sub1 extends Class130 {
         Class64_Sub2.anInt5403 = 0;
         Class330.anInt4114 = 0;
         Class258.anInt4855 = 0;
-        Class348_Sub49_Sub2.anInt9764 = 0;
+        PacketBuffer.anInt9764 = 0;
         s.anInt4591 = 0;
         Class286_Sub2.anInt6204 = 0;
         Class361.anInt4442 = 0;
         Class264.anInt3366 = 0;
-        Class348_Sub49.anInt7204 = 0;
+        RSBuffer.anInt7204 = 0;
         Class348_Sub40.anInt7044 = 0;
         NPCType.anInt1357 = 0;
         Class211.anInt2733 = 0;
@@ -931,7 +931,7 @@ final class Class130_Sub1 extends Class130 {
         Class284.anInt3674 = 0;
         Class318_Sub1_Sub1_Sub1.anInt9968 = 0;
         Class111.anInt1716 = 0;
-        Class348_Sub49_Sub2.anInt9753 = 0;
+        PacketBuffer.anInt9753 = 0;
         ha_Sub3.anInt7976 = 0;
         Class286_Sub4.anInt6236 = 0;
         GlToolkit.anInt7565 = 0;
@@ -990,7 +990,7 @@ final class Class130_Sub1 extends Class130 {
         Class377.anInt9813 = 0;
         Class348_Sub50.anInt7214 = 0;
         Class318_Sub1_Sub3_Sub2.anInt10042 = 0;
-        Class77.anInt1300 = 0;
+        IsaacCipher.anInt1300 = 0;
         Class348_Sub3.anInt6576 = 0;
         Class26.anInt378 = 0;
         Class377.anInt9827 = 0;
@@ -1141,7 +1141,7 @@ final class Class130_Sub1 extends Class130 {
         Class30.anInt415 = 0;
         Class348_Sub20.anInt6829 = 0;
         Class318_Sub1_Sub4_Sub2.anInt10113 = 0;
-        Class348_Sub49.anInt7149 = 0;
+        RSBuffer.anInt7149 = 0;
         Class372.anInt4530 = 0;
         Video.anInt1000 = 0;
         VarpType.anInt2126 = 0;
@@ -1311,9 +1311,9 @@ final class Class130_Sub1 extends Class130 {
         Class367_Sub11.anInt7393 = 0;
         ha_Sub3.anInt8027 = 0;
         Class33.anInt456 = 0;
-        Class348_Sub49_Sub2.anInt9758 = 0;
+        PacketBuffer.anInt9758 = 0;
         ha_Sub3.anInt8037 = 0;
-        Class348_Sub49.anInt7145 = 0;
+        RSBuffer.anInt7145 = 0;
         Class286_Sub8.anInt6292 = 0;
         Class369_Sub3_Sub1.anInt10173 = 0;
         Class348_Sub40_Sub3.anInt9110 = 0;
@@ -1394,7 +1394,7 @@ final class Class130_Sub1 extends Class130 {
         Class98.anInt1571 = 0;
         Class239_Sub18.anInt6032 = 0;
         ha_Sub3.anInt7884 = 0;
-        Class348_Sub49.anInt7157 = 0;
+        RSBuffer.anInt7157 = 0;
         GlToolkit.anInt7597 = 0;
         aa.anInt115 = 0;
         Class348_Sub40_Sub25.anInt9336 = 0;
@@ -1407,7 +1407,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7615 = 0;
         Class287.anInt3692 = 0;
         Class324.anInt4045 = 0;
-        Class348_Sub49.anInt7178 = 0;
+        RSBuffer.anInt7178 = 0;
         Class333.anInt4149 = 0;
         client.anInt5173 = 0;
         Class28.anInt4996 = 0;
@@ -1457,14 +1457,14 @@ final class Class130_Sub1 extends Class130 {
         Class101_Sub2.anInt5701 = 0;
         Class348_Sub31_Sub2.anInt9081 = 0;
         Class348_Sub42_Sub10.anInt9569 = 0;
-        Class348_Sub49.anInt7144 = 0;
+        RSBuffer.anInt7144 = 0;
         Class348_Sub42_Sub9.anInt9557 = 0;
         Class124.anInt1864 = 0;
         Class238_Sub1.anInt5838 = 0;
         Class240.anInt4675 = 0;
         ha_Sub3.anInt8058 = 0;
         Class5_Sub2.anInt8354 = 0;
-        Class348_Sub49_Sub2.anInt9765 = 0;
+        PacketBuffer.anInt9765 = 0;
         Class64_Sub2.anInt5450 = 0;
         Class286_Sub7.anInt6279 = 0;
         Class44.anInt623 = 0;
@@ -1489,7 +1489,7 @@ final class Class130_Sub1 extends Class130 {
         Class126.anInt4988 = 0;
         Class348_Sub27.anInt6901 = 0;
         Class339.anInt4198 = 0;
-        Class348_Sub49.anInt7187 = 0;
+        RSBuffer.anInt7187 = 0;
         Class348_Sub51.anInt7237 = 0;
         Class348_Sub40_Sub5.anInt9126 = 0;
         Class373_Sub2.anInt7445 = 0;
@@ -1544,14 +1544,14 @@ final class Class130_Sub1 extends Class130 {
         Class34.anInt473 = 0;
         Class377.anInt9857 = 0;
         Class318_Sub1_Sub3_Sub5.anInt10415 = 0;
-        Class348_Sub49_Sub2.anInt9769 = 0;
+        PacketBuffer.anInt9769 = 0;
         Class183.anInt2459 = 0;
         Class318_Sub1_Sub1_Sub2.anInt9985 = 0;
         Class318_Sub7.anInt6442 = 0;
         Class348_Sub5_Sub1.anInt8823 = 0;
         LocType.anInt960 = 0;
         Class183.anInt2467 = 0;
-        Class348_Sub49.anInt7190 = 0;
+        RSBuffer.anInt7190 = 0;
         Class263.anInt3357 = 0;
         Class50_Sub4.anInt5260 = 0;
         s_Sub2.anInt8250 = 0;
@@ -1642,7 +1642,7 @@ final class Class130_Sub1 extends Class130 {
         Class64_Sub3.anInt5546 = 0;
         Class187.anInt2502 = 0;
         GlToolkit.anInt7606 = 0;
-        Class348_Sub49_Sub2.anInt9766 = 0;
+        PacketBuffer.anInt9766 = 0;
         VarBitType.anInt2017 = 0;
         Class195.anInt5014 = 0;
         Class64_Sub3.anInt5582 = 0;
@@ -1662,7 +1662,7 @@ final class Class130_Sub1 extends Class130 {
         Class206.anInt4864 = 0;
         Class348_Sub40_Sub6.anInt9132 = 0;
         Class64_Sub3.anInt5613 = 0;
-        Class348_Sub49_Sub2.anInt9752 = 0;
+        PacketBuffer.anInt9752 = 0;
         Class258_Sub2.anInt8534 = 0;
         Video.anInt1003 = 0;
         Class318_Sub9_Sub1.anInt8788 = 0;
@@ -1684,7 +1684,7 @@ final class Class130_Sub1 extends Class130 {
         Class318_Sub1_Sub5_Sub1.anInt10136 = 0;
         Class348_Sub40.anInt7038 = 0;
         Class314_Sub1.anInt6367 = 0;
-        Class348_Sub49.anInt7181 = 0;
+        RSBuffer.anInt7181 = 0;
         Class324.anInt4058 = 0;
         Class101_Sub2.anInt5721 = 0;
         Class348_Sub40_Sub33.anInt9428 = 0;
@@ -1701,7 +1701,7 @@ final class Class130_Sub1 extends Class130 {
         Class237_Sub1.anInt5820 = 0;
         GameShell.anInt28 = 0;
         GlToolkit.anInt7605 = 0;
-        Class348_Sub49.anInt7188 = 0;
+        RSBuffer.anInt7188 = 0;
         GlToolkit.anInt7587 = 0;
         Class348_Sub24.anInt6873 = 0;
         Class338.anInt4189 = 0;
@@ -1806,7 +1806,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub42_Sub16.anInt9666 = 0;
         Class238_Sub1.anInt5831 = 0;
         Class219.anInt2874 = 0;
-        Class348_Sub49.anInt7205 = 0;
+        RSBuffer.anInt7205 = 0;
         ha_Sub3.anInt7906 = 0;
         GlToolkit.anInt7662 = 0;
         Class348_Sub3.anInt6587 = 0;
@@ -1873,7 +1873,7 @@ final class Class130_Sub1 extends Class130 {
         Class367_Sub9.anInt7370 = 0;
         Class15.anInt228 = 0;
         Class377.anInt9832 = 0;
-        Class348_Sub49.anInt7140 = 0;
+        RSBuffer.anInt7140 = 0;
         Class318_Sub1_Sub3_Sub2.anInt10049 = 0;
         Class239_Sub5.anInt5888 = 0;
         Class5_Sub1.anInt8336 = 0;
@@ -1886,7 +1886,7 @@ final class Class130_Sub1 extends Class130 {
         Class185.anInt2487 = 0;
         Class348_Sub42_Sub5.anInt9522 = 0;
         Class337.anInt4180 = 0;
-        Class348_Sub49.anInt7165 = 0;
+        RSBuffer.anInt7165 = 0;
         Class318_Sub9_Sub1.anInt8782 = 0;
         Class348_Sub16_Sub2.anInt8864 = 0;
         Class213.anInt2790 = 0;
@@ -1957,12 +1957,12 @@ final class Class130_Sub1 extends Class130 {
         Class285.anInt4758 = 0;
         Class195.anInt5003 = 0;
         Class234.anInt3045 = 0;
-        Class348_Sub49_Sub2.anInt9760 = 0;
+        PacketBuffer.anInt9760 = 0;
         Class16.anInt234 = 0;
         Class299_Sub1.anInt6320 = 0;
-        Class348_Sub49.anInt7155 = 0;
+        RSBuffer.anInt7155 = 0;
         s_Sub2.anInt8263 = 0;
-        Class348_Sub49.anInt7189 = 0;
+        RSBuffer.anInt7189 = 0;
         Class107.anInt1649 = 0;
         Class5_Sub3.anInt8373 = 0;
         Class348_Sub40_Sub12.anInt9192 = 0;
@@ -2001,7 +2001,7 @@ final class Class130_Sub1 extends Class130 {
         Class64.anInt1126 = 0;
         Class286.anInt3681 = 0;
         Class64_Sub3.anInt5628 = 0;
-        Class348_Sub49.anInt7167 = 0;
+        RSBuffer.anInt7167 = 0;
         Class213.anInt2780 = 0;
         Class312.anInt3927 = 0;
         Class348_Sub40_Sub16.anInt9223 = 0;
@@ -2046,7 +2046,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7634 = 0;
         Class348_Sub16_Sub3.anInt8927 = 0;
         s_Sub3.anInt8318 = 0;
-        Class348_Sub49.anInt7171 = 0;
+        RSBuffer.anInt7171 = 0;
         Class188.anInt2517 = 0;
         Class348_Sub42_Sub20.anInt9708 = 0;
         Class316.anInt3958 = 0;
@@ -2109,14 +2109,14 @@ final class Class130_Sub1 extends Class130 {
         aa_Sub2.anInt5194 = 0;
         RuntimeException_Sub1.anInt4605 = 0;
         Class117.anInt1775 = 0;
-        Class348_Sub49.anInt7169 = 0;
+        RSBuffer.anInt7169 = 0;
         Class27.anInt390 = 0;
         Class348_Sub42_Sub16_Sub1.anInt10455 = 0;
         Class330.anInt4120 = 0;
         Class373_Sub2.anInt7449 = 0;
         IOException_Sub1.anInt87 = 0;
         Class286_Sub6.anInt6271 = 0;
-        Class348_Sub49.anInt7143 = 0;
+        RSBuffer.anInt7143 = 0;
         Class318_Sub1_Sub1_Sub2.anInt9995 = 0;
         client.anInt5172 = 0;
         Class306.anInt3874 = 0;
@@ -2193,7 +2193,7 @@ final class Class130_Sub1 extends Class130 {
         Class45.anInt668 = 0;
         Class348_Sub40_Sub34.anInt9434 = 0;
         Class59_Sub1_Sub1.anInt8655 = 0;
-        Class348_Sub49_Sub2.anInt9763 = 0;
+        PacketBuffer.anInt9763 = 0;
         Class104.anInt1619 = 0;
         Class348_Sub16_Sub1.anInt8845 = 0;
         Class286_Sub9.anInt6309 = 0;
@@ -2270,7 +2270,7 @@ final class Class130_Sub1 extends Class130 {
         Class5_Sub2.anInt8362 = 0;
         Class348_Sub16_Sub3.anInt8917 = 0;
         Class318_Sub1_Sub4_Sub1.anInt10080 = 0;
-        Class348_Sub49.anInt7185 = 0;
+        RSBuffer.anInt7185 = 0;
         Class117.anInt1769 = 0;
         Class361.anInt4439 = 0;
         Class239_Sub18.anInt6033 = 0;
@@ -2309,7 +2309,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub17.anInt6794 = 0;
         Class248.anInt3193 = 0;
         Class239_Sub29.anInt6153 = 0;
-        Class348_Sub49.anInt7198 = 0;
+        RSBuffer.anInt7198 = 0;
         Class110.anInt1705 = 0;
         Class373_Sub2.anInt7455 = 0;
         Class218.anInt2857 = 0;
@@ -2376,14 +2376,14 @@ final class Class130_Sub1 extends Class130 {
         Class237.anInt3106 = 0;
         Class181.anInt2396 = 0;
         Class318_Sub1_Sub3.anInt8742 = 0;
-        Class77.anInt1297 = 0;
+        IsaacCipher.anInt1297 = 0;
         ha_Sub3.anInt7961 = 0;
         Class348_Sub40_Sub35.anInt9441 = 0;
         Class64_Sub3.anInt5643 = 0;
         Class235.anInt3070 = 0;
         Class348_Sub40_Sub37.anInt9460 = 0;
         GlToolkit.anInt7650 = 0;
-        Class348_Sub49.anInt7152 = 0;
+        RSBuffer.anInt7152 = 0;
         Class348_Sub23_Sub2.anInt9017 = 0;
         Class32.anInt455 = 0;
         Class74.anInt1235 = 0;
@@ -2410,7 +2410,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub16_Sub2.anInt8875 = 0;
         Class302.anInt3841 = 0;
         Class34.anInt467 = 0;
-        Class348_Sub49.anInt7202 = 0;
+        RSBuffer.anInt7202 = 0;
         GlToolkit.anInt7547 = 0;
         Class157.anInt2121 = 0;
         Class154.anInt2096 = 0;
@@ -2446,7 +2446,7 @@ final class Class130_Sub1 extends Class130 {
         Class42.anInt589 = 0;
         Class348_Sub31_Sub2.anInt9072 = 0;
         Class125.anInt4926 = 0;
-        Class348_Sub49.anInt7147 = 0;
+        RSBuffer.anInt7147 = 0;
         Class348_Sub40_Sub6.anInt9131 = 0;
         Class239_Sub14.anInt5983 = 0;
         Class356.anInt4381 = 0;
@@ -2471,7 +2471,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub40_Sub24.anInt9328 = 0;
         Class348_Sub42_Sub10.anInt9570 = 0;
         Class318_Sub1_Sub3_Sub1.anInt10034 = 0;
-        Class348_Sub49.anInt7191 = 0;
+        RSBuffer.anInt7191 = 0;
         Class50_Sub2.anInt5235 = 0;
         Class64_Sub3.anInt5636 = 0;
         Class348_Sub42_Sub3.anInt9507 = 0;
@@ -2486,7 +2486,7 @@ final class Class130_Sub1 extends Class130 {
         Class233.anInt3016 = 0;
         Class348_Sub31_Sub2.anInt9076 = 0;
         Class367_Sub4.anInt7313 = 0;
-        Class348_Sub49_Sub2.anInt9761 = 0;
+        PacketBuffer.anInt9761 = 0;
         Class99.anInt1576 = 0;
         Class348_Sub42_Sub14.anInt9623 = 0;
         Class219.anInt2869 = 0;
@@ -2538,7 +2538,7 @@ final class Class130_Sub1 extends Class130 {
         Class199.anInt2627 = 0;
         Class377.anInt9874 = 0;
         Class348_Sub23_Sub2.anInt9022 = 0;
-        Class348_Sub49_Sub2.anInt9755 = 0;
+        PacketBuffer.anInt9755 = 0;
         Class348_Sub31_Sub2.anInt9068 = 0;
         Class239_Sub21.anInt6069 = 0;
         Class377.anInt9846 = 0;
@@ -2588,7 +2588,7 @@ final class Class130_Sub1 extends Class130 {
         Class239_Sub16.anInt6010 = 0;
         Class318_Sub1_Sub5_Sub2.anInt10160 = 0;
         Class137.anInt1935 = 0;
-        Class348_Sub49.anInt7162 = 0;
+        RSBuffer.anInt7162 = 0;
         Class307.anInt3878 = 0;
         anInt5795 = 0;
         Class64_Sub2.anInt5446 = 0;
@@ -2596,7 +2596,7 @@ final class Class130_Sub1 extends Class130 {
         Class34.anInt462 = 0;
         Class318_Sub1_Sub3_Sub5.anInt10402 = 0;
         Class339.anInt4209 = 0;
-        Class348_Sub49.anInt7164 = 0;
+        RSBuffer.anInt7164 = 0;
         Class348_Sub40_Sub38.anInt9468 = 0;
         Class239_Sub23.anInt6078 = 0;
         Class348_Sub40.anInt7039 = 0;
@@ -2684,7 +2684,7 @@ final class Class130_Sub1 extends Class130 {
         Class122.anInt1809 = 0;
         Class348_Sub17.anInt6801 = 0;
         Class105_Sub1.anInt8394 = 0;
-        Class348_Sub49.anInt7176 = 0;
+        RSBuffer.anInt7176 = 0;
         Class188.anInt2520 = 0;
         Class318_Sub1_Sub3_Sub1.anInt10013 = 0;
         Class127_Sub1.anInt8379 = 0;
@@ -2785,7 +2785,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub23_Sub1.anInt8997 = 0;
         Class348_Sub40.anInt7027 = 0;
         Video.anInt988 = 0;
-        Class348_Sub49.anInt7208 = 0;
+        RSBuffer.anInt7208 = 0;
         Class318_Sub1_Sub1_Sub2.anInt9972 = 0;
         GlToolkit.anInt7703 = 0;
         GlToolkit.anInt7594 = 0;
@@ -2833,7 +2833,7 @@ final class Class130_Sub1 extends Class130 {
         Class239_Sub12.anInt5967 = 0;
         GameShell.anInt7 = 0;
         IOException_Sub1.anInt88 = 0;
-        Class348_Sub49.anInt7180 = 0;
+        RSBuffer.anInt7180 = 0;
         Class239_Sub9.anInt5927 = 0;
         Class239_Sub2.anInt5852 = 0;
         ha_Sub3.anInt7902 = 0;
@@ -2944,7 +2944,7 @@ final class Class130_Sub1 extends Class130 {
         Player.anInt10548 = 0;
         Class239_Sub24.anInt6088 = 0;
         Class278.anInt3579 = 0;
-        Class348_Sub49.anInt7195 = 0;
+        RSBuffer.anInt7195 = 0;
         Class359.anInt4422 = 0;
         s_Sub2.anInt8254 = 0;
         Class348_Sub23.anInt6863 = 0;
@@ -3104,7 +3104,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub42_Sub16_Sub2.anInt10462 = 0;
         Class151.anInt2064 = 0;
         VarpDomain.anInt5062 = 0;
-        Class348_Sub49.anInt7196 = 0;
+        RSBuffer.anInt7196 = 0;
         TimeUtils.anInt4137 = 0;
         Class237.anInt3110 = 0;
         Class348_Sub40_Sub31.anInt9409 = 0;
@@ -3152,7 +3152,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub23_Sub2.anInt9030 = 0;
         AwtLoadingScreen.anInt5025 = 0;
         Class348_Sub3.anInt6570 = 0;
-        Class77.anInt1299 = 0;
+        IsaacCipher.anInt1299 = 0;
         Class318_Sub1_Sub1_Sub2.anInt9986 = 0;
         Class117.anInt1763 = 0;
         Class64_Sub3.anInt5549 = 0;
@@ -3219,7 +3219,7 @@ final class Class130_Sub1 extends Class130 {
         Player.anInt10543 = 0;
         Class285.anInt4740 = 0;
         Class269.anInt3461 = 0;
-        Class348_Sub49.anInt7158 = 0;
+        RSBuffer.anInt7158 = 0;
         Class239_Sub12.anInt5960 = 0;
         Class25.anInt365 = 0;
         Class350.anInt4315 = 0;
@@ -3239,7 +3239,7 @@ final class Class130_Sub1 extends Class130 {
         Class188.anInt2516 = 0;
         Class64_Sub2.anInt5411 = 0;
         Class171.anInt2274 = 0;
-        Class348_Sub49.anInt7159 = 0;
+        RSBuffer.anInt7159 = 0;
         GlToolkit.anInt7693 = 0;
         Class67.anInt4644 = 0;
         Class239_Sub20.anInt6052 = 0;
@@ -3249,7 +3249,7 @@ final class Class130_Sub1 extends Class130 {
         Class113.anInt1741 = 0;
         s_Sub2.anInt8271 = 0;
         Class124.anInt1858 = 0;
-        Class348_Sub49.anInt7199 = 0;
+        RSBuffer.anInt7199 = 0;
         Class377.anInt9868 = 0;
         ha_Sub3.anInt8059 = 0;
         Class62.anInt1110 = 0;
@@ -3287,7 +3287,7 @@ final class Class130_Sub1 extends Class130 {
         Class237.anInt3112 = 0;
         Class318_Sub1_Sub4_Sub1.anInt10067 = 0;
         Class348_Sub16_Sub1.anInt8851 = 0;
-        Class348_Sub49.anInt7177 = 0;
+        RSBuffer.anInt7177 = 0;
         Class348_Sub16_Sub3.anInt8955 = 0;
         Class239_Sub11.anInt5957 = 0;
         LocType.anInt927 = 0;
@@ -3315,7 +3315,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub40_Sub14.anInt9207 = 0;
         Class69.anInt1194 = 0;
         Class239_Sub8.anInt5914 = 0;
-        Class348_Sub49.anInt7192 = 0;
+        RSBuffer.anInt7192 = 0;
         Class110_Sub1.anInt5793 = 0;
         Class32.anInt447 = 0;
         Class161.anInt2144 = 0;
@@ -3449,7 +3449,7 @@ final class Class130_Sub1 extends Class130 {
         Class202.anInt2660 = 0;
         ha_Sub3.anInt7889 = 0;
         Class152.anInt2070 = 0;
-        Class348_Sub49.anInt7148 = 0;
+        RSBuffer.anInt7148 = 0;
         GlToolkit.anInt7696 = 0;
         Class348_Sub31.anInt6915 = 0;
         Class348_Sub40_Sub30.anInt9391 = 0;
@@ -3462,7 +3462,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub33.anInt6956 = 0;
         Class319.anInt3987 = 0;
         ha_Sub3.anInt7981 = 0;
-        Class348_Sub49.anInt7173 = 0;
+        RSBuffer.anInt7173 = 0;
         Class348_Sub40_Sub5.anInt9120 = 0;
         Class330.anInt4125 = 0;
         Class219.anInt2870 = 0;
@@ -3500,7 +3500,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7579 = 0;
         Class348_Sub40_Sub23.anInt9308 = 0;
         Class101_Sub2.anInt5737 = 0;
-        Class348_Sub49_Sub2.anInt9762 = 0;
+        PacketBuffer.anInt9762 = 0;
         Class50_Sub3.anInt5248 = 0;
         Class319.anInt3986 = 0;
         Class141.anInt1972 = 0;
@@ -3509,7 +3509,7 @@ final class Class130_Sub1 extends Class130 {
         GameShell.anInt40 = 0;
         ha.anInt4563 = 0;
         Class119_Sub2.anInt4828 = 0;
-        Class348_Sub49.anInt7182 = 0;
+        RSBuffer.anInt7182 = 0;
         Class101_Sub3.anInt5783 = 0;
         Class348_Sub16_Sub3.anInt8889 = 0;
         OutputStream_Sub1.anInt94 = 0;
@@ -3562,12 +3562,12 @@ final class Class130_Sub1 extends Class130 {
         Class59_Sub1_Sub1.anInt8656 = 0;
         GameShell.anInt29 = 0;
         ha_Sub3.anInt8038 = 0;
-        Class77.anInt1301 = 0;
+        IsaacCipher.anInt1301 = 0;
         Class160.anInt2129 = 0;
         ha_Sub3.anInt7967 = 0;
         Class46.anInt718 = 0;
         GlToolkit.anInt7653 = 0;
-        Class348_Sub49.anInt7137 = 0;
+        RSBuffer.anInt7137 = 0;
         Class230.anInt2989 = 0;
         Class318_Sub1_Sub3_Sub1.anInt10018 = 0;
         Class377.anInt9877 = 0;
@@ -3585,7 +3585,7 @@ final class Class130_Sub1 extends Class130 {
         Class105_Sub1.anInt8392 = 0;
         Class175.anInt2328 = 0;
         Class64_Sub2.anInt5525 = 0;
-        Class348_Sub49.anInt7184 = 0;
+        RSBuffer.anInt7184 = 0;
         Class66.anInt1158 = 0;
         Class237_Sub1.anInt5826 = 0;
         SystemInfo.anInt6611 = 0;
@@ -3636,7 +3636,7 @@ final class Class130_Sub1 extends Class130 {
         Class303.anInt3843 = 0;
         Class31.anInt428 = 0;
         Class105_Sub1.anInt8404 = 0;
-        Class348_Sub49.anInt7174 = 0;
+        RSBuffer.anInt7174 = 0;
         Class348_Sub40.anInt7040 = 0;
         Class318_Sub1_Sub3_Sub3.anInt10263 = 0;
         Class18.anInt273 = 0;
@@ -3644,7 +3644,7 @@ final class Class130_Sub1 extends Class130 {
         Class286_Sub3.anInt6217 = 0;
         Class119_Sub1.anInt4699 = 0;
         ha_Sub3.anInt8034 = 0;
-        Class348_Sub49.anInt7209 = 0;
+        RSBuffer.anInt7209 = 0;
         Class348_Sub16_Sub2.anInt8860 = 0;
         Class309.anInt4815 = 0;
         Class318_Sub1_Sub3_Sub2.anInt10060 = 0;
@@ -3652,7 +3652,7 @@ final class Class130_Sub1 extends Class130 {
         GlToolkit.anInt7619 = 0;
         Class111.anInt1721 = 0;
         Class261.anInt3320 = 0;
-        Class348_Sub49.anInt7200 = 0;
+        RSBuffer.anInt7200 = 0;
         ha_Sub3.anInt8005 = 0;
         Class228.anInt2975 = 0;
         Class348_Sub40_Sub32.anInt9419 = 0;
@@ -3702,7 +3702,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub40_Sub26.anInt9345 = 0;
         Class101_Sub2.anInt5695 = 0;
         Class348_Sub42_Sub13.anInt9613 = 0;
-        Class348_Sub49.anInt7186 = 0;
+        RSBuffer.anInt7186 = 0;
         ha_Sub3.anInt7980 = 0;
         Class348_Sub42_Sub9_Sub1.anInt10445 = 0;
         LocType.anInt910 = 0;
@@ -3726,7 +3726,7 @@ final class Class130_Sub1 extends Class130 {
         VarpTypeList.anInt2841 = 0;
         Class25.anInt363 = 0;
         Class348_Sub16_Sub1.anInt8856 = 0;
-        Class348_Sub49.anInt7168 = 0;
+        RSBuffer.anInt7168 = 0;
         Class258_Sub1.anInt8524 = 0;
         Class169.anInt2262 = 0;
         aa_Sub2.anInt5195 = 0;
@@ -3837,7 +3837,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub40_Sub7.anInt9141 = 0;
         Class348_Sub45_Sub2.anInt9737 = 0;
         Class27.anInt392 = 0;
-        Class348_Sub49.anInt7193 = 0;
+        RSBuffer.anInt7193 = 0;
         Class326.anInt4083 = 0;
         Class237.anInt3111 = 0;
         Class177.anInt4665 = 0;
@@ -3887,7 +3887,7 @@ final class Class130_Sub1 extends Class130 {
         Class5_Sub1.anInt8348 = 0;
         Class261.anInt3318 = 0;
         TimeUtils.anInt4136 = 0;
-        Class348_Sub49.anInt7138 = 0;
+        RSBuffer.anInt7138 = 0;
         Class318_Sub1_Sub5_Sub2.anInt10151 = 0;
         Class367.anInt4480 = 0;
         Class237_Sub1.anInt5822 = 0;
@@ -3933,7 +3933,7 @@ final class Class130_Sub1 extends Class130 {
         Class318_Sub1_Sub5_Sub2.anInt10164 = 0;
         Class278.anInt3588 = 0;
         Class59.anInt1070 = 0;
-        Class348_Sub49.anInt7183 = 0;
+        RSBuffer.anInt7183 = 0;
         Video.anInt1004 = 0;
         Class152.anInt2073 = 0;
         Class64_Sub3.anInt5568 = 0;
@@ -4010,7 +4010,7 @@ final class Class130_Sub1 extends Class130 {
         Class54.anInt968 = 0;
         Class239_Sub5.anInt5884 = 0;
         Class187.anInt2499 = 0;
-        Class348_Sub49.anInt7141 = 0;
+        RSBuffer.anInt7141 = 0;
         Class153.anInt2081 = 0;
         Class258_Sub3.anInt8546 = 0;
         Class348_Sub18.anInt6821 = 0;
@@ -4035,7 +4035,7 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub16_Sub3.anInt8922 = 0;
         Class101_Sub3.anInt5758 = 0;
         Class103.anInt1608 = 0;
-        Class348_Sub49.anInt7142 = 0;
+        RSBuffer.anInt7142 = 0;
         Class189.anInt2521 = 0;
         Class258_Sub1.anInt8526 = 0;
         GlToolkit.anInt7532 = 0;
@@ -4082,7 +4082,7 @@ final class Class130_Sub1 extends Class130 {
         Class237.anInt3131 = 0;
         Class239_Sub4.anInt5879 = 0;
         Class91.anInt1520 = 0;
-        Class348_Sub49.anInt7146 = 0;
+        RSBuffer.anInt7146 = 0;
         Class348_Sub40_Sub10.anInt9174 = 0;
         GlToolkit.anInt7687 = 0;
         Class346_Sub1.anInt6537 = 0;
@@ -4132,8 +4132,8 @@ final class Class130_Sub1 extends Class130 {
         Class348_Sub40_Sub31.anInt9406 = 0;
         Class348_Sub35.anInt6981 = 0;
         Class367_Sub11.anInt7403 = 0;
-        for (int l = 0; l < Class77.anIntArray1303.length; l++)
-            if (!Class286_Sub6.aBooleanArray6270[l]) Class77.anIntArray1303[l] = -1;
+        for (int l = 0; l < IsaacCipher.anIntArray1303.length; l++)
+            if (!Class286_Sub6.aBooleanArray6270[l]) IsaacCipher.anIntArray1303[l] = -1;
 
         if (r.anInt9721 != -1) Class14.method235(r.anInt9721, (byte) -105);
         for (Class348_Sub41 class348_sub41 = (Class348_Sub41) Class125.aClass356_4915.method3484(0); class348_sub41 != null; class348_sub41 = (Class348_Sub41) Class125.aClass356_4915.method3482(0)) {

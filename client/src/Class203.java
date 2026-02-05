@@ -20,7 +20,7 @@ final class Class203 {
         if (bool != true) return null;
         class348_sub47.anInt7122 = 0;
         class348_sub47.aClass351_7118 = null;
-        class348_sub47.aClass348_Sub49_Sub2_7116 = new Class348_Sub49_Sub2(5000);
+        class348_sub47.aClass348_Sub49_Sub2_7116 = new PacketBuffer(5000);
         return class348_sub47;
     }
 

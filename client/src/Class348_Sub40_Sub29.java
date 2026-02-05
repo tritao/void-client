@@ -73,7 +73,7 @@ final class Class348_Sub40_Sub29 extends Class348_Sub40 {
         return (i_14_ & 0x40000) != 0 | Class348_Sub23_Sub4.method2985(-31735, i, i_14_) || Class348_Sub42_Sub8_Sub2.method3200(i_14_, i, (byte) -120);
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_15_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_15_) {
         if (i_15_ == 31015) {
             if (i == 0) anInt9380 = class348_sub49.readUnsignedShort(842397944);
             anInt9376++;

@@ -24,7 +24,7 @@ final class Class288_Sub1 extends Class288 {
         return 16;
     }
 
-    static final Class288 method2189(Class348_Sub49 class348_sub49, int i) {
+    static final Class288 method2189(RSBuffer class348_sub49, int i) {
         anInt8576++;
         int i_3_ = class348_sub49.readUnsignedShort(842397944);
         Class221 class221 = Class158.method1248(48)[class348_sub49.readUnsignedByte(255)];

@@ -18,7 +18,7 @@ abstract class Class348_Sub23 extends Class348 {
     static final int method2960(boolean bool, int i) {
         if (i >= -16) aFloatArray6865 = null;
         anInt6870++;
-        int i_0_ = Class348_Sub49.anInt7207;
+        int i_0_ = RSBuffer.anInt7207;
         while_128_:
         do {
             do {
@@ -114,7 +114,7 @@ abstract class Class348_Sub23 extends Class348 {
         }
         Class316.aClass348_Sub51_3959.aClass239_Sub25_7271.method1826(!bool, -142238264);
         Class316.aClass348_Sub51_3959.method3429((byte) 74, (Class316.aClass348_Sub51_3959.aClass239_Sub25_7271), i);
-        Class348_Sub49.method3354(i_1_ + -78);
+        RSBuffer.method3354(i_1_ + -78);
         Class348_Sub8.aHa6654.method3650(10000);
         Class348_Sub8.aHa6654.X(32);
         Class157.aClass101_2123 = Class348_Sub8.aHa6654.method3654();

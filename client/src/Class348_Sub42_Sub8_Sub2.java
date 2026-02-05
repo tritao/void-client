@@ -1677,7 +1677,7 @@ final class Class348_Sub42_Sub8_Sub2 extends Class348_Sub42_Sub8 {
             int i = Class299.aClass348_Sub49_Sub2_3813.readIntInverseMiddle(255);
             int i_232_ = Class299.aClass348_Sub49_Sub2_3813.readShortAdd(-110);
             Class318_Sub1_Sub1_Sub1.method2397((byte) -124);
-            Class348_Sub49_Sub2.method3411(i, 12, i_232_);
+            PacketBuffer.method3411(i, 12, i_232_);
             Class348_Sub3.aClass114_6584 = null;
             return true;
         }

@@ -34,12 +34,12 @@ final class Class190 {
         if (i_3_ < 50) return false;
         Class318_Sub1_Sub5_Sub2.anIntArray10172[2] = i_3_;
         Class318_Sub1_Sub5_Sub2.anIntArray10172[0] = (Class140.anInt1962 * Class318_Sub1_Sub5_Sub2.anIntArray10172[0] / i_3_) + Class69.anInt1202;
-        Class318_Sub1_Sub5_Sub2.anIntArray10172[1] = (Class348_Sub49_Sub2.anInt9759 + (Class318_Sub1_Sub5_Sub2.anIntArray10172[1] * Class285_Sub2.anInt8498 / i_3_));
+        Class318_Sub1_Sub5_Sub2.anIntArray10172[1] = (PacketBuffer.anInt9759 + (Class318_Sub1_Sub5_Sub2.anIntArray10172[1] * Class285_Sub2.anInt8498 / i_3_));
         if (i_2_ != -7596) aRectangleArray2554 = null;
         return true;
     }
 
-    final void method1423(int i, Class348_Sub49 class348_sub49) {
+    final void method1423(int i, RSBuffer class348_sub49) {
         anInt2553++;
         this.aFloat2545 = (float) (class348_sub49.readUnsignedByte(255) * 8) / 255.0F;
         this.aFloat2542 = (float) (8 * class348_sub49.readUnsignedByte(i + 247)) / 255.0F;
@@ -173,7 +173,7 @@ final class Class190 {
         this.aFloat2547 = 1.1523438F;
     }
 
-    Class190(Class348_Sub49 class348_sub49) {
+    Class190(RSBuffer class348_sub49) {
         int i = class348_sub49.readUnsignedByte(255);
         if (Class316.aClass348_Sub51_3959.aClass239_Sub28_7230.method1845(-32350) != 1 || Class60.aHa1098.method3704() <= 0) {
             if ((0x1 & i) != 0) class348_sub49.readInt((byte) -126);

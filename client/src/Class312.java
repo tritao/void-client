@@ -69,7 +69,7 @@ final class Class312 {
             Class363.method3515(i + 36);
             Class9.anInt167 = Class318_Sub1_Sub5_Sub2.anInt10163 = -1;
             Class348_Sub40_Sub21.anInt9282 = 1;
-            Class348_Sub49.method3379(2, 10);
+            RSBuffer.method3379(2, 10);
             for (int i_2_ = 0; i_2_ < 100; i_2_++)
                 Class152.aBooleanArray2076[i_2_] = true;
             Class286_Sub2.method2145(-24498);

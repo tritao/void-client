@@ -301,7 +301,7 @@ final class Class367_Sub4 extends Class367 {
         }
     }
 
-    static final int method3544(Class348_Sub49 class348_sub49, int i, String string) {
+    static final int method3544(RSBuffer class348_sub49, int i, String string) {
         try {
             anInt7321++;
             int i_38_ = class348_sub49.anInt7197;

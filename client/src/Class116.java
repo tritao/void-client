@@ -33,7 +33,7 @@ final class Class116 {
                     i_0_ = class234.method1656(is, i_1_, (byte) -12, is.length + -i_1_);
                     if (i_0_ == -1) throw new IOException("EOF");
                 }
-                Class348_Sub31.method3014(new Class348_Sub49(is), (byte) -40);
+                Class348_Sub31.method3014(new RSBuffer(is), (byte) -40);
             }
         } catch (Exception exception) {
             /* empty */

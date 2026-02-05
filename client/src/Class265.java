@@ -20,7 +20,7 @@ final class Class265 implements Interface1 {
         anInt4695++;
     }
 
-    static final Class50_Sub1 method2022(Class348_Sub49 class348_sub49, int i) {
+    static final Class50_Sub1 method2022(RSBuffer class348_sub49, int i) {
         if (i != 0) return null;
         anInt4691++;
         return new Class50_Sub1(class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readShort(i + 13638), class348_sub49.readShort(13638), class348_sub49.readMedium(-1), class348_sub49.readMedium(-1), class348_sub49.readUnsignedByte(255));

@@ -17,7 +17,7 @@ final class Class307 {
             int i_1_ = 0;
             int i_2_ = 0;
             while (i_1_ < class252.anInt3241) {
-                Class348_Sub49 class348_sub49 = new Class348_Sub49(class45.method410(-1860, i_0_, is[i_2_++]));
+                RSBuffer class348_sub49 = new RSBuffer(class45.method410(-1860, i_0_, is[i_2_++]));
                 int i_3_ = class348_sub49.readInt((byte) -126);
                 int i_4_ = class348_sub49.readUnsignedShort(i ^ ~0x3235f8a2);
                 int i_5_ = class348_sub49.readUnsignedByte(255);

@@ -75,7 +75,7 @@ final class Class232 {
             anInt3008 = i_9_;
             if (i_9_ <= 0) aClass258_Sub3_2998 = null;
             else {
-                Class348_Sub49 class348_sub49 = new Class348_Sub49(i_9_ * 2);
+                RSBuffer class348_sub49 = new RSBuffer(i_9_ * 2);
                 if (aHa_Sub2_3000.aBoolean7775) {
                     for (int i_19_ = 0; i_8_ > i_19_; i_19_++) {
                         int i_20_ = (i_10_ + (i_19_ + i_11_) * var_s_Sub2.anInt4587);

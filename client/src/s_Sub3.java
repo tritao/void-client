@@ -772,7 +772,7 @@ final class s_Sub3 extends s {
     static final int method4008(byte i) {
         anInt8289++;
         if (i >= -121) aClass21_8320 = null;
-        if (Class348_Sub49.anInt7207 == 1) return Class339.anInt4211;
+        if (RSBuffer.anInt7207 == 1) return Class339.anInt4211;
         return 0;
     }
 }

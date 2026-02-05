@@ -14,9 +14,9 @@ final class Class55_Sub1 extends Video {
     static Class364 aClass364_5271 = new Class364("LIVE", 0);
     private final int anInt5272;
     static int anInt5273;
-    private final Class348_Sub49 aClass348_Sub49_5274;
+    private final RSBuffer aClass348_Sub49_5274;
     private byte[][] aByteArrayArray5275 = new byte[10][];
-    private final Class348_Sub49 aClass348_Sub49_5276;
+    private final RSBuffer aClass348_Sub49_5276;
 
     final void method522(byte i) {
         anInt5266++;
@@ -34,8 +34,8 @@ final class Class55_Sub1 extends Video {
 
     private Class55_Sub1(int i, Class45 class45, int i_1_) {
         super(i);
-        aClass348_Sub49_5274 = new Class348_Sub49(null);
-        aClass348_Sub49_5276 = new Class348_Sub49(null);
+        aClass348_Sub49_5274 = new RSBuffer(null);
+        aClass348_Sub49_5276 = new RSBuffer(null);
         aClass45_5267 = class45;
         anInt5272 = i_1_;
     }

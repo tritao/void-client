@@ -31,7 +31,7 @@ final class Class300 {
         return -1;
     }
 
-    final void method2275(Class348_Sub49 class348_sub49, byte i) {
+    final void method2275(RSBuffer class348_sub49, byte i) {
         anInt3818++;
         for (; ; ) {
             int i_1_ = class348_sub49.readUnsignedByte(255);
@@ -41,7 +41,7 @@ final class Class300 {
         int i_2_ = -63 / ((72 - i) / 37);
     }
 
-    private final void method2276(int i, Class348_Sub49 class348_sub49, int i_3_) {
+    private final void method2276(int i, RSBuffer class348_sub49, int i_3_) {
         if (i_3_ == 1) this.anInt3817 = class348_sub49.readUnsignedShort(842397944);
         else if (i_3_ == 2) {
             this.anIntArray3821 = new int[class348_sub49.readUnsignedByte(255)];

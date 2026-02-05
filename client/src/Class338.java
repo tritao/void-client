@@ -50,7 +50,7 @@ final class Class338 {
 
     static final void method2663(int i, int i_3_, int i_4_, int i_5_, int i_6_) {
         anInt4195++;
-        if (Class348_Sub49.anInt7207 == 1) {
+        if (RSBuffer.anInt7207 == 1) {
             int i_7_ = i_3_ / Class58.anInt1067;
             int i_8_ = i_4_ / Class58.anInt1067;
             int i_9_ = i_5_ / Class344.anInt4267;

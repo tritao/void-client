@@ -192,10 +192,10 @@ final class Class348_Sub20 extends Class348 {
     static final void method2953(byte i) {
         if (i > -102) anIntArray6830 = null;
         anInt6836++;
-        if (Class240.anInt4674 == 3) Class348_Sub49.method3379(2, 4);
+        if (Class240.anInt4674 == 3) RSBuffer.method3379(2, 4);
         else if (Class240.anInt4674 != 7) {
-            if (Class240.anInt4674 == 10) Class348_Sub49.method3379(2, 11);
-        } else Class348_Sub49.method3379(2, 8);
+            if (Class240.anInt4674 == 10) RSBuffer.method3379(2, 11);
+        } else RSBuffer.method3379(2, 8);
     }
 
     Class348_Sub20(s_Sub2 var_s_Sub2, int i, int i_38_, int i_39_, int i_40_, int i_41_) {

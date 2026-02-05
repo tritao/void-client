@@ -32,7 +32,7 @@ final class Class348_Sub42_Sub10 extends Class348_Sub42 {
         }
     }
 
-    final void method3210(byte i, int[] is, Class348_Sub49 class348_sub49) {
+    final void method3210(byte i, int[] is, RSBuffer class348_sub49) {
         while_221_:
         do {
             try {
@@ -89,7 +89,7 @@ final class Class348_Sub42_Sub10 extends Class348_Sub42 {
         return anIntArrayArray9565[i_5_][i];
     }
 
-    private final void method3214(int i, Class348_Sub49 class348_sub49, int i_6_) {
+    private final void method3214(int i, RSBuffer class348_sub49, int i_6_) {
         if (i_6_ == 60) {
             if (i != 1) {
                 if (i == 2) {
@@ -128,7 +128,7 @@ final class Class348_Sub42_Sub10 extends Class348_Sub42 {
         return anIntArray9574.length;
     }
 
-    final String method3216(Class348_Sub49 class348_sub49, byte i) {
+    final String method3216(RSBuffer class348_sub49, byte i) {
         anInt9578++;
         if (i < 33) method3219(-91);
         StringBuffer stringbuffer = new StringBuffer(80);
@@ -148,7 +148,7 @@ final class Class348_Sub42_Sub10 extends Class348_Sub42 {
         anIntArray9572 = null;
     }
 
-    final void method3218(Class348_Sub49 class348_sub49, int i) {
+    final void method3218(RSBuffer class348_sub49, int i) {
         anInt9568++;
         for (; ; ) {
             int i_14_ = class348_sub49.readUnsignedByte(i ^ 0xff);

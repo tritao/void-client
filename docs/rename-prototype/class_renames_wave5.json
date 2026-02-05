@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "description": "Wave 5 curated class renames (buffer + packet buffer + ISAAC cipher).",
+  "base_commit": "b46e3f8",
+  "applied_commit": "",
+  "src_dir": "client/src",
+  "renames": [
+    {
+      "src": "Class348_Sub49",
+      "dst": "RSBuffer",
+      "score": 1.0,
+      "anchors": ["cannot pjstr", "readUnsignedShort", "writeString"]
+    },
+    {
+      "src": "Class348_Sub49_Sub2",
+      "dst": "PacketBuffer",
+      "score": 1.0,
+      "anchors": ["readBits", "stopBitAccess", "ISAAC"]
+    },
+    {
+      "src": "Class77",
+      "dst": "IsaacCipher",
+      "score": 1.0,
+      "anchors": ["-1640531527", "256", "cipher"]
+    }
+  ]
+}

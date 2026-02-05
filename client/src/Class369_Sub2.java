@@ -17,7 +17,7 @@ final class Class369_Sub2 extends Class369 {
     public final Class223 method51(byte i) {
         if (i < 116) method3572(118);
         anInt8586++;
-        return Class348_Sub49.aClass223_7175;
+        return RSBuffer.aClass223_7175;
     }
 
     static final Class45 method3571(boolean bool, int i, byte i_0_, int i_1_) {

@@ -29,7 +29,7 @@ final class Class348_Sub33 extends Class348 {
         aByteArrayArrayArray6962 = null;
     }
 
-    static final void method3025(byte i, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final void method3025(byte i, PacketBuffer class348_sub49_sub2) {
         anInt6961++;
         Class348_Sub48 class348_sub48 = (Class348_Sub48) Class348_Sub35.aClass262_6978.method1995(4);
         if (class348_sub48 != null) {
@@ -126,7 +126,7 @@ final class Class348_Sub33 extends Class348 {
 
     Class348_Sub33(int i, byte[] is) {
         this.anInt6958 = i;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+        RSBuffer class348_sub49 = new RSBuffer(is);
         this.anInt6965 = class348_sub49.readUnsignedByte(255);
         this.anIntArrayArray6959 = new int[this.anInt6965][];
         this.anIntArray6957 = new int[this.anInt6965];

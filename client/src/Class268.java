@@ -76,7 +76,7 @@ final class Class268 {
         class277 = new Class277();
         class277.anInt3573 = i;
         class277.aClass268_3562 = this;
-        if (is != null) class277.method2070(true, new Class348_Sub49(is));
+        if (is != null) class277.method2070(true, new RSBuffer(is));
         class277.method2067(-4860);
         synchronized (aClass60_3433) {
             aClass60_3433.method582(class277, i, (byte) -111);

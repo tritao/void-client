@@ -230,8 +230,8 @@ public abstract class GameShell extends Applet implements Runnable, FocusListene
     private final void method88(int i) {
         anInt2++;
         long l = Class62.method599(-119);
-        long l_2_ = Class348_Sub49.aLongArray7206[Class152.anInt2071];
-        Class348_Sub49.aLongArray7206[Class152.anInt2071] = l;
+        long l_2_ = RSBuffer.aLongArray7206[Class152.anInt2071];
+        RSBuffer.aLongArray7206[Class152.anInt2071] = l;
         if (l_2_ != 0L && l_2_ < l) {
             int i_3_ = (int) (l - l_2_);
             Class239_Sub5.anInt5891 = (32000 + (i_3_ >> 1)) / i_3_;

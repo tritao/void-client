@@ -39,7 +39,7 @@ final class Class337 {
         return (0x70000 & i_0_) != 0 | Class348.method2709(i_1_, i_0_, -1) || Class288.method2187(i_0_, -84, i_1_);
     }
 
-    static final Class288_Sub1 method2660(byte i, Class348_Sub49 class348_sub49) {
+    static final Class288_Sub1 method2660(byte i, RSBuffer class348_sub49) {
         anInt4180++;
         if (i != 26) return null;
         Class288 class288 = Class288_Sub1.method2189(class348_sub49, i + 59);

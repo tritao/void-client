@@ -72,7 +72,7 @@ final class Class348_Sub40_Sub21 extends Class348_Sub40 {
         int i_12_ = 69 % ((19 - i) / 41);
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_13_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_13_) {
         anInt9268++;
         if (i_13_ != 31015) method3042(72, 12);
         int i_14_ = i;

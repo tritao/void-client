@@ -11,7 +11,7 @@ final class Class375 {
     static int anInt4544 = -1;
     static int anInt4545 = -1;
 
-    static final void method3612(int i, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final void method3612(int i, PacketBuffer class348_sub49_sub2) {
         if (i < 59) method3614(-51, 64, -115, null, -96);
         for (int i_0_ = 0; i_0_ < Class101_Sub3.anInt5768; i_0_++) {
             int i_1_ = Class18.anIntArray279[i_0_];

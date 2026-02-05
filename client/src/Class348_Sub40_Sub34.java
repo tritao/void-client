@@ -60,9 +60,9 @@ final class Class348_Sub40_Sub34 extends Class348_Sub40 {
         Class50_Sub3.method465(i + -1636518175);
         Class101_Sub2.aLong5745 = 0L;
         Class239_Sub4.aClass348_Sub26_5881 = null;
-        if (bool) Class348_Sub49.method3379(2, 12);
+        if (bool) RSBuffer.method3379(2, 12);
         else {
-            Class348_Sub49.method3379(i + -9, 3);
+            RSBuffer.method3379(i + -9, 3);
             try {
                 Class224.method1617((byte) 125, Class93.anApplet1530, "loggedout");
             } catch (Throwable throwable) {
@@ -71,7 +71,7 @@ final class Class348_Sub40_Sub34 extends Class348_Sub40 {
         }
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_5_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_5_) {
         do {
             try {
                 if (i_5_ != 31015) method3140(-77, 55);

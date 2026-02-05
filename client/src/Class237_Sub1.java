@@ -304,7 +304,7 @@ final class Class237_Sub1 extends Class237 {
         return interface10;
     }
 
-    final void method1691(int i, ha var_ha, Class348_Sub49 class348_sub49, int[] is, int i_39_, byte i_40_) {
+    final void method1691(int i, ha var_ha, RSBuffer class348_sub49, int[] is, int i_39_, byte i_40_) {
         do {
             try {
                 anInt5818++;
@@ -450,7 +450,7 @@ final class Class237_Sub1 extends Class237 {
         try {
             anInt5826++;
             if (i_78_ != 7) method1693('\uffb8', -54);
-            Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+            RSBuffer class348_sub49 = new RSBuffer(is);
             int i_80_ = -1;
             for (; ; ) {
                 int i_81_ = class348_sub49.method3334(-85);
@@ -553,7 +553,7 @@ final class Class237_Sub1 extends Class237 {
         try {
             anInt5820++;
             if (i_100_ == 1359) {
-                Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
+                RSBuffer class348_sub49 = new RSBuffer(is);
                 int i_101_ = -1;
                 for (; ; ) {
                     int i_102_ = class348_sub49.method3334(-57);
@@ -593,7 +593,7 @@ final class Class237_Sub1 extends Class237 {
         super(i, i_114_, i_115_, bool, Class229.aClass268_2979, Class362.aClass183_4460);
     }
 
-    final void method1696(Class348_Sub49 class348_sub49, boolean bool, int i, int i_116_, int i_117_, int i_118_, int i_119_, int i_120_, ha var_ha, int[] is, int i_121_) {
+    final void method1696(RSBuffer class348_sub49, boolean bool, int i, int i_116_, int i_117_, int i_118_, int i_119_, int i_120_, ha var_ha, int[] is, int i_121_) {
         do {
             try {
                 anInt5825++;

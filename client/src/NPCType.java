@@ -114,7 +114,7 @@ final class NPCType {
         return this.aClass278_1348.method2079(this.anIntArray1377[i_2_], -1);
     }
 
-    private final void method795(Class348_Sub49 class348_sub49, int i, int i_4_) {
+    private final void method795(RSBuffer class348_sub49, int i, int i_4_) {
         if (i_4_ != 127) this.aBoolean1381 = true;
         if (i == 1) {
             int i_5_ = class348_sub49.readUnsignedByte(255);
@@ -322,7 +322,7 @@ final class NPCType {
         }
     }
 
-    final void method798(int i, Class348_Sub49 class348_sub49) {
+    final void method798(int i, RSBuffer class348_sub49) {
         for (; ; ) {
             int i_33_ = class348_sub49.readUnsignedByte(255);
             if (i_33_ == 0) break;

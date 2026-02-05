@@ -107,7 +107,7 @@ final class VarpDomain implements Interface17 {
         }
     }
 
-    static final Class52 method1312(byte i, Class348_Sub49 class348_sub49) {
+    static final Class52 method1312(byte i, RSBuffer class348_sub49) {
         anInt5075++;
         int i_23_ = class348_sub49.readInt((byte) -126);
         if (i < 47) method1315(4);

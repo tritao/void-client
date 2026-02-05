@@ -7,7 +7,7 @@ final class Class157 {
     static int anInt2122;
     static Class101 aClass101_2123;
 
-    static final void method1244(int i, Class348_Sub49_Sub2 class348_sub49_sub2) {
+    static final void method1244(int i, PacketBuffer class348_sub49_sub2) {
         if (i < 10) aClass101_2123 = null;
         class348_sub49_sub2.writeInt((byte) 121, Class348_Sub29.aClass45_6909.method389(26));
         anInt2121++;

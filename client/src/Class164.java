@@ -86,7 +86,7 @@ final class Class164 {
             }
             VarpDomain.method1311(5139, Class348_Sub8.aHa6654);
             Class369.method3568(Class348_Sub8.aHa6654, 4);
-            Class348_Sub49.method3379(2, 1);
+            RSBuffer.method3379(2, 1);
         }
         if (Class348_Sub42_Sub15.aClass56_9660 == Class56.aClass56_1029) {
             for (int i_7_ = 0; i_7_ < 4; i_7_++)
@@ -141,7 +141,7 @@ final class Class164 {
         if (Class56.aClass56_1032 == Class348_Sub42_Sub15.aClass56_9660) {
             if (Class345.anInt4270 == -1) Class345.anInt4270 = Class59_Sub2_Sub1.aClass45_8667.method417("scape main", 0);
             r_Sub1.method3290(56);
-            Class348_Sub49.method3379(2, 2);
+            RSBuffer.method3379(2, 2);
         }
         if (Class56.aClass56_1033 == Class348_Sub42_Sub15.aClass56_9660) Class30.method323(Class126.aClass45_4984, Class348_Sub23_Sub1.aClass297_8992, (byte) 95);
         if (Class56.aClass56_1034 == Class348_Sub42_Sub15.aClass56_9660) {
@@ -200,7 +200,7 @@ final class Class164 {
             Class348_Sub40_Sub20.aClass348_Sub4_9264 = new SystemInfo(true, Class348_Sub23_Sub1.aClass297_8992);
         }
         if (Class348_Sub42_Sub15.aClass56_9660 == Class56.aClass56_1037) {
-            int i_11_ = (Class348_Sub22.method2958(22388, Class21.aClass45_322) + Class348_Sub49_Sub2.method3405(2012104999, true));
+            int i_11_ = (Class348_Sub22.method2958(22388, Class21.aClass45_322) + PacketBuffer.method3405(2012104999, true));
             int i_12_ = (Class288_Sub1.method2188(-30477) - -Class348_Sub42_Sub16.method3256(2));
             if (i_11_ < i_12_) return i_11_ * 100 / i_12_;
         }
@@ -208,7 +208,7 @@ final class Class164 {
             WorldMap.method752(Class348_Sub32.aClass45_6950, Class229.aClass268_2979, Class362.aClass183_4460, Class348_Sub40_Sub12.aClass263_9195, Class348_Sub23_Sub2.aClass153_9031, Class2.aClass141_117, Class318_Sub1_Sub3_Sub3.aClass170_10209);
         if (Class56.aClass56_1039 == Class348_Sub42_Sub15.aClass56_9660) {
             // TODO make cache edit to extend these or change id's
-            Class77.anIntArray1303 = (new int[Class239_Sub14.aClass259_5995.anInt3305 + 1000]);
+            IsaacCipher.anIntArray1303 = (new int[Class239_Sub14.aClass259_5995.anInt3305 + 1000]);
             Class286_Sub6.aBooleanArray6270 = (new boolean[Class239_Sub14.aClass259_5995.anInt3305 + 1000]);
             Class258_Sub2.aStringArray8532 = new String[Class91.aClass82_1523.anInt1439];
             for (int i_13_ = 0; Class239_Sub14.aClass259_5995.anInt3305 + 1000 > i_13_; i_13_++) {
@@ -216,7 +216,7 @@ final class Class164 {
                     Class286_Sub6.aBooleanArray6270[i_13_] = true;
                     Class335.anInt4168++;
                 }
-                Class77.anIntArray1303[i_13_] = -1;
+                IsaacCipher.anIntArray1303[i_13_] = -1;
             }
             Class116.method1063(1);
             Class285.anInt4737 = Class348_Sub35.aClass45_6980.method417("loginscreen", i ^ ~0x6ff3);

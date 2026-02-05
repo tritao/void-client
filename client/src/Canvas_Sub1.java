@@ -323,13 +323,13 @@ final class Canvas_Sub1 extends Canvas {
                 }
                 if (Class240.anInt4674 != 4) {
                     if (Class240.anInt4674 != 8) {
-                        Class348_Sub49.method3379(2, 10);
+                        RSBuffer.method3379(2, 10);
                         if (Class348_Sub40_Sub8.aClass238_9165 != null) {
                             Class348_Sub47 class348_sub47 = Class286_Sub3.method2148((Class340.aClass351_4223), (Class348_Sub23_Sub2.aClass77_9029), -106);
                             Class348_Sub42_Sub14.method3243(127, class348_sub47);
                         }
-                    } else Class348_Sub49.method3379(2, 7);
-                } else Class348_Sub49.method3379(i ^ 0x2, 3);
+                    } else RSBuffer.method3379(2, 7);
+                } else RSBuffer.method3379(i ^ 0x2, 3);
                 Class348_Sub1.method2718(-106);
                 Class369_Sub1.method3570(false);
                 Class94.method867(true);

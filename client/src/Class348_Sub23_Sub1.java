@@ -57,7 +57,7 @@ final class Class348_Sub23_Sub1 extends Class348_Sub23 {
         return 0;
     }
 
-    static final Class50_Sub3 method2970(int i, Class348_Sub49 class348_sub49) {
+    static final Class50_Sub3 method2970(int i, RSBuffer class348_sub49) {
         anInt8998++;
         if (i != 2) method2972(null, -114, 15);
         return new Class50_Sub3(class348_sub49.readShort(13638), class348_sub49.readShort(i + 13636), class348_sub49.readShort(13638), class348_sub49.readShort(i ^ 0x3544), class348_sub49.readShort(13638), class348_sub49.readShort(i + 13636), class348_sub49.readShort(13638), class348_sub49.readShort(13638), class348_sub49.readMedium(-1), class348_sub49.readUnsignedByte(255));

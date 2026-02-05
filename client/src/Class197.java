@@ -27,7 +27,7 @@ final class Class197 {
         return anInt2612 - anInt2608 >> 15;
     }
 
-    final void method1452(Class348_Sub49 class348_sub49) {
+    final void method1452(RSBuffer class348_sub49) {
         this.anInt2603 = class348_sub49.readUnsignedByte(255);
         this.anInt2607 = class348_sub49.readInt((byte) -126);
         this.anInt2606 = class348_sub49.readInt((byte) -126);
@@ -50,7 +50,7 @@ final class Class197 {
         anIntArray2602[1] = 65535;
     }
 
-    final void method1454(Class348_Sub49 class348_sub49) {
+    final void method1454(RSBuffer class348_sub49) {
         anInt2604 = class348_sub49.readUnsignedByte(255);
         anIntArray2605 = new int[anInt2604];
         anIntArray2602 = new int[anInt2604];

@@ -94,7 +94,7 @@ final class Class50_Sub1 extends Class50 {
 
     static final int[] method463(Class348_Sub47 class348_sub47, boolean bool) {
         anInt5210++;
-        Class348_Sub49 class348_sub49 = new Class348_Sub49(518);
+        RSBuffer class348_sub49 = new RSBuffer(518);
         int[] is = new int[4];
         for (int i = 0; i < 4; i++)
             is[i] = (int) (Math.random() * 9.9999999E7);

@@ -8,7 +8,7 @@ class Class328_Sub2 extends Class328 {
     static Class60 aClass60_6517 = new Class60(4);
     static int anInt6518;
 
-    static final Class120 method2612(Class348_Sub49 class348_sub49, boolean bool) {
+    static final Class120 method2612(RSBuffer class348_sub49, boolean bool) {
         anInt6518++;
         int i = class348_sub49.readUnsignedShort(842397944);
         if (bool != true) method2613(-27);

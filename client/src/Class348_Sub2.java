@@ -69,14 +69,14 @@ final class Class348_Sub2 extends Class348 {
     static final Class348_Sub2 method2734(Class45 class45, int i, int i_15_) {
         byte[] is = class45.method410(-1860, i, i_15_);
         if (is == null) return null;
-        return new Class348_Sub2(new Class348_Sub49(is));
+        return new Class348_Sub2(new RSBuffer(is));
     }
 
     final void method2735() {
         this.aClass356_6565 = null;
     }
 
-    private Class348_Sub2(Class348_Sub49 class348_sub49) {
+    private Class348_Sub2(RSBuffer class348_sub49) {
         class348_sub49.anInt7197 = class348_sub49.aByteArray7154.length - 3;
         int i = class348_sub49.readUnsignedByte(255);
         int i_16_ = class348_sub49.readUnsignedShort(842397944);
@@ -194,7 +194,7 @@ final class Class348_Sub2 extends Class348 {
         int i_68_ = class348_sub49.anInt7197;
         class348_sub49.anInt7197 += i_18_ * 3;
         this.aByteArray6564 = new byte[i_17_];
-        Class348_Sub49 class348_sub49_69_ = new Class348_Sub49(this.aByteArray6564);
+        RSBuffer class348_sub49_69_ = new RSBuffer(this.aByteArray6564);
         class348_sub49_69_.writeInt((byte) 124, 1297377380);
         class348_sub49_69_.writeInt((byte) 89, 6);
         class348_sub49_69_.writeShort((byte) 107, i > 1 ? 1 : 0);

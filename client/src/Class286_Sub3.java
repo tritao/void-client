@@ -68,7 +68,7 @@ final class Class286_Sub3 extends Class286 {
         }
     }
 
-    static final Class348_Sub47 method2148(Class351 class351, Class77 class77, int i) {
+    static final Class348_Sub47 method2148(Class351 class351, IsaacCipher class77, int i) {
         try {
             anInt6230++;
             Class348_Sub47 class348_sub47 = Class300.method2273((byte) -103);
@@ -76,11 +76,11 @@ final class Class286_Sub3 extends Class286 {
             class348_sub47.anInt7122 = class351.anInt4323;
             class348_sub47.aClass351_7118 = class351;
             if (class348_sub47.anInt7122 != -1) {
-                if (class348_sub47.anInt7122 == -2) class348_sub47.aClass348_Sub49_Sub2_7116 = new Class348_Sub49_Sub2(10000);
-                else if (class348_sub47.anInt7122 <= 18) class348_sub47.aClass348_Sub49_Sub2_7116 = new Class348_Sub49_Sub2(20);
-                else if (class348_sub47.anInt7122 <= 98) class348_sub47.aClass348_Sub49_Sub2_7116 = new Class348_Sub49_Sub2(100);
-                else class348_sub47.aClass348_Sub49_Sub2_7116 = new Class348_Sub49_Sub2(260);
-            } else class348_sub47.aClass348_Sub49_Sub2_7116 = new Class348_Sub49_Sub2(260);
+                if (class348_sub47.anInt7122 == -2) class348_sub47.aClass348_Sub49_Sub2_7116 = new PacketBuffer(10000);
+                else if (class348_sub47.anInt7122 <= 18) class348_sub47.aClass348_Sub49_Sub2_7116 = new PacketBuffer(20);
+                else if (class348_sub47.anInt7122 <= 98) class348_sub47.aClass348_Sub49_Sub2_7116 = new PacketBuffer(100);
+                else class348_sub47.aClass348_Sub49_Sub2_7116 = new PacketBuffer(260);
+            } else class348_sub47.aClass348_Sub49_Sub2_7116 = new PacketBuffer(260);
             class348_sub47.aClass348_Sub49_Sub2_7116.method3416(-17, class77);
 
             if (Loader.debug) {
@@ -102,8 +102,8 @@ final class Class286_Sub3 extends Class286 {
                 if (!this.aHa_Sub2_3684.aBoolean7841 || (this.aHa_Sub2_3684.anInt7795 < 2)) break;
                 aClass171_6220 = (Class50.method459(34336, this.aHa_Sub2_3684, "!!ARBvp1.0\nOPTION  ARB_position_invariant;\nATTRIB  iPos         = vertex.position;\nATTRIB  iColour      = vertex.color;\nATTRIB  iTexCoord    = vertex.texcoord[0];\nOUTPUT  oColour      = result.color;\nOUTPUT  oTexCoord0   = result.texcoord[0];\nOUTPUT  oTexCoord1   = result.texcoord[1];\nOUTPUT  oFogCoord    = result.fogcoord;\nPARAM   time         = program.local[65];\nPARAM   turbulence   = program.local[64];\nPARAM   lightAmbient = program.local[66]; \nPARAM   pMatrix[4]   = { state.matrix.projection };\nPARAM   mvMatrix[4]  = { state.matrix.modelview };\nPARAM   ivMatrix[4]  = { state.matrix.texture[1] };\nPARAM   texMatrix[4]  = { state.matrix.texture[0] };\nPARAM   fNoise[64]   = { program.local[0..63] };\nTEMP    noise, viewPos, worldPos, texCoord;\nADDRESS noiseAddr;\nDP4   viewPos.x, mvMatrix[0], iPos;\nDP4   viewPos.y, mvMatrix[1], iPos;\nDP4   viewPos.z, mvMatrix[2], iPos;\nDP4   viewPos.w, mvMatrix[3], iPos;\nMOV   oFogCoord.x, -viewPos.z;\nDP4   worldPos.x, ivMatrix[0], viewPos;\nDP4   worldPos.y, ivMatrix[1], viewPos;\nDP4   worldPos.z, ivMatrix[2], viewPos;\nDP4   worldPos.w, ivMatrix[3], viewPos;\nADD   noise.x, worldPos.x, worldPos.z;SUB   noise.y, worldPos.z, worldPos.x;MUL   noise, noise, 0.0001220703125;\nFRC   noise, noise;\nMUL   noise, noise, 64;\nARL   noiseAddr.x, noise.x;\nMOV   noise.x, fNoise[noiseAddr.x].x;\nARL   noiseAddr.x, noise.y;\nMOV   noise.y, fNoise[noiseAddr.x].y;\nMUL   noise, noise, turbulence.x;\nDP4   texCoord.x, texMatrix[0], iTexCoord;\nDP4   texCoord.y, texMatrix[1], iTexCoord;\nADD   oTexCoord0.xy, texCoord, noise;\nMOV   oTexCoord0.z, 0;\nMOV   oTexCoord0.w, 1;\nMUL   oTexCoord1.xy, texCoord, 0.125;\nMOV   oTexCoord1.zw, time.xxxw;\nMUL   oColour.xyz, iColour, lightAmbient;\nMOV   oColour.w, iColour.w;\nEND", false));
                 if (aClass171_6220 != null) {
-                    int[][] is = Class348_Sub49_Sub2.method3413(4, 3, 64, 4, 256, true, 0, 0.4F, false);
-                    int[][] is_5_ = Class348_Sub49_Sub2.method3413(4, 3, 64, 4, 256, true, 8, 0.4F, false);
+                    int[][] is = PacketBuffer.method3413(4, 3, 64, 4, 256, true, 0, 0.4F, false);
+                    int[][] is_5_ = PacketBuffer.method3413(4, 3, 64, 4, 256, true, 8, 0.4F, false);
                     aFloatArray6218 = new float[32768];
                     int i = 0;
                     for (int i_6_ = 0; i_6_ < 256; i_6_++) {

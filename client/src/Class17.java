@@ -92,7 +92,7 @@ final class Class17 {
         return 0x20 | i_2_;
     }
 
-    private final void method264(Class348_Sub49 class348_sub49, int i, int i_10_) {
+    private final void method264(RSBuffer class348_sub49, int i, int i_10_) {
         if (i_10_ == -14861) {
             if (i == 1) {
                 int i_11_ = class348_sub49.readUnsignedShort(842397944);//short
@@ -208,7 +208,7 @@ final class Class17 {
         return class64_35_;
     }
 
-    final void method267(Class348_Sub49 class348_sub49, boolean bool) {
+    final void method267(RSBuffer class348_sub49, boolean bool) {
         anInt243++;
         for (; ; ) {
             int i = class348_sub49.readUnsignedByte(255);

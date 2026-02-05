@@ -74,7 +74,7 @@ final class Class348_Sub40_Sub35 extends Class348_Sub40 {
         method3143(-119);
     }
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_18_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_18_) {
         int i_19_ = i;
         while_210_:
         do {

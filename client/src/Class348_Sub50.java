@@ -35,6 +35,6 @@ final class Class348_Sub50 extends Class348 {
     static final int method3420(int i) {
         if (i != 0) method3420(101);
         anInt7214++;
-        return Class348_Sub49_Sub2.method3405(2012104999, false);
+        return PacketBuffer.method3405(2012104999, false);
     }
 }

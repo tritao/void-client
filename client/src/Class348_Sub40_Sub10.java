@@ -15,7 +15,7 @@ final class Class348_Sub40_Sub10 extends Class348_Sub40 {
     static int[] anIntArray9183;
     static boolean aBoolean9184;
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         anInt9179++;
         int i_1_ = i;
         while_152_:

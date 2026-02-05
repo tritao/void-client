@@ -15,7 +15,7 @@ final class Class348_Sub40_Sub14 extends Class348_Sub40 {
     private int[] anIntArray9214;
     private short[] aShortArray9215 = new short[257];
 
-    final void method3049(Class348_Sub49 class348_sub49, int i, int i_0_) {
+    final void method3049(RSBuffer class348_sub49, int i, int i_0_) {
         if (i == 0) {
             anInt9211 = class348_sub49.readUnsignedByte(i_0_ + -30760);
             anIntArrayArray9210 = new int[class348_sub49.readUnsignedByte(255)][2];
