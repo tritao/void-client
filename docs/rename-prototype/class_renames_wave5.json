@@ -2,7 +2,7 @@
   "version": 1,
   "description": "Wave 5 curated class renames (buffer + packet buffer + ISAAC cipher).",
   "base_commit": "b46e3f8",
-  "applied_commit": "",
+  "applied_commit": "6fcd8ab",
   "src_dir": "client/src",
   "renames": [
     {
