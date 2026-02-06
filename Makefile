@@ -122,8 +122,9 @@ $(CLASSES_STAMP): $(JAVA_SOURCES) $(LIB_JARS) | $(CLASSES_DIR) $(BUILD_DIR)
 compile: $(CLASSES_STAMP)
 
 CLASSES_STAMP_RECURSIVE ?= $(CLASSES_DIR)/.compiled-recursive.stamp
+JAVA_SOURCES_RECURSIVE := $(shell find "$(SRC_DIR)" -name '*.java' -print)
 
-$(CLASSES_STAMP_RECURSIVE): $(LIB_JARS) | $(CLASSES_DIR) $(BUILD_DIR)
+$(CLASSES_STAMP_RECURSIVE): $(JAVA_SOURCES_RECURSIVE) $(LIB_JARS) | $(CLASSES_DIR) $(BUILD_DIR)
 	@echo "Compiling (recursive) with: $(JAVAC)"
 	@find "$(SRC_DIR)" -name '*.java' -print | sort > "$(SOURCES_FILE)"
 	@if [ -n "$(EXCLUDE_REGEX)" ]; then grep -Ev "$(EXCLUDE_REGEX)" "$(SOURCES_FILE)" > "$(SOURCES_FILE).tmp" || true; mv "$(SOURCES_FILE).tmp" "$(SOURCES_FILE)"; fi

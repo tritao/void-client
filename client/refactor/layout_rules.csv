@@ -9,30 +9,136 @@ _obfuscated,regex,"^([a-z]{1,2})(_Sub\d+.*)?$"
 
 # Procedural textures
 graphics/textureops,prefix,TextureOp
+graphics/procedural,regex,.*(Perlin|Voronoi|Noise).*
 
 # Render backends
 graphics/opengl,prefix,OpenGL
+graphics/opengl,prefix,Gl
 graphics/directx,prefix,DirectX
+graphics/native,prefix,Native
 graphics/toolkit,suffix,Toolkit
 graphics/toolkit,suffix,ToolkitSprite
 graphics/toolkit,suffix,ToolkitFontRenderer
+graphics/toolkit,regex,.*Toolkit.*
+
+# GPU objects / buffers
+graphics/gpu,prefix,Gpu
+graphics/gpu,regex,^(Vertex|Index).*
+graphics/gpu,regex,^(Framebuffer|DepthBuffer|TextureFormat).*
+
+# Shaders / effects / post-processing
+graphics/shaders,regex,.*(Shader|Effect|Program).*
+graphics/postfx,regex,.*PostProcessor.*
+graphics/skybox,prefix,SkyBox
+graphics/cubemap,prefix,CubeMap
+graphics/render,regex,^(Render|Renderer).*
+
+# Sprites / masks
+graphics/sprite,regex,.*(Sprite|Mask|AlphaMask).*
+
+# Models / geometry
+graphics/model,regex,.*(Model|Anim|Frame|Normal|Billboard).*
+graphics/light,regex,.*Light.*
+
+# Rasterizer / draw commands
+graphics/rasterizer,regex,^(Raster|Rasterizer|PolygonScanline|DirtyRectangles).*
 
 # AWT / windowing / input
 ui/awt,prefix,Awt
+ui/awt,regex,.*Surface$
 ui/input,regex,^(Mouse|Key|Keyboard|Cursor).*
+ui/input,regex,.*(Input|Cursor).*
 ui/canvas,regex,.*Canvas.*
 ui/loading,prefix,LoadingScreen
+ui/loading,regex,^Load.*
+ui/screen,regex,.*Screen.*
+ui/widget,prefix,Widget
+ui/chat,prefix,Chat
+ui/menu,exact,MiniMenu
+ui/console,exact,DevConsole
+ui/tooltip,prefix,Tooltip
+ui/text,regex,.*(OverheadText|LocalisedText).*
+ui/layout,regex,.*(Layout|Alignment).*
+ui/hint,prefix,Hint
+ui/news,exact,NewsFetcher
+ui/overlay,regex,.*Overlay.*
+ui/display,exact,DirectDrawDisplayModeManager
 
 # Audio / media
 audio,regex,.*(Pcm|Midi|Ogg|Vorbis).*
 audio,regex,.*(Sound|Audio).*
+audio,regex,.*(Music|Synth|Instrument|Patch).*
+media,regex,.*(Video|Theora).*
 
 # Networking
 net,regex,.*(Socket|Proxy|Ping|Http|Url).*
+net/packets,regex,.*Packet.*
+net,regex,.*(Connection|Endpoint|Handshake).*
+net/worldlist,prefix,WorldList
+net/packets,prefix,ZoneUpdate
 
 # IO / filesystem
 io,regex,.*(InputStream|OutputStream|BufferedFile|FileOnDisk|ArchiveDisk).*
+io/compress,regex,.*(BZip2|Gzip|Decompressor).*
+io,exact,RandomDatFile
+io/memory,regex,.*ByteArrayCopier.*
+
+# Cache / JS5
+cache/js5,prefix,Js5
+cache/js5,exact,ConfigArchive
+cache/js5,regex,^Index(GroupLoader|ProgressProvider)$
+cache/js5,regex,.*(ResourceProvider|Resources|ResourceSlot|ResourceDownloadTask).*
+cache,regex,.*(Cache|Lru|ReferenceCache).*
+
+# Config / data
+config/enum,prefix,Enum
+config/type,suffix,Type
+util/text,exact,Cp1252ExtensionTable
+
+# Scripting
+script,regex,.*ClientScript.*
+script,regex,^(Script|ShaderAndClientScript).*
+
+# World / map / scene
+world/map,prefix,WorldMap
+world/region,regex,^Map(Region|Element|Scene|Build).*
+world/scene,prefix,Scene
+world/scene,regex,.*(Tile|Ground|Collision|Occluder).*
+world/pathfinding,regex,^Path(find|finding).*
+world/spawn,prefix,PendingSpawn
+world/region,exact,MapFlagGlobals
+
+# Entities / gameplay
+game/entity,regex,.*Entity$
+game/entity,regex,^(Actor|Player|Npc|NPCList|Projectile|GraphicsObject).*
+game/entity,regex,.*EntityBase$
+game/particle,prefix,Particle
+game/vars,regex,.*(VarBit|VarPlayer|Varc|VarDomain|ScriptVar).*
+game/vars,regex,^TimedVar.*
+game/params,prefix,Param
+game/mode,regex,.*Mode$
+game/mode,prefix,Mode
+game/social,regex,.*(QuickChat|FriendLogin).*
+game/login,regex,^Login.*
+
+# Platform / VM integration
+platform,regex,.*(SignLink|Jagmisc|HotSpot|JavascriptBridge).*
+crypto,regex,.*(Whirlpool|IsaacCipher|Huffman|Base64).*
+platform,exact,ReflectionCheck
+client/core,prefix,Client
+client/core,prefix,Game
+client/state,regex,.*State.*
+timing,regex,.*Clock.*
+math,regex,.*(Trig|SinCos|HslToRgb|SmoothAngle|CoordRotation).*
+util/concurrency,prefix,Async
+api/interfaces,prefix,Interface
+graphics/resource,regex,.*DisposableResource.*
+graphics/safemode,prefix,SafeMode
+math/geom,regex,.*(Bounding|Grid).*
+util/errors,regex,.*(RuntimeException|Exception).*
+util/keys,exact,IntKey
 
 # Collections / core utils
-collections,regex,.*(HashTable|Node|Deque|Queue|Pool).*
+collections,regex,.*(HashTable|Node|Deque|Queue|Pool|LinkedList).*
 util,regex,.*(Util|Utils).*
+util,regex,.*(Formatter|Builder).*
