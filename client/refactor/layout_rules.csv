@@ -65,6 +65,18 @@ ui/overlay,regex,.*Overlay.*
 ui/display,exact,DirectDrawDisplayModeManager
 
 # Audio / media
+audio/vorbis,prefix,Vorbis
+audio/ogg,prefix,Ogg
+audio/ogg,exact,UnknownOggStream
+audio/midi,prefix,Midi
+audio/midi,regex,^(MusicPatch|MusicStream|SynthInstrument).*
+audio/pcm,prefix,Pcm
+audio/pcm,regex,.*RawPcm.*
+audio/output,regex,.*AudioOutput$
+audio/output,exact,SignLinkPcmPlayer
+audio/cache,exact,SoundCache
+audio/ambient,prefix,AmbientSound
+audio/dsp,regex,.*(Biquad|Envelope|Resampler).*
 audio,regex,.*(Pcm|Midi|Ogg|Vorbis).*
 audio,regex,.*(Sound|Audio).*
 audio,regex,.*(Music|Synth|Instrument|Patch).*
