@@ -39,12 +39,11 @@ Class348_Sub40_Sub21,TextureOpWavyCross
 Class348_Sub40_Sub28,TextureOpLineNoise
 Class348_Sub40_Sub17,TextureOpSpriteSource
 Class348_Sub42_Sub3,ByteArraySecondaryNode
-Class308,LRUHashTable
+Class308,LruHashTable
 Class356,HashTable
 Class348,Node
 Class348_Sub42,SecondaryNode
 Class107,SecondaryLinkedList
-IndexedImage,IndexedImage
 Class7,AwtFullscreenAdapter
 Class323,WorldMapFont
 Class279_Sub1,PcmPlayer_Sub1
