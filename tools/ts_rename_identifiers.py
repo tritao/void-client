@@ -165,7 +165,7 @@ def _apply_edits_bytes(data: bytes, edits: list[tuple[int, int, bytes]]) -> byte
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/symbol_renames.csv")])
-    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/symbol-renames.d"))
+    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/.symbol-renames"))
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"))
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-ts.md"))
     ap.add_argument("--max-mappings", type=int, default=25, help="Apply at most N mapping rows (default 25). Use -1 for all.")

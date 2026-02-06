@@ -6,7 +6,7 @@ CLASSES_DIR ?= $(BUILD_DIR)/classes
 SOURCES_FILE ?= $(BUILD_DIR)/sources.txt
 CLASSES_CSV ?= client/refactor/classes.csv
 SYMBOLS_CSV ?= client/refactor/symbol_renames.csv
-SYMBOLS_CSV_DIR ?= client/refactor/symbol-renames.d
+SYMBOLS_CSV_DIR ?= client/refactor/.symbol-renames
 LSP_TIMEOUT_S ?= 180
 
 LIBS ?= libs/clientlibs.jar

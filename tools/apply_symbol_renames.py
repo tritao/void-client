@@ -784,7 +784,7 @@ def _text_in_range(path: Path, rng: dict[str, Any]) -> str:
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/symbol_renames.csv")])
-    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/symbol-renames.d"))
+    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/.symbol-renames"))
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"))
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-symbols-lsp.md"))
     ap.add_argument("--max-renames", type=int, default=25)
