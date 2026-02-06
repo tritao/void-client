@@ -1,0 +1,30 @@
+# Symbol rename mappings (methods/fields/params/locals) applied via JDTLS/LSP.
+#
+# This file is intended to be:
+# - data-driven (append rows)
+# - idempotent (reruns skip already-applied renames)
+# - symbol-aware (JDTLS updates callsites safely)
+#
+# Columns:
+# - file: path to a .java file (relative to repo root). If it has no '/', it is treated as a stem under client/src/.
+# - kind: type | method | field | param | local
+# - old: existing identifier
+# - new: desired identifier
+# - container: optional, used to disambiguate (e.g. owning type name or method name)
+# - detail_regex: optional, regex to disambiguate overloaded methods using LSP "detail"
+# - line: optional 1-based line to rename at (recommended for param/local)
+# - col: optional 1-based column to rename at
+# - notes: optional free-form text (ignored by the tool)
+#
+# Notes:
+# - For kind=param/local, you should usually provide line+col to avoid ambiguity.
+# - For kind=method/field/type, you can omit line+col and let the tool locate the symbol via documentSymbol.
+#
+# Example (method, located via documentSymbol):
+# client/src/SomeClass.java,method,method1234,decodeSomething,SomeClass,,,
+#
+# Example (param, explicit position):
+# SomeClass.java,param,i,newName,SomeClass,,,123,17,"rename parameter i -> newName"
+#
+file,kind,old,new,container,detail_regex,line,col,notes
+

@@ -5,6 +5,7 @@ BUILD_DIR ?= build
 CLASSES_DIR ?= $(BUILD_DIR)/classes
 SOURCES_FILE ?= $(BUILD_DIR)/sources.txt
 CLASSES_CSV ?= client/refactor/classes.csv
+SYMBOLS_CSV ?= client/refactor/symbol_renames.csv
 
 LIBS ?= libs/clientlibs.jar
 MAIN_CLASS ?= Loader
@@ -56,7 +57,7 @@ JAVAC ?= javac
 JAR ?= jar
 endif
 
-.PHONY: help bootstrap sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
+.PHONY: help bootstrap sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop rename-symbols rename-symbols-dry rename-symbols-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
 
 help:
 	@echo "Targets:"
@@ -74,6 +75,9 @@ help:
 	@echo "  make rename-lsp - apply mappings from $(CLASSES_CSV) via JDTLS/LSP (writes docs/rename-report-lsp.md)"
 	@echo "  make rename-lsp-dry - dry-run JDTLS/LSP rename"
 	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
+	@echo "  make rename-symbols - apply mappings from $(SYMBOLS_CSV) via JDTLS/LSP (writes docs/rename-report-symbols-lsp.md)"
+	@echo "  make rename-symbols-dry - dry-run symbol rename"
+	@echo "  make rename-symbols-loop - rename-symbols + compile + reports"
 	@echo "  make refactor-tree - generate build/refactor-flat/*.java from client/src + $(CLASSES_CSV) (flat copy)"
 	@echo "  make refactor-layout - generate client/refactor/**/*.java (organized) from client/src + $(CLASSES_CSV)"
 	@echo "  make compile-refactor - compile client/refactor (after refactor-layout)"
@@ -176,6 +180,22 @@ rename-lsp-loop:
 	@$(MAKE) reports
 	@echo "Done. See:"
 	@echo "  docs/rename-report-lsp.md"
+	@echo "  docs/unnamed-status.md"
+	@echo "  docs/fan-graph.md"
+	@echo "  docs/rename-dossiers.md"
+
+rename-symbols:
+	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}"
+
+rename-symbols-dry:
+	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+
+rename-symbols-loop:
+	@$(MAKE) rename-symbols
+	@$(MAKE) compile
+	@$(MAKE) reports
+	@echo "Done. See:"
+	@echo "  docs/rename-report-symbols-lsp.md"
 	@echo "  docs/unnamed-status.md"
 	@echo "  docs/fan-graph.md"
 	@echo "  docs/rename-dossiers.md"
