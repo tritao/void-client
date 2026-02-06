@@ -7,4 +7,4 @@ SeqType,field,SeqType,,,,anInt261,rightHandItem,,,,"Right-hand item model overri
 SeqType,field,SeqType,,,,anInt244,maxLoops,,,,"Maximum loops for this sequence"
 SeqType,field,SeqType,,,,anInt262,precedenceAnimating,,,,"Animation precedence"
 SeqType,field,SeqType,,,,anInt245,priority,,,,"Sequence priority"
-SeqType,field,SeqType,,,,anInt248,replyMode,,,,"Replay mode"
+SeqType,field,SeqType,,,,anInt248,restartMode,,,,"Behavior when reapplying the same sequence (0/1/2)"
