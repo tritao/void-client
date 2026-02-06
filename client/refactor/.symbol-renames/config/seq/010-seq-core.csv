@@ -1,0 +1,8 @@
+# SeqType core animation frame data.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SeqType,field,SeqType,,,,aClass87_251,list,,,,"Owning sequence type list"
+SeqType,field,SeqType,,,,anIntArray237,frameIds,,,,"Primary frame ids (frameSet<<16 | frame)"
+SeqType,field,SeqType,,,,anIntArray267,frameLengths,,,,"Per-frame durations"
+SeqType,field,SeqType,,,,anIntArray260,secondaryFrameIds,,,,"Optional secondary frame ids"
+SeqType,field,SeqType,,,,aBoolean241,stretches,,,,"Whether this sequence stretches to actor movement"
+

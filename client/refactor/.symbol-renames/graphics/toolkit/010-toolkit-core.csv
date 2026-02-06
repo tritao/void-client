@@ -1,0 +1,5 @@
+# Toolkit core renderer identity and texture provider.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Toolkit,field,Toolkit,,,,aD4579,textureProvider,,,,"Texture provider API used by toolkit implementations"
+Toolkit,field,Toolkit,,,,anInt4567,toolkitId,,,,"Toolkit/renderer id used in cache keys"
+
