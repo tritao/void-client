@@ -162,11 +162,11 @@ def _write_layout_report(
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(
         description=(
-            "Generate an organized (subdirectory) refactor tree from client/src + classes.csv. "
+            "Generate an organized (subdirectory) refactor tree from client/src + a classes.csv mapping. "
             "Output is idempotent: reruns rewrite dst_dir from scratch."
         )
     )
-    ap.add_argument("--csv", type=Path, default=Path("classes.csv"), help="Rename mapping CSV (src,dst[,score,anchors])")
+    ap.add_argument("--csv", type=Path, default=Path("client/refactor/classes.csv"), help="Rename mapping CSV (src,dst[,score,anchors])")
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"), help="Flat directory containing *.java")
     ap.add_argument("--dst-dir", type=Path, default=Path("client/refactor"), help="Output directory (nested)")
     ap.add_argument("--rules", type=Path, default=Path("client/refactor/layout_rules.csv"), help="Layout rules CSV")

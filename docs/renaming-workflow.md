@@ -2,7 +2,7 @@
 
 This repo is a flat/default-package Java codebase (`client/src/*.java`). Renaming is done by:
 
-- Applying a rename mapping (usually `classes.csv`) token-aware (skips comments/strings).
+- Applying a rename mapping (usually `client/refactor/classes.csv`) token-aware (skips comments/strings).
 - Compiling after each batch.
 - Regenerating reports to pick the next batch.
 

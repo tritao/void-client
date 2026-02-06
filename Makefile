@@ -4,6 +4,7 @@ SRC_DIR ?= client/src
 BUILD_DIR ?= build
 CLASSES_DIR ?= $(BUILD_DIR)/classes
 SOURCES_FILE ?= $(BUILD_DIR)/sources.txt
+CLASSES_CSV ?= client/refactor/classes.csv
 
 LIBS ?= libs/clientlibs.jar
 MAIN_CLASS ?= Loader
@@ -67,14 +68,14 @@ help:
 	@echo "  make jar       - build runnable jar at $(OUT_JAR) (Main-Class: $(MAIN_CLASS))"
 	@echo "  make run       - run $(MAIN_CLASS) using $(OUT_JAR) + $(LIBS)"
 	@echo "  make reports   - regenerate docs/*.md reports"
-	@echo "  make rename    - apply mappings from classes.csv (writes docs/rename-report.md)"
-	@echo "  make rename-dry - dry-run mappings from classes.csv"
+	@echo "  make rename    - apply mappings from $(CLASSES_CSV) (writes docs/rename-report.md)"
+	@echo "  make rename-dry - dry-run mappings from $(CLASSES_CSV)"
 	@echo "  make rename-loop - rename + compile + reports"
-	@echo "  make rename-lsp - apply mappings from classes.csv via JDTLS/LSP (writes docs/rename-report-lsp.md)"
+	@echo "  make rename-lsp - apply mappings from $(CLASSES_CSV) via JDTLS/LSP (writes docs/rename-report-lsp.md)"
 	@echo "  make rename-lsp-dry - dry-run JDTLS/LSP rename"
 	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
-	@echo "  make refactor-tree - generate build/refactor-flat/*.java from client/src + classes.csv (flat copy)"
-	@echo "  make refactor-layout - generate client/refactor/**/*.java (organized) from client/src + classes.csv"
+	@echo "  make refactor-tree - generate build/refactor-flat/*.java from client/src + $(CLASSES_CSV) (flat copy)"
+	@echo "  make refactor-layout - generate client/refactor/**/*.java (organized) from client/src + $(CLASSES_CSV)"
 	@echo "  make compile-refactor - compile client/refactor (after refactor-layout)"
 	@echo "  make compile-refactor-layout - alias for compile-refactor"
 	@echo "  make clean     - remove $(BUILD_DIR)"
@@ -148,10 +149,10 @@ reports:
 	@python tools/java_dossier.py --write docs/rename-dossiers.md
 
 rename:
-	@python tools/apply_class_renames.py --csv classes.csv --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}"
+	@python tools/apply_class_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}"
 
 rename-dry:
-	@python tools/apply_class_renames.py --csv classes.csv --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+	@python tools/apply_class_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
 
 rename-loop:
 	@$(MAKE) rename
@@ -164,10 +165,10 @@ rename-loop:
 	@echo "  docs/rename-dossiers.md"
 
 rename-lsp:
-	@python tools/apply_jdtls_renames.py --csv classes.csv --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}"
+	@python tools/apply_jdtls_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}"
 
 rename-lsp-dry:
-	@python tools/apply_jdtls_renames.py --csv classes.csv --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+	@python tools/apply_jdtls_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
 
 rename-lsp-loop:
 	@$(MAKE) rename-lsp
@@ -180,10 +181,10 @@ rename-lsp-loop:
 	@echo "  docs/rename-dossiers.md"
 
 refactor-tree:
-	@python tools/build_refactor_tree.py --csv classes.csv --src-dir client/src --dst-dir build/refactor-flat --report build/refactor-rename-report.md
+	@python tools/build_refactor_tree.py --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir build/refactor-flat --report build/refactor-rename-report.md
 
 refactor-layout:
-	@python tools/build_refactor_layout.py --csv classes.csv --src-dir client/src --dst-dir client/refactor --rules client/refactor/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
+	@python tools/build_refactor_layout.py --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
 
 compile-refactor: refactor-layout
 	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt

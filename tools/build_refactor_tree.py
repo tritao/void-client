@@ -44,7 +44,7 @@ def _run_apply_class_renames(*, csv: Path, src_dir: Path, report: Path) -> None:
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description="Generate a renamed copy of client/src into client/refactor (idempotent).")
-    ap.add_argument("--csv", type=Path, default=Path("classes.csv"), help="Rename mapping CSV (src,dst[,score,anchors])")
+    ap.add_argument("--csv", type=Path, default=Path("client/refactor/classes.csv"), help="Rename mapping CSV (src,dst[,score,anchors])")
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"), help="Flat directory containing *.java")
     ap.add_argument("--dst-dir", type=Path, default=Path("client/refactor"), help="Flat output directory (will contain *.java)")
     ap.add_argument("--work-dir", type=Path, default=Path("build/refactor-tree"), help="Scratch working directory under build/")
@@ -88,4 +88,3 @@ def main(argv: list[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
-
