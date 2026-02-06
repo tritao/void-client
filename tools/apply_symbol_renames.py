@@ -86,22 +86,30 @@ def _as_int(s: str) -> int | None:
 
 
 def load_symbol_csv(csv_path: Path) -> list[SymbolRename]:
-    raw_lines: list[str] = []
-    for raw in csv_path.read_text(encoding="utf-8", errors="replace").splitlines():
+    return _load_symbol_csv_any(csv_path, label=str(csv_path))
+
+
+def _non_comment_csv_lines(text: str) -> list[str]:
+    lines: list[str] = []
+    for raw in text.splitlines():
         s = raw.strip()
         if not s:
             continue
         if s.startswith("#"):
             continue
-        raw_lines.append(raw)
+        lines.append(raw)
+    return lines
 
+
+def _load_symbol_csv_any(path: Path, *, label: str) -> list[SymbolRename]:
+    raw_lines = _non_comment_csv_lines(path.read_text(encoding="utf-8", errors="replace"))
     if not raw_lines:
         return []
 
     reader = csv.DictReader(raw_lines)
     required = {"file", "kind", "old", "new"}
     if not required.issubset(set(reader.fieldnames or [])):
-        raise SystemExit(f"{csv_path} must have header with: {sorted(required)} (got: {reader.fieldnames})")
+        raise SystemExit(f"{label} must have header with: {sorted(required)} (got: {reader.fieldnames})")
 
     out: list[SymbolRename] = []
     for row in reader:
@@ -122,12 +130,12 @@ def load_symbol_csv(csv_path: Path) -> list[SymbolRename]:
             SymbolRename(
                 file=file_,
                 kind=kind,
+                old=old,
+                new=new,
                 owner=owner,
                 member=member,
                 signature=signature,
                 param_index=param_index,
-                old=old,
-                new=new,
                 detail_regex=(row.get("detail_regex") or "").strip(),
                 line=_as_int(row.get("line") or ""),
                 col=_as_int(row.get("col") or ""),
@@ -135,6 +143,41 @@ def load_symbol_csv(csv_path: Path) -> list[SymbolRename]:
             )
         )
     return out
+
+
+def load_symbol_csvs(*, csv_files: list[Path], csv_dir: Path | None) -> list[SymbolRename]:
+    out: list[SymbolRename] = []
+    for p in csv_files:
+        if not p.exists():
+            continue
+        out.extend(_load_symbol_csv_any(p, label=str(p)))
+
+    if csv_dir and csv_dir.exists():
+        for p in sorted([x for x in csv_dir.rglob("*.csv") if x.is_file()]):
+            out.extend(_load_symbol_csv_any(p, label=str(p)))
+
+    # Drop exact duplicates while preserving order.
+    seen: set[tuple[Any, ...]] = set()
+    deduped: list[SymbolRename] = []
+    for r in out:
+        key = (
+            r.file,
+            r.kind,
+            r.owner,
+            r.member,
+            r.signature,
+            r.param_index,
+            r.old,
+            r.new,
+            r.detail_regex,
+            r.line,
+            r.col,
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(r)
+    return deduped
 
 
 # ---------------------------
@@ -738,7 +781,8 @@ def _text_in_range(path: Path, rng: dict[str, Any]) -> str:
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--csv", type=Path, default=Path("client/refactor/symbol_renames.csv"))
+    ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/symbol_renames.csv")])
+    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/symbol-renames.d"))
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"))
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-symbols-lsp.md"))
     ap.add_argument("--max-renames", type=int, default=25)
@@ -757,8 +801,10 @@ def main(argv: list[str]) -> int:
     if not src_dir.exists():
         raise SystemExit(f"--src-dir not found: {src_dir}")
 
-    if not args.csv.exists():
-        raise SystemExit(f"--csv not found: {args.csv}")
+    csv_files = [Path(p) for p in (args.csv or [])]
+    csv_dir = Path(args.csv_dir) if args.csv_dir else None
+    if not any(p.exists() for p in csv_files) and not (csv_dir and csv_dir.exists()):
+        raise SystemExit("No symbol rename mappings found (expected --csv files and/or --csv-dir).")
 
     if not args.no_eclipse_project:
         libs = [Path("libs/clientlibs.jar")]
@@ -803,7 +849,7 @@ def main(argv: list[str]) -> int:
     client.notify("initialized", {})
 
     report = Report(renamed=[], skipped=[])
-    mappings = load_symbol_csv(args.csv)
+    mappings = load_symbol_csvs(csv_files=csv_files, csv_dir=csv_dir)
 
     applied = 0
     for r in mappings:

@@ -6,6 +6,7 @@ CLASSES_DIR ?= $(BUILD_DIR)/classes
 SOURCES_FILE ?= $(BUILD_DIR)/sources.txt
 CLASSES_CSV ?= client/refactor/classes.csv
 SYMBOLS_CSV ?= client/refactor/symbol_renames.csv
+SYMBOLS_CSV_DIR ?= client/refactor/symbol-renames.d
 
 LIBS ?= libs/clientlibs.jar
 MAIN_CLASS ?= Loader
@@ -185,10 +186,10 @@ rename-lsp-loop:
 	@echo "  docs/rename-dossiers.md"
 
 rename-symbols:
-	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}"
+	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}"
 
 rename-symbols-dry:
-	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
 
 rename-symbols-loop:
 	@$(MAKE) rename-symbols
