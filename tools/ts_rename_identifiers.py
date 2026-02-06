@@ -57,6 +57,8 @@ JAVA_IDENT_RX = re.compile(r"^[A-Za-z_$][A-Za-z0-9_$]*$")
 class Mapping:
     old: str
     new: str
+    kind: str = ""
+    owner: str = ""
     file: str = ""
     notes: str = ""
 
@@ -123,6 +125,8 @@ def _load_mappings_from_csv(path: Path, *, label: str) -> list[Mapping]:
             Mapping(
                 old=old,
                 new=new,
+                kind=(row.get("kind") or "").strip(),
+                owner=(row.get("owner") or "").strip(),
                 file=(row.get("file") or "").strip(),
                 notes=(row.get("notes") or "").strip(),
             )
@@ -171,6 +175,60 @@ def _apply_edits_bytes(data: bytes, edits: list[tuple[int, int, bytes]]) -> byte
     return data
 
 
+def _resolve_scope_files(*, mapping_file: str, src_dir: Path, java_files: list[Path]) -> set[Path]:
+    if not mapping_file:
+        return set()
+    stem_index: dict[str, list[Path]] = {}
+    for p in java_files:
+        stem_index.setdefault(p.stem, []).append(p)
+
+    value = mapping_file.strip()
+    out: set[Path] = set()
+    looks_like_path = "/" in value or value.endswith(".java")
+    if looks_like_path:
+        path = Path(value)
+        candidates: list[Path] = []
+        if path.is_absolute():
+            candidates.append(path.resolve())
+        else:
+            candidates.append((Path.cwd() / path).resolve())
+            candidates.append((src_dir / path).resolve())
+        for c in candidates:
+            if c.exists() and c.suffix == ".java":
+                out.add(c)
+    else:
+        stem = value[:-5] if value.endswith(".java") else value
+        for p in stem_index.get(stem, []):
+            out.add(p.resolve())
+    return out
+
+
+def _collect_field_declarations(*, parser: Parser, java_files: list[Path]) -> dict[str, set[Path]]:
+    out: dict[str, set[Path]] = {}
+    for path in java_files:
+        data = path.read_bytes()
+        tree = parser.parse(data)
+        for n in _iter_nodes(tree.root_node):
+            if n.type != "variable_declarator":
+                continue
+            parent = n.parent
+            if parent is None or parent.type != "field_declaration":
+                continue
+            ident = None
+            for ch in n.children:
+                if ch.type in ("identifier", "type_identifier"):
+                    ident = data[ch.start_byte : ch.end_byte]
+                    break
+            if ident is None:
+                continue
+            try:
+                name = ident.decode("utf-8")
+            except UnicodeDecodeError:
+                continue
+            out.setdefault(name, set()).add(path.resolve())
+    return out
+
+
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/symbol_renames.csv")])
@@ -180,6 +238,11 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--max-mappings", type=int, default=25, help="Apply at most N mapping rows (default 25). Use -1 for all.")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--allow-non-obfuscated", action="store_true", help="Allow renaming identifiers not matching the default obfuscated-name regex.")
+    ap.add_argument(
+        "--safe-preflight",
+        action="store_true",
+        help="Preflight mappings and skip unsafe rows (e.g. ambiguous field declarations).",
+    )
     ap.add_argument("--language-so", type=Path, default=Path("build/ts-languages-java.so"))
     args = ap.parse_args(argv)
 
@@ -194,6 +257,14 @@ def main(argv: list[str]) -> int:
     if args.max_mappings >= 0:
         mappings = mappings[: args.max_mappings]
 
+    java_files = sorted(src_dir.rglob("*.java"))
+    java = _build_java_language(out_so=args.language_so)
+    parser = Parser()
+    parser.set_language(java)
+    field_decls: dict[str, set[Path]] = {}
+    if args.safe_preflight:
+        field_decls = _collect_field_declarations(parser=parser, java_files=java_files)
+
     # Validate + build map.
     rename_map: dict[str, str] = {}
     skipped: list[str] = []
@@ -204,6 +275,20 @@ def main(argv: list[str]) -> int:
         if not args.allow_non_obfuscated and not OBF_NAME_RX.match(m.old):
             skipped.append(f"Not obfuscated (use --allow-non-obfuscated): {m.old} -> {m.new}")
             continue
+        if args.safe_preflight and m.kind.lower() == "field":
+            decl_files = field_decls.get(m.old, set())
+            if not decl_files:
+                skipped.append(f"No field declaration found: {m.old} -> {m.new}")
+                continue
+            if len(decl_files) > 1:
+                skipped.append(
+                    f"Ambiguous field declaration ({len(decl_files)} files): {m.old} -> {m.new}"
+                )
+                continue
+            scope_files = _resolve_scope_files(mapping_file=m.file, src_dir=src_dir, java_files=java_files)
+            if scope_files and next(iter(decl_files)) not in scope_files:
+                skipped.append(f"Field scope mismatch: {m.old} -> {m.new} (file={m.file})")
+                continue
         prev = rename_map.get(m.old)
         if prev and prev != m.new:
             raise SystemExit(f"Conflicting mappings for {m.old}: {prev} vs {m.new}")
@@ -212,14 +297,9 @@ def main(argv: list[str]) -> int:
     if not rename_map:
         raise SystemExit("No applicable mappings after filtering.")
 
-    java = _build_java_language(out_so=args.language_so)
-    parser = Parser()
-    parser.set_language(java)
-
     renamed_files: dict[str, int] = {}
     renamed_total = 0
 
-    java_files = sorted(src_dir.rglob("*.java"))
     for path in java_files:
         data = path.read_bytes()
         tree = parser.parse(data)

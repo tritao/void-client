@@ -232,10 +232,10 @@ rename-symbols-loop:
 	@echo "  docs/rename-dossiers.md"
 
 rename-ts:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}"
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight
 
 rename-ts-dry:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --dry-run
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight --dry-run
 
 rename-ts-loop:
 	@$(MAKE) refactor-layout
