@@ -1,0 +1,15 @@
+# LRU-style caches: name the bookkeeping fields used everywhere.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LruHashTable,field,LruHashTable,,,,aClass356_3888,table,,,,"Backing hash table"
+LruHashTable,field,LruHashTable,,,,aClass107_3889,lruList,,,,"LRU list (most-recent at head)"
+LruHashTable,field,LruHashTable,,,,anInt3890,capacity,,,,"Max entries"
+LruHashTable,field,LruHashTable,,,,anInt3891,remaining,,,,"Remaining entry slots"
+SoftLruCache,field,SoftLruCache,,,,anInt1084,capacity,,,,"Max weight"
+SoftLruCache,field,SoftLruCache,,,,anInt1086,remaining,,,,"Remaining weight"
+SoftLruCache,field,SoftLruCache,,,,aClass107_1089,lruList,,,,"LRU list (most-recent at head)"
+SoftLruCache,field,SoftLruCache,,,,aClass356_1100,table,,,,"Backing hash table"
+ReferenceCache,field,ReferenceCache,,,,anInt2324,capacity,,,,"Max weight"
+ReferenceCache,field,ReferenceCache,,,,anInt2311,remaining,,,,"Remaining weight"
+ReferenceCache,field,ReferenceCache,,,,aClass356_2312,table,,,,"Backing hash table"
+ReferenceCache,field,ReferenceCache,,,,aClass107_2316,lruList,,,,"LRU list (most-recent at head)"
+
