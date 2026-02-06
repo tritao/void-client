@@ -1,0 +1,38 @@
+# Ordered rules: first match wins.
+# Columns: dir,match,pattern
+dir,match,pattern
+
+# Leave heavily-obfuscated / bucket-ish names grouped for later analysis.
+_obfuscated,regex,^Class\d+.*$
+_obfuscated,regex,^Static\d+.*$
+_obfuscated,regex,"^([a-z]{1,2})(_Sub\d+.*)?$"
+
+# Procedural textures
+graphics/textureops,prefix,TextureOp
+
+# Render backends
+graphics/opengl,prefix,OpenGL
+graphics/directx,prefix,DirectX
+graphics/toolkit,suffix,Toolkit
+graphics/toolkit,suffix,ToolkitSprite
+graphics/toolkit,suffix,ToolkitFontRenderer
+
+# AWT / windowing / input
+ui/awt,prefix,Awt
+ui/input,regex,^(Mouse|Key|Keyboard|Cursor).*
+ui/canvas,regex,.*Canvas.*
+ui/loading,prefix,LoadingScreen
+
+# Audio / media
+audio,regex,.*(Pcm|Midi|Ogg|Vorbis).*
+audio,regex,.*(Sound|Audio).*
+
+# Networking
+net,regex,.*(Socket|Proxy|Ping|Http|Url).*
+
+# IO / filesystem
+io,regex,.*(InputStream|OutputStream|BufferedFile|FileOnDisk|ArchiveDisk).*
+
+# Collections / core utils
+collections,regex,.*(HashTable|Node|Deque|Queue|Pool).*
+util,regex,.*(Util|Utils).*

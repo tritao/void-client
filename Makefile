@@ -55,13 +55,15 @@ JAVAC ?= javac
 JAR ?= jar
 endif
 
-.PHONY: help bootstrap sources compile jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop refactor-tree compile-refactor
+.PHONY: help bootstrap sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
 
 help:
 	@echo "Targets:"
 	@echo "  make bootstrap - download repo-local JDK (./.jdk/temurin\$$JDK)"
 	@echo "  make sources   - write $(SOURCES_FILE)"
+	@echo "  make sources-recursive - write $(SOURCES_FILE) (recursive)"
 	@echo "  make compile   - compile $(SRC_DIR) into $(CLASSES_DIR)"
+	@echo "  make compile-recursive - compile $(SRC_DIR) into $(CLASSES_DIR) (recursive)"
 	@echo "  make jar       - build runnable jar at $(OUT_JAR) (Main-Class: $(MAIN_CLASS))"
 	@echo "  make run       - run $(MAIN_CLASS) using $(OUT_JAR) + $(LIBS)"
 	@echo "  make reports   - regenerate docs/*.md reports"
@@ -73,6 +75,8 @@ help:
 	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
 	@echo "  make refactor-tree - generate client/refactor/*.java from client/src + classes.csv"
 	@echo "  make compile-refactor - compile client/refactor (after refactor-tree)"
+	@echo "  make refactor-layout - generate client/refactor/layout/**/*.java (organized) from client/src + classes.csv"
+	@echo "  make compile-refactor-layout - compile client/refactor/layout (after refactor-layout)"
 	@echo "  make clean     - remove $(BUILD_DIR)"
 	@echo ""
 	@echo "Vars:"
@@ -103,6 +107,11 @@ sources: $(BUILD_DIR)
 	@if [ -n "$(EXCLUDE_REGEX)" ]; then grep -Ev "$(EXCLUDE_REGEX)" "$(SOURCES_FILE)" > "$(SOURCES_FILE).tmp" || true; mv "$(SOURCES_FILE).tmp" "$(SOURCES_FILE)"; fi
 	@echo "Wrote $(SOURCES_FILE) ($$(wc -l < "$(SOURCES_FILE)") files)"
 
+sources-recursive: $(BUILD_DIR)
+	@find "$(SRC_DIR)" -name '*.java' -print | sort > "$(SOURCES_FILE)"
+	@if [ -n "$(EXCLUDE_REGEX)" ]; then grep -Ev "$(EXCLUDE_REGEX)" "$(SOURCES_FILE)" > "$(SOURCES_FILE).tmp" || true; mv "$(SOURCES_FILE).tmp" "$(SOURCES_FILE)"; fi
+	@echo "Wrote $(SOURCES_FILE) ($$(wc -l < "$(SOURCES_FILE)") files)"
+
 $(CLASSES_STAMP): $(JAVA_SOURCES) $(LIB_JARS) | $(CLASSES_DIR) $(BUILD_DIR)
 	@echo "Compiling with: $(JAVAC)"
 	@find "$(SRC_DIR)" -maxdepth 1 -name '*.java' -print | sort > "$(SOURCES_FILE)"
@@ -111,6 +120,17 @@ $(CLASSES_STAMP): $(JAVA_SOURCES) $(LIB_JARS) | $(CLASSES_DIR) $(BUILD_DIR)
 	@touch "$(CLASSES_STAMP)"
 
 compile: $(CLASSES_STAMP)
+
+CLASSES_STAMP_RECURSIVE ?= $(CLASSES_DIR)/.compiled-recursive.stamp
+
+$(CLASSES_STAMP_RECURSIVE): $(LIB_JARS) | $(CLASSES_DIR) $(BUILD_DIR)
+	@echo "Compiling (recursive) with: $(JAVAC)"
+	@find "$(SRC_DIR)" -name '*.java' -print | sort > "$(SOURCES_FILE)"
+	@if [ -n "$(EXCLUDE_REGEX)" ]; then grep -Ev "$(EXCLUDE_REGEX)" "$(SOURCES_FILE)" > "$(SOURCES_FILE).tmp" || true; mv "$(SOURCES_FILE).tmp" "$(SOURCES_FILE)"; fi
+	@"$(JAVAC)" -Xlint:none -cp "$(LIBS)" -d "$(CLASSES_DIR)" @"$(SOURCES_FILE)"
+	@touch "$(CLASSES_STAMP_RECURSIVE)"
+
+compile-recursive: $(CLASSES_STAMP_RECURSIVE)
 
 $(OUT_JAR): $(CLASSES_STAMP) | $(BUILD_DIR)
 	@echo "Jarring to: $(OUT_JAR)"
@@ -162,6 +182,12 @@ refactor-tree:
 	@python tools/build_refactor_tree.py --csv classes.csv --src-dir client/src --dst-dir client/refactor --report build/refactor-rename-report.md
 
 compile-refactor: refactor-tree
-	@$(MAKE) compile SRC_DIR=client/refactor
+	@$(MAKE) compile SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor SOURCES_FILE=build/sources-refactor.txt
+
+refactor-layout:
+	@python tools/build_refactor_layout.py --csv classes.csv --src-dir client/src --dst-dir client/refactor/layout --rules client/refactor/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
+
+compile-refactor-layout: refactor-layout
+	@$(MAKE) compile-recursive SRC_DIR=client/refactor/layout CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
 clean:
 	rm -rf "$(BUILD_DIR)"
