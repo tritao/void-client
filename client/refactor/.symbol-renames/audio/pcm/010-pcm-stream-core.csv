@@ -1,0 +1,15 @@
+# PCM stream core API naming pass (base stream + mixer orchestration).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+PcmStream,method,PcmStream,,,,method2815,update,,,,"Dispatch fill/skip depending on active flag"
+PcmStream,method,PcmStream,,,,method2817,fill,,,,"Render/mix samples into output buffer"
+PcmStream,method,PcmStream,,,,method2819,skip,,,,"Advance stream without producing output"
+PcmStream,method,PcmStream,,,,method2816,firstSubStream,,,,"First child stream iterator entry"
+PcmStream,method,PcmStream,,,,method2818,nextSubStream,,,,"Next child stream iterator entry"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2883,addSubStream,,,,"Add substream to mixer"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2880,removeSubStream,,,,"Remove substream from mixer"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2887,getSubStreamCount,,,,"Count currently attached substreams"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2886,fillSubStreams,,,,"Fill samples from all substreams"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2884,skipSubStreams,,,,"Skip samples on all substreams"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2881,insertListenerSorted,,,,"Insert listener in delay-sorted order"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2882,removeListener,,,,"Remove listener and refresh next delay"
+PcmStreamMixer,method,PcmStreamMixer,,,,method2885,normalizeListenerDelays,,,,"Subtract processed delta from listener delays"
