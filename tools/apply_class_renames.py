@@ -93,6 +93,12 @@ def _is_valid_java_ident(name: str) -> bool:
     return re.fullmatch(r"[A-Za-z_$][A-Za-z0-9_$]*", name) is not None
 
 
+def _is_short_obfuscated_name(name: str) -> bool:
+    # e.g. `i`, `j`, `aa`, `na` (common in JODE output). These are risky to rename
+    # with a blanket identifier replacer because they collide with locals/params.
+    return re.fullmatch(r"[a-z]{1,2}", name) is not None
+
+
 def _load_tsv(tsv: Path) -> list[RenameCandidate]:
     rows: list[RenameCandidate] = []
     with tsv.open("r", encoding="utf-8") as f:
@@ -199,6 +205,70 @@ def _is_ident_part(ch: str) -> bool:
     return _is_ident_start(ch) or ("0" <= ch <= "9")
 
 
+def _consume_number_literal(text: str, i: int) -> int:
+    """
+    Consume a Java numeric literal starting at index i (where text[i] is a digit).
+
+    This is intentionally conservative; it's only meant to prevent treating pieces
+    of number literals (e.g. the `xa` in `0xa`) as identifiers during renaming.
+    """
+    n = len(text)
+    j = i
+    if j >= n or not text[j].isdigit():
+        return j
+
+    # Hex / binary integer literals.
+    if text[j] == "0" and j + 1 < n and text[j + 1] in ("x", "X"):
+        j += 2
+        while j < n:
+            ch = text[j]
+            if ch == "_" or ch.isdigit() or ("a" <= ch.lower() <= "f"):
+                j += 1
+                continue
+            break
+        if j < n and text[j] in ("l", "L"):
+            j += 1
+        return j
+
+    if text[j] == "0" and j + 1 < n and text[j + 1] in ("b", "B"):
+        j += 2
+        while j < n:
+            ch = text[j]
+            if ch in ("0", "1", "_"):
+                j += 1
+                continue
+            break
+        if j < n and text[j] in ("l", "L"):
+            j += 1
+        return j
+
+    # Decimal / floating-point literals.
+    while j < n and (text[j].isdigit() or text[j] == "_"):
+        j += 1
+
+    # Fractional part (only treat as a number if the '.' is followed by a digit).
+    if j + 1 < n and text[j] == "." and text[j + 1].isdigit():
+        j += 1
+        while j < n and (text[j].isdigit() or text[j] == "_"):
+            j += 1
+
+    # Exponent part.
+    if j < n and text[j] in ("e", "E"):
+        k = j + 1
+        if k < n and text[k] in ("+", "-"):
+            k += 1
+        if k < n and text[k].isdigit():
+            j = k + 1
+            while j < n and (text[j].isdigit() or text[j] == "_"):
+                j += 1
+
+    # Suffix.
+    if j < n and text[j] in ("f", "F", "d", "D", "l", "L"):
+        j += 1
+
+    return j
+
+
 def _parse_anchors(raw: str) -> list[str]:
     if not raw:
         return []
@@ -257,6 +327,11 @@ def _apply_rename_map_java(text: str, rename_map: dict[str, str]) -> str:
                 i += 1
                 state = "CHAR"
                 continue
+            if ch.isdigit():
+                j = _consume_number_literal(text, i)
+                out.append(text[i:j])
+                i = j
+                continue
             if _is_ident_start(ch):
                 j = i + 1
                 while j < n and _is_ident_part(text[j]):
@@ -313,6 +388,205 @@ def _apply_rename_map_java(text: str, rename_map: dict[str, str]) -> str:
         i += 1
 
     return "".join(out)
+
+
+@dataclasses.dataclass(frozen=True)
+class _JavaToken:
+    kind: str  # ws | ident | number | sym | comment | string | char
+    text: str
+
+
+_CTX_IGNORABLE = {"ws", "comment"}
+_CTOR_ALLOWED_PREV = {
+    "{",
+    "}",
+    ";",
+    "public",
+    "private",
+    "protected",
+    "final",
+    "static",
+    "native",
+    "synchronized",
+    "abstract",
+    "strictfp",
+}
+
+
+def _tokenize_java(text: str) -> list[_JavaToken]:
+    tokens: list[_JavaToken] = []
+    i = 0
+    n = len(text)
+
+    while i < n:
+        ch = text[i]
+
+        if ch == "/" and i + 1 < n:
+            nxt = text[i + 1]
+            if nxt == "/":
+                j = text.find("\n", i + 2)
+                if j == -1:
+                    j = n
+                else:
+                    j += 1  # include newline
+                tokens.append(_JavaToken("comment", text[i:j]))
+                i = j
+                continue
+            if nxt == "*":
+                j = text.find("*/", i + 2)
+                j = (j + 2) if j != -1 else n
+                tokens.append(_JavaToken("comment", text[i:j]))
+                i = j
+                continue
+
+        if ch == '"':
+            j = i + 1
+            while j < n:
+                c = text[j]
+                j += 1
+                if c == "\\" and j < n:
+                    j += 1
+                    continue
+                if c == '"':
+                    break
+            tokens.append(_JavaToken("string", text[i:j]))
+            i = j
+            continue
+
+        if ch == "'":
+            j = i + 1
+            while j < n:
+                c = text[j]
+                j += 1
+                if c == "\\" and j < n:
+                    j += 1
+                    continue
+                if c == "'":
+                    break
+            tokens.append(_JavaToken("char", text[i:j]))
+            i = j
+            continue
+
+        if ch.isspace():
+            j = i + 1
+            while j < n and text[j].isspace():
+                j += 1
+            tokens.append(_JavaToken("ws", text[i:j]))
+            i = j
+            continue
+
+        if ch.isdigit():
+            j = _consume_number_literal(text, i)
+            tokens.append(_JavaToken("number", text[i:j]))
+            i = j
+            continue
+
+        if _is_ident_start(ch):
+            j = i + 1
+            while j < n and _is_ident_part(text[j]):
+                j += 1
+            tokens.append(_JavaToken("ident", text[i:j]))
+            i = j
+            continue
+
+        tokens.append(_JavaToken("sym", ch))
+        i += 1
+
+    return tokens
+
+
+def _apply_rename_map_java_short(
+    text: str,
+    rename_map: dict[str, str],
+    *,
+    constructor_src: str | None = None,
+    constructor_dst: str | None = None,
+) -> str:
+    """
+    Apply renames for very short (usually obfuscated) class names in a conservative way.
+
+    Goal: avoid renaming loop counters / locals like `i`, `j`, etc by only renaming
+    identifiers in contexts that look like type/class usage (plus constructors in the
+    defining file).
+    """
+    if not rename_map and not (constructor_src and constructor_dst):
+        return text
+
+    tokens = _tokenize_java(text)
+    n = len(tokens)
+
+    prev_sig = [-1] * n
+    last = -1
+    for idx in range(n):
+        prev_sig[idx] = last
+        if tokens[idx].kind not in _CTX_IGNORABLE:
+            last = idx
+
+    next_sig = [-1] * n
+    nxt = -1
+    for idx in range(n - 1, -1, -1):
+        next_sig[idx] = nxt
+        if tokens[idx].kind not in _CTX_IGNORABLE:
+            nxt = idx
+
+    def _tok(i: int) -> _JavaToken | None:
+        return tokens[i] if i != -1 else None
+
+    for idx, tok in enumerate(tokens):
+        if tok.kind != "ident":
+            continue
+
+        ident = tok.text
+        replace_to: str | None = None
+
+        # Constructor declaration (only relevant in the defining file).
+        if constructor_src and constructor_dst and ident == constructor_src:
+            nxt_i = next_sig[idx]
+            prev_i = prev_sig[idx]
+            nxt_tok = _tok(nxt_i)
+            prev_tok = _tok(prev_i)
+            if nxt_tok is not None and nxt_tok.kind == "sym" and nxt_tok.text == "(":
+                if prev_tok is None or (prev_tok.kind == "sym" and prev_tok.text in ("{", "}", ";")) or (
+                    prev_tok.kind == "ident" and prev_tok.text in _CTOR_ALLOWED_PREV
+                ):
+                    replace_to = constructor_dst
+
+        if replace_to is None and ident in rename_map:
+            prev_i = prev_sig[idx]
+            nxt_i = next_sig[idx]
+            prev_tok = _tok(prev_i)
+            nxt_tok = _tok(nxt_i)
+            prev_text = prev_tok.text if prev_tok is not None else None
+            nxt_text = nxt_tok.text if nxt_tok is not None else None
+
+            # Keyword-driven contexts.
+            if prev_text in ("class", "interface", "enum", "extends", "implements", "instanceof", "new"):
+                replace_to = rename_map[ident]
+            # Static access / array type.
+            # Note: do NOT treat '<' as "generic start" here; for short names like `i`
+            # it collides with less-than comparisons (e.g. `i < 10`).
+            elif nxt_text in (".", "["):
+                replace_to = rename_map[ident]
+            # Cast: "( Type )" where the '(' isn't an argument list (i.e. it isn't preceded by an identifier/number).
+            elif prev_text == "(" and nxt_text in (")", "["):
+                prev_prev_i = prev_sig[prev_i] if prev_i != -1 else -1
+                prev_prev_tok = _tok(prev_prev_i)
+                if prev_prev_tok is None:
+                    replace_to = rename_map[ident]
+                elif prev_prev_tok.kind in ("ident", "number"):
+                    replace_to = None
+                elif prev_prev_tok.kind == "sym" and prev_prev_tok.text in (")", "]", "."):
+                    replace_to = None
+                else:
+                    replace_to = rename_map[ident]
+            # Declaration / return type: "Type name ..." (we only rewrite the Type token).
+            elif nxt_tok is not None and nxt_tok.kind == "ident":
+                replace_to = rename_map[ident]
+
+        if replace_to is not None:
+            tokens[idx] = _JavaToken("ident", replace_to)
+
+    return "".join(t.text for t in tokens)
 
 
 def _self_test() -> None:
@@ -494,9 +768,17 @@ def main(argv: list[str]) -> int:
     texts: dict[Path, str] = {p: _read_text(p) for p in java_files.values()}
     rename_map = {r.src_simple: r.dst_simple for r in chosen}
 
+    rename_map_all = {k: v for k, v in rename_map.items() if not _is_short_obfuscated_name(k)}
+    rename_map_short = {k: v for k, v in rename_map.items() if _is_short_obfuscated_name(k)}
+
     # Replace identifiers token-aware (skip comments/strings)
     for p in list(texts.keys()):
-        texts[p] = _apply_rename_map_java(texts[p], rename_map)
+        txt = texts[p]
+        txt = _apply_rename_map_java(txt, rename_map_all)
+        ctor_src = p.stem if p.stem in rename_map_short else None
+        ctor_dst = rename_map_short.get(ctor_src) if ctor_src else None
+        txt = _apply_rename_map_java_short(txt, rename_map_short, constructor_src=ctor_src, constructor_dst=ctor_dst)
+        texts[p] = txt
 
     # Write updates to existing paths
     for p, txt in texts.items():

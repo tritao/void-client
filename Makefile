@@ -55,7 +55,7 @@ JAVAC ?= javac
 JAR ?= jar
 endif
 
-.PHONY: help bootstrap sources compile jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop
+.PHONY: help bootstrap sources compile jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop refactor-tree compile-refactor
 
 help:
 	@echo "Targets:"
@@ -71,6 +71,8 @@ help:
 	@echo "  make rename-lsp - apply mappings from classes.csv via JDTLS/LSP (writes docs/rename-report-lsp.md)"
 	@echo "  make rename-lsp-dry - dry-run JDTLS/LSP rename"
 	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
+	@echo "  make refactor-tree - generate client/refactor/*.java from client/src + classes.csv"
+	@echo "  make compile-refactor - compile client/refactor (after refactor-tree)"
 	@echo "  make clean     - remove $(BUILD_DIR)"
 	@echo ""
 	@echo "Vars:"
@@ -155,5 +157,11 @@ rename-lsp-loop:
 	@echo "  docs/unnamed-status.md"
 	@echo "  docs/fan-graph.md"
 	@echo "  docs/rename-dossiers.md"
+
+refactor-tree:
+	@python tools/build_refactor_tree.py --csv classes.csv --src-dir client/src --dst-dir client/refactor --report build/refactor-rename-report.md
+
+compile-refactor: refactor-tree
+	@$(MAKE) compile SRC_DIR=client/refactor
 clean:
 	rm -rf "$(BUILD_DIR)"
