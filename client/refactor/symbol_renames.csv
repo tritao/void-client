@@ -5,26 +5,32 @@
 # - idempotent (reruns skip already-applied renames)
 # - symbol-aware (JDTLS updates callsites safely)
 #
-# Columns:
+# Columns (recommended long-term):
 # - file: path to a .java file (relative to repo root). If it has no '/', it is treated as a stem under client/src/.
 # - kind: type | method | field | param | local
-# - old: existing identifier
+# - owner: optional owning type name (recommended for method/field/param).
+# - member: optional owning member name (required for param; e.g. the method name).
+# - signature: optional method signature used to disambiguate overloads (e.g. "(int,String)").
+# - param_index: optional 0-based parameter index (required for kind=param unless using line/col).
+# - old: existing identifier (recommended; for idempotence we also treat "already renamed" as ok)
 # - new: desired identifier
-# - container: optional, used to disambiguate (e.g. owning type name or method name)
-# - detail_regex: optional, regex to disambiguate overloaded methods using LSP "detail"
-# - line: optional 1-based line to rename at (recommended for param/local)
+# - detail_regex: optional, regex to disambiguate overloaded methods via LSP "detail" (method/field/type)
+# - line: optional 1-based line to rename at (escape hatch; required for locals for now)
 # - col: optional 1-based column to rename at
 # - notes: optional free-form text (ignored by the tool)
 #
 # Notes:
-# - For kind=param/local, you should usually provide line+col to avoid ambiguity.
-# - For kind=method/field/type, you can omit line+col and let the tool locate the symbol via documentSymbol.
+# - For kind=param: prefer owner+member+signature+param_index over line/col.
+# - For kind=local: line/col is currently required.
+# - For kind=method/field/type: prefer owner + (signature or detail_regex when needed) over line/col.
 #
 # Example (method, located via documentSymbol):
-# client/src/SomeClass.java,method,method1234,decodeSomething,SomeClass,,,
+# client/src/SomeClass.java,method,SomeClass,,,(int,String),,method1234,decodeSomething,,,
 #
-# Example (param, explicit position):
-# SomeClass.java,param,i,newName,SomeClass,,,123,17,"rename parameter i -> newName"
+# Example (param, signature-based; no line numbers):
+# client/src/SomeClass.java,param,SomeClass,decodeSomething,(int,String),1,i,itemId,,,
 #
-file,kind,old,new,container,detail_regex,line,col,notes
-
+# Example (local, explicit position):
+# client/src/SomeClass.java,local,,,,,,i,itemId,,123,17,"rename local i -> itemId"
+#
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes

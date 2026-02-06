@@ -36,7 +36,10 @@ class SymbolRename:
     kind: str
     old: str
     new: str
-    container: str = ""
+    owner: str = ""
+    member: str = ""
+    signature: str = ""
+    param_index: int | None = None  # 0-based
     detail_regex: str = ""
     line: int | None = None  # 1-based
     col: int | None = None  # 1-based
@@ -109,13 +112,22 @@ def load_symbol_csv(csv_path: Path) -> list[SymbolRename]:
         if not file_ or not kind or not old or not new:
             continue
 
+        # Backward compat: earlier drafts used `container` for the owning type.
+        owner = (row.get("owner") or row.get("container") or "").strip()
+        member = (row.get("member") or "").strip()
+        signature = (row.get("signature") or "").strip()
+        param_index = _as_int(row.get("param_index") or "")
+
         out.append(
             SymbolRename(
                 file=file_,
                 kind=kind,
+                owner=owner,
+                member=member,
+                signature=signature,
+                param_index=param_index,
                 old=old,
                 new=new,
-                container=(row.get("container") or "").strip(),
                 detail_regex=(row.get("detail_regex") or "").strip(),
                 line=_as_int(row.get("line") or ""),
                 col=_as_int(row.get("col") or ""),
@@ -560,6 +572,7 @@ def _choose_symbol_start(
     name: str,
     container: str,
     detail_regex: str,
+    signature: str,
 ) -> tuple[dict[str, int] | None, str]:
     k = kind.strip()
     if k not in _LSP_KIND:
@@ -567,6 +580,75 @@ def _choose_symbol_start(
 
     space = _find_container_syms(syms, container)
     candidates = [s for s in _iter_syms(space) if s.kind in _LSP_KIND[k] and s.name == name]
+
+    def _norm_type(t: str) -> str:
+        t = t.strip()
+        if not t:
+            return ""
+        # Prefer short type names; JDTLS details typically use unqualified names.
+        suffix = ""
+        while t.endswith("[]"):
+            suffix = "[]" + suffix
+            t = t[:-2]
+        if t.endswith("..."):
+            suffix = "..." + suffix
+            t = t[:-3]
+        base = t.split(".")[-1]
+        return (base + suffix).replace(" ", "")
+
+    def _split_sig_types(sig: str) -> list[str] | None:
+        s = sig.strip()
+        if not s:
+            return None
+        if "(" in s and ")" in s:
+            s = s[s.find("(") + 1 : s.rfind(")")]
+        parts: list[str] = []
+        cur = ""
+        depth = 0
+        for ch in s:
+            if ch == "<":
+                depth += 1
+            elif ch == ">" and depth > 0:
+                depth -= 1
+            if ch == "," and depth == 0:
+                parts.append(cur.strip())
+                cur = ""
+            else:
+                cur += ch
+        parts.append(cur.strip())
+        return [_norm_type(p) for p in parts if p]
+
+    def _extract_detail_param_types(detail: str) -> list[str] | None:
+        d = (detail or "").strip()
+        if not d:
+            return None
+        start = d.find("(")
+        if start == -1:
+            return None
+        depth = 0
+        end = None
+        for i, ch in enumerate(d[start:], start=start):
+            if ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+                if depth == 0:
+                    end = i
+                    break
+        if end is None:
+            return None
+        return _split_sig_types(d[start : end + 1])
+
+    if signature and k == "method":
+        want = _split_sig_types(signature)
+        if want:
+            narrowed: list[_DocSym] = []
+            for c in candidates:
+                got = _extract_detail_param_types(c.detail)
+                if got == want:
+                    narrowed.append(c)
+            if narrowed:
+                candidates = narrowed
     if detail_regex:
         try:
             rx = re.compile(detail_regex)
@@ -580,6 +662,63 @@ def _choose_symbol_start(
         details = ", ".join(sorted({c.detail for c in candidates if c.detail})[:5])
         return None, f"ambiguous match ({len(candidates)} candidates){': ' + details if details else ''}"
     return candidates[0].range_start, "ok"
+
+
+def _find_method_param_name_offset(*, text: str, method_name_off: int, param_index: int) -> int | None:
+    """
+    Given an offset pointing at the method name identifier, find the offset of
+    the parameter *name* token at param_index (0-based).
+    """
+    if param_index < 0:
+        return None
+    open_paren = text.find("(", method_name_off)
+    if open_paren == -1:
+        return None
+
+    n = len(text)
+    depth = 0
+    angle = 0
+    parts: list[tuple[int, int]] = []
+    cur_start = open_paren + 1
+
+    i = open_paren
+    while i < n:
+        ch = text[i]
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+            if depth == 0:
+                parts.append((cur_start, i))
+                break
+        elif ch == "<":
+            angle += 1
+        elif ch == ">" and angle > 0:
+            angle -= 1
+        elif ch == "," and depth == 1 and angle == 0:
+            parts.append((cur_start, i))
+            cur_start = i + 1
+        i += 1
+
+    if not parts:
+        return None
+    if len(parts) == 1 and text[parts[0][0] : parts[0][1]].strip() == "":
+        return None
+    if param_index >= len(parts):
+        return None
+
+    seg_start, seg_end = parts[param_index]
+    seg = text[seg_start:seg_end]
+    matches = list(re.finditer(r"[A-Za-z_$][A-Za-z0-9_$]*", seg))
+    if not matches:
+        return None
+    keywords = {"final"}
+    for m in reversed(matches):
+        tok = m.group(0)
+        if tok in keywords:
+            continue
+        return seg_start + m.start()
+    return None
 
 
 def _text_in_range(path: Path, rng: dict[str, Any]) -> str:
@@ -702,6 +841,37 @@ def main(argv: list[str]) -> int:
 
             if r.line is not None and r.col is not None:
                 pos = _pos_1based_to_lsp(r.line, r.col)
+            elif r.kind.strip() == "local":
+                report.skipped.append((r, "local renames require line+col"))
+                continue
+            elif r.kind.strip() == "param":
+                if not r.member:
+                    report.skipped.append((r, "param renames require member=<method name>"))
+                    continue
+                if r.param_index is None:
+                    report.skipped.append((r, "param renames require param_index (0-based) or line+col"))
+                    continue
+
+                syms_raw = client.request("textDocument/documentSymbol", {"textDocument": {"uri": uri}})
+                syms = _parse_document_symbols(syms_raw)
+                method_pos, why = _choose_symbol_start(
+                    syms=syms,
+                    kind="method",
+                    name=r.member,
+                    container=r.owner,
+                    detail_regex=r.detail_regex,
+                    signature=r.signature,
+                )
+                if not method_pos:
+                    report.skipped.append((r, f"method not found: {why}"))
+                    continue
+
+                method_off = _pos_to_offset(_line_offsets(text), method_pos, text_len=len(text))
+                param_name_off = _find_method_param_name_offset(text=text, method_name_off=method_off, param_index=r.param_index)
+                if param_name_off is None:
+                    report.skipped.append((r, "could not locate param name in signature"))
+                    continue
+                pos = _offset_to_lsp_position(text, param_name_off)
             else:
                 # Use documentSymbol for type/method/field when possible.
                 syms_raw = client.request("textDocument/documentSymbol", {"textDocument": {"uri": uri}})
@@ -710,8 +880,9 @@ def main(argv: list[str]) -> int:
                     syms=syms,
                     kind=r.kind,
                     name=r.old,
-                    container=r.container,
+                    container=r.owner,
                     detail_regex=r.detail_regex,
+                    signature=r.signature,
                 )
                 if not pos:
                     report.skipped.append((r, why))
@@ -724,6 +895,9 @@ def main(argv: list[str]) -> int:
                 continue
 
             current = _text_in_range(path, prep.get("range") or {})
+            if current == r.new:
+                report.skipped.append((r, "already renamed"))
+                continue
             if current != r.old:
                 report.skipped.append((r, f"target text mismatch (found {current!r})"))
                 continue
@@ -759,4 +933,3 @@ def main(argv: list[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
-
