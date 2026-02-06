@@ -129,7 +129,6 @@ Class221,HorizontalAlignment
 Class341,VerticalAlignment
 Class362,OverlayMessageRenderer
 Class367_Sub11,UnderwaterShader
-# Class57,DisplayMode  # collides with java.awt.DisplayMode
 Class57,ClientDisplayMode
 Class163,AudioResampler
 Class238,Connection
