@@ -180,6 +180,50 @@ def load_symbol_csvs(*, csv_files: list[Path], csv_dir: Path | None) -> list[Sym
     return deduped
 
 
+def _resolve_java_file(file_s: str, *, root: Path, src_dir: Path, classes_csv: Path) -> Path | None:
+    """
+    Resolve a mapping row's `file` value to an on-disk .java file.
+
+    Accept:
+    - explicit repo-relative paths (contain '/')
+    - src stems under --src-dir (e.g. Class348_Sub49 or Class348_Sub49.java)
+    - refactored type names (e.g. JagBuffer or JagBuffer.java), resolved via classes.csv
+    """
+    s = (file_s or "").strip()
+    if not s:
+        return None
+
+    if "/" in s:
+        p = (root / s).resolve()
+        return p if p.exists() else None
+
+    stem = s[:-5] if s.endswith(".java") else s
+    p = (src_dir / f"{stem}.java").resolve()
+    if p.exists():
+        return p
+
+    cc = classes_csv if classes_csv.is_absolute() else (root / classes_csv)
+    if not cc.exists():
+        return None
+
+    src_matches: list[str] = []
+    for raw in cc.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [x.strip() for x in line.split(",")]
+        if len(parts) < 2:
+            continue
+        src, dst = parts[0], parts[1]
+        if dst == stem:
+            src_matches.append(src)
+
+    if len(src_matches) != 1:
+        return None
+    p2 = (src_dir / f"{src_matches[0]}.java").resolve()
+    return p2 if p2.exists() else None
+
+
 # ---------------------------
 # Offsets / positions
 # ---------------------------
@@ -786,6 +830,7 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/symbol_renames.csv")])
     ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/.symbol-renames"))
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"))
+    ap.add_argument("--classes-csv", type=Path, default=Path("client/refactor/classes.csv"))
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-symbols-lsp.md"))
     ap.add_argument("--max-renames", type=int, default=25)
     ap.add_argument("--dry-run", action="store_true")
@@ -859,14 +904,9 @@ def main(argv: list[str]) -> int:
             break
 
         # Resolve file path.
-        file_s = r.file
-        if "/" not in file_s and not file_s.endswith(".java"):
-            file_s = f"{r.file}.java"
-        if "/" not in file_s:
-            file_s = str(Path("client/src") / file_s)
-        path = (root / file_s).resolve()
-        if not path.exists():
-            report.skipped.append((r, "file not found"))
+        path = _resolve_java_file(r.file, root=root, src_dir=src_dir, classes_csv=args.classes_csv)
+        if not path:
+            report.skipped.append((r, "file not found / ambiguous"))
             continue
 
         text = path.read_text(encoding="utf-8", errors="replace")

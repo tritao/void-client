@@ -6,7 +6,10 @@
 # - symbol-aware (JDTLS updates callsites safely)
 #
 # Columns (recommended long-term):
-# - file: path to a .java file (relative to repo root). If it has no '/', it is treated as a stem under client/src/.
+# - file: path to a .java file (relative to repo root).
+#   If it has no '/', it is treated as either:
+#   - a stem under client/src/ (e.g. Class348_Sub49 or Class348_Sub49.java), OR
+#   - a *renamed* type from client/refactor/classes.csv (e.g. JagBuffer or JagBuffer.java).
 # - kind: type | method | field | param | local
 # - owner: optional owning type name (recommended for method/field/param).
 # - member: optional owning member name (required for param; e.g. the method name).
