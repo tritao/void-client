@@ -210,7 +210,7 @@ def main(argv: list[str]) -> int:
     renamed_files: dict[str, int] = {}
     renamed_total = 0
 
-    java_files = sorted(src_dir.glob("*.java"))
+    java_files = sorted(src_dir.rglob("*.java"))
     for path in java_files:
         data = path.read_bytes()
         tree = parser.parse(data)

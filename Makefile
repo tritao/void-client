@@ -226,15 +226,15 @@ rename-symbols-loop:
 	@echo "  docs/rename-dossiers.md"
 
 rename-ts:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}"
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}"
 
 rename-ts-dry:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --dry-run
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --dry-run
 
 rename-ts-loop:
-	@$(MAKE) rename-ts
-	@$(MAKE) compile
 	@$(MAKE) refactor-layout
+	@$(MAKE) rename-ts
+	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
 	@$(MAKE) reports
 	@echo "Done. See:"
 	@echo "  docs/rename-report-ts.md"
