@@ -192,12 +192,12 @@ abstract class Class348_Sub31 extends Class348 {
 
     static final void method3014(Class348_Sub49 class348_sub49, byte i) {
         anInt6914++;
-        if ((class348_sub49.aByteArray7154.length - class348_sub49.anInt7197) >= 1) {
+        if ((class348_sub49.data.length - class348_sub49.pos) >= 1) {
             int i_89_ = class348_sub49.readUnsignedByte(255);
-            if (i_89_ >= 0 && i_89_ <= 1 && (class348_sub49.aByteArray7154.length - class348_sub49.anInt7197) >= 2) {
+            if (i_89_ >= 0 && i_89_ <= 1 && (class348_sub49.data.length - class348_sub49.pos) >= 2) {
                 if (i != -40) method3012(13, -47, -27, 107, -90, (byte) -19, -61, 36);
                 int i_90_ = class348_sub49.readUnsignedShort(842397944);
-                if (i_90_ * 6 <= (-class348_sub49.anInt7197 + (class348_sub49.aByteArray7154).length)) {
+                if (i_90_ * 6 <= (-class348_sub49.pos + (class348_sub49.data).length)) {
                     for (int i_91_ = 0; i_91_ < i_90_; i_91_++) {
                         int i_92_ = class348_sub49.readUnsignedShort(842397944);
                         int i_93_ = class348_sub49.readInt((byte) -126);

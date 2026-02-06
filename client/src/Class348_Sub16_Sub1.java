@@ -57,7 +57,7 @@ final class Class348_Sub16_Sub1 extends Class348_Sub16 {
             Class348_Sub40_Sub18.method3094(-21478, class348_sub49_sub2);
             Class375.method3612(75, class348_sub49_sub2);
             if (Class55.aBoolean979) System.out.println("---endgpp---");
-            if (class348_sub49_sub2.anInt7197 != i_3_) throw new RuntimeException("gpi1 pos:" + class348_sub49_sub2.anInt7197 + " psize:" + i_3_);
+            if (class348_sub49_sub2.pos != i_3_) throw new RuntimeException("gpi1 pos:" + class348_sub49_sub2.pos + " psize:" + i_3_);
         }
     }
 

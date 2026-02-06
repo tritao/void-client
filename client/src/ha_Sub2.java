@@ -2071,7 +2071,7 @@ final class ha_Sub2 extends ha {
                     class348_sub49_sub1.method3399(18291, 0.0F);
                     class348_sub49_sub1.method3399(18291, 0.0F);
                 }
-                anInterface2_7797 = method3731(2, false, 20, (class348_sub49_sub1.aByteArray7154), (class348_sub49_sub1.anInt7197));
+                anInterface2_7797 = method3731(2, false, 20, (class348_sub49_sub1.data), (class348_sub49_sub1.pos));
                 this.aClass123_7849 = new Class123(anInterface2_7797, 5126, 3, 0);
                 this.aClass123_7833 = new Class123(anInterface2_7797, 5126, 2, 12);
                 aClass233_7711.method1654(643267468, this);

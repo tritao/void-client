@@ -304,12 +304,12 @@ final class Class367_Sub4 extends Class367 {
     static final int method3544(Class348_Sub49 class348_sub49, int i, String string) {
         try {
             anInt7321++;
-            int i_38_ = class348_sub49.anInt7197;
+            int i_38_ = class348_sub49.pos;
             byte[] is = Class348_Sub24.method2992(string, (byte) -20);
             int i_39_ = 1 % ((-6 - i) / 63);
             class348_sub49.method3381(5537, is.length);
-            class348_sub49.anInt7197 += (Class64.aClass296_1131.method2227(is.length, 0, class348_sub49.anInt7197, is, 103, class348_sub49.aByteArray7154));
-            return class348_sub49.anInt7197 + -i_38_;
+            class348_sub49.pos += (Class64.aClass296_1131.method2227(is.length, 0, class348_sub49.pos, is, 103, class348_sub49.data));
+            return class348_sub49.pos + -i_38_;
         } catch (RuntimeException runtimeexception) {
             throw Class348_Sub17.method2929(runtimeexception, ("bk.O(" + (class348_sub49 != null ? "{...}" : "null") + ',' + i + ',' + (string != null ? "{...}" : "null") + ')'));
         }

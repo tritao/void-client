@@ -127,7 +127,7 @@ final class Player extends Class318_Sub1_Sub3_Sub3 {
 
     final void method2452(byte i, Class348_Sub49 class348_sub49) {
         anInt10547++;
-        class348_sub49.anInt7197 = 0;
+        class348_sub49.pos = 0;
         int i_11_ = class348_sub49.readUnsignedByte(255);
         aByte10538 = (byte) (i_11_ & 0x1);
         boolean bool = this.aBoolean10517;

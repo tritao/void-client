@@ -49,7 +49,7 @@ final class Class80 {
         aClass197_1408.method1452(class348_sub49);
         int i = class348_sub49.readUnsignedByte(255);
         if (i != 0) {
-            class348_sub49.anInt7197--;
+            class348_sub49.pos--;
             aClass197_1415 = new Class197();
             aClass197_1415.method1452(class348_sub49);
             aClass197_1425 = new Class197();
@@ -57,7 +57,7 @@ final class Class80 {
         }
         i = class348_sub49.readUnsignedByte(255);
         if (i != 0) {
-            class348_sub49.anInt7197--;
+            class348_sub49.pos--;
             aClass197_1413 = new Class197();
             aClass197_1413.method1452(class348_sub49);
             aClass197_1423 = new Class197();
@@ -65,7 +65,7 @@ final class Class80 {
         }
         i = class348_sub49.readUnsignedByte(255);
         if (i != 0) {
-            class348_sub49.anInt7197--;
+            class348_sub49.pos--;
             aClass197_1414 = new Class197();
             aClass197_1414.method1452(class348_sub49);
             aClass197_1420 = new Class197();

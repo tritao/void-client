@@ -37,7 +37,7 @@ final class Class92 {
                     }
                     Class348_Sub49 class348_sub49 = new Class348_Sub49(Class348_Sub50.aByteArrayArray7212[i_1_]);
                     int i_4_ = 0;
-                    while (class348_sub49.anInt7197 < Class348_Sub50.aByteArrayArray7212[i_1_].length) {
+                    while (class348_sub49.pos < Class348_Sub50.aByteArrayArray7212[i_1_].length) {
                         if (i_4_ >= 511 || Class150.anInt2057 >= 1023) break;
                         int i_5_ = i_2_ | i_4_++ << 6;
                         int i_6_ = class348_sub49.readUnsignedShort(842397944);

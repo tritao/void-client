@@ -41,10 +41,10 @@ final class Class248 {
         anInt3194++;
         if (aClass202_3209 != null) {
             try {
-                aClass348_Sub49_3208.anInt7197 = 0;
+                aClass348_Sub49_3208.pos = 0;
                 aClass348_Sub49_3208.writeByte(false, bool ? 2 : 3);
                 aClass348_Sub49_3208.method3340(-9912, 0);
-                if (i < -66) aClass202_3209.method1470((aClass348_Sub49_3208.aByteArray7154), 4, 0, -1);
+                if (i < -66) aClass202_3209.method1470((aClass348_Sub49_3208.data), 4, 0, -1);
             } catch (IOException ioexception) {
                 try {
                     aClass202_3209.method1476((byte) -121);
@@ -81,19 +81,19 @@ final class Class248 {
         try {
             aClass202_3209.method1472(true);
             for (Class348_Sub42_Sub16_Sub1 class348_sub42_sub16_sub1 = ((Class348_Sub42_Sub16_Sub1) aClass107_3197.method1011(-30)); class348_sub42_sub16_sub1 != null; class348_sub42_sub16_sub1 = ((Class348_Sub42_Sub16_Sub1) aClass107_3197.method1003((byte) 65))) {
-                aClass348_Sub49_3208.anInt7197 = 0;
+                aClass348_Sub49_3208.pos = 0;
                 aClass348_Sub49_3208.writeByte(false, 1);
                 aClass348_Sub49_3208.method3340(-9912, (int) (class348_sub42_sub16_sub1.aLong7057));
-                aClass202_3209.method1470((aClass348_Sub49_3208.aByteArray7154), 4, 0, -1);
+                aClass202_3209.method1470((aClass348_Sub49_3208.data), 4, 0, -1);
                 aClass107_3204.method1005(true, class348_sub42_sub16_sub1);
             }
             Class348_Sub42_Sub16_Sub1 class348_sub42_sub16_sub1 = (Class348_Sub42_Sub16_Sub1) aClass107_3205.method1011(-75);
             if (i <= 72) return false;
             for (/**/; class348_sub42_sub16_sub1 != null; class348_sub42_sub16_sub1 = ((Class348_Sub42_Sub16_Sub1) aClass107_3205.method1003((byte) 102))) {
-                aClass348_Sub49_3208.anInt7197 = 0;
+                aClass348_Sub49_3208.pos = 0;
                 aClass348_Sub49_3208.writeByte(false, 0);
                 aClass348_Sub49_3208.method3340(-9912, (int) (class348_sub42_sub16_sub1.aLong7057));
-                aClass202_3209.method1470((aClass348_Sub49_3208.aByteArray7154), 4, 0, -1);
+                aClass202_3209.method1470((aClass348_Sub49_3208.data), 4, 0, -1);
                 aClass107_3206.method1005(true, class348_sub42_sub16_sub1);
             }
             for (int i_1_ = 0; i_1_ < 100; i_1_++) {
@@ -105,34 +105,34 @@ final class Class248 {
                 if (aClass348_Sub42_Sub16_Sub1_3215 == null) i_3_ = 8;
                 else if (aClass348_Sub42_Sub16_Sub1_3215.anInt10456 == 0) i_3_ = 1;
                 if (i_3_ <= 0) {
-                    int i_4_ = (aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.aByteArray7154.length + -aClass348_Sub42_Sub16_Sub1_3215.aByte10449);
+                    int i_4_ = (aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.data.length + -aClass348_Sub42_Sub16_Sub1_3215.aByte10449);
                     int i_5_ = (-aClass348_Sub42_Sub16_Sub1_3215.anInt10456 + 512);
-                    if (i_5_ > -(aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197) + i_4_) i_5_ = i_4_ - aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197;
+                    if (i_5_ > -(aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos) + i_4_) i_5_ = i_4_ - aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos;
                     if (i_2_ < i_5_) i_5_ = i_2_;
-                    aClass202_3209.method1474((aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.aByteArray7154), aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197, (byte) -72, i_5_);
+                    aClass202_3209.method1474((aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.data), aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos, (byte) -72, i_5_);
                     if (aByte3212 != 0) {
                         for (int i_6_ = 0; i_5_ > i_6_; i_6_++)
-                            aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.aByteArray7154[i_6_ + aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197] = (byte) (Class348_Sub21.method2955((aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.aByteArray7154[(i_6_ + (aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197))]), aByte3212));
+                            aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.data[i_6_ + aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos] = (byte) (Class348_Sub21.method2955((aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.data[(i_6_ + (aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos))]), aByte3212));
                     }
                     aClass348_Sub42_Sub16_Sub1_3215.anInt10456 += i_5_;
-                    aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197 += i_5_;
-                    if (i_4_ == aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.anInt7197) {
+                    aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos += i_5_;
+                    if (i_4_ == aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.pos) {
                         aClass348_Sub42_Sub16_Sub1_3215.method3162(true);
                         aClass348_Sub42_Sub16_Sub1_3215.aBoolean9664 = false;
                         aClass348_Sub42_Sub16_Sub1_3215 = null;
                     } else if (aClass348_Sub42_Sub16_Sub1_3215.anInt10456 == 512) aClass348_Sub42_Sub16_Sub1_3215.anInt10456 = 0;
                 } else {
-                    int i_7_ = i_3_ + -(aClass348_Sub49_3211.anInt7197);
+                    int i_7_ = i_3_ + -(aClass348_Sub49_3211.pos);
                     if (i_2_ < i_7_) i_7_ = i_2_;
-                    aClass202_3209.method1474((aClass348_Sub49_3211.aByteArray7154), aClass348_Sub49_3211.anInt7197, (byte) -72, i_7_);
+                    aClass202_3209.method1474((aClass348_Sub49_3211.data), aClass348_Sub49_3211.pos, (byte) -72, i_7_);
                     if (aByte3212 != 0) {
                         for (int i_8_ = 0; i_8_ < i_7_; i_8_++)
-                            aClass348_Sub49_3211.aByteArray7154[i_8_ + aClass348_Sub49_3211.anInt7197] = (byte) (Class348_Sub21.method2955((aClass348_Sub49_3211.aByteArray7154[i_8_ + (aClass348_Sub49_3211.anInt7197)]), aByte3212));
+                            aClass348_Sub49_3211.data[i_8_ + aClass348_Sub49_3211.pos] = (byte) (Class348_Sub21.method2955((aClass348_Sub49_3211.data[i_8_ + (aClass348_Sub49_3211.pos)]), aByte3212));
                     }
-                    aClass348_Sub49_3211.anInt7197 += i_7_;
-                    if (aClass348_Sub49_3211.anInt7197 >= i_3_) {
+                    aClass348_Sub49_3211.pos += i_7_;
+                    if (aClass348_Sub49_3211.pos >= i_3_) {
                         if (aClass348_Sub42_Sub16_Sub1_3215 == null) {
-                            aClass348_Sub49_3211.anInt7197 = 0;
+                            aClass348_Sub49_3211.pos = 0;
                             int i_9_ = aClass348_Sub49_3211.readUnsignedByte(255);
                             int i_10_ = aClass348_Sub49_3211.readUnsignedShort(842397944);
                             int i_11_ = aClass348_Sub49_3211.readUnsignedByte(255);
@@ -157,12 +157,12 @@ final class Class248 {
                             aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453 = (new Class348_Sub49((aClass348_Sub42_Sub16_Sub1_3215.aByte10449) + i_15_ + i_12_));
                             aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.writeByte(false, i_13_);
                             aClass348_Sub42_Sub16_Sub1_3215.aClass348_Sub49_10453.writeInt((byte) 97, i_12_);
-                            aClass348_Sub49_3211.anInt7197 = 0;
+                            aClass348_Sub49_3211.pos = 0;
                             aClass348_Sub42_Sub16_Sub1_3215.anInt10456 = 8;
                         } else if ((aClass348_Sub42_Sub16_Sub1_3215.anInt10456) == 0) {
-                            if ((aClass348_Sub49_3211.aByteArray7154[0]) == -1) {
+                            if ((aClass348_Sub49_3211.data[0]) == -1) {
                                 aClass348_Sub42_Sub16_Sub1_3215.anInt10456 = 1;
-                                aClass348_Sub49_3211.anInt7197 = 0;
+                                aClass348_Sub49_3211.pos = 0;
                             } else aClass348_Sub42_Sub16_Sub1_3215 = null;
                         } else throw new IOException();
                     }
@@ -216,10 +216,10 @@ final class Class248 {
             anInt3191++;
             if (aClass202_3209 != null) {
                 try {
-                    aClass348_Sub49_3208.anInt7197 = 0;
+                    aClass348_Sub49_3208.pos = 0;
                     aClass348_Sub49_3208.writeByte(false, 6);
                     aClass348_Sub49_3208.method3340(-9912, 3);
-                    aClass202_3209.method1470((aClass348_Sub49_3208.aByteArray7154), 4, 0, -1);
+                    aClass202_3209.method1470((aClass348_Sub49_3208.data), 4, 0, -1);
                 } catch (IOException ioexception) {
                     try {
                         aClass202_3209.method1476((byte) -123);
@@ -281,7 +281,7 @@ final class Class248 {
         aClass202_3209 = class202;
         method1896(-92);
         method1892(-92, bool_28_);
-        aClass348_Sub49_3211.anInt7197 = 0;
+        aClass348_Sub49_3211.pos = 0;
         aClass348_Sub42_Sub16_Sub1_3215 = null;
         if (bool != false) aLong3207 = -35L;
         for (; ; ) {
@@ -296,11 +296,11 @@ final class Class248 {
         }
         if (aByte3212 != 0) {
             try {
-                aClass348_Sub49_3208.anInt7197 = 0;
+                aClass348_Sub49_3208.pos = 0;
                 aClass348_Sub49_3208.writeByte(bool, 4);
                 aClass348_Sub49_3208.writeByte(bool, aByte3212);
                 aClass348_Sub49_3208.writeShort((byte) 107, 0);
-                aClass202_3209.method1470((aClass348_Sub49_3208.aByteArray7154), 4, 0, -1);
+                aClass202_3209.method1470((aClass348_Sub49_3208.data), 4, 0, -1);
             } catch (IOException ioexception) {
                 try {
                     aClass202_3209.method1476((byte) -126);
@@ -333,10 +333,10 @@ final class Class248 {
         anInt3188++;
         if (aClass202_3209 != null) {
             try {
-                aClass348_Sub49_3208.anInt7197 = i;
+                aClass348_Sub49_3208.pos = i;
                 aClass348_Sub49_3208.writeByte(false, 7);
                 aClass348_Sub49_3208.method3340(-9912, 0);
-                aClass202_3209.method1470((aClass348_Sub49_3208.aByteArray7154), 4, 0, ~i);
+                aClass202_3209.method1470((aClass348_Sub49_3208.data), 4, 0, ~i);
             } catch (IOException ioexception) {
                 try {
                     aClass202_3209.method1476((byte) -125);

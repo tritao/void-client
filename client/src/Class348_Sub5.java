@@ -93,8 +93,8 @@ abstract class Class348_Sub5 extends Class348 {
                     }
                     if (Class367_Sub2.anInt7297 == 4) {
                         if (Class348_Sub40_Sub8.aClass238_9165.method1705(1, 104)) {
-                            Class348_Sub40_Sub8.aClass238_9165.method1701(1, 0, (byte) -116, (Class299.aClass348_Sub49_Sub2_3813.aByteArray7154));
-                            int i_11_ = 0xff & (Class299.aClass348_Sub49_Sub2_3813.aByteArray7154[0]);
+                            Class348_Sub40_Sub8.aClass238_9165.method1701(1, 0, (byte) -116, (Class299.aClass348_Sub49_Sub2_3813.data));
+                            int i_11_ = 0xff & (Class299.aClass348_Sub49_Sub2_3813.data[0]);
                             Class352.anInt4337 = i_11_;
                             Class367_Sub2.anInt7297 = 0;
                             Class348_Sub40_Sub8.aClass238_9165.method1700((byte) 36);

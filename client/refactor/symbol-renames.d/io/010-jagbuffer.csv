@@ -1,0 +1,5 @@
+# JagBuffer: core cursor + backing array first (high fan-in).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+client/src/Class348_Sub49.java,field,Class348_Sub49,,,,aByteArray7154,data,,,,"JagBuffer backing byte[]"
+client/src/Class348_Sub49.java,field,Class348_Sub49,,,,anInt7197,pos,,,,"JagBuffer cursor position"
+

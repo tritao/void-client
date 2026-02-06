@@ -31,10 +31,10 @@ final class Class48 {
                 Class348_Sub47 class348_sub47 = Class203.method1478(true);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeByte(bool, Class178.aClass29_2348.anInt400);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeShort((byte) 107, 0);
-                int i_3_ = (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197);
+                int i_3_ = (class348_sub47.aClass348_Sub49_Sub2_7116.pos);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeShort((byte) 107, 634);
                 int[] is = Class50_Sub1.method463(class348_sub47, false);
-                int i_4_ = (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197);
+                int i_4_ = (class348_sub47.aClass348_Sub49_Sub2_7116.pos);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeString((byte) -5, string_1_);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeShort((byte) 107, Class202.anInt2670);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeString((byte) -5, string);
@@ -47,9 +47,9 @@ final class Class48 {
                 if (string_5_ != null) class348_sub47.aClass348_Sub49_Sub2_7116.writeString((byte) -5, string_5_);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeByte(false, i);
                 class348_sub47.aClass348_Sub49_Sub2_7116.writeByte(false, !bool_2_ ? 0 : 1);
-                class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197 += 7;
-                class348_sub47.aClass348_Sub49_Sub2_7116.method3350(i_4_, true, is, (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197));
-                class348_sub47.aClass348_Sub49_Sub2_7116.method3383(1809639944, (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197 + -i_3_));
+                class348_sub47.aClass348_Sub49_Sub2_7116.pos += 7;
+                class348_sub47.aClass348_Sub49_Sub2_7116.method3350(i_4_, true, is, (class348_sub47.aClass348_Sub49_Sub2_7116.pos));
+                class348_sub47.aClass348_Sub49_Sub2_7116.method3383(1809639944, (class348_sub47.aClass348_Sub49_Sub2_7116.pos + -i_3_));
                 Class348_Sub42_Sub14.method3243(2, class348_sub47);
                 Class352.anInt4337 = -3;
                 Class367_Sub2.anInt7297 = 1;

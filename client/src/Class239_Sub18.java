@@ -66,7 +66,7 @@ final class Class239_Sub18 extends Class239 {
             for (; ; ) {
                 Class348_Sub47 class348_sub47 = (Class348_Sub47) Class348_Sub40_Sub13.aClass262_9201.method1995(i ^ 0x4);
                 if (class348_sub47 == null) break;
-                Class348_Sub40_Sub8.aClass238_9165.method1706(0, i ^ 0x77, class348_sub47.anInt7119, (class348_sub47.aClass348_Sub49_Sub2_7116.aByteArray7154));
+                Class348_Sub40_Sub8.aClass238_9165.method1706(0, i ^ 0x77, class348_sub47.anInt7119, (class348_sub47.aClass348_Sub49_Sub2_7116.data));
                 i_2_ += class348_sub47.anInt7119;
                 Class348_Sub34.anInt6969 -= class348_sub47.anInt7119;
                 class348_sub47.method2715((byte) 74);

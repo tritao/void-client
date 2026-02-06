@@ -18,9 +18,9 @@ final class Class152 {
     final byte[] method1214(int i, byte[] is) {
         anInt2074++;
         Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
-        class348_sub49.anInt7197 = is.length - 4;
+        class348_sub49.pos = is.length - 4;
         int i_0_ = class348_sub49.method3359(-86);
-        class348_sub49.anInt7197 = 0;
+        class348_sub49.pos = 0;
         if (i != 9) aFloatArray2075 = null;
         byte[] is_1_ = new byte[i_0_];
         method1218(is_1_, 29123, class348_sub49);
@@ -74,10 +74,10 @@ final class Class152 {
         try {
             if (i != 29123) method1217(-91, null);
             anInt2073++;
-            if ((class348_sub49.aByteArray7154[class348_sub49.anInt7197]) != 31 || (class348_sub49.aByteArray7154[1 + class348_sub49.anInt7197]) != -117) throw new RuntimeException("Invalid GZIP header!");
+            if ((class348_sub49.data[class348_sub49.pos]) != 31 || (class348_sub49.data[1 + class348_sub49.pos]) != -117) throw new RuntimeException("Invalid GZIP header!");
             if (anInflater2072 == null) anInflater2072 = new Inflater(true);
             try {
-                anInflater2072.setInput(class348_sub49.aByteArray7154, class348_sub49.anInt7197 - -10, -8 - (10 + class348_sub49.anInt7197 - (class348_sub49.aByteArray7154).length));
+                anInflater2072.setInput(class348_sub49.data, class348_sub49.pos - -10, -8 - (10 + class348_sub49.pos - (class348_sub49.data).length));
                 anInflater2072.inflate(is);
             } catch (Exception exception) {
                 anInflater2072.reset();

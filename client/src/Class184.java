@@ -30,7 +30,7 @@ final class Class184 {
         if (Class299_Sub1_Sub2.aClass348_Sub49_8698 == null) Class299_Sub1_Sub2.aClass348_Sub49_8698 = new Class348_Sub49(20000);
         Class299_Sub1_Sub2.aClass348_Sub49_8698.writeBytes(is.length, 0, is, 97);
         if (bool) {
-            Class167.method1294((byte) -113, (Class299_Sub1_Sub2.aClass348_Sub49_8698.aByteArray7154));
+            Class167.method1294((byte) -113, (Class299_Sub1_Sub2.aClass348_Sub49_8698.data));
             Class65.aClass110_Sub1Array1146 = new Class110_Sub1[Class225.anInt2956];
             int i_2_ = 0;
             for (int i_3_ = Class318_Sub1_Sub2.anInt8731; (Class239_Sub29.anInt6151 >= i_3_); i_3_++) {

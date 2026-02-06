@@ -59,15 +59,15 @@ final class Class348_Sub23_Sub4 extends Class348_Sub23 {
             if (this.anInt6868 <= 8) {
                 if ((i_2_ | 0x80) == 0) throw new IllegalStateException();
                 if (this.anInt6868 == 0) {
-                    class348_sub49.anInt7197 += 23;
+                    class348_sub49.pos += 23;
                     anInt9055 = class348_sub49.method3359(-89);
                     anInt9054 = class348_sub49.method3359(-41);
                     if (anInt9055 == 0 || anInt9054 == 0) throw new IllegalStateException();
                     Class348_Sub49 class348_sub49_3_ = new Class348_Sub49(16);
-                    class348_sub49.method3389(2147483647, 0, 16, (class348_sub49_3_.aByteArray7154));
+                    class348_sub49.method3389(2147483647, 0, 16, (class348_sub49_3_.data));
                     aString9051 = class348_sub49_3_.readString((byte) -91);
-                    class348_sub49_3_.anInt7197 = 0;
-                    class348_sub49.method3389(2147483647, 0, 16, (class348_sub49_3_.aByteArray7154));
+                    class348_sub49_3_.pos = 0;
+                    class348_sub49.method3389(2147483647, 0, 16, (class348_sub49_3_.data));
                     aString9057 = class348_sub49_3_.readString((byte) -40);
                 }
             } else {
@@ -79,8 +79,8 @@ final class Class348_Sub23_Sub4 extends Class348_Sub23 {
                     aFloat9062 = (float) ((long) anInt9054 * l) / (float) anInt9055;
                     aFloat9048 = ((float) ((l - -l_4_) * (long) anInt9054) / (float) anInt9055);
                     int i_6_ = class348_sub49.method3359(-93);
-                    if (i_6_ < 0 || i_6_ > (-class348_sub49.anInt7197 + (class348_sub49.aByteArray7154).length)) throw new IllegalStateException();
-                    aString9058 = (Class239_Sub17.method1793(class348_sub49.aByteArray7154, class348_sub49.anInt7197, -123, i_6_));
+                    if (i_6_ < 0 || i_6_ > (-class348_sub49.pos + (class348_sub49.data).length)) throw new IllegalStateException();
+                    aString9058 = (Class239_Sub17.method1793(class348_sub49.data, class348_sub49.pos, -123, i_6_));
                 }
                 if ((i_2_ | 0x80) != 0) return;
             }

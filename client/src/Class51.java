@@ -596,9 +596,9 @@ final class Class51 {
         anInt871++;
         int i_74_ = class348_sub49.readUnsignedByte(255);
         for (int i_75_ = 0; i_75_ < i_74_; i_75_++) {
-            class348_sub49.anInt7197++;
+            class348_sub49.pos++;
             int i_76_ = class348_sub49.readUnsignedByte(i ^ ~0x2f0);
-            class348_sub49.anInt7197 += i_76_ * 2;
+            class348_sub49.pos += i_76_ * 2;
         }
     }
 

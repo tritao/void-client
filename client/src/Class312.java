@@ -51,7 +51,7 @@ final class Class312 {
         if (i == 86) {
             Class348_Sub40_Sub25.anInt9341 = 0;
             Class348_Sub40_Sub36.aClass114_9456 = null;
-            Class299.aClass348_Sub49_Sub2_3813.anInt7197 = 0;
+            Class299.aClass348_Sub49_Sub2_3813.pos = 0;
             Class238.aClass114_3133 = null;
             Class239.aClass114_3145 = null;
             Class348_Sub50.anInt7213 = 0;

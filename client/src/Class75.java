@@ -403,7 +403,7 @@ class Class75 {
         int[] is_79_ = new int[i_78_];
         for (int i_80_ = 0; i_80_ < i_78_; i_80_++)
             is_79_[i_80_] = class348_sub49.readUnsignedByte(255);
-        while (class348_sub49.anInt7197 < class348_sub49.aByteArray7154.length) {
+        while (class348_sub49.pos < class348_sub49.data.length) {
             if (class348_sub49.readUnsignedByte(255) == 0) {
                 int i_81_ = class348_sub49.readUnsignedByte(255);
                 int i_82_ = class348_sub49.readUnsignedByte(255);

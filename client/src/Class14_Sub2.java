@@ -36,7 +36,7 @@ final class Class14_Sub2 extends Class14 implements Interface18_Impl2 {
             if (class144.anInt1997 == 1) {
                 class234 = (Class234) class144.anObject1998;
                 Class348_Sub49 class348_sub49 = Class316.aClass348_Sub51_3959.method3427(24);
-                class234.method1658((byte) 114, 0, (class348_sub49.anInt7197), (class348_sub49.aByteArray7154));
+                class234.method1658((byte) 114, 0, (class348_sub49.pos), (class348_sub49.data));
             }
         } catch (Exception exception) {
             /* empty */
