@@ -42,7 +42,7 @@ Class348_Sub42_Sub3,ByteArraySecondaryNode
 Class308,LRUHashTable
 Class356,HashTable
 Class348,Node
-Class348_Sub42,LinkedNode
+Class348_Sub42,SecondaryNode
 Class107,SecondaryLinkedList
 IndexedImage,IndexedImage
 Class7,AwtFullscreenAdapter
