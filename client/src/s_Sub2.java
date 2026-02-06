@@ -566,8 +566,8 @@ final class s_Sub2 extends s {
                 this.aHa_Sub2_8272.method3796(16384);
             }
             this.aHa_Sub2_8272.method3794(this.aClass123_8276, aClass123_8274, -26411, this.aClass123_8277, this.aClass123_8275);
-            if (this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798.data.length < anInt8257 * 2) this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798 = new Class348_Sub49_Sub1(anInt8257 * 2);
-            else this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798.pos = 0;
+            if (this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798.aByteArray7154.length < anInt8257 * 2) this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798 = new Class348_Sub49_Sub1(anInt8257 * 2);
+            else this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798.anInt7197 = 0;
             int i_158_ = 0;
             Class348_Sub49_Sub1 class348_sub49_sub1 = (this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798);
             if (this.aHa_Sub2_8272.aBoolean7775) {
@@ -604,7 +604,7 @@ final class s_Sub2 extends s {
                 }
             }
             if (i_158_ > 0) {
-                Class119_Sub2 class119_sub2 = new Class119_Sub2(this.aHa_Sub2_8272, 5123, (class348_sub49_sub1.data), (class348_sub49_sub1.pos));
+                Class119_Sub2 class119_sub2 = new Class119_Sub2(this.aHa_Sub2_8272, 5123, (class348_sub49_sub1.aByteArray7154), (class348_sub49_sub1.anInt7197));
                 this.aHa_Sub2_8272.method3759(i_158_, -128, 4, class119_sub2, 0);
             }
         }
@@ -720,7 +720,7 @@ final class s_Sub2 extends s {
             int i_197_ = i_192_ + i_192_ - -1;
             i_197_ *= i_197_;
             if (this.aHa_Sub2_8272.anIntArray7882.length < i_197_) this.aHa_Sub2_8272.anIntArray7882 = new int[i_197_];
-            if (anInt8257 * 2 > (this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798.data).length) this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798 = new Class348_Sub49_Sub1(2 * anInt8257);
+            if (anInt8257 * 2 > (this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798.aByteArray7154).length) this.aHa_Sub2_8272.aClass348_Sub49_Sub1_7798 = new Class348_Sub49_Sub1(2 * anInt8257);
             int i_198_ = -i_192_ + i_194_;
             int i_199_ = i_198_;
             if (i_198_ < 0) i_198_ = 0;

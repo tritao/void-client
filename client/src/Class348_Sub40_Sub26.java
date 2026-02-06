@@ -67,7 +67,7 @@ final class Class348_Sub40_Sub26 extends Class348_Sub40 {
 
         Class322.method2554((byte) -45);
         Class348_Sub40_Sub22.method3111(111, i_15_);
-        int i_18_ = (-Class299.aClass348_Sub49_Sub2_3813.pos + Class348_Sub40_Sub25.anInt9341) / 16;
+        int i_18_ = (-Class299.aClass348_Sub49_Sub2_3813.anInt7197 + Class348_Sub40_Sub25.anInt9341) / 16;
         Class239_Sub6.anIntArrayArray5894 = new int[i_18_][4];
         for (int i_19_ = 0; i_19_ < i_18_; i_19_++) {
             for (int i_20_ = 0; i_20_ < 4; i_20_++)

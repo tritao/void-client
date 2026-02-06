@@ -428,11 +428,11 @@ final class Class82 {
                         if (string.startsWith("pc")) {
                             Class348_Sub47 class348_sub47 = (Class286_Sub3.method2148(Class348_Sub40_Sub22.aClass351_9304, Class348_Sub23_Sub2.aClass77_9029, -97));
                             class348_sub47.aClass348_Sub49_Sub2_7116.writeByte(false, 0);
-                            int i_12_ = (class348_sub47.aClass348_Sub49_Sub2_7116.pos);
+                            int i_12_ = (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197);
                             int i_13_ = string.indexOf(" ", 4);
                             class348_sub47.aClass348_Sub49_Sub2_7116.writeString((byte) -5, string.substring(3, i_13_));
                             Class367_Sub4.method3544((class348_sub47.aClass348_Sub49_Sub2_7116), i + -12, string.substring(i_13_));
-                            class348_sub47.aClass348_Sub49_Sub2_7116.method3339(114, (class348_sub47.aClass348_Sub49_Sub2_7116.pos + -i_12_));
+                            class348_sub47.aClass348_Sub49_Sub2_7116.method3339(114, (class348_sub47.aClass348_Sub49_Sub2_7116.anInt7197 + -i_12_));
                             Class348_Sub42_Sub14.method3243(i ^ ~0x49, class348_sub47);
                             return;
                         }

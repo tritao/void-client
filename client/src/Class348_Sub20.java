@@ -53,7 +53,7 @@ final class Class348_Sub20 extends Class348 {
         anInt6829++;
         int i_9_ = 0;
         Class348_Sub49_Sub1 class348_sub49_sub1 = aHa_Sub2_6831.aClass348_Sub49_Sub1_7798;
-        class348_sub49_sub1.pos = 0;
+        class348_sub49_sub1.anInt7197 = 0;
         if (aHa_Sub2_6831.aBoolean7775) {
             for (int i_10_ = 0; i_8_ > i_10_; i_10_++) {
                 int i_11_ = is[i_10_];
@@ -98,7 +98,7 @@ final class Class348_Sub20 extends Class348 {
             }
         }
         if (i_9_ > 0) {
-            aClass119_Sub2_6843.method35(class348_sub49_sub1.data, 5123, 64, class348_sub49_sub1.pos);
+            aClass119_Sub2_6843.method35(class348_sub49_sub1.aByteArray7154, 5123, 64, class348_sub49_sub1.anInt7197);
             aHa_Sub2_6831.method3794(aS_Sub2_6839.aClass123_8276, aClass123_6844, -26411, aS_Sub2_6839.aClass123_8277, aS_Sub2_6839.aClass123_8275);
             aHa_Sub2_6831.method3746(((0x7 & aS_Sub2_6839.anInt8235) != 0), this.anInt6841, ((aS_Sub2_6839.anInt8235 & 0x8) != 0), 112);
             if (aHa_Sub2_6831.aBoolean7846) aHa_Sub2_6831.EA(2147483647, this.anInt6825, this.anInt6833, this.anInt6826);

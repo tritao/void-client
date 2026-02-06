@@ -134,11 +134,11 @@ final class Class348_Sub49_Sub1 extends Class348_Sub49 {
     final void method3399(int i, float f) {
         anInt9741++;
         int i_23_ = Stream.floatToRawIntBits(f);
-        this.data[this.pos++] = (byte) i_23_;
-        this.data[this.pos++] = (byte) (i_23_ >> 8);
+        this.aByteArray7154[this.anInt7197++] = (byte) i_23_;
+        this.aByteArray7154[this.anInt7197++] = (byte) (i_23_ >> 8);
         if (i != 18291) aBoolean9746 = true;
-        this.data[this.pos++] = (byte) (i_23_ >> 16);
-        this.data[this.pos++] = (byte) (i_23_ >> 24);
+        this.aByteArray7154[this.anInt7197++] = (byte) (i_23_ >> 16);
+        this.aByteArray7154[this.anInt7197++] = (byte) (i_23_ >> 24);
     }
 
     Class348_Sub49_Sub1(int i) {
@@ -148,11 +148,11 @@ final class Class348_Sub49_Sub1 extends Class348_Sub49 {
     final void method3400(float f, byte i) {
         anInt9744++;
         int i_24_ = Stream.floatToRawIntBits(f);
-        this.data[this.pos++] = (byte) (i_24_ >> 24);
-        this.data[this.pos++] = (byte) (i_24_ >> 16);
+        this.aByteArray7154[this.anInt7197++] = (byte) (i_24_ >> 24);
+        this.aByteArray7154[this.anInt7197++] = (byte) (i_24_ >> 16);
         if (i >= -76) aBoolean9746 = true;
-        this.data[this.pos++] = (byte) (i_24_ >> 8);
-        this.data[this.pos++] = (byte) i_24_;
+        this.aByteArray7154[this.anInt7197++] = (byte) (i_24_ >> 8);
+        this.aByteArray7154[this.anInt7197++] = (byte) i_24_;
     }
 
     static final int method3401(int i, int i_25_, byte i_26_) {

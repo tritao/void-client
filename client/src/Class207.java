@@ -235,12 +235,12 @@ final class Class207 {
 
     private static final Class207[] method1517(byte[] is) {
         Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
-        class348_sub49.pos = is.length - 2;
+        class348_sub49.anInt7197 = is.length - 2;
         int i = class348_sub49.readUnsignedShort(842397944);
         Class207[] class207s = new Class207[i];
         for (int i_72_ = 0; i_72_ < i; i_72_++)
             class207s[i_72_] = new Class207();
-        class348_sub49.pos = is.length - 7 - i * 8;
+        class348_sub49.anInt7197 = is.length - 7 - i * 8;
         int i_73_ = class348_sub49.readUnsignedShort(842397944);
         int i_74_ = class348_sub49.readUnsignedShort(842397944);
         int i_75_ = (class348_sub49.readUnsignedByte(255) & 0xff) + 1;
@@ -257,7 +257,7 @@ final class Class207 {
             class207.anInt2698 = (i_73_ - class207.anInt2702 - class207.anInt2703);
             class207.anInt2701 = (i_74_ - class207.anInt2696 - class207.anInt2700);
         }
-        class348_sub49.pos = is.length - 7 - i * 8 - (i_75_ - 1) * 3;
+        class348_sub49.anInt7197 = is.length - 7 - i * 8 - (i_75_ - 1) * 3;
         int[] is_81_ = new int[i_75_];
         for (int i_82_ = 1; i_82_ < i_75_; i_82_++) {
             is_81_[i_82_] = class348_sub49.readMedium(-1);
@@ -265,7 +265,7 @@ final class Class207 {
         }
         for (int i_83_ = 0; i_83_ < i; i_83_++)
             class207s[i_83_].anIntArray2697 = is_81_;
-        class348_sub49.pos = 0;
+        class348_sub49.anInt7197 = 0;
         for (int i_84_ = 0; i_84_ < i; i_84_++) {
             Class207 class207 = class207s[i_84_];
             int i_85_ = (class207.anInt2702 * class207.anInt2696);

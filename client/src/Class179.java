@@ -120,7 +120,7 @@ final class Class179 {
         if (Class374.aClass78_4538 != null) {
             try {
                 Class374.aClass78_4538.method789(0L, (byte) 59);
-                Class374.aClass78_4538.method783(i, 24, true, (class348_sub49.data));
+                Class374.aClass78_4538.method783(i, 24, true, (class348_sub49.aByteArray7154));
             } catch (Exception exception) {
                 /* empty */
             }

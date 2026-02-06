@@ -54,7 +54,7 @@ final class Class348_Sub42_Sub17 extends Class348_Sub42 {
         for (int i_2_ = 0; i_2_ < aByteArrayArray9671.length; i_2_++) {
             byte[] is = aByteArrayArray9671[i_2_];
             Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
-            class348_sub49.pos = 1;
+            class348_sub49.anInt7197 = 1;
             int i_3_ = class348_sub49.readUnsignedShort(842397944);
             synchronized (Class135_Sub2.aClass45_4843) {
                 bool &= Class135_Sub2.aClass45_4843.method421(false, i_3_);
@@ -72,7 +72,7 @@ final class Class348_Sub42_Sub17 extends Class348_Sub42 {
         for (int i_5_ = 0; i_5_ < is.length; i_5_++) {
             byte[] is_6_ = aByteArrayArray9671[i_5_];
             Class348_Sub49 class348_sub49 = new Class348_Sub49(is_6_);
-            class348_sub49.pos = 1;
+            class348_sub49.anInt7197 = 1;
             int i_7_ = class348_sub49.readUnsignedShort(842397944);//
             Class348_Sub33 class348_sub33 = null;
             for (Class348_Sub33 class348_sub33_8_ = (Class348_Sub33) class262.method1995(4); class348_sub33_8_ != null; class348_sub33_8_ = (Class348_Sub33) class262.method1990((byte) 78)) {

@@ -131,7 +131,7 @@ final class Class45 {
         else {
             is_14_ = Class50_Sub1.method461(true, anObjectArray656[i_9_], 53146732);
             Class348_Sub49 class348_sub49 = new Class348_Sub49(is_14_);
-            class348_sub49.method3367(607818341, is, 5, (class348_sub49.data).length);
+            class348_sub49.method3367(607818341, is, 5, (class348_sub49.aByteArray7154).length);
         }
         byte[] is_15_;
         try {
@@ -149,7 +149,7 @@ final class Class45 {
                 Class348_Sub49 class348_sub49 = new Class348_Sub49(is_15_);
                 int i_32_ = 0;
                 int i_33_ = 0;
-                class348_sub49.pos = i_30_;
+                class348_sub49.anInt7197 = i_30_;
                 for (int i_34_ = 0; i_34_ < i_31_; i_34_++) {
                     int i_35_ = 0;
                     for (int i_36_ = 0; i_36_ < i_10_; i_36_++) {
@@ -165,7 +165,7 @@ final class Class45 {
                 }
                 if (i_32_ == 0) return true;
                 byte[] is_38_ = new byte[i_32_];
-                class348_sub49.pos = i_30_;
+                class348_sub49.anInt7197 = i_30_;
                 i_32_ = 0;
                 int i_39_ = 0;
                 for (int i_40_ = 0; i_40_ < i_31_; i_40_++) {
@@ -189,7 +189,7 @@ final class Class45 {
                 i_16_ -= 4 * (i_10_ * i_17_);
                 Class348_Sub49 class348_sub49 = new Class348_Sub49(is_15_);
                 int[] is_18_ = new int[i_10_];
-                class348_sub49.pos = i_16_;
+                class348_sub49.anInt7197 = i_16_;
                 for (int i_19_ = 0; i_19_ < i_17_; i_19_++) {
                     int i_20_ = 0;
                     for (int i_21_ = 0; i_21_ < i_10_; i_21_++) {
@@ -202,7 +202,7 @@ final class Class45 {
                     is_22_[i_23_] = new byte[is_18_[i_23_]];
                     is_18_[i_23_] = 0;
                 }
-                class348_sub49.pos = i_16_;
+                class348_sub49.anInt7197 = i_16_;
                 int i_24_ = 0;
                 for (int i_25_ = 0; i_25_ < i_17_; i_25_++) {
                     int i_26_ = 0;

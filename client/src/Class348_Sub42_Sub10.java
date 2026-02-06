@@ -63,7 +63,7 @@ final class Class348_Sub42_Sub10 extends Class348_Sub42 {
         Class348_Sub40_Sub36.aClass114_9456 = null;
         Class348_Sub50.anInt7213 = 0;
         Class239.aClass114_3145 = null;
-        Class299.aClass348_Sub49_Sub2_3813.pos = 0;
+        Class299.aClass348_Sub49_Sub2_3813.anInt7197 = 0;
         int i_3_ = -122 % ((i - 13) / 45);
         Class238.aClass114_3133 = null;
         Class305.method2296(-99);

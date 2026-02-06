@@ -29,7 +29,7 @@ abstract class Class318_Sub1_Sub2 extends Class318_Sub1 {
                     class348_sub49.writeInt((byte) 124, Class77.anIntArray1303[i_1_]);
                 }
             }
-            class234.method1658((byte) 117, 0, class348_sub49.pos, (class348_sub49.data));
+            class234.method1658((byte) 117, 0, class348_sub49.anInt7197, (class348_sub49.aByteArray7154));
         } catch (Exception exception) {
             /* empty */
         }

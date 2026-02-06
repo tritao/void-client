@@ -46,7 +46,7 @@ final class Class348_Sub33 extends Class348 {
             }
             if (i < 37) aLong6966 = -3L;
             if (!bool) {
-                int i_1_ = class348_sub49_sub2.pos;
+                int i_1_ = class348_sub49_sub2.anInt7197;
                 class348_sub49_sub2.writeInt((byte) 94, class348_sub48.anInt7130);
                 for (int i_2_ = 0; (i_2_ < class348_sub48.anInt7126); i_2_++) {
                     if (class348_sub48.anIntArray7131[i_2_] == 0) {

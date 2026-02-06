@@ -283,8 +283,8 @@ final class Class348_Sub32 extends Class348 {
                     } else i_50_ += anInt6942 - anInt6935;
                     i_56_++;
                 }
-                anInterface8_6945 = (aHa_Sub2_6951.method3733(5123, -49, aClass348_Sub49_6936.pos, aClass348_Sub49_6936.data, false));
-                anInterface2_6952 = aHa_Sub2_6951.method3731(2, false, 16, (aClass348_Sub49_Sub1_6953.data), (aClass348_Sub49_Sub1_6953.pos));
+                anInterface8_6945 = (aHa_Sub2_6951.method3733(5123, -49, aClass348_Sub49_6936.anInt7197, aClass348_Sub49_6936.aByteArray7154, false));
+                anInterface2_6952 = aHa_Sub2_6951.method3731(2, false, 16, (aClass348_Sub49_Sub1_6953.aByteArray7154), (aClass348_Sub49_Sub1_6953.anInt7197));
                 aClass123_6927 = new Class123(anInterface2_6952, 5126, 3, 0);
                 aClass123_6943 = new Class123(anInterface2_6952, 5121, 4, 12);
             } else {

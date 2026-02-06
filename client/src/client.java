@@ -78,7 +78,7 @@ public final class client extends Applet_Sub1 {
                     Class348_Sub49 class348_sub49 = new Class348_Sub49(5);
                     class348_sub49.writeByte(false, (Class178.aClass29_2341.anInt400));
                     class348_sub49.writeInt((byte) 103, 634);
-                    Class193.aClass202_2589.method1470((class348_sub49.data), 5, 0, -1);
+                    Class193.aClass202_2589.method1470((class348_sub49.aByteArray7154), 5, 0, -1);
                     Class47.anInt846++;
                     Class45.aLong667 = Class62.method599(-70);
                 }
@@ -99,7 +99,7 @@ public final class client extends Applet_Sub1 {
                     boolean bool = (Class139.method1167(Class240.anInt4674, (byte) -100) || Class348_Sub42_Sub8.method3196(Class240.anInt4674, -87) || Class340.method2672(Class240.anInt4674, -127));
                     Class267[] class267s = Class267.method2029(105);
                     Class348_Sub49 class348_sub49 = new Class348_Sub49(class267s.length * 4);
-                    Class193.aClass202_2589.method1474(class348_sub49.data, 0, (byte) -72, (class348_sub49.data).length);
+                    Class193.aClass202_2589.method1474(class348_sub49.aByteArray7154, 0, (byte) -72, (class348_sub49.aByteArray7154).length);
                     for (int i_1_ = 0; i_1_ < class267s.length; i_1_++)
                         class267s[i_1_].method2030(1, class348_sub49.readInt((byte) -126));
                     Class348_Sub4.aClass248_6601.method1903(false, !bool, Class193.aClass202_2589);

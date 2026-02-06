@@ -99,7 +99,7 @@ final class Class232 {
                         }
                     }
                 }
-                anInterface8_3001 = (aHa_Sub2_3000.method3733(5123, -39, class348_sub49.pos, class348_sub49.data, false));
+                anInterface8_3001 = (aHa_Sub2_3000.method3733(5123, -39, class348_sub49.anInt7197, class348_sub49.aByteArray7154, false));
                 aClass119_Sub2_3011 = new Class119_Sub2(aHa_Sub2_3000, 5123, null, 1);
             }
         } catch (RuntimeException runtimeexception) {

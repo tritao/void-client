@@ -31,12 +31,12 @@ final class Class4 {
             Class348_Sub49 class348_sub49 = new Class348_Sub49(is);
             Class348_Sub49 class348_sub49_0_ = new Class348_Sub49(is);
             class348_sub49.readUnsignedByte(255);
-            class348_sub49.pos += 2;
+            class348_sub49.anInt7197 += 2;
             int i = class348_sub49.readUnsignedByte(255);//byte
             int i_1_ = 0;
             int i_2_ = -1;
             int i_3_ = -1;
-            class348_sub49_0_.pos = class348_sub49.pos + i;
+            class348_sub49_0_.anInt7197 = class348_sub49.anInt7197 + i;
             for (int i_4_ = 0; i_4_ < i; i_4_++) {
                 int i_5_ = (this.aClass348_Sub33_134.anIntArray6957[i_4_]);
                 if (i_5_ == 0) i_2_ = i_4_;
@@ -70,7 +70,7 @@ final class Class4 {
                     i_1_++;
                 }
             }
-            if (class348_sub49_0_.pos != is.length) throw new RuntimeException();
+            if (class348_sub49_0_.anInt7197 != is.length) throw new RuntimeException();
             this.anInt126 = i_1_;
             this.aShortArray130 = new short[i_1_];
             this.aShortArray140 = new short[i_1_];
