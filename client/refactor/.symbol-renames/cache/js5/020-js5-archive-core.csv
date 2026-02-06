@@ -1,0 +1,9 @@
+# Js5Archive core state and storage fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Js5Archive,field,Js5Archive,,,,aClass291_629,index,,,,"Archive index metadata"
+Js5Archive,field,Js5Archive,,,,aClass314_659,provider,,,,"Archive data provider"
+Js5Archive,field,Js5Archive,,,,anObjectArray656,packedGroups,,,,"Per-group packed payload cache"
+Js5Archive,field,Js5Archive,,,,anObjectArrayArray664,unpackedFiles,,,,"Per-group unpacked file cache"
+Js5Archive,field,Js5Archive,,,,aBoolean655,discardPacked,,,,"Whether packed group payloads are discarded after unpack"
+Js5Archive,field,Js5Archive,,,,anInt634,discardUnpackedMode,,,,"Unpacked file discard policy (0/1/2)"
+
