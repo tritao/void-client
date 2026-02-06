@@ -1,4 +1,4 @@
 # IntHashTable internals.
 file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
 IntHashTable,field,IntHashTable,,,,anIntArray3961,table,,,,"Interleaved key/index lookup table"
-
+IntHashTable,field,IntHashTable,,,,aClass348_Sub51_3959,clientPreferences,,,,"Global client preferences handle"
