@@ -1,0 +1,6 @@
+# Js5MasterIndex orchestration method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Js5MasterIndex,method,Js5MasterIndex,,,,method2674,ensureLoaded,,,,"Load/verify master index payload and initialize providers array"
+Js5MasterIndex,method,Js5MasterIndex,,,,method2673,getArchiveProvider,,,,"Get or create provider for archive id"
+Js5MasterIndex,method,Js5MasterIndex,,,,method2675,getOrCreateArchiveProvider,,,,"Internal provider construction path"
+Js5MasterIndex,method,Js5MasterIndex,,,,method2670,updateProviders,,,,"Advance local/remote group sync state across providers"
