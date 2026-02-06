@@ -1,0 +1,13 @@
+# ObjectTypeList method API/cache naming cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ObjectTypeList,method,ObjectTypeList,,,,method2004,setAllowMembers,,,"Toggle members filtering and clear caches when changed"
+ObjectTypeList,method,ObjectTypeList,,,,method2005,get,,,"Get object type by id"
+ObjectTypeList,method,ObjectTypeList,,,,method2006,removeSoftReferences,,,"Remove cleared soft references from all caches"
+ObjectTypeList,method,ObjectTypeList,,,,method2007,findPathSize2,,,"Pathfinder BFS for 2x2 actor footprint"
+ObjectTypeList,method,ObjectTypeList,,,,method2008,setUseExtendedModelData,,,"Toggle extended object model-data decode mode"
+ObjectTypeList,method,ObjectTypeList,,,,method2009,setModelAmbientBias,,,"Set model ambient bias and clear model caches"
+ObjectTypeList,method,ObjectTypeList,,,,method2010,trimCaches,,,"Demote aged cache entries"
+ObjectTypeList,method,ObjectTypeList,,,,method2011,clearStaticState,,,"Clear static helper arrays"
+ObjectTypeList,method,ObjectTypeList,,,,method2012,clearCaches,,,"Clear definition/model caches"
+ObjectTypeList,method,ObjectTypeList,,,,method2013,decodeClientObjectConfig,,,"Decode client-side object config blob"
+ObjectTypeList,method,ObjectTypeList,,,,method2014,resizeTypeCache,,,"Resize object type cache capacity"
