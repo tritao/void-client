@@ -1,0 +1,5 @@
+# NodeDeque: intrusive double-ended queue based on Node.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+NodeDeque,field,NodeDeque,,,,aClass348_3334,sentinel,,,,"Sentinel node"
+NodeDeque,field,NodeDeque,,,,aClass348_3342,iterCursor,,,,"Iteration cursor"
+

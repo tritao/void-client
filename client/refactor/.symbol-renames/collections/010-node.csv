@@ -1,0 +1,6 @@
+# Node: core linked-list node (high fan-in).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Node,field,Node,,,,aLong4291,key,,,,"Node key used by HashTable/NodeDeque"
+Node,field,Node,,,,aClass348_4294,next,,,,"Next node in intrusive list"
+Node,field,Node,,,,aClass348_4295,prev,,,,"Previous node in intrusive list"
+

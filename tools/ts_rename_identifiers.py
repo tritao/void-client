@@ -31,13 +31,20 @@ except Exception as e:  # pragma: no cover
 
 JAVA_GRAMMAR_DIR = Path("tools/vendor/tree-sitter-java")
 
-# Conservative default: only rename the classic JODE-style numbered identifiers.
+# Conservative default: only rename classic JODE-style numbered identifiers.
+#
+# Notes:
+# - JODE commonly emits object-typed fields like `aClass45_4286`, `aClass348Array4374`,
+#   `aClass318_Sub1Array4293`, `aClass190ArrayArray3335`, etc.
+# - It also emits primitive multi-dimensional arrays like `anIntArrayArray1234`.
 OBF_NAME_RX = re.compile(
     r"^(?:"
-    r"anInt|anIntArray|"
-    r"aByte|aShort|aLong|aChar|aBoolean|aFloat|aDouble|aString|"
-    r"aByteArray|aShortArray|aLongArray|aCharArray|aBooleanArray|aFloatArray|aDoubleArray|aStringArray|"
-    r"aClass|aBigInteger"
+    r"anInt(?:Array)*|"
+    r"aByte(?:Array)*|aShort(?:Array)*|aLong(?:Array)*|aChar(?:Array)*|"
+    r"aBoolean(?:Array)*|aFloat(?:Array)*|aDouble(?:Array)*|aString(?:Array)*|"
+    r"anObject(?:Array)*|"
+    r"aClass\d+(?:_Sub\d+)*(?:Array)*_?|"
+    r"aBigInteger"
     r")\d+$"
 )
 

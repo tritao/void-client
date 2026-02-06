@@ -1,0 +1,9 @@
+# HashTable: bucketed hash table of Node lists.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+HashTable,field,HashTable,,,,aClass348Array4374,buckets,,,,"Bucket sentinel nodes (one per bucket)"
+HashTable,field,HashTable,,,,anInt4377,bucketCount,,,,"Number of buckets"
+HashTable,field,HashTable,,,,aLong4385,searchKey,,,,"Current lookup key during search/iteration"
+HashTable,field,HashTable,,,,aClass348_4389,searchCursor,,,,"Cursor used by method3476/method3480"
+HashTable,field,HashTable,,,,aClass348_4390,iterCursor,,,,"Cursor used by method3482 iteration"
+HashTable,field,HashTable,,,,anInt4391,iterBucketIndex,,,,"Current bucket index during iteration"
+
