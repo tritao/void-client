@@ -46,6 +46,7 @@ graphics/rasterizer,regex,^(Raster|Rasterizer|PolygonScanline|DirtyRectangles).*
 graphics/rasterizer,prefix,DirtyRectangle
 
 # AWT / windowing / input
+ui,prefix,Ui
 ui/awt,prefix,Awt
 ui/awt,regex,.*Surface$
 ui/input,regex,^(Mouse|Key|Keyboard|Cursor).*
