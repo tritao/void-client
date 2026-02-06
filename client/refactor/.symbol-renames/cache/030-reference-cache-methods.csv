@@ -1,0 +1,16 @@
+# ReferenceCache + LruHashTable method naming pass (core cache API).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ReferenceCache,method,ReferenceCache,,,,method1339,getCapacity,,,,"Configured cache capacity"
+ReferenceCache,method,ReferenceCache,,,,method1350,getRemainingCapacity,,,,"Remaining free capacity"
+ReferenceCache,method,ReferenceCache,,,,method1340,get,,,,"Lookup by CacheKey and promote"
+ReferenceCache,method,ReferenceCache,,,,method1348,put,,,,"Put with unit size"
+ReferenceCache,method,ReferenceCache,,,,method1341,putSized,,,,"Put with explicit entry size"
+ReferenceCache,method,ReferenceCache,,,,method1338,removeByKey,,,,"Remove entry matching CacheKey"
+ReferenceCache,method,ReferenceCache,,,,method1342,removeEntry,,,,"Remove entry and restore capacity"
+ReferenceCache,method,ReferenceCache,,,,method1344,removeSoftEntries,,,,"Purge soft reference entries"
+ReferenceCache,method,ReferenceCache,,,,method1346,demoteAgedEntries,,,,"Demote aged hard entries to soft refs"
+ReferenceCache,method,ReferenceCache,,,,method1345,clear,,,,"Clear cache contents"
+LruHashTable,method,LruHashTable,,,,method2302,get,,,,"Lookup node by key and promote"
+LruHashTable,method,LruHashTable,,,,method2305,put,,,,"Insert node by key with LRU eviction"
+LruHashTable,method,LruHashTable,,,,method2304,remove,,,,"Remove node by key"
+LruHashTable,method,LruHashTable,,,,method2303,clear,,,,"Clear table and LRU state"
