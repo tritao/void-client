@@ -7,6 +7,9 @@ _obfuscated,regex,^Class\d+.*$
 _obfuscated,regex,^Static\d+.*$
 _obfuscated,regex,"^([a-z]{1,2})(_Sub\d+.*)?$"
 
+# Preferences (keep together)
+client/preferences,regex,.*Preference.*
+
 # Procedural textures
 graphics/textureops,prefix,TextureOp
 graphics/texture,regex,^Texture(Provider(Api)?|Config|Definition)$
