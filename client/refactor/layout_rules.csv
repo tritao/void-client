@@ -156,6 +156,19 @@ util/errors,regex,.*(RuntimeException|Exception).*
 util/keys,exact,IntKey
 
 # Collections / core utils
+collections/hash,regex,.*HashTable.*
+collections/deque,regex,.*Deque.*
+collections/list,prefix,SecondaryLinkedList
+collections/list,exact,SecondaryLinkedNodeUtil
+collections/iter,regex,.*Iterator$
+collections/pool,suffix,Pool
+collections/value,exact,IntNode
+collections/value,exact,ShortNode
+collections/value,exact,StringNode
+collections/value,exact,ByteArraySecondaryNode
+collections/reference,regex,.*ReferenceNode.*
+collections/reference,exact,ReferenceNodeFactory
+collections/reference,exact,SoftReferenceNodeFactory
 collections,regex,.*(HashTable|Node|Deque|Queue|Pool|LinkedList).*
 util,regex,.*(Util|Utils).*
 util,regex,.*(Formatter|Builder).*
