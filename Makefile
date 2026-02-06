@@ -73,10 +73,10 @@ help:
 	@echo "  make rename-lsp - apply mappings from classes.csv via JDTLS/LSP (writes docs/rename-report-lsp.md)"
 	@echo "  make rename-lsp-dry - dry-run JDTLS/LSP rename"
 	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
-	@echo "  make refactor-tree - generate client/refactor/*.java from client/src + classes.csv"
-	@echo "  make compile-refactor - compile client/refactor (after refactor-tree)"
-	@echo "  make refactor-layout - generate client/refactor/layout/**/*.java (organized) from client/src + classes.csv"
-	@echo "  make compile-refactor-layout - compile client/refactor/layout (after refactor-layout)"
+	@echo "  make refactor-tree - generate build/refactor-flat/*.java from client/src + classes.csv (flat copy)"
+	@echo "  make refactor-layout - generate client/refactor/**/*.java (organized) from client/src + classes.csv"
+	@echo "  make compile-refactor - compile client/refactor (after refactor-layout)"
+	@echo "  make compile-refactor-layout - alias for compile-refactor"
 	@echo "  make clean     - remove $(BUILD_DIR)"
 	@echo ""
 	@echo "Vars:"
@@ -180,15 +180,14 @@ rename-lsp-loop:
 	@echo "  docs/rename-dossiers.md"
 
 refactor-tree:
-	@python tools/build_refactor_tree.py --csv classes.csv --src-dir client/src --dst-dir client/refactor --report build/refactor-rename-report.md
-
-compile-refactor: refactor-tree
-	@$(MAKE) compile SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor SOURCES_FILE=build/sources-refactor.txt
+	@python tools/build_refactor_tree.py --csv classes.csv --src-dir client/src --dst-dir build/refactor-flat --report build/refactor-rename-report.md
 
 refactor-layout:
-	@python tools/build_refactor_layout.py --csv classes.csv --src-dir client/src --dst-dir client/refactor/layout --rules client/refactor/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
+	@python tools/build_refactor_layout.py --csv classes.csv --src-dir client/src --dst-dir client/refactor --rules client/refactor/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
 
-compile-refactor-layout: refactor-layout
-	@$(MAKE) compile-recursive SRC_DIR=client/refactor/layout CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
+compile-refactor: refactor-layout
+	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
+
+compile-refactor-layout: compile-refactor
 clean:
 	rm -rf "$(BUILD_DIR)"
