@@ -1,0 +1,16 @@
+# GfxType fields decoded from opcodes and model build pipeline usage.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+GfxType,field,GfxType,,,,anInt4506,modelId,,,,"Base model id"
+GfxType,field,GfxType,,,,anInt4503,seqId,,,,"Optional animation sequence id"
+GfxType,field,GfxType,,,,anInt4498,resizeXZ,,,,"Horizontal model scale (X/Z)"
+GfxType,field,GfxType,,,,anInt4492,resizeY,,,,"Vertical model scale (Y)"
+GfxType,field,GfxType,,,,anInt4508,rotationY,,,,"Y-axis rotation in degrees (0/90/180/270)"
+GfxType,field,GfxType,,,,anInt4489,ambient,,,,"Ambient lighting adjustment"
+GfxType,field,GfxType,,,,anInt4512,contrast,,,,"Contrast lighting adjustment"
+GfxType,field,GfxType,,,,aShortArray4490,recolorFrom,,,,"Original model colors to replace"
+GfxType,field,GfxType,,,,aShortArray4502,recolorTo,,,,"Replacement model colors"
+GfxType,field,GfxType,,,,aShortArray4499,retextureFrom,,,,"Original model textures to replace"
+GfxType,field,GfxType,,,,aShortArray4504,retextureTo,,,,"Replacement model textures"
+GfxType,field,GfxType,,,,aBoolean4487,restartAnimationOnReapply,,,,"When reapplied, consult sequence restart mode"
+GfxType,field,GfxType,,,,aByte4488,terrainContourMode,,,,"Ground contour mode passed to model placement"
+GfxType,field,GfxType,,,,anInt4507,terrainContourParam,,,,"Ground contour mode parameter"
