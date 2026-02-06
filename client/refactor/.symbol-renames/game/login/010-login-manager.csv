@@ -1,0 +1,4 @@
+# Login/session shared player handle.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LoginManager,field,LoginManager,,,,aPlayer_1907,localPlayer,,,,"Current local player instance"
+

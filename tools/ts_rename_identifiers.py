@@ -43,6 +43,7 @@ OBF_NAME_RX = re.compile(
     r"aByte(?:Array)*|aShort(?:Array)*|aLong(?:Array)*|aChar(?:Array)*|"
     r"aBoolean(?:Array)*|aFloat(?:Array)*|aDouble(?:Array)*|aString(?:Array)*|"
     r"anObject(?:Array)*|"
+    r"aPlayer(?:Array)*_?|"
     r"aClass\d+(?:_Sub\d+)*(?:Array)*_?|"
     r"aBigInteger"
     r")\d+$"
