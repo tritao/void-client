@@ -4,3 +4,4 @@ LoginManager,field,LoginManager,,,,aPlayer_1907,localPlayer,,,,"Current local pl
 LoginManager,field,LoginManager,,,,anInt1905,hitmarkSlotCount,,,,"Global hitmark slot count; default 4"
 LoginManager,field,LoginManager,,,,anInt1910,clipMinY,,,,"Global renderer clip minimum Y bound"
 LoginManager,field,LoginManager,,,,anIntArray1909,offscreenFrameIds,,,,"Per-surface frame id cache for redraw invalidation"
+LoginManager,field,LoginManager,,,,anInt1908,loginRequestCount,,,,"Counter incremented for each login request attempt"

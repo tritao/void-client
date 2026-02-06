@@ -12,3 +12,6 @@ SeqType,field,SeqType,,,,anIntArrayArray264,frameSoundEffects,,,,"Per-frame soun
 SeqType,field,SeqType,,,,anIntArray253,frameSoundVolumes,,,,"Per-frame sound volume/weight overrides"
 SeqType,field,SeqType,,,,anIntArray236,frameSoundDelayMin,,,,"Per-frame minimum random delay for sound trigger"
 SeqType,field,SeqType,,,,anIntArray265,frameSoundDelayMax,,,,"Per-frame maximum random delay for sound trigger"
+SeqType,field,SeqType,,,,aBoolean242,hasAlphaTransform,,,,"Sequence uses alpha-transforming frames (model flag 0x200)"
+SeqType,field,SeqType,,,,aBoolean254,allowsTweening,,,,"Sequence supports tweened frame interpolation"
+SeqType,field,SeqType,,,,aBoolean268,streamSoundEffects,,,,"Sequence sound triggers should use streamed playback path"
