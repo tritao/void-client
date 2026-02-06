@@ -207,7 +207,7 @@ class Class258_Sub3 extends Class258 {
         if (Boolean.getBoolean("voidclient.image.awt_fallback")) {
             for (; ; ) {
                 try {
-                    Image image = Toolkit.getDefaultToolkit().createImage(is);
+                    Image image = java.awt.Toolkit.getDefaultToolkit().createImage(is);
                     MediaTracker mediatracker = new MediaTracker(Class79.aClient1367);
                     mediatracker.addImage(image, 0);
                     mediatracker.waitForAll();

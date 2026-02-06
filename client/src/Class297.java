@@ -127,11 +127,11 @@ final class Class297 implements Runnable {
                     if (this.aBoolean3777 && (((Class) objects[0]).getClassLoader() == null)) throw new SecurityException();
                     class144.anObject1998 = (((Class) objects[0]).getDeclaredField((String) objects[1]));
                 } else if (i == 18) {
-                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
                     class144.anObject1998 = clipboard.getContents(null);
                 } else if (i == 19) {
                     Transferable transferable = ((Transferable) (class144.anObject1996));
-                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
                     clipboard.setContents(transferable, null);
                 } else if (this.aBoolean3777) {
                     if (i == 3) {
@@ -404,7 +404,7 @@ final class Class297 implements Runnable {
         }
         if (aString3800 == null) aString3800 = "~/";
         try {
-            this.anEventQueue3799 = Toolkit.getDefaultToolkit().getSystemEventQueue();
+            this.anEventQueue3799 = java.awt.Toolkit.getDefaultToolkit().getSystemEventQueue();
         } catch (Throwable throwable) {
             /* empty */
         }
