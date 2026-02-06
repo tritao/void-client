@@ -142,8 +142,8 @@ game/login,regex,^Login.*
 platform,regex,.*(SignLink|Jagmisc|HotSpot|JavascriptBridge).*
 crypto,regex,.*(Whirlpool|IsaacCipher|Huffman|Base64).*
 platform,exact,ReflectionCheck
-client/core,prefix,Client
-client/core,prefix,Game
+client,prefix,Client
+client,prefix,Game
 client/state,regex,.*State.*
 timing,regex,.*Clock.*
 math,regex,.*(Trig|SinCos|HslToRgb|SmoothAngle|CoordRotation).*
