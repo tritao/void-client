@@ -12,6 +12,8 @@
 #   - a *renamed* type from client/refactor/classes.csv (e.g. JagBuffer or JagBuffer.java).
 # - kind: type | method | field | param | local
 # - owner: optional owning type name (recommended for method/field/param).
+#   Like `file`, `owner` may be either the obfuscated type name (client/src) or the
+#   refactored type name (classes.csv destination); tools may translate as needed.
 # - member: optional owning member name (required for param; e.g. the method name).
 # - signature: optional method signature used to disambiguate overloads (e.g. "(int,String)").
 # - param_index: optional 0-based parameter index (required for kind=param unless using line/col).

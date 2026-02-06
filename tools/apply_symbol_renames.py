@@ -202,6 +202,14 @@ def _resolve_java_file(file_s: str, *, root: Path, src_dir: Path, classes_csv: P
     if p.exists():
         return p
 
+    # If src_dir isn't flat (e.g. client/refactor), allow a unique recursive match.
+    try:
+        matches = list(src_dir.rglob(f"{stem}.java"))
+    except Exception:
+        matches = []
+    if len(matches) == 1 and matches[0].is_file():
+        return matches[0].resolve()
+
     cc = classes_csv if classes_csv.is_absolute() else (root / classes_csv)
     if not cc.exists():
         return None
@@ -222,6 +230,35 @@ def _resolve_java_file(file_s: str, *, root: Path, src_dir: Path, classes_csv: P
         return None
     p2 = (src_dir / f"{src_matches[0]}.java").resolve()
     return p2 if p2.exists() else None
+
+
+def _resolve_owner_type(owner: str, *, root: Path, classes_csv: Path) -> str:
+    """
+    If `owner` is a refactored type name (classes.csv destination), translate it
+    to the obfuscated type name (classes.csv source). If it's already obfuscated
+    (or ambiguous), return as-is.
+    """
+    s = (owner or "").strip()
+    if not s:
+        return ""
+
+    cc = classes_csv if classes_csv.is_absolute() else (root / classes_csv)
+    if not cc.exists():
+        return s
+
+    src_matches: list[str] = []
+    for raw in cc.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [x.strip() for x in line.split(",")]
+        if len(parts) < 2:
+            continue
+        src, dst = parts[0], parts[1]
+        if dst == s:
+            src_matches.append(src)
+
+    return src_matches[0] if len(src_matches) == 1 else s
 
 
 # ---------------------------
@@ -942,11 +979,14 @@ def main(argv: list[str]) -> int:
 
                 syms_raw = client.request("textDocument/documentSymbol", {"textDocument": {"uri": uri}})
                 syms = _parse_document_symbols(syms_raw)
+                container = r.owner
+                if src_dir == (root / "client" / "src").resolve():
+                    container = _resolve_owner_type(container, root=root, classes_csv=args.classes_csv)
                 method_pos, why = _choose_symbol_start(
                     syms=syms,
                     kind="method",
                     name=r.member,
-                    container=r.owner,
+                    container=container,
                     detail_regex=r.detail_regex,
                     signature=r.signature,
                 )
@@ -964,11 +1004,14 @@ def main(argv: list[str]) -> int:
                 # Use documentSymbol for type/method/field when possible.
                 syms_raw = client.request("textDocument/documentSymbol", {"textDocument": {"uri": uri}})
                 syms = _parse_document_symbols(syms_raw)
+                container = r.owner
+                if src_dir == (root / "client" / "src").resolve():
+                    container = _resolve_owner_type(container, root=root, classes_csv=args.classes_csv)
                 pos, why = _choose_symbol_start(
                     syms=syms,
                     kind=r.kind,
                     name=r.old,
-                    container=r.owner,
+                    container=container,
                     detail_regex=r.detail_regex,
                     signature=r.signature,
                 )
