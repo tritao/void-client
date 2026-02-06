@@ -234,9 +234,11 @@ rename-ts-dry:
 rename-ts-loop:
 	@$(MAKE) rename-ts
 	@$(MAKE) compile
+	@$(MAKE) refactor-layout
 	@$(MAKE) reports
 	@echo "Done. See:"
 	@echo "  docs/rename-report-ts.md"
+	@echo "  build/refactor-layout-report.md"
 	@echo "  docs/unnamed-status.md"
 	@echo "  docs/fan-graph.md"
 	@echo "  docs/rename-dossiers.md"
