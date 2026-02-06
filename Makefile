@@ -70,6 +70,7 @@ endif
 
 .PHONY: help bootstrap bootstrap-jdtls bootstrap-jdtls-jdk sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop rename-symbols rename-symbols-dry rename-symbols-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
 .PHONY: bootstrap-treesitter rename-ts rename-ts-dry rename-ts-loop
+.PHONY: reports-refactor
 
 help:
 	@echo "Targets:"
@@ -177,6 +178,11 @@ reports:
 	@python tools/fan_graph.py --write docs/fan-graph.md
 	@python tools/java_dossier.py --write docs/rename-dossiers.md
 
+reports-refactor:
+	@python tools/unnamed_report.py --root client/refactor --write docs/unnamed-status-refactor.md
+	@python tools/fan_graph.py --root client/refactor --all --write docs/fan-graph-refactor.md
+	@python tools/java_dossier.py --root client/refactor --all --write docs/rename-dossiers-refactor.md
+
 rename:
 	@python tools/apply_class_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}"
 
@@ -235,13 +241,13 @@ rename-ts-loop:
 	@$(MAKE) refactor-layout
 	@$(MAKE) rename-ts
 	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
-	@$(MAKE) reports
+	@$(MAKE) reports-refactor
 	@echo "Done. See:"
 	@echo "  docs/rename-report-ts.md"
 	@echo "  build/refactor-layout-report.md"
-	@echo "  docs/unnamed-status.md"
-	@echo "  docs/fan-graph.md"
-	@echo "  docs/rename-dossiers.md"
+	@echo "  docs/unnamed-status-refactor.md"
+	@echo "  docs/fan-graph-refactor.md"
+	@echo "  docs/rename-dossiers-refactor.md"
 
 refactor-tree:
 	@python tools/build_refactor_tree.py --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir build/refactor-flat --report build/refactor-rename-report.md

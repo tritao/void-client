@@ -290,6 +290,7 @@ def render_markdown(
     names: list[str],
     top_fanin: int,
     exclude: set[str],
+    include_all: bool,
 ) -> str:
     fan_in: dict[str, int] = defaultdict(int)
     callers: dict[str, list[str]] = defaultdict(list)
@@ -320,7 +321,7 @@ def render_markdown(
         for name, node in nodes.items():
             if name in exclude:
                 continue
-            if not is_unrenamed_basename(name):
+            if not include_all and not is_unrenamed_basename(name):
                 continue
             if len(name) <= 2:
                 continue
@@ -380,13 +381,18 @@ def main() -> int:
         dest="classes",
         action="append",
         default=[],
-        help="Class name to include (repeatable). If omitted, picks top fan-in unrenamed.",
+        help="Class name to include (repeatable). If omitted, picks top fan-in (default: unrenamed only; see --all).",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Include all classes when auto-selecting (default: only unrenamed-by-filename).",
     )
     parser.add_argument(
         "--top-fanin",
         type=int,
         default=12,
-        help="How many top fan-in unrenamed classes to include when --class is omitted.",
+        help="How many top fan-in classes to include when --class is omitted.",
     )
     parser.add_argument(
         "--exclude",
@@ -410,6 +416,7 @@ def main() -> int:
         names=args.classes,
         top_fanin=max(1, args.top_fanin),
         exclude=set(args.exclude or []),
+        include_all=bool(args.all),
     )
 
     if args.write is None:
@@ -428,4 +435,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

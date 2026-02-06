@@ -190,6 +190,7 @@ def pct(part: int, total: int) -> float:
 def render_markdown(
     *,
     repo_root: Path,
+    root: Path,
     generated: dt.date,
     infos: list[JavaFileInfo],
     unrenamed_only: bool,
@@ -265,7 +266,7 @@ def render_markdown(
         "",
         "## Scope",
         "",
-        f"- Root: `client/src`",
+        f"- Root: `{rel(root)}`",
         f"- Included nodes: **{total}** classes; unrenamed (filename heuristic): **{total_un} ({pct(total_un, total):.1f}%)**",
         f"- Excluded nodes: **{excluded_nodes}**"
         + (f" (by `--exclude`: {', '.join(f'`{e}`' for e in excludes)})" if excludes else ""),
@@ -279,7 +280,7 @@ def render_markdown(
         "",
         "## Regenerate",
         "",
-        f"- `python {rel(repo_root / 'tools' / 'fan_graph.py')} --write docs/fan-graph.md`",
+        f"- `python {rel(repo_root / 'tools' / 'fan_graph.py')} --root {rel(root)} --write docs/fan-graph.md`",
         "",
     ]
 
@@ -371,6 +372,7 @@ def main() -> int:
 
     report = render_markdown(
         repo_root=repo_root,
+        root=root,
         generated=dt.date.today(),
         infos=infos,
         unrenamed_only=(not args.all),
@@ -396,4 +398,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
