@@ -1,0 +1,6 @@
+# HitmarkTypeList archive/cache fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+HitmarkTypeList,field,HitmarkTypeList,,,,aClass60_2875,typeCache,,,,"HitmarkType definition cache"
+HitmarkTypeList,field,HitmarkTypeList,,,,aClass60_2862,spriteCache,,,,"Decoded hitmark sprite cache"
+HitmarkTypeList,field,HitmarkTypeList,,,,aClass45_2866,configArchive,,,,"Archive containing hitmark definitions"
+HitmarkTypeList,field,HitmarkTypeList,,,,aClass45_2873,spriteArchive,,,,"Archive containing hitmark sprites/fonts"
