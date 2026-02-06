@@ -33,7 +33,7 @@ URL="https://api.adoptium.net/v3/binary/latest/${JDK_MAJOR}/ga/${OS}/${ARCH}/jdk
 
 echo "Downloading Temurin JDK ${JDK_MAJOR} for ${OS}/${ARCH}..."
 echo "  $URL"
-curl -fsSL -o "$ARCHIVE" "$URL"
+curl -fSL --retry 6 --retry-delay 2 --retry-all-errors -o "$ARCHIVE" "$URL"
 
 rm -rf "$TMP_DIR"
 mkdir -p "$TMP_DIR"
@@ -56,4 +56,3 @@ Then:
 or:
   tools/build.sh
 EOF
-

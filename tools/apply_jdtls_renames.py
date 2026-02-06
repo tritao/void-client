@@ -492,10 +492,12 @@ def _detect_jdtls_home() -> Path | None:
     """
     candidates: list[Path] = []
     home = Path.home()
+    repo_root = Path(__file__).resolve().parents[1]
 
     # Common user installs.
     candidates.extend(
         [
+            repo_root / ".jdtls",
             home / ".local" / "share" / "jdtls",
             home / ".local" / "share" / "eclipse.jdt.ls",
             home / ".cache" / "jdtls",

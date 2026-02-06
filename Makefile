@@ -7,6 +7,7 @@ SOURCES_FILE ?= $(BUILD_DIR)/sources.txt
 CLASSES_CSV ?= client/refactor/classes.csv
 SYMBOLS_CSV ?= client/refactor/symbol_renames.csv
 SYMBOLS_CSV_DIR ?= client/refactor/symbol-renames.d
+LSP_TIMEOUT_S ?= 180
 
 LIBS ?= libs/clientlibs.jar
 MAIN_CLASS ?= Loader
@@ -18,6 +19,15 @@ EXCLUDE_REGEX ?=
 # Requested JDK major version. Used to validate JAVA_HOME and auto-select a bootstrapped JDK under ./.jdk/.
 JDK ?= 8
 BOOTSTRAP_JAVA_HOME ?= $(CURDIR)/.jdk/temurin$(JDK)
+
+# JDTLS now commonly requires a newer runtime than the client (which targets Java 8).
+JDTLS_JDK ?= 21
+JDTLS_JAVA_HOME ?= $(CURDIR)/.jdk/temurin$(JDTLS_JDK)
+ifeq ($(wildcard $(JDTLS_JAVA_HOME)/bin/java),)
+JDTLS_JAVA ?= java
+else
+JDTLS_JAVA ?= $(JDTLS_JAVA_HOME)/bin/java
+endif
 
 # If JAVA_HOME isn't set (or doesn't match JDK), fall back to a repo-local bootstrapped JDK if present.
 JAVA_HOME_BIN_JAVA := $(JAVA_HOME)/bin/java
@@ -58,11 +68,15 @@ JAVAC ?= javac
 JAR ?= jar
 endif
 
-.PHONY: help bootstrap sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop rename-symbols rename-symbols-dry rename-symbols-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
+.PHONY: help bootstrap bootstrap-jdtls bootstrap-jdtls-jdk sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop rename-symbols rename-symbols-dry rename-symbols-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
+.PHONY: bootstrap-treesitter rename-ts rename-ts-dry rename-ts-loop
 
 help:
 	@echo "Targets:"
 	@echo "  make bootstrap - download repo-local JDK (./.jdk/temurin\$$JDK)"
+	@echo "  make bootstrap-jdtls - download repo-local JDTLS (./.jdtls/)"
+	@echo "  make bootstrap-jdtls-jdk - download repo-local JDK for JDTLS (./.jdk/temurin\$$JDTLS_JDK)"
+	@echo "  make bootstrap-treesitter - create ./.venv with tree-sitter deps"
 	@echo "  make sources   - write $(SOURCES_FILE)"
 	@echo "  make sources-recursive - write $(SOURCES_FILE) (recursive)"
 	@echo "  make compile   - compile $(SRC_DIR) into $(CLASSES_DIR)"
@@ -98,6 +112,16 @@ help:
 bootstrap:
 	@echo "Bootstrapping Temurin JDK $(JDK) into $(BOOTSTRAP_JAVA_HOME)"
 	@bash tools/bootstrap-jdk.sh "$(JDK)"
+
+bootstrap-jdtls:
+	@bash tools/bootstrap-jdtls.sh
+
+bootstrap-jdtls-jdk:
+	@echo "Bootstrapping Temurin JDK $(JDTLS_JDK) into $(JDTLS_JAVA_HOME)"
+	@bash tools/bootstrap-jdk.sh "$(JDTLS_JDK)"
+
+bootstrap-treesitter:
+	@bash tools/bootstrap-treesitter.sh
 
 JAVA_SOURCES := $(wildcard $(SRC_DIR)/*.java)
 LIB_JARS := $(subst :, ,$(LIBS))
@@ -170,10 +194,10 @@ rename-loop:
 	@echo "  docs/rename-dossiers.md"
 
 rename-lsp:
-	@python tools/apply_jdtls_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}"
+	@python tools/apply_jdtls_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}"
 
 rename-lsp-dry:
-	@python tools/apply_jdtls_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+	@python tools/apply_jdtls_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
 
 rename-lsp-loop:
 	@$(MAKE) rename-lsp
@@ -186,10 +210,10 @@ rename-lsp-loop:
 	@echo "  docs/rename-dossiers.md"
 
 rename-symbols:
-	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}"
+	@python tools/apply_symbol_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}"
 
 rename-symbols-dry:
-	@python tools/apply_symbol_renames.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+	@python tools/apply_symbol_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
 
 rename-symbols-loop:
 	@$(MAKE) rename-symbols
@@ -197,6 +221,22 @@ rename-symbols-loop:
 	@$(MAKE) reports
 	@echo "Done. See:"
 	@echo "  docs/rename-report-symbols-lsp.md"
+	@echo "  docs/unnamed-status.md"
+	@echo "  docs/fan-graph.md"
+	@echo "  docs/rename-dossiers.md"
+
+rename-ts:
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}"
+
+rename-ts-dry:
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --dry-run
+
+rename-ts-loop:
+	@$(MAKE) rename-ts
+	@$(MAKE) compile
+	@$(MAKE) reports
+	@echo "Done. See:"
+	@echo "  docs/rename-report-ts.md"
 	@echo "  docs/unnamed-status.md"
 	@echo "  docs/fan-graph.md"
 	@echo "  docs/rename-dossiers.md"
