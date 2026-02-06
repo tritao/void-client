@@ -108,8 +108,8 @@ cache/loading,exact,ResourceDownloadTask
 cache/loading,exact,ResourceSlot
 
 # Config / data
-config/enum,prefix,Enum
-config/type,suffix,Type
+config,prefix,Enum
+config,suffix,Type
 util/text,exact,Cp1252ExtensionTable
 
 # Scripting
