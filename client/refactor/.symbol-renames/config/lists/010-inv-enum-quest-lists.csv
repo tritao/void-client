@@ -1,0 +1,9 @@
+# Small config/list cache fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+InvType,field,InvType,,,,anInt9542,size,,,,"Inventory capacity / slot count"
+InvTypeList,field,InvTypeList,,,,aClass60_3466,typeCache,,,,"InvType definition cache"
+InvTypeList,field,InvTypeList,,,,aClass45_3468,configArchive,,,,"Archive containing inv type definitions"
+EnumTypeList,field,EnumTypeList,,,,aClass60_460,typeCache,,,,"EnumType definition cache"
+EnumTypeList,field,EnumTypeList,,,,aClass45_458,configArchive,,,,"Archive containing enum type definitions"
+QuestTypeList,field,QuestTypeList,,,,aClass60_2501,typeCache,,,,"QuestType definition cache"
+QuestTypeList,field,QuestTypeList,,,,aClass45_2498,configArchive,,,,"Archive containing quest type definitions"
