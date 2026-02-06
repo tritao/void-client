@@ -20,6 +20,7 @@ graphics/toolkit,suffix,Toolkit
 graphics/toolkit,suffix,ToolkitSprite
 graphics/toolkit,suffix,ToolkitFontRenderer
 graphics/toolkit,regex,.*Toolkit.*
+graphics/font,regex,.*FontRenderer$
 
 # GPU objects / buffers
 graphics/gpu,prefix,Gpu
