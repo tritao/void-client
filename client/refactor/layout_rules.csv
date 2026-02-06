@@ -42,6 +42,7 @@ graphics/light,regex,.*Light.*
 
 # Rasterizer / draw commands
 graphics/rasterizer,regex,^(Raster|Rasterizer|PolygonScanline|DirtyRectangles).*
+graphics/rasterizer,prefix,DirtyRectangle
 
 # AWT / windowing / input
 ui/awt,prefix,Awt
@@ -170,5 +171,17 @@ collections/reference,regex,.*ReferenceNode.*
 collections/reference,exact,ReferenceNodeFactory
 collections/reference,exact,SoftReferenceNodeFactory
 collections,regex,.*(HashTable|Node|Deque|Queue|Pool|LinkedList).*
+util/array,exact,ArrayUtils
+util/bytes,exact,ByteArrayUtil
+util/text,exact,Base37Util
+util/text,prefix,Cp1252
+util/text,exact,CharCountUtil
+util/text,exact,StringArrayBuilder
+util/time,exact,TimeUtils
+util/time,suffix,DateFormatter
+util/platform,exact,PlatformUtil
+util/platform,exact,SleepAndFileUtil
+util/search,exact,ItemSearchUtil
+util/sort,exact,StructTypeSortUtil
 util,regex,.*(Util|Utils).*
 util,regex,.*(Formatter|Builder).*
