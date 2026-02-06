@@ -1,0 +1,13 @@
+# IDK/Object list archive/cache fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+IDKTypeList,field,IDKTypeList,,,,aClass45_2048,configArchive,,,,"Archive containing IDK type definitions"
+IDKTypeList,field,IDKTypeList,,,,aClass45_2054,modelArchive,,,,"Archive containing model data referenced by IDK types"
+IDKTypeList,field,IDKTypeList,,,,aClass60_2050,typeCache,,,,"IDKType definition cache"
+ObjectTypeList,field,ObjectTypeList,,,,aClass45_3343,configArchive,,,,"Archive containing object definitions"
+ObjectTypeList,field,ObjectTypeList,,,,aClass45_3345,modelArchive,,,,"Archive containing object model data"
+ObjectTypeList,field,ObjectTypeList,,,,aClass60_3350,typeCache,,,,"ObjectType definition cache"
+ObjectTypeList,field,ObjectTypeList,,,,aClass60_3360,modelCache,,,,"Primary ObjectType model cache"
+ObjectTypeList,field,ObjectTypeList,,,,aClass60_3361,modelWithShadowCache,,,,"ObjectType ModelWithShadow cache"
+ObjectTypeList,field,ObjectTypeList,,,,aClass60_3362,secondaryModelCache,,,,"Secondary ObjectType model cache"
+ObjectTypeList,field,ObjectTypeList,,,,aBoolean3359,allowMembers,,,,"Whether members-only object data is enabled"
+ObjectTypeList,field,ObjectTypeList,,,,anInt3363,modelAmbientBias,,,,"Ambient bias used when building object models"
