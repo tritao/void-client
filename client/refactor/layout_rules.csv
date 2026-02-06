@@ -87,8 +87,12 @@ io/memory,regex,.*ByteArrayCopier.*
 cache/js5,prefix,Js5
 cache/js5,exact,ConfigArchive
 cache/js5,regex,^Index(GroupLoader|ProgressProvider)$
-cache/js5,regex,.*(ResourceProvider|Resources|ResourceSlot|ResourceDownloadTask).*
+cache/js5,regex,.*ResourceProvider.*
 cache,regex,.*(Cache|Lru|ReferenceCache).*
+
+# Cache / loading
+cache/loading,exact,ResourceDownloadTask
+cache/loading,exact,ResourceSlot
 
 # Config / data
 config/enum,prefix,Enum
@@ -119,6 +123,7 @@ game/params,prefix,Param
 game/mode,regex,.*Mode$
 game/mode,prefix,Mode
 game/social,regex,.*(QuickChat|FriendLogin).*
+game/social,exact,QuickChatResources
 game/login,regex,^Login.*
 
 # Platform / VM integration
