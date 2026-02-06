@@ -9,6 +9,7 @@ _obfuscated,regex,"^([a-z]{1,2})(_Sub\d+.*)?$"
 
 # Procedural textures
 graphics/textureops,prefix,TextureOp
+graphics/texture,regex,^Texture(Provider(Api)?|Config|Definition)$
 graphics/procedural,regex,.*(Perlin|Voronoi|Noise).*
 
 # Render backends
@@ -44,6 +45,8 @@ graphics/light,regex,.*Light.*
 # Rasterizer / draw commands
 graphics/rasterizer,regex,^(Raster|Rasterizer|PolygonScanline|DirtyRectangles).*
 graphics/rasterizer,prefix,DirtyRectangle
+graphics/rasterizer,suffix,Rasterizer
+graphics/software,exact,SoftwareRenderThreadContext
 
 # AWT / windowing / input
 ui,prefix,Ui
@@ -96,6 +99,7 @@ net/packets,prefix,ZoneUpdate
 io,regex,.*(InputStream|OutputStream|BufferedFile|FileOnDisk|ArchiveDisk).*
 io/compress,regex,.*(BZip2|Gzip|Decompressor).*
 io,exact,RandomDatFile
+io/buffer,exact,JagBuffer
 io/memory,regex,.*ByteArrayCopier.*
 
 # Cache / JS5
@@ -112,6 +116,16 @@ cache/loading,exact,ResourceSlot
 # Config / data
 config,prefix,Enum
 config,suffix,Type
+config,exact,BASTypeList
+config,exact,FloorUnderlayTypeList
+config,exact,GfxTypeList
+config,exact,HitmarkTypeList
+config,exact,IDKTypeList
+config,exact,InvTypeList
+config,exact,ItemTypeList
+config,exact,ObjectTypeList
+config,exact,QuestTypeList
+config,exact,SeqTypeList
 util/text,exact,Cp1252ExtensionTable
 
 # Scripting
@@ -123,6 +137,7 @@ world/map,prefix,WorldMap
 world/region,regex,^Map(Region|Element|Scene|Build).*
 world/scene,prefix,Scene
 world/scene,regex,.*(Tile|Ground|Collision|Occluder).*
+world/scene,exact,PickHitboxSegment
 world/pathfinding,regex,^Path(find|finding).*
 world/spawn,prefix,PendingSpawn
 world/region,exact,MapFlagGlobals
@@ -134,6 +149,7 @@ game/entity,regex,.*EntityBase$
 game/particle,prefix,Particle
 game/vars,regex,.*(VarBit|VarPlayer|Varc|VarDomain|ScriptVar).*
 game/vars,regex,^TimedVar.*
+game/vars,exact,VarClientStringList
 game/params,prefix,Param
 game/mode,regex,.*Mode$
 game/mode,prefix,Mode
@@ -143,12 +159,14 @@ game/login,regex,^Login.*
 
 # Platform / VM integration
 platform,regex,.*(SignLink|Jagmisc|HotSpot|JavascriptBridge).*
+platform,exact,MachineInfo
 crypto,regex,.*(Whirlpool|IsaacCipher|Huffman|Base64).*
 platform,exact,ReflectionCheck
 client,prefix,Client
 client,prefix,Game
 client/state,regex,.*State.*
 timing,regex,.*Clock.*
+math/linear,suffix,Matrix
 math,regex,.*(Trig|SinCos|HslToRgb|SmoothAngle|CoordRotation).*
 util/concurrency,prefix,Async
 api/interfaces,prefix,Interface
