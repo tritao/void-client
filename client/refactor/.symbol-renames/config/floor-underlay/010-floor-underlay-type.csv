@@ -1,0 +1,9 @@
+# FloorUnderlayType decoded HSL + texture fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt337,rgb,,,,"Raw RGB color value"
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt331,textureId,,,,"Optional underlay texture id"
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt336,textureScale,,,,"Texture scale/tiling factor (opcode 3 << 2)"
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt332,saturation,,,,"Computed HSL saturation (0-255)"
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt335,lightness,,,,"Computed HSL lightness (0-255)"
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt343,hueMultiplier,,,,"Hue multiplier for blend weighting"
+FloorUnderlayType,field,FloorUnderlayType,,,,anInt341,hue,,,,"Computed hue scaled by hueMultiplier"

@@ -1,0 +1,3 @@
+# VarPlayerType client-side var metadata.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+VarPlayerType,field,VarPlayerType,,,,anInt2125,clientCode,,,,"VarPlayer client-code / transmit behavior value"
