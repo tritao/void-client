@@ -16,6 +16,26 @@ Apply + compile + regenerate reports:
 
 - `make rename-loop`
 
+## Optional: LSP/JDTLS-based renames
+
+For symbol-aware renames (especially fields/methods, or very risky identifiers),
+you can use JDTLS (Java LSP) to produce semantic workspace edits.
+
+This repo does not vendor JDTLS; you must install it locally and point the tool
+at it (or rely on auto-detection).
+
+Dry-run (writes `docs/rename-report-lsp.md`):
+
+- `make rename-lsp-dry`
+
+Apply + compile + regenerate reports:
+
+- `make rename-lsp-loop`
+
+If auto-detection can’t find JDTLS, pass an explicit home directory:
+
+- `python tools/apply_jdtls_renames.py --jdtls-home /path/to/jdtls --dry-run`
+
 If you’re on Linux/macOS and compilation fails due to platform-specific sources, use `EXCLUDE_REGEX`:
 
 - `EXCLUDE_REGEX='Class7\\.java' make rename-loop`

@@ -55,7 +55,7 @@ JAVAC ?= javac
 JAR ?= jar
 endif
 
-.PHONY: help bootstrap sources compile jar run clean reports rename rename-dry rename-loop
+.PHONY: help bootstrap sources compile jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop
 
 help:
 	@echo "Targets:"
@@ -68,6 +68,9 @@ help:
 	@echo "  make rename    - apply mappings from classes.csv (writes docs/rename-report.md)"
 	@echo "  make rename-dry - dry-run mappings from classes.csv"
 	@echo "  make rename-loop - rename + compile + reports"
+	@echo "  make rename-lsp - apply mappings from classes.csv via JDTLS/LSP (writes docs/rename-report-lsp.md)"
+	@echo "  make rename-lsp-dry - dry-run JDTLS/LSP rename"
+	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
 	@echo "  make clean     - remove $(BUILD_DIR)"
 	@echo ""
 	@echo "Vars:"
@@ -137,5 +140,20 @@ rename-loop:
 	@echo "  docs/fan-graph.md"
 	@echo "  docs/rename-dossiers.md"
 
+rename-lsp:
+	@python tools/apply_jdtls_renames.py --csv classes.csv --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}"
+
+rename-lsp-dry:
+	@python tools/apply_jdtls_renames.py --csv classes.csv --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+
+rename-lsp-loop:
+	@$(MAKE) rename-lsp
+	@$(MAKE) compile
+	@$(MAKE) reports
+	@echo "Done. See:"
+	@echo "  docs/rename-report-lsp.md"
+	@echo "  docs/unnamed-status.md"
+	@echo "  docs/fan-graph.md"
+	@echo "  docs/rename-dossiers.md"
 clean:
 	rm -rf "$(BUILD_DIR)"
