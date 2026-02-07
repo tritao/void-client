@@ -1,0 +1,9 @@
+# VarPlayerType and VarPlayerTypeList method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+VarPlayerType,method,VarPlayerType,,,,method1251,decodeOpcode,,,"Decode single varplayer opcode"
+VarPlayerType,method,VarPlayerType,,,,method1253,decode,,,"Decode varplayer type from buffer opcodes"
+VarPlayerTypeList,method,VarPlayerTypeList,,,,method1585,clearStaticState,,,"Clear static VarPlayerTypeList state"
+VarPlayerTypeList,method,VarPlayerTypeList,,,,method1587,trimCaches,,,"Demote aged entries in varplayer cache"
+VarPlayerTypeList,method,VarPlayerTypeList,,,,method1588,get,,,"Get varplayer type by id"
+VarPlayerTypeList,method,VarPlayerTypeList,,,,method1589,clearCaches,,,"Clear varplayer type cache"
+VarPlayerTypeList,method,VarPlayerTypeList,,,,method1590,removeSoftReferences,,,"Remove cleared soft references from cache"
