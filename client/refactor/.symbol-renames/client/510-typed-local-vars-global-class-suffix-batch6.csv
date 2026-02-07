@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 6).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class123_281_,glVertexAttributeVar281,,,"GlVertexAttribute typed variable"
+Global,local,Global,,,,class101_49_,matrixVar49,,,"Matrix typed variable"
+Global,local,Global,,,,class64_66_,modelVar66,,,"Model typed variable"
+Global,local,Global,,,,class64_65_,modelVar65,,,"Model typed variable"
+Global,local,Global,,,,class4_89_,animFrameVar89,,,"AnimFrame typed variable"
+Global,local,Global,,,,class4_47_,animFrameVar47,,,"AnimFrame typed variable"
+Global,local,Global,,,,class4_114_,animFrameVar114,,,"AnimFrame typed variable"
+Global,local,Global,,,,class4_112_,animFrameVar112,,,"AnimFrame typed variable"
+Global,local,Global,,,,class46_9_,widgetVar9,,,"Widget typed variable"
+Global,local,Global,,,,class46_2_,widgetVar2,,,"Widget typed variable"
+Global,local,Global,,,,class46_29_,widgetVar29,,,"Widget typed variable"
+Global,local,Global,,,,class46_28_,widgetVar28,,,"Widget typed variable"
+Global,local,Global,,,,class46_27_,widgetVar27,,,"Widget typed variable"
+Global,local,Global,,,,class46_108_,widgetVar108,,,"Widget typed variable"
+Global,local,Global,,,,class46_107_,widgetVar107,,,"Widget typed variable"
