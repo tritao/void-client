@@ -1,0 +1,3 @@
+# Remaining low-confidence stub in collections/reference.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ReferenceNode,method,ReferenceNode,,,,method3194,isLegacyFlagSupported,,,"Legacy stub flag check (currently always false)"
