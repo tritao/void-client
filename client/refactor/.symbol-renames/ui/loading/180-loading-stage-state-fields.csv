@@ -1,0 +1,11 @@
+# Loading stage/state fields (high confidence).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LoadingStage,field,LoadingStage,,,,aClass274_1012,primaryText,,,"Primary localized label for this stage"
+LoadingStage,field,LoadingStage,,,,aBoolean1013,isBlockingStage,,,"Whether this stage blocks progression flow"
+LoadingStage,field,LoadingStage,,,,aClass274_1015,secondaryText,,,"Secondary localized label for this stage"
+LoadingStage,field,LoadingStage,,,,aBoolean1016,isIncremental,,,"Whether renderer increments displayed progress during this stage"
+LoadingStage,field,LoadingStage,,,,anInt1017,id,,,"Stable loading-stage id"
+LoadingStage,field,LoadingStage,,,,anInt1021,endProgress,,,"Stage end progress percentage"
+LoadingStage,field,LoadingStage,,,,anInt1025,startProgress,,,"Stage start progress percentage"
+LoadStateRegistry,field,LoadStateRegistry,,,,aClass56Array6515,stages,,,"Ordered loading stages used by the client loader"
+LoadStateRegistry,field,LoadStateRegistry,,,,aClass60_6517,fullscreenLayoutCache,,,"Cache for decoded loading fullscreen layouts"
