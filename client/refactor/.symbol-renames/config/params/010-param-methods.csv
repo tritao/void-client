@@ -1,0 +1,11 @@
+# ParamType and ParamTypeList method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ParamType,method,ParamType,,,,method1924,decode,,,"Decode param type from buffer opcodes"
+ParamType,method,ParamType,,,,method1925,isStringType,,,"Whether param value type is string"
+ParamType,method,ParamType,,,,method1926,clearStaticState,,,"Clear static ParamType state"
+ParamType,method,ParamType,,,,method1927,decodeOpcode,,,"Decode single param opcode"
+ParamType,method,ParamType,,,,method1928,floorDiv,,,"Signed floor division helper"
+ParamTypeList,method,ParamTypeList,,,,method2600,get,,,"Get param type by id"
+ParamTypeList,method,ParamTypeList,,,,method2601,clearCaches,,,"Clear param type cache"
+ParamTypeList,method,ParamTypeList,,,,method2602,removeSoftReferences,,,"Remove cleared soft references from param cache"
+ParamTypeList,method,ParamTypeList,,,,method2603,trimCaches,,,"Demote aged entries in param cache"
