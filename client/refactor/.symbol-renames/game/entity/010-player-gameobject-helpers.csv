@@ -1,0 +1,18 @@
+# Player/GameObjectEntity helper methods.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Player,method,Player,,,,method2449,teleportToTile,,,"Teleport/reset player to absolute tile"
+Player,method,Player,,,,method2450,getDisplayName,,,"Get display name variant"
+Player,method,Player,,,,method2451,pushPathStep,,,"Push path step onto movement queue"
+Player,method,Player,,,,method2452,decodeAppearance,,,"Decode player appearance/update payload"
+Player,method,Player,,,,method2455,moveToTile,,,"Move player to tile via path or teleport"
+Player,method,Player,,,,method2456,buildDisplayNameWithDecorations,,,"Build decorated display name with prefixes/suffixes"
+Player,method,Player,,,,method2457,hasModelOverrides,,,"Whether player model overrides are present"
+Player,method,Player,,,,method2458,clearStaticState,,,"Clear static Player state"
+Player,method,Player,,,,method2459,buildModelSet,,,"Build/prepare current player model set"
+Player,method,Player,,,,method2460,drawOverheadTextSprite,,,"Rasterize overhead text sprite/effect"
+GameObjectEntity,method,GameObjectEntity,,,,method2414,getModelForFlags,,,"Get object model satisfying toolkit flags"
+GameObjectEntity,method,GameObjectEntity,,,,method2415,clearStaticState,,,"Clear static GameObjectEntity state"
+GameObjectEntity,method,GameObjectEntity,,,,method2416,getModelHeightQuarter,,,"Get quarter-height from object model"
+GameObjectEntity,method,GameObjectEntity,,,,method2417,getModelWithShadow,,,"Build model-with-shadow for object"
+GameObjectEntity,method,GameObjectEntity,,,,method2418,hashString,,,"Hash string for lookup"
+GameObjectEntity,method,GameObjectEntity,,,,method2419,getHighByte,,,"Extract high byte from integer"
