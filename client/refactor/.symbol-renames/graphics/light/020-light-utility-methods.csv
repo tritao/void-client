@@ -1,0 +1,4 @@
+# Additional LightType utility method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LightType,method,LightType,,,,method1920,getLower7Bits,,,"Return lower 7 bits of value"
+LightType,method,LightType,,,,method1922,setLoginResponseMessage,,,"Set login response state and submit message text"

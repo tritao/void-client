@@ -1,0 +1,15 @@
+# InvType/InvTypeList and MapElementType method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+InvType,method,InvType,,,,method3191,decodeOpcode,,,"Decode single inventory type opcode"
+InvType,method,InvType,,,,method3192,decode,,,"Decode inventory type from buffer opcodes"
+InvTypeList,method,InvTypeList,,,,method2044,get,,,"Get inventory type by id"
+InvTypeList,method,InvTypeList,,,,method2045,clearStaticState,,,"Clear static InvTypeList state"
+InvTypeList,method,InvTypeList,,,,method2046,resetMovementAnimationSelector,,,"Reset movement animation selector state"
+MapElementType,method,MapElementType,,,,method372,computeBounds,,,"Compute polygon bounds from coordinate pairs"
+MapElementType,method,MapElementType,,,,method373,isEnabledForVarDomain,,,"Check map element enable conditions against var values"
+MapElementType,method,MapElementType,,,,method374,getMapSprite,,,"Get primary/alternate map sprite for toolkit"
+MapElementType,method,MapElementType,,,,method375,getOverlaySprite,,,"Get overlay sprite for toolkit"
+MapElementType,method,MapElementType,,,,method376,getStringParam,,,"Read string param by key with default"
+MapElementType,method,MapElementType,,,,method377,decodeOpcode,,,"Decode single map element opcode"
+MapElementType,method,MapElementType,,,,method378,getIntParam,,,"Read int param by key with default"
+MapElementType,method,MapElementType,,,,method379,decode,,,"Decode map element type from buffer opcodes"
