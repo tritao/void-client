@@ -1,0 +1,15 @@
+# WhirlpoolDigest core field/method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+WhirlpoolDigest,field,WhirlpoolDigest,,,,anInt1463,bitLength,,,"Current buffered message bit length modulo block size"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aByteArray1465,messageLengthBytes,,,"256-bit running message length accumulator"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,anInt1468,bufferBytePos,,,"Current byte position in dataBuffer"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aLongArray1469,roundState,,,"Round state words"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aLongArray1471,tempState,,,"Temporary state words"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aLongArray1472,roundKey,,,"Current round key words"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aLongArray1473,messageBlock,,,"Current decoded message block words"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aLongArray1474,hashState,,,"Current Whirlpool hash state words"
+WhirlpoolDigest,field,WhirlpoolDigest,,,,aByteArray1475,dataBuffer,,,"64-byte working block buffer"
+WhirlpoolDigest,method,WhirlpoolDigest,,,,method827,processBlock,,,"Runs Whirlpool compression on current block"
+WhirlpoolDigest,method,WhirlpoolDigest,,,,method829,reset,,,"Reset digest internal state"
+WhirlpoolDigest,method,WhirlpoolDigest,,,,method832,updateBits,,,"Update digest with bit-length input stream"
+WhirlpoolDigest,method,WhirlpoolDigest,,,,method833,doFinal,,,"Finalize digest and write output bytes"
