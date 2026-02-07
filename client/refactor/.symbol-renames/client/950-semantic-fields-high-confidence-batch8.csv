@@ -1,0 +1,9 @@
+# High-confidence loading-screen archive role names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LoadingScreenSpriteOp,field,LoadingScreenSpriteOp,,,,aClass45_4661,spriteArchive,,,"Archive supplying loading-screen sprite assets"
+LoadingScreenFullscreenSpriteOp,field,LoadingScreenFullscreenSpriteOp,,,,aClass45_4694,spriteArchive,,,"Archive supplying fullscreen loading-screen sprites"
+LoadingScreenTextOp,field,LoadingScreenTextOp,,,,aClass45_4650,spriteArchive,,,"Archive for text operation sprite assets"
+LoadingScreenTextOp,field,LoadingScreenTextOp,,,,aClass45_4651,fontArchive,,,"Archive for text operation font metrics"
+LoadingScreenElementFactory,field,LoadingScreenElementFactory,,,,aClass45_1637,spriteArchive,,,"Archive for loading-screen sprite assets"
+LoadingScreenElementFactory,field,LoadingScreenElementFactory,,,,aClass45_1641,fontArchive,,,"Archive for loading-screen font assets"
+LoadingScreenTypeList,field,LoadingScreenTypeList,,,,aClass45_1718,archive,,,"Archive containing loading-screen type definitions"
