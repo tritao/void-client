@@ -1,0 +1,6 @@
+# ModelParticleEmitter and MapElementType typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ModelParticleEmitter,local,ModelParticleEmitter,,,,class129,modelParticleEmitterVar,,,"ModelParticleEmitter typed variable"
+ModelParticleEmitter,local,ModelParticleEmitter,,,,class129s,modelParticleEmitterVars,,,"ModelParticleEmitter[] typed variable"
+MapElementType,local,MapElementType,,,,class42,mapElementTypeDef,,,"MapElementType typed variable"
+MapElementType,local,MapElementType,,,,class42s,mapElementTypeDefs,,,"MapElementType[] typed variable"
