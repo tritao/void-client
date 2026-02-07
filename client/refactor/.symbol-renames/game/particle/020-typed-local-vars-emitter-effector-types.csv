@@ -1,0 +1,6 @@
+# Particle emitter/effector typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ParticleEmitterType,local,ParticleEmitterType,,,,class181,particleEmitterTypeDef,,,"ParticleEmitterType typed variable"
+ParticleEmitterType,local,ParticleEmitterType,,,,class181s,particleEmitterTypeDefs,,,"ParticleEmitterType[] typed variable"
+ParticleEffectorType,local,ParticleEffectorType,,,,class174,particleEffectorTypeDef,,,"ParticleEffectorType typed variable"
+ParticleEffectorType,local,ParticleEffectorType,,,,class174s,particleEffectorTypeDefs,,,"ParticleEffectorType[] typed variable"
