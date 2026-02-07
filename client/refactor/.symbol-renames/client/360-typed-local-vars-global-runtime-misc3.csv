@@ -1,0 +1,17 @@
+# Global typed local/parameter cleanup for remaining runtime aliases (batch 3).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class160,varcTypeVar,,,"VarcType typed variable"
+Global,local,Global,,,,class107,secondaryLinkedListVar,,,"SecondaryLinkedList typed variable"
+Global,local,Global,,,,class333,hashTableIteratorVar,,,"HashTableIterator typed variable"
+Global,local,Global,,,,class276,vorbisMappingVar,,,"VorbisMapping typed variable"
+Global,local,Global,,,,class26,soundCacheVar,,,"SoundCache typed variable"
+Global,local,Global,,,,class242,openGLShaderVar,,,"OpenGLShader typed variable"
+Global,local,Global,,,,class173,byteArrayUtilVar,,,"ByteArrayUtil typed variable"
+Global,local,Global,,,,class123,glVertexAttributeVar,,,"GlVertexAttribute typed variable"
+Global,local,Global,,,,class58,vertexLayoutVar,,,"VertexLayout typed variable"
+Global,local,Global,,,,class50,rasterizerCommandVar,,,"RasterizerCommand typed variable"
+Global,local,Global,,,,class370,vorbisCodebookVar,,,"VorbisCodebook typed variable"
+Global,local,Global,,,,class312,dequeIteratorVar,,,"DequeIterator typed variable"
+Global,local,Global,,,,class287,clientHashAndSoundUtilVar,,,"ClientHashAndSoundUtil typed variable"
+Global,local,Global,,,,class272,sockFactoryVar,,,"SocketFactory typed variable"
+Global,local,Global,,,,class267,resourceSlotVar,,,"ResourceSlot typed variable"
