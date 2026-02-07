@@ -1,0 +1,4 @@
+# Js5Archive typed local/parameter cleanup with collision-safe name.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Js5Archive,local,Js5Archive,,,,class45,js5ArchiveVar,,,"Js5Archive typed variable (collision-safe)"
+Js5Archive,local,Js5Archive,,,,class45s,js5ArchiveVars,,,"Js5Archive[] typed variable"
