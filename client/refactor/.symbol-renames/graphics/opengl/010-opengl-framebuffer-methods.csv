@@ -1,0 +1,14 @@
+# OpenGLFramebuffer internal methods.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1498,attachCubeMapFace,,,"Attach cube-map face as framebuffer attachment"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1499,clearStaticState,,,"Clear static OpenGLFramebuffer state"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1500,detachAttachment,,,"Detach framebuffer attachment by index"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1501,updateQueuedAudioStreams,,,"Tick/update queued ambient/audio streams"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1502,attachCubeMapFaceInternal,,,"Internal cube-map face attachment"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1503,setDrawBufferAttachment,,,"Select draw buffer attachment"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1504,getCurrentFramebufferTarget,,,"Get currently bound framebuffer target enum"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1505,setReadBufferAttachment,,,"Select read buffer attachment"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1506,attachTexture2DInternal,,,"Internal 2D texture attachment"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1507,isComplete,,,"Check framebuffer completeness"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1508,attachRenderbuffer,,,"Attach renderbuffer to attachment slot"
+OpenGLFramebuffer,method,OpenGLFramebuffer,,,,method1509,attachTexture2D,,,"Attach 2D texture to attachment slot"
