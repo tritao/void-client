@@ -1,0 +1,12 @@
+# World list entry/base method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+WorldListEntryBase,method,WorldListEntryBase,,,,method1029,isMembers,,,"Check members-world flag"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1030,clearStaticState,,,"Clear static WorldListEntryBase state"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1031,isQuickChat,,,"Check quick-chat/world capability flag"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1032,countClientPreferenceFields,,,"Count reflected ClientPreference fields"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1033,isPvp,,,"Check PvP/world rule-set flag"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1034,decodeReflectionCheck,,,"Decode reflection-check request payload"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1035,createCanvasSurface,,,"Create canvas-backed drawing surface"
+WorldListEntryBase,method,WorldListEntryBase,,,,method1036,isLootShare,,,"Check lootshare/world feature flag"
+WorldListEntry,method,WorldListEntry,,,,method1039,decodePercentEscapes,,,"Decode percent-escaped string"
+WorldListEntry,method,WorldListEntry,,,,method1040,clearStaticState,,,"Clear static WorldListEntry state"
