@@ -1,0 +1,6 @@
+# Terrain mesh and software render context typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+TerrainTileMesh,local,TerrainTileMesh,,,,class198,terrainTileMesh,,,"TerrainTileMesh typed variable"
+TerrainTileMesh,local,TerrainTileMesh,,,,class198s,terrainTileMeshes,,,"TerrainTileMesh[] typed variable"
+SoftwareRenderThreadContext,local,SoftwareRenderThreadContext,,,,class167,renderThreadContextVar,,,"SoftwareRenderThreadContext typed variable (collision-safe)"
+SoftwareRenderThreadContext,local,SoftwareRenderThreadContext,,,,class167s,renderThreadContextVars,,,"SoftwareRenderThreadContext[] typed variable"
