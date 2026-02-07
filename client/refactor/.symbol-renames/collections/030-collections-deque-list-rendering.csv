@@ -1,0 +1,17 @@
+# Collections deque/list rendering and pool helper method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ByteArrayPool,method,ByteArrayPool,,,,method356,formatAmountWithColorTags,,,"Format amount with separators and color suffixes"
+ByteArrayPool,method,ByteArrayPool,,,,method357,releaseByteArray,,,"Return byte array to pooled storage"
+ByteArrayPool,method,ByteArrayPool,,,,method358,queueAreaSoundEffect,,,"Queue area sound-effect request"
+ByteArrayPool,method,ByteArrayPool,,,,method359,acquireByteArray,,,"Acquire byte array from pool or allocate"
+SecondaryLinkedNodeUtil,method,SecondaryLinkedNodeUtil,,,,method720,clearClientCachesWithBudget,,,"Set cache budget and clear global caches"
+SecondaryLinkedNodeUtil,method,SecondaryLinkedNodeUtil,,,,method721,linkSecondaryBefore,,,"Insert secondary-linked node before target"
+SecondaryLinkedNodeUtil,method,SecondaryLinkedNodeUtil,,,,method723,hasPrimaryOcclusionFlags,,,"Check primary occlusion/visibility flags"
+SecondaryLinkedNodeUtil,method,SecondaryLinkedNodeUtil,,,,method724,hasAnyOcclusionFlags,,,"Check composite occlusion/visibility flags"
+SecondaryLinkedList,method,SecondaryLinkedList,,,,method1004,clearStaticState,,,"Clear static SecondaryLinkedList state"
+SecondaryLinkedList,method,SecondaryLinkedList,,,,method1006,resetWorldMapRenderState,,,"Reset world-map render state"
+SecondaryLinkedList,method,SecondaryLinkedList,,,,method1007,renderMinimap,,,"Render minimap widgets and markers"
+SecondaryLinkedList,method,SecondaryLinkedList,,,,method1010,applyProjectionViewportProfile,,,"Apply projection and viewport profile"
+NodeDeque,method,NodeDeque,,,,method1992,emitAdjacentSceneNodeLinks,,,"Emit links to adjacent scene nodes"
+NodeDeque,method,NodeDeque,,,,method1994,clearStaticState,,,"Clear static NodeDeque state"
+NodeDeque,method,NodeDeque,,,,method2000,createOpenGLToolkit,,,"Create OpenGL toolkit instance"
