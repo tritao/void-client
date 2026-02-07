@@ -1,0 +1,6 @@
+# DoublyLinkedNode and ClientFrameUpdateUtil typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+DoublyLinkedNode,local,DoublyLinkedNode,,,,class318,doublyLinkedNodeVar,,,"DoublyLinkedNode typed variable"
+DoublyLinkedNode,local,DoublyLinkedNode,,,,class318s,doublyLinkedNodeVars,,,"DoublyLinkedNode[] typed variable"
+ClientFrameUpdateUtil,local,ClientFrameUpdateUtil,,,,class302,frameUpdateUtilVar,,,"ClientFrameUpdateUtil typed variable (collision-safe)"
+ClientFrameUpdateUtil,local,ClientFrameUpdateUtil,,,,class302s,frameUpdateUtilVars,,,"ClientFrameUpdateUtil[] typed variable"
