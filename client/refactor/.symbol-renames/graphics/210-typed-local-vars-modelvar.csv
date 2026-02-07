@@ -1,0 +1,4 @@
+# Collision-safe model typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Model,local,Model,,,,class64,modelVar,,,"Model-typed variable (collision-safe name)"
+Model,local,Model,,,,class64s,modelVars,,,"Model[]-typed variable (collision-safe name)"
