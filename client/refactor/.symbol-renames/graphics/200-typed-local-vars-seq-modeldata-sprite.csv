@@ -1,0 +1,5 @@
+# Additional typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SeqType,local,SeqType,,,,class17,seqType,,,"SeqType-typed variable"
+ModelData,local,ModelData,,,,class124,modelData,,,"ModelData-typed variable"
+IndexedSprite,local,IndexedSprite,,,,class207,indexedSprite,,,"IndexedSprite-typed variable"
