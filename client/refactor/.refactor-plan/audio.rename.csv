@@ -1,0 +1,64 @@
+kind,file,owner,member,signature,param_index,old,new,scope,phase,confidence,status,notes
+local,ChatLine,ChatLine,,,,class147,chatLineVar,ChatLine,module,high,approved,
+local,ChatLine,ChatLine,,,,class147s,chatLineVars,ChatLine,module,high,approved,
+local,MusicPatchNode2,MusicPatchNode2,,,,class23,musicPatchNode2Var,MusicPatchNode2,module,high,approved,
+local,MusicPatchNode2,MusicPatchNode2,,,,class23s,musicPatchNode2Vars,MusicPatchNode2,module,high,approved,
+method,PcmStream,PcmStream,,,,method2815,update,PcmStream,module,high,approved,Dispatch fill/skip depending on active flag
+method,PcmStream,PcmStream,,,,method2816,firstSubStream,PcmStream,module,high,approved,First child stream iterator entry
+method,PcmStream,PcmStream,,,,method2817,fill,PcmStream,module,high,approved,Render/mix samples into output buffer
+method,PcmStream,PcmStream,,,,method2818,nextSubStream,PcmStream,module,high,approved,Next child stream iterator entry
+method,PcmStream,PcmStream,,,,method2819,skip,PcmStream,module,high,approved,Advance stream without producing output
+method,PcmStreamMixer,PcmStreamMixer,,,,method2880,removeSubStream,PcmStreamMixer,module,high,approved,Remove substream from mixer
+method,PcmStreamMixer,PcmStreamMixer,,,,method2881,insertListenerSorted,PcmStreamMixer,module,high,approved,Insert listener in delay-sorted order
+method,PcmStreamMixer,PcmStreamMixer,,,,method2882,removeListener,PcmStreamMixer,module,high,approved,Remove listener and refresh next delay
+method,PcmStreamMixer,PcmStreamMixer,,,,method2883,addSubStream,PcmStreamMixer,module,high,approved,Add substream to mixer
+method,PcmStreamMixer,PcmStreamMixer,,,,method2884,skipSubStreams,PcmStreamMixer,module,high,approved,Skip samples on all substreams
+method,PcmStreamMixer,PcmStreamMixer,,,,method2885,normalizeListenerDelays,PcmStreamMixer,module,high,approved,Subtract processed delta from listener delays
+method,PcmStreamMixer,PcmStreamMixer,,,,method2886,fillSubStreams,PcmStreamMixer,module,high,approved,Fill samples from all substreams
+method,PcmStreamMixer,PcmStreamMixer,,,,method2887,getSubStreamCount,PcmStreamMixer,module,high,approved,Count currently attached substreams
+method,PcmStreamQueue,PcmStreamQueue,,,,method2827,setGain,PcmStreamQueue,module,high,approved,Set output gain for both channels
+method,PcmStreamQueue,PcmStreamQueue,,,,method2828,peekBuffer,PcmStreamQueue,module,high,approved,Peek first queued PCM buffer node
+method,PcmStreamQueue,PcmStreamQueue,,,,method2829,getQueuedBufferCount,PcmStreamQueue,module,high,approved,Current queued buffer count
+method,PcmStreamQueue,PcmStreamQueue,,,,method2831,dequeueBuffer,PcmStreamQueue,module,high,approved,Remove first queued buffer and return node to pool
+method,PcmStreamQueue,PcmStreamQueue,,,,method2833,setPaused,PcmStreamQueue,module,high,approved,Pause/resume queue processing
+method,PcmStreamQueue,PcmStreamQueue,,,,method2835,enqueueBuffer,PcmStreamQueue,module,high,approved,Append PCM buffer node to queue
+method,PcmStreamQueue,PcmStreamQueue,,,,method2836,setAutoUnlinkWhenEmpty,PcmStreamQueue,module,high,approved,Auto-unlink stream once queue drains
+method,PcmStreamQueue,PcmStreamQueue,,,,method2837,getHeadBufferTime,PcmStreamQueue,module,high,approved,Estimate playback time at queue head
+method,PcmStreamQueue,PcmStreamQueue,,,,method2838,acquireBufferNode,PcmStreamQueue,module,high,approved,Get/reuse a PCM buffer node for writing
+field,RawPcmStream,RawPcmStream,,,,aBoolean8981,bidirectionalLoop,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8969,targetVolume,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8970,currentLeftGain,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8971,leftGainStep,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8972,rampStepsRemaining,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8973,volumeStep,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8974,currentRightGain,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8975,loopStart,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8976,currentVolume,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8977,pan,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8978,rightGainStep,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8979,sampleStep,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8980,loopsRemaining,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8982,loopEnd,RawPcmStream,module,high,approved,
+field,RawPcmStream,RawPcmStream,,,,anInt8983,samplePosition,RawPcmStream,module,high,approved,
+local,RawPcmStream,RawPcmStream,,,,class348_sub16_sub5,rawPcmStream,RawPcmStream,module,high,approved,
+field,RawSound,RawSound,,,,aBoolean8987,bidirectionalLoop,RawSound,module,high,approved,
+field,RawSound,RawSound,,,,aByteArray8984,samples,RawSound,module,high,approved,
+field,RawSound,RawSound,,,,anInt8985,loopEnd,RawSound,module,high,approved,
+field,RawSound,RawSound,,,,anInt8986,loopStart,RawSound,module,high,approved,
+field,RawSound,RawSound,,,,anInt8988,sampleRate,RawSound,module,high,approved,
+local,RawSound,RawSound,,,,class348_sub19_sub1,rawSound,RawSound,module,high,approved,
+method,RawSound,RawSound,,,,method2944,resample,RawSound,module,high,approved,
+field,SoundCache,SoundCache,,,,aClass356_374,vorbisSampleCache,SoundCache,module,high,approved,
+field,SoundCache,SoundCache,,,,aClass356_381,rawSoundCache,SoundCache,module,high,approved,
+field,SoundCache,SoundCache,,,,aClass45_377,vorbisSampleArchive,SoundCache,module,high,approved,[auto-conflict-resolve: SoundCache:aClass45_377 -> vorbisSampleArchive]
+field,SoundCache,SoundCache,,,,aClass45_379,soundEffectArchive,SoundCache,module,high,approved,
+method,SoundCache,SoundCache,,,,method306,clearStaticState,SoundCache,module,high,approved,
+method,SoundCache,SoundCache,,,,method307,getSoundEffectInternal,SoundCache,module,high,approved,
+method,SoundCache,SoundCache,,,,method308,getSoundEffect,SoundCache,module,high,approved,
+method,SoundCache,SoundCache,,,,method309,getVorbisSound,SoundCache,module,high,approved,
+method,SoundCache,SoundCache,,,,method310,getVorbisSoundInternal,SoundCache,module,high,approved,
+method,SoundCache,SoundCache,,,,method311,isTrimmedWhitespaceChar,SoundCache,module,high,approved,
+local,SoundEffectRequest,SoundEffectRequest,,,,class10,soundEffectRequestVar,SoundEffectRequest,module,high,approved,
+local,SoundEffectRequest,SoundEffectRequest,,,,class10s,soundEffectRequestVars,SoundEffectRequest,module,high,approved,
+local,TextureConfig,TextureConfig,,,,class12,textureConfigVar,TextureConfig,module,high,approved,
+local,TextureConfig,TextureConfig,,,,class12s,textureConfigVars,TextureConfig,module,high,approved,

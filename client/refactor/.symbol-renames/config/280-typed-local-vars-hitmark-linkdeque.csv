@@ -1,6 +1,0 @@
-# HitmarkType and LinkDeque typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-HitmarkType,local,HitmarkType,,,,class31,hitmarkTypeDefVar,,,"HitmarkType typed variable"
-HitmarkType,local,HitmarkType,,,,class31s,hitmarkTypeDefVars,,,"HitmarkType[] typed variable"
-LinkDeque,local,LinkDeque,,,,class243,linkDequeVar,,,"LinkDeque typed variable"
-LinkDeque,local,LinkDeque,,,,class243s,linkDequeVars,,,"LinkDeque[] typed variable"

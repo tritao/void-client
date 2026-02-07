@@ -1,6 +1,0 @@
-# Js5MasterIndex field naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Js5MasterIndex,field,Js5MasterIndex,,,,aClass348_Sub49_4215,masterIndexBuffer,,,"Decoded/verified master-index metadata buffer"
-Js5MasterIndex,field,Js5MasterIndex,,,,aClass314_Sub1Array4216,archiveProviders,,,"Per-archive Js5 provider instances"
-Js5MasterIndex,field,Js5MasterIndex,,,,aClass112_4217,archiveActionHandler,,,"Archive disk async action handler"
-Js5MasterIndex,field,Js5MasterIndex,,,,aClass348_Sub42_Sub16_Sub1_4220,masterIndexRequest,,,"Pending async request for master index payload"

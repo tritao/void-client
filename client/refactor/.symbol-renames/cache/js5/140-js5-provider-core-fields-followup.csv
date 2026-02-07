@@ -1,9 +1,0 @@
-# Js5ArchiveProviderImpl remaining core field pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,anInt6344,indexCrc,,,"Expected CRC for JS5 index metadata"
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,aByteArray6346,indexDigest,,,"Expected digest/signature bytes for JS5 index metadata"
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,aClass248_6347,netQueue,,,"Remote JS5 network request queue"
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,anInt6350,archiveId,,,"Archive id handled by this provider"
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,anInt6352,expectedIndexVersion,,,"Expected index version for validation"
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,anInt6361,loadedGroupCount,,,"Number of groups marked loaded"
-Js5ArchiveProviderImpl,field,Js5ArchiveProviderImpl,,,,anInt6373,syncGroupCursor,,,"Current scan cursor during sync passes"

@@ -1,8 +1,0 @@
-# ClientStepUtil + GameClockFactory method naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ClientStepUtil,method,ClientStepUtil,,,,method1977,isTransitionClientState,,,"Returns true for intermediate transition client states"
-ClientStepUtil,method,ClientStepUtil,,,,method1978,clearCachedToolkitWorkers,,,"Disposes and clears cached toolkit worker threads"
-ClientStepUtil,method,ClientStepUtil,,,,method1979,clearStaticState,,,"Clear static references"
-GameClockFactory,method,GameClockFactory,,,,method1631,createBestClock,,,"Create best-available clock implementation"
-GameClockFactory,method,GameClockFactory,,,,method1632,clearStaticState,,,"Clear static references"
-GameClockFactory,method,GameClockFactory,,,,method1633,hasFlag1024,,,"Bit-test helper for render flags"

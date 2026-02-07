@@ -1,6 +1,0 @@
-# NewsFetcher state fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-NewsFetcher,field,NewsFetcher,,,,aClass144_4201,newsRequest,,,
-NewsFetcher,field,NewsFetcher,,,,aClass295Array4204,newsEntries,,,
-NewsFetcher,field,NewsFetcher,,,,aBoolean4205,loaded,,,
-NewsFetcher,field,NewsFetcher,,,,aThread4206,loaderThread,,,

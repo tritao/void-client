@@ -1,9 +1,0 @@
-# SignLinkRequest core fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SignLinkRequest,field,SignLinkRequest,,,,anInt1994,requestType,,,
-SignLinkRequest,field,SignLinkRequest,,,,aClass144_1995,next,,,
-SignLinkRequest,field,SignLinkRequest,,,,anObject1996,payload,,,
-SignLinkRequest,field,SignLinkRequest,,,,anInt1997,status,,,
-SignLinkRequest,field,SignLinkRequest,,,,anObject1998,result,,,
-SignLinkRequest,field,SignLinkRequest,,,,anInt1999,arg0,,,
-SignLinkRequest,field,SignLinkRequest,,,,anInt2000,arg1,,,

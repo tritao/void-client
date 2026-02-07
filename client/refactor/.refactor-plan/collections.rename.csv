@@ -1,0 +1,271 @@
+kind,file,owner,member,signature,param_index,old,new,scope,phase,confidence,status,notes
+method,ByteArrayPool,ByteArrayPool,,,,method356,formatAmountWithColorTags,ByteArrayPool,module,high,approved,
+method,ByteArrayPool,ByteArrayPool,,,,method357,releaseByteArray,ByteArrayPool,module,high,approved,
+method,ByteArrayPool,ByteArrayPool,,,,method358,queueAreaSoundEffect,ByteArrayPool,module,high,approved,
+method,ByteArrayPool,ByteArrayPool,,,,method359,acquireByteArray,ByteArrayPool,module,high,approved,
+method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3174,fitViewportAndApplyLetterbox,ByteArraySecondaryNode,module,high,approved,
+method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3175,updateSceneEnvironmentAndPostEffects,ByteArraySecondaryNode,module,high,approved,
+method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3176,clearStaticState,ByteArraySecondaryNode,module,high,approved,
+method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3177,clearWorldMapOverlayState,ByteArraySecondaryNode,module,high,approved,
+method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3178,setGroundResourceArchives,ByteArraySecondaryNode,module,high,approved,
+method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3179,applyRendererPreferenceMode,ByteArraySecondaryNode,module,high,approved,
+field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aClass114_9503,legacyServerPacket9,ByteArraySecondaryNode,module,high,approved,Legacy server packet constant id 9
+field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aByteArray9499,value,ByteArraySecondaryNode,module,high,approved,Stored byte-array payload
+field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aShortArray9502,recolorPalette,ByteArraySecondaryNode,module,high,approved,Shared recolor palette lookup
+field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,anInt9504,onscreenTransientCount,ByteArraySecondaryNode,module,high,approved,Count of onscreen transient entities for sorting/debug
+field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,anIntArray9505,projectedScreenCoords,ByteArraySecondaryNode,module,high,approved,Temporary projected screen xyz coords
+local,ClientFrameUpdateUtil,ClientFrameUpdateUtil,,,,class302,frameUpdateUtilVar,ClientFrameUpdateUtil,module,high,approved,
+local,ClientFrameUpdateUtil,ClientFrameUpdateUtil,,,,class302s,frameUpdateUtilVars,ClientFrameUpdateUtil,module,high,approved,
+field,DequeIterator,DequeIterator,,,,aClass262_3923,deque,DequeIterator,module,high,approved,Deque being iterated
+field,DequeIterator,DequeIterator,,,,aClass348_3922,iterCursor,DequeIterator,module,high,approved,Iterator cursor for current deque traversal
+method,DequeIterator,DequeIterator,,,,method2327,first,DequeIterator,module,high,approved,
+method,DequeIterator,DequeIterator,,,,method2328,setDeque,DequeIterator,module,high,approved,
+method,DequeIterator,DequeIterator,,,,method2329,next,DequeIterator,module,high,approved,
+method,DequeIterator,DequeIterator,,,,method2330,resetInboundProtocolState,DequeIterator,module,high,approved,
+method,DequeIterator,DequeIterator,,,,method2331,clearStaticState,DequeIterator,module,high,approved,
+method,DequeIterator,DequeIterator,,,,method2332,hasBit0x20,DequeIterator,module,high,approved,
+field,DoublyLinkedNode,DoublyLinkedNode,,,,aClass318_3970,next,DoublyLinkedNode,module,high,approved,Next node in intrusive deque
+field,DoublyLinkedNode,DoublyLinkedNode,,,,aClass318_3976,prev,DoublyLinkedNode,module,high,approved,Previous node in intrusive deque
+local,DoublyLinkedNode,DoublyLinkedNode,,,,class318,doublyLinkedNodeVar,DoublyLinkedNode,module,high,approved,
+local,DoublyLinkedNode,DoublyLinkedNode,,,,class318s,doublyLinkedNodeVars,DoublyLinkedNode,module,high,approved,
+method,DoublyLinkedNode,DoublyLinkedNode,,,,method2373,unlink,DoublyLinkedNode,module,high,approved,Detach node from intrusive doubly linked deque
+method,DoublyLinkedNode,DoublyLinkedNode,,,,method2374,clearStaticState,DoublyLinkedNode,module,high,approved,
+method,DoublyLinkedNode,DoublyLinkedNode,,,,method2375,clearBufferedSocketCache,DoublyLinkedNode,module,high,approved,
+method,DoublyLinkedNodeUtil,DoublyLinkedNodeUtil,,,,method1882,clearStaticState,DoublyLinkedNodeUtil,module,high,approved,
+method,DoublyLinkedNodeUtil,DoublyLinkedNodeUtil,,,,method1883,linkBefore,DoublyLinkedNodeUtil,module,high,approved,
+method,DoublyLinkedNodeUtil,DoublyLinkedNodeUtil,,,,method1884,renderOcclusionDebugOverlay,DoublyLinkedNodeUtil,module,high,approved,
+field,DualNode,DualNode,,,,aClass318_Sub9_6468,dualPrev,DualNode,module,high,approved,
+field,DualNode,DualNode,,,,aClass318_Sub9_6469,dualNext,DualNode,module,high,approved,
+method,DualNode,DualNode,,,,method2514,unlinkDual,DualNode,module,high,approved,
+field,HardReferenceNode,HardReferenceNode,,,,aClass230_10434,modeGame,HardReferenceNode,module,high,approved,ModeGame reference used by HardReferenceNode static state
+field,HardReferenceNode,HardReferenceNode,,,,aClass74_10437,zoneUpdateType,HardReferenceNode,module,high,approved,Zone update type used by packet handling
+field,,SceneLightingState,,,,aLongArrayArrayArray10431,sceneTileLightTags,SceneLightingState,module,high,approved,Scene tile light-tag grid used by scene/entity rendering
+field,,SceneLightingState,,,,aClass76_10436,scenePickBufferQueue,SceneLightingState,module,high,approved,Shared scene pick buffer queue
+field,HardReferenceNode,HardReferenceNode,,,,anInt10430,processInboundServerPacketsCount,HardReferenceNode,module,high,approved,Invocation counter for inbound packet dispatcher
+field,,SceneRenderFlags,,,,anInt10433,hasRenderableSceneFlagsChecks,SceneRenderFlags,module,high,approved,Invocation counter for hasRenderableSceneFlags
+field,HardReferenceNode,HardReferenceNode,,,,anInt10435,getValueCount,HardReferenceNode,module,high,approved,Invocation counter for getValue
+field,HardReferenceNode,HardReferenceNode,,,,anInt10438,isSoftChecks,HardReferenceNode,module,high,approved,Invocation counter for isSoft
+field,HardReferenceNode,HardReferenceNode,,,,anObject10429,value,HardReferenceNode,module,high,approved,Hard reference payload value
+method,HardReferenceNode,HardReferenceNode,,,,method3193,getValue,HardReferenceNode,module,high,approved,Hard reference value accessor
+method,HardReferenceNode,HardReferenceNode,,,,method3195,isSoft,HardReferenceNode,module,high,approved,Hard reference nodes are not soft
+method,,SceneRenderFlags,,,,method3200,hasRenderableSceneFlags,SceneRenderFlags,module,high,approved,
+method,HardReferenceNode,HardReferenceNode,,,,method3201,processInboundServerPackets,HardReferenceNode,module,high,approved,Reads and dispatches inbound server packets
+method,,SceneLightingState,,,,method3202,clearSceneLightingState,SceneLightingState,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,bool_15_,hasDisplayNameFlag,HardReferenceNode,module,high,approved,[auto-collision-resolve: bool_15_ -> hasDisplayNameFlag]
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,bool_233_,hasDisplayNameOverride,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,bool_235_,isSorted,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,bool_81_,hasSenderIcon,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,bool_83_,suppressQuickChatMessage,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,class348_sub41,mapRegionLoader,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,class348_sub41_10_,targetMapRegionLoader,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,flag20,suppressMessage,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_234_,friendEntryIndex,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_236_,sortPassRemaining,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_237_,sortCompareIndex,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_71_,existingFriendIndex,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_73_,insertPosition,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_74_,nameCompare,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_75_,shiftIndex,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,i_76_,pendingSpawnSlot,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,l_19_,chatDedupeKey,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,string_84_,chatMessageText,HardReferenceNode,module,high,approved,
+local,HardReferenceNode,HardReferenceNode,processInboundServerPackets,,,text82,senderDisplayName,HardReferenceNode,module,high,approved,
+field,HashTable,HashTable,,,,aClass348Array4374,buckets,HashTable,module,high,approved,Bucket sentinel nodes (one per bucket)
+field,HashTable,HashTable,,,,aClass348_4389,searchCursor,HashTable,module,high,approved,Cursor used by method3476/method3480
+field,HashTable,HashTable,,,,aClass348_4390,iterCursor,HashTable,module,high,approved,Cursor used by method3482 iteration
+field,HashTable,HashTable,,,,aLong4385,searchKey,HashTable,module,high,approved,Current lookup key during search/iteration
+field,HashTable,HashTable,,,,anInt4377,bucketCount,HashTable,module,high,approved,Number of buckets
+field,HashTable,HashTable,,,,anInt4391,iterBucketIndex,HashTable,module,high,approved,Current bucket index during iteration
+method,HashTable,HashTable,,,,method3474,size,HashTable,module,high,approved,Count nodes in table
+method,HashTable,HashTable,,,,method3475,getBucketCount,HashTable,module,high,approved,Return configured bucket count
+method,HashTable,HashTable,,,,method3476,nextWithKey,HashTable,module,high,approved,Continue lookup for duplicate key
+method,HashTable,HashTable,,,,method3477,copyNodesToArray,HashTable,module,high,approved,Copy all nodes into destination array
+method,HashTable,HashTable,,,,method3478,clearStaticState,HashTable,module,high,approved,
+method,HashTable,HashTable,,,,method3479,nextVisibleWorldMapMarker,HashTable,module,high,approved,
+method,HashTable,HashTable,,,,method3480,get,HashTable,module,high,approved,Lookup first node by key
+method,HashTable,HashTable,,,,method3481,clear,HashTable,module,high,approved,Clear all buckets
+method,HashTable,HashTable,,,,method3482,next,HashTable,module,high,approved,Advance table iteration
+method,HashTable,HashTable,,,,method3483,put,HashTable,module,high,approved,Insert node by key
+method,HashTable,HashTable,,,,method3484,first,HashTable,module,high,approved,Start table iteration
+field,HashTableIterator,HashTableIterator,,,,aClass348_4150,iterCursor,HashTableIterator,module,high,approved,Cursor within current bucket chain
+field,HashTableIterator,HashTableIterator,,,,aClass356_4146,table,HashTableIterator,module,high,approved,Hash table being iterated
+field,HashTableIterator,HashTableIterator,,,,anInt4148,iterBucketIndex,HashTableIterator,module,high,approved,Current bucket index during iteration
+method,HashTableIterator,HashTableIterator,,,,method2643,setTileOverlayData,HashTableIterator,module,high,approved,
+method,HashTableIterator,HashTableIterator,,,,method2644,first,HashTableIterator,module,high,approved,Start iterator at first node
+method,HashTableIterator,HashTableIterator,,,,method2645,clearStaticState,HashTableIterator,module,high,approved,
+method,HashTableIterator,HashTableIterator,,,,method2646,next,HashTableIterator,module,high,approved,Advance iterator to next node
+field,IntHashTable,IntHashTable,,,,aClass348_Sub51_3959,clientPreferences,IntHashTable,module,high,approved,Global client preferences handle
+field,IntHashTable,IntHashTable,,,,anIntArray3961,table,IntHashTable,module,high,approved,Interleaved key/index lookup table
+method,IntHashTable,IntHashTable,,,,method2363,prepareSceneHeightLoad,IntHashTable,module,high,approved,
+method,IntHashTable,IntHashTable,,,,method2364,drawCubicBezier,IntHashTable,module,high,approved,
+method,IntHashTable,IntHashTable,,,,method2365,get,IntHashTable,module,high,approved,Lookup original index by int key
+method,IntHashTable,IntHashTable,,,,method2366,clearStaticState,IntHashTable,module,high,approved,
+method,IntHashTable,IntHashTable,,,,method2367,formatChatMessageLine,IntHashTable,module,high,approved,
+method,IntHashTable,IntHashTable,,,,method2368,clearCharCountCache,IntHashTable,module,high,approved,
+field,IntNode,IntNode,,,,anInt6976,value,IntNode,module,high,approved,Stored integer payload
+method,IntNode,IntNode,,,,method3027,updateAudioState,IntNode,module,high,approved,
+method,IntNode,IntNode,,,,method3028,clearStaticState,IntNode,module,high,approved,
+field,IntNode,IntNode,,,,aClass74_6977,zoneUpdateType8,IntNode,module,high,approved,Zone-update type constant id 8
+field,IntNode,IntNode,,,,aClass45_6980,loadingScreenArchive,IntNode,module,high,approved,Archive used for loading/login screen resources
+field,IntNode,IntNode,,,,anInt6979,cameraDistance,IntNode,module,high,approved,Smoothed scene camera distance accumulator
+field,IntNode,IntNode,,,,anInt6981,dynamicLightingLevel,IntNode,module,high,approved,Dynamic-lighting intensity level
+field,ReflectionCheck,ReflectionCheck,,,,aClass262_6978,reflectionCheckQueue,ReflectionCheck,module,high,approved,Queue of pending reflection checks extracted from IntNode
+local,JagBuffer,JagBuffer,,,,class348_sub49,buffer,JagBuffer,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1869,addLast,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1870,iterateFromBack,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1871,isEmpty,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1872,iterateFromFront,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1873,clearStaticState,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1874,size,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1875,removeFirst,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1876,clear,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1877,updateActiveParticleSystems,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1878,iterateNext,LinkDeque,module,high,approved,
+method,LinkDeque,LinkDeque,,,,method1879,selectSceneTileBuffers,LinkDeque,module,high,approved,
+field,LinkedNodeHashTable,LinkedNodeHashTable,,,,aClass348_Sub42Array452,buckets,LinkedNodeHashTable,module,high,approved,Bucket sentinel nodes (one per bucket)
+field,LinkedNodeHashTable,LinkedNodeHashTable,,,,aClass348_Sub42_454,searchCursor,LinkedNodeHashTable,module,high,approved,Cursor used by method334/method336
+field,LinkedNodeHashTable,LinkedNodeHashTable,,,,aLong453,searchKey,LinkedNodeHashTable,module,high,approved,Current lookup key during search/iteration
+field,LinkedNodeHashTable,LinkedNodeHashTable,,,,anInt448,bucketCount,LinkedNodeHashTable,module,high,approved,Number of buckets
+method,LinkedNodeHashTable,LinkedNodeHashTable,,,,method334,get,LinkedNodeHashTable,module,high,approved,Lookup first secondary node by key
+method,LinkedNodeHashTable,LinkedNodeHashTable,,,,method335,put,LinkedNodeHashTable,module,high,approved,Insert secondary node by key
+method,LinkedNodeHashTable,LinkedNodeHashTable,,,,method336,nextWithKey,LinkedNodeHashTable,module,high,approved,Continue lookup for duplicate key
+field,Node,Node,,,,aClass348_4294,next,Node,module,high,approved,Next node in intrusive list
+field,Node,Node,,,,aClass348_4295,prev,Node,module,high,approved,Previous node in intrusive list
+field,Node,Node,,,,aLong4291,key,Node,module,high,approved,Node key used by HashTable/NodeDeque
+local,Node,Node,,,,class348,node,Node,module,high,approved,
+method,Node,Node,,,,method2709,hasBit0x21,Node,module,high,approved,
+method,Node,Node,,,,method2710,classifyThreshold96And128,Node,module,high,approved,
+method,Node,Node,,,,method2711,buildCachedModelVariant,Node,module,high,approved,
+method,Node,Node,,,,method2712,isLinked,Node,module,high,approved,Whether node is currently linked
+method,Node,Node,,,,method2713,clearStaticState,Node,module,high,approved,
+method,Node,Node,,,,method2714,isOneThreeOrFive,Node,module,high,approved,
+method,Node,Node,,,,method2715,unlink,Node,module,high,approved,Detach node from primary doubly linked list
+field,NodeDeque,NodeDeque,,,,aClass348_3334,sentinel,NodeDeque,module,high,approved,Sentinel node
+field,NodeDeque,NodeDeque,,,,aClass348_3342,iterCursor,NodeDeque,module,high,approved,Iteration cursor
+method,NodeDeque,NodeDeque,,,,method1988,moveAllToBackOf,NodeDeque,module,high,approved,
+method,NodeDeque,NodeDeque,,,,method1989,spliceFromNodeToBackOf,NodeDeque,module,high,approved,
+method,NodeDeque,NodeDeque,,,,method1990,next,NodeDeque,module,high,approved,Get next node using forward iterator cursor
+method,NodeDeque,NodeDeque,,,,method1991,computeProjectedUvByMode,NodeDeque,module,high,approved,
+method,NodeDeque,NodeDeque,,,,method1992,emitAdjacentSceneNodeLinks,NodeDeque,module,high,approved,
+method,NodeDeque,NodeDeque,,,,method1993,last,NodeDeque,module,high,approved,Get last node and set reverse iterator cursor
+method,NodeDeque,NodeDeque,,,,method1994,clearStaticState,NodeDeque,module,high,approved,
+method,NodeDeque,NodeDeque,,,,method1995,first,NodeDeque,module,high,approved,Get first node and set forward iterator cursor
+method,NodeDeque,NodeDeque,,,,method1996,clear,NodeDeque,module,high,approved,Unlink all nodes
+method,NodeDeque,NodeDeque,,,,method1997,removeFirst,NodeDeque,module,high,approved,Remove and return first node
+method,NodeDeque,NodeDeque,,,,method1998,size,NodeDeque,module,high,approved,Count nodes in deque
+method,NodeDeque,NodeDeque,,,,method1999,addLast,NodeDeque,module,high,approved,Insert node at tail
+method,NodeDeque,NodeDeque,,,,method2000,createOpenGLToolkit,NodeDeque,module,high,approved,
+method,NodeDeque,NodeDeque,,,,method2001,addFirst,NodeDeque,module,high,approved,Insert node at head
+method,NodeDeque,NodeDeque,,,,method2002,isEmpty,NodeDeque,module,high,approved,Whether deque contains no nodes
+method,NodeDeque,NodeDeque,,,,method2003,prev,NodeDeque,module,high,approved,Get previous node using reverse iterator cursor
+method,,ReferenceNode,,,,method3193,getValue,ReferenceNode,module,high,approved,Get cached value (hard/soft reference)
+field,,ReferenceNode,,,,aClass114_9550,legacyServerPacket109,ReferenceNode,module,high,approved,Legacy server packet constant id 109
+field,,ReferenceNode,,,,aClass114_9552,legacyServerPacket72,ReferenceNode,module,high,approved,Legacy server packet constant id 72
+field,,ReferenceNode,,,,aClass351_9553,legacyClientPacket36,ReferenceNode,module,high,approved,Legacy client packet constant id 36
+field,,ReferenceNode,,,,aString9554,loginStatusText,ReferenceNode,module,high,approved,Legacy login status text
+field,,ReferenceNode,,,,anInt9546,loginState3To6Checks,ReferenceNode,module,high,approved,Debug counter for login-state 3..6 checks
+field,,ReferenceNode,,,,anInt9549,loginState7Or9Checks,ReferenceNode,module,high,approved,Debug counter for login-state 7/9 checks
+field,,ReferenceNode,,,,anInt9551,legacyFlagChecks,ReferenceNode,module,high,approved,Debug counter for legacy-flag checks
+method,,ReferenceNode,,,,method3194,isLegacyFlagSupported,ReferenceNode,module,high,approved,
+method,,ReferenceNode,,,,method3195,isSoft,ReferenceNode,module,high,approved,Whether entry is soft-reference-backed
+method,,ReferenceNode,,,,method3196,isLoginState3To6,ReferenceNode,module,high,approved,
+method,,ReferenceNode,,,,method3197,isLoginState7Or9,ReferenceNode,module,high,approved,
+method,,ReferenceNode,,,,method3198,resetClientWorldState,ReferenceNode,module,high,approved,
+method,,ReferenceNode,,,,method3199,clearLegacyPacketConstants,ReferenceNode,module,high,approved,Clear legacy packet constants moved from ReferenceNode
+method,ReferenceNodeFactory,ReferenceNodeFactory,,,,method1885,computeProjectedUv,ReferenceNodeFactory,module,high,approved,
+method,ReferenceNodeFactory,ReferenceNodeFactory,,,,method1886,clearStaticState,ReferenceNodeFactory,module,high,approved,
+method,ReferenceNodeFactory,ReferenceNodeFactory,,,,method1887,hasCompositeRenderFlags,ReferenceNodeFactory,module,high,approved,
+field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1647,sentinel,SecondaryLinkedList,module,high,approved,List sentinel node
+field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1652,iterCursor,SecondaryLinkedList,module,high,approved,Iteration cursor
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1002,size,SecondaryLinkedList,module,high,approved,Count nodes in list
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1003,next,SecondaryLinkedList,module,high,approved,Get next secondary node from iterator cursor
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1004,clearStaticState,SecondaryLinkedList,module,high,approved,
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1005,addLast,SecondaryLinkedList,module,high,approved,Insert secondary node at tail
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1006,resetWorldMapRenderState,SecondaryLinkedList,module,high,approved,
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1007,renderMinimap,SecondaryLinkedList,module,high,approved,
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1008,removeFirst,SecondaryLinkedList,module,high,approved,Remove and return first secondary node
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1009,clear,SecondaryLinkedList,module,high,approved,Unlink all secondary nodes
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1010,applyProjectionViewportProfile,SecondaryLinkedList,module,high,approved,
+method,SecondaryLinkedList,SecondaryLinkedList,,,,method1011,first,SecondaryLinkedList,module,high,approved,Get first secondary node and set iterator cursor
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool,isFriend,SecondaryLinkedList,module,high,approved,Whether player is marked in friend list arrays
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool_30_,isIgnoreEntry,SecondaryLinkedList,module,high,approved,Whether player appears in ignore list array
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool_32_,isSameTeam,SecondaryLinkedList,module,high,approved,Whether player shares team id
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,class348_sub35,mapIconNode,SecondaryLinkedList,module,high,approved,Node containing map icon index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,class348_sub37,mapElementNode,SecondaryLinkedList,module,high,approved,Dynamic map element node
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_10_,iconTileX,SecondaryLinkedList,module,high,approved,Map icon tile X
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_11_,iconTileY,SecondaryLinkedList,module,high,approved,Map icon tile Y
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_12_,iconDeltaX,SecondaryLinkedList,module,high,approved,Map icon minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_13_,iconDeltaY,SecondaryLinkedList,module,high,approved,Map icon minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_14_,mapObjectIndex,SecondaryLinkedList,module,high,approved,Scene map object icon loop index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_15_,mapObjectDeltaX,SecondaryLinkedList,module,high,approved,Scene map object minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_16_,mapObjectDeltaY,SecondaryLinkedList,module,high,approved,Scene map object minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_17_,mapElementPlane,SecondaryLinkedList,module,high,approved,Dynamic map element plane
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_18_,mapElementTileX,SecondaryLinkedList,module,high,approved,Dynamic map element tile X
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_19_,mapElementTileY,SecondaryLinkedList,module,high,approved,Dynamic map element tile Y
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_20_,mapElementDeltaX,SecondaryLinkedList,module,high,approved,Dynamic map element minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_21_,mapElementDeltaY,SecondaryLinkedList,module,high,approved,Dynamic map element minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_22_,npcListIndex,SecondaryLinkedList,module,high,approved,NPC list iteration index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_23_,npcDeltaX,SecondaryLinkedList,module,high,approved,NPC minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_24_,npcDeltaY,SecondaryLinkedList,module,high,approved,NPC minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_25_,activePlayerCount,SecondaryLinkedList,module,high,approved,Active tracked player count
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_26_,playerListIndex,SecondaryLinkedList,module,high,approved,Player list iteration index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_27_,playerDeltaX,SecondaryLinkedList,module,high,approved,Player minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_28_,playerDeltaY,SecondaryLinkedList,module,high,approved,Player minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_29_,friendCheckIndex,SecondaryLinkedList,module,high,approved,Friend check loop index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_31_,ignoreCheckIndex,SecondaryLinkedList,module,high,approved,Ignore check loop index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_33_,hintArrowIndex,SecondaryLinkedList,module,high,approved,Hint arrow slot index
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_34_,hintNpcDeltaX,SecondaryLinkedList,module,high,approved,Hint NPC minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_35_,hintNpcDeltaY,SecondaryLinkedList,module,high,approved,Hint NPC minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_36_,hintWorldDeltaX,SecondaryLinkedList,module,high,approved,Hint world target minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_37_,hintWorldDeltaY,SecondaryLinkedList,module,high,approved,Hint world target minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_38_,hintPlayerDeltaX,SecondaryLinkedList,module,high,approved,Hint player minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_39_,hintPlayerDeltaY,SecondaryLinkedList,module,high,approved,Hint player minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_3_,cameraY,SecondaryLinkedList,module,high,approved,Current minimap camera Y world coord
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_40_,destinationDeltaX,SecondaryLinkedList,module,high,approved,Destination marker minimap X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_41_,destinationDeltaY,SecondaryLinkedList,module,high,approved,Destination marker minimap Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_4_,cameraX,SecondaryLinkedList,module,high,approved,Current minimap camera X world coord
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_5_,minimapZoom,SecondaryLinkedList,module,high,approved,Minimap zoom scalar
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_6_,cameraYaw,SecondaryLinkedList,module,high,approved,Minimap camera yaw
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_7_,mapCenterX,SecondaryLinkedList,module,high,approved,Minimap center X offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_8_,mapCenterY,SecondaryLinkedList,module,high,approved,Minimap center Y offset
+local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_9_,iconIndex,SecondaryLinkedList,module,high,approved,Map icon index into world map arrays
+field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aClass107_2118,list,SecondaryLinkedListIterator,module,high,approved,
+field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aClass348_Sub42_2115,cursor,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1238,hasBit0x800,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1239,clearStaticState,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1240,first,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1241,hasOverlayInteractionBits,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1242,reportClientError,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1243,next,SecondaryLinkedListIterator,module,high,approved,
+method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method720,clearClientCachesWithBudget,SecondaryLinkedNodeUtil,module,high,approved,
+method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method721,linkSecondaryBefore,SecondaryLinkedNodeUtil,module,high,approved,
+method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method722,clearStaticState,SecondaryLinkedNodeUtil,module,high,approved,
+method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method723,hasPrimaryOcclusionFlags,SecondaryLinkedNodeUtil,module,high,approved,
+method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method724,hasAnyOcclusionFlags,SecondaryLinkedNodeUtil,module,high,approved,
+field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7060,secondaryPrev,SecondaryNode,module,high,approved,Previous node in secondary list
+field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7063,secondaryNext,SecondaryNode,module,high,approved,Next node in secondary list
+field,SecondaryNode,SecondaryNode,,,,aLong7057,secondaryKey,SecondaryNode,module,high,approved,
+local,SecondaryNode,SecondaryNode,,,,class348_sub42,secondaryNode,SecondaryNode,module,high,approved,
+method,SecondaryNode,SecondaryNode,,,,method3161,clearStaticState,SecondaryNode,module,high,approved,
+method,SecondaryNode,SecondaryNode,,,,method3162,unlinkSecondary,SecondaryNode,module,high,approved,Detach node from secondary linked list
+method,SecondaryNode,SecondaryNode,,,,method3163,resetPlayerUpdateTracking,SecondaryNode,module,high,approved,
+method,SecondaryNode,SecondaryNode,,,,method3164,isSecondaryLinked,SecondaryNode,module,high,approved,Whether node is currently linked in secondary list
+field,ShortNode,ShortNode,,,,aShort6911,value,ShortNode,module,high,approved,Stored short payload
+field,ShortNode,ShortNode,,,,aClass45_6909,animationArchive,ShortNode,module,high,approved,Archive used for animation/sequence resources during loading
+method,ShortNode,ShortNode,,,,method3003,clearStaticState,ShortNode,module,high,approved,
+method,ShortNode,ShortNode,,,,method3004,setStepArchiveAndTextureProvider,ShortNode,module,high,approved,
+method,SoftReferenceNode,SoftReferenceNode,,,,method3193,getValue,SoftReferenceNode,module,high,approved,Soft reference value accessor
+method,SoftReferenceNode,SoftReferenceNode,,,,method3195,isSoft,SoftReferenceNode,module,high,approved,Soft reference nodes report true
+method,,SoftReferenceNodeFactory,,,,method1888,createSoftReferenceNode,SoftReferenceNodeFactory,module,high,approved,
+field,SoftReferenceNode,SoftReferenceNode,,,,aSoftReference10428,softValueRef,SoftReferenceNode,module,high,approved,Backing SoftReference payload holder
+method,,ReferenceNodeFactory,,,,method1888,createSoftReferenceNode,ReferenceNodeFactory,module,high,approved,Abstract factory API for soft-reference wrapping
+local,ReferenceNodeFactory,ReferenceNodeFactory,createSoftReferenceNode,,,class348_sub42_sub8,referenceNode,ReferenceNodeFactory,module,high,approved,Reference node argument in abstract factory API
+local,SoftReferenceNodeFactory,SoftReferenceNodeFactory,createSoftReferenceNode,,,class348_sub42_sub8,referenceNode,SoftReferenceNodeFactory,module,high,approved,Reference node argument in soft-reference factory
+field,StringNode,StringNode,,,,aString7211,value,StringNode,module,high,approved,Stored string payload
+field,StringNode,StringNode,,,,aByteArrayArray7212,npcSpawnData,StringNode,module,high,approved,NPC spawn payloads loaded per map region
+field,StringNode,StringNode,,,,anInt7213,npcSpawnTimeoutTicks,StringNode,module,high,approved,Timeout watchdog ticks while waiting for npc spawn data
+method,StringNode,StringNode,,,,method3418,clearStaticByteArrays,StringNode,module,high,approved,
+method,StringNode,StringNode,,,,method3419,clearImageProcessingBuffers,StringNode,module,high,approved,
+method,StringNode,StringNode,,,,method3420,getCurrentTick,StringNode,module,high,approved,
+local,Widget,Widget,,,,class46,widget,Widget,module,high,approved,
+local,Widget,Widget,,,,class46s,widgets,Widget,module,high,approved,

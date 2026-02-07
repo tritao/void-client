@@ -1,7 +1,0 @@
-# Packet constant fields + GameBuild helper naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-GameStateReset,field,GameStateReset,,,,aClass114_1871,serverPacket52,,,"Server packet constant id 52"
-ClientStepUtil,field,ClientStepUtil,,,,aClass114_3307,serverPacket56,,,"Server packet constant id 56"
-Huffman,field,Huffman,,,,aClass114_3773,serverPacket55,,,"Server packet constant id 55"
-GameBuild,field,GameBuild,,,,anInt4466,buildId,,,"Numeric game-build identifier"
-GameBuild,method,GameBuild,,,,method3517,clearPlayerUpdateMaskCache,,,"Clears cached player update masks"

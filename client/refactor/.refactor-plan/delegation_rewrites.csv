@@ -1,0 +1,5 @@
+file,method,owner_class,field_name,reset_value,rewrite_to,phase,status,notes
+world/scene/SceneLightingState.java,clearSceneLightingState,ClientGlobals,modeGame,null,ClientGlobals.clearModeGame(),cleanup,approved,Delegate reset to ClientGlobals owner method
+world/scene/SceneLightingState.java,clearSceneLightingState,ZoneUpdateType,zoneUpdateType,null,ZoneUpdateType.clearZoneUpdateType(),cleanup,approved,Delegate reset to ZoneUpdateType owner method
+world/scene/SceneLightingState.java,clearSceneLightingState,ClientGlobals,aClass230_10434,null,ClientGlobals.clearModeGame(),cleanup,approved,Delegate reset to ClientGlobals owner method (obfuscated field spelling)
+world/scene/SceneLightingState.java,clearSceneLightingState,ZoneUpdateType,aClass74_10437,null,ZoneUpdateType.clearZoneUpdateType(),cleanup,approved,Delegate reset to ZoneUpdateType owner method (obfuscated field spelling)

@@ -1,4 +1,0 @@
-# ObjectType typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ObjectType,local,ObjectType,,,,class51,objectTypeDef,,,"ObjectType typed variable (collision-safe)"
-ObjectType,local,ObjectType,,,,class51s,objectTypeDefs,,,"ObjectType[] typed variable (collision-safe)"

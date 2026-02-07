@@ -4,9 +4,9 @@ SRC_DIR ?= client/src
 BUILD_DIR ?= build
 CLASSES_DIR ?= $(BUILD_DIR)/classes
 SOURCES_FILE ?= $(BUILD_DIR)/sources.txt
-CLASSES_CSV ?= client/refactor/classes.csv
-SYMBOLS_CSV ?= client/refactor/symbol_renames.csv
-SYMBOLS_CSV_DIR ?= client/refactor/.symbol-renames
+CLASSES_CSV ?= client/refactor/.refactor-plan/generated/classes.csv
+SYMBOLS_CSV ?= client/refactor/.refactor-plan/generated/symbol_renames.csv
+SYMBOLS_CSV_DIR ?= client/refactor/.refactor-plan/symbol-renames/generated
 LSP_TIMEOUT_S ?= 180
 
 LIBS ?= libs/clientlibs.jar
@@ -68,16 +68,20 @@ JAVAC ?= javac
 JAR ?= jar
 endif
 
-.PHONY: help bootstrap bootstrap-jdtls bootstrap-jdtls-jdk sources sources-recursive compile compile-recursive jar run clean reports rename rename-dry rename-loop rename-lsp rename-lsp-dry rename-lsp-loop rename-symbols rename-symbols-dry rename-symbols-loop refactor-tree compile-refactor refactor-layout compile-refactor-layout
-.PHONY: bootstrap-treesitter rename-ts rename-ts-dry rename-ts-loop
+.PHONY: help bootstrap bootstrap-jdtls bootstrap-jdtls-jdk sources sources-recursive compile compile-recursive jar run clean reports compile-refactor rebuild-refactor
+.PHONY: bootstrap-refactor-tools rename-refactor rename-refactor-dry rename-refactor-loop
 .PHONY: reports-refactor
+.PHONY: static-split-candidates extract-statics extract-statics-dry check-static-extract extract-statics-loop
+.PHONY: refactor-loop refactor-loop-dry
+.PHONY: build-refactor-views migrate-refactor-plan cleanup-refactor
+.PHONY: cleanup-candidates cleanup-apply-high cleanup-report
 
 help:
 	@echo "Targets:"
 	@echo "  make bootstrap - download repo-local JDK (./.jdk/temurin\$$JDK)"
 	@echo "  make bootstrap-jdtls - download repo-local JDTLS (./.jdtls/)"
 	@echo "  make bootstrap-jdtls-jdk - download repo-local JDK for JDTLS (./.jdk/temurin\$$JDTLS_JDK)"
-	@echo "  make bootstrap-treesitter - create ./.venv with tree-sitter deps"
+	@echo "  make bootstrap-refactor-tools - create ./.venv with refactor tool deps"
 	@echo "  make sources   - write $(SOURCES_FILE)"
 	@echo "  make sources-recursive - write $(SOURCES_FILE) (recursive)"
 	@echo "  make compile   - compile $(SRC_DIR) into $(CLASSES_DIR)"
@@ -85,19 +89,24 @@ help:
 	@echo "  make jar       - build runnable jar at $(OUT_JAR) (Main-Class: $(MAIN_CLASS))"
 	@echo "  make run       - run $(MAIN_CLASS) using $(OUT_JAR) + $(LIBS)"
 	@echo "  make reports   - regenerate docs/*.md reports"
-	@echo "  make rename    - apply mappings from $(CLASSES_CSV) (writes docs/rename-report.md)"
-	@echo "  make rename-dry - dry-run mappings from $(CLASSES_CSV)"
-	@echo "  make rename-loop - rename + compile + reports"
-	@echo "  make rename-lsp - apply mappings from $(CLASSES_CSV) via JDTLS/LSP (writes docs/rename-report-lsp.md)"
-	@echo "  make rename-lsp-dry - dry-run JDTLS/LSP rename"
-	@echo "  make rename-lsp-loop - rename-lsp + compile + reports"
-	@echo "  make rename-symbols - apply mappings from $(SYMBOLS_CSV) via JDTLS/LSP (writes docs/rename-report-symbols-lsp.md)"
-	@echo "  make rename-symbols-dry - dry-run symbol rename"
-	@echo "  make rename-symbols-loop - rename-symbols + compile + reports"
-	@echo "  make refactor-tree - generate build/refactor-flat/*.java from client/src + $(CLASSES_CSV) (flat copy)"
-	@echo "  make refactor-layout - generate client/refactor/**/*.java (organized) from client/src + $(CLASSES_CSV)"
-	@echo "  make compile-refactor - compile client/refactor (after refactor-layout)"
-	@echo "  make compile-refactor-layout - alias for compile-refactor"
+	@echo "  make rebuild-refactor - full refactor rebuild (layout + views + static extraction + validation)"
+	@echo "  make compile-refactor - compile client/refactor (after rebuild-refactor)"
+	@echo "  make rename-refactor - apply symbol renames in client/refactor"
+	@echo "  make rename-refactor-dry - dry-run rename-refactor"
+	@echo "  make rename-refactor-loop - rebuild-refactor + rename-refactor + compile + reports"
+	@echo "  make static-split-candidates - rank static members for extraction manifests"
+	@echo "  make extract-statics - apply client/refactor/.refactor-plan/extract-statics/generated/*.yaml"
+	@echo "  make extract-statics-dry - dry-run static extraction"
+	@echo "  make check-static-extract - validate manifests are fully applied"
+	@echo "  make extract-statics-loop - extract + validate + compile client/refactor"
+	@echo "  make refactor-loop - unified class+symbol+extract+validate+compile pipeline"
+	@echo "  make refactor-loop-dry - dry-run unified pipeline"
+	@echo "  make build-refactor-views - build generated symbol/extract/class views from .refactor-plan"
+	@echo "  make migrate-refactor-plan - import existing symbol/extract artifacts into .refactor-plan"
+	@echo "  make cleanup-refactor - apply post-rebuild cleanup pass in client/refactor"
+	@echo "  make cleanup-candidates - detect high-confidence cleanup candidates and write reports"
+	@echo "  make cleanup-apply-high - merge high-confidence candidates into drop_members.csv"
+	@echo "  make cleanup-report - regenerate docs/cleanup-candidates.md from detector output"
 	@echo "  make clean     - remove $(BUILD_DIR)"
 	@echo ""
 	@echo "Vars:"
@@ -121,8 +130,8 @@ bootstrap-jdtls-jdk:
 	@echo "Bootstrapping Temurin JDK $(JDTLS_JDK) into $(JDTLS_JAVA_HOME)"
 	@bash tools/bootstrap-jdk.sh "$(JDTLS_JDK)"
 
-bootstrap-treesitter:
-	@bash tools/bootstrap-treesitter.sh
+bootstrap-refactor-tools:
+	@bash tools/bootstrap-refactor-tools.sh
 
 JAVA_SOURCES := $(wildcard $(SRC_DIR)/*.java)
 LIB_JARS := $(subst :, ,$(LIBS))
@@ -183,81 +192,74 @@ reports-refactor:
 	@python tools/fan_graph.py --root client/refactor --all --write docs/fan-graph-refactor.md
 	@python tools/java_dossier.py --root client/refactor --all --write docs/rename-dossiers-refactor.md
 
-rename:
-	@python tools/apply_class_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}"
+rename-refactor:
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --extract-manifest-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/rename-report-refactor.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight
 
-rename-dry:
-	@python tools/apply_class_renames.py --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
+rename-refactor-dry:
+	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --extract-manifest-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/rename-report-refactor.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight --dry-run
 
-rename-loop:
-	@$(MAKE) rename
-	@$(MAKE) compile
-	@$(MAKE) reports
-	@echo "Done. See:"
-	@echo "  docs/rename-report.md"
-	@echo "  docs/unnamed-status.md"
-	@echo "  docs/fan-graph.md"
-	@echo "  docs/rename-dossiers.md"
-
-rename-lsp:
-	@python tools/apply_jdtls_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}"
-
-rename-lsp-dry:
-	@python tools/apply_jdtls_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(CLASSES_CSV)" --src-dir client/src --report docs/rename-report-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
-
-rename-lsp-loop:
-	@$(MAKE) rename-lsp
-	@$(MAKE) compile
-	@$(MAKE) reports
-	@echo "Done. See:"
-	@echo "  docs/rename-report-lsp.md"
-	@echo "  docs/unnamed-status.md"
-	@echo "  docs/fan-graph.md"
-	@echo "  docs/rename-dossiers.md"
-
-rename-symbols:
-	@python tools/apply_symbol_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}"
-
-rename-symbols-dry:
-	@python tools/apply_symbol_renames.py --timeout-s "$(LSP_TIMEOUT_S)" --java-cmd "$(JDTLS_JAVA)" --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/src --report docs/rename-report-symbols-lsp.md --max-renames "$${MAX_RENAMES:-20}" --dry-run
-
-rename-symbols-loop:
-	@$(MAKE) rename-symbols
-	@$(MAKE) compile
-	@$(MAKE) reports
-	@echo "Done. See:"
-	@echo "  docs/rename-report-symbols-lsp.md"
-	@echo "  docs/unnamed-status.md"
-	@echo "  docs/fan-graph.md"
-	@echo "  docs/rename-dossiers.md"
-
-rename-ts:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight
-
-rename-ts-dry:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --report docs/rename-report-ts.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight --dry-run
-
-rename-ts-loop:
-	@$(MAKE) refactor-layout
-	@$(MAKE) rename-ts
+rename-refactor-loop:
+	@$(MAKE) rebuild-refactor
+	@$(MAKE) rename-refactor
 	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
 	@$(MAKE) reports-refactor
 	@echo "Done. See:"
-	@echo "  docs/rename-report-ts.md"
+	@echo "  docs/rename-report-refactor.md"
 	@echo "  build/refactor-layout-report.md"
 	@echo "  docs/unnamed-status-refactor.md"
 	@echo "  docs/fan-graph-refactor.md"
 	@echo "  docs/rename-dossiers-refactor.md"
 
-refactor-tree:
-	@python tools/build_refactor_tree.py --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir build/refactor-flat --report build/refactor-rename-report.md
+rebuild-refactor:
+	@python tools/build_refactor_layout.py --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/.refactor-plan/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
+	@$(MAKE) build-refactor-views
+	@$(MAKE) extract-statics
+	@$(MAKE) check-static-extract
+	@MAX_RENAMES=-1 $(MAKE) rename-refactor
+	@$(MAKE) cleanup-refactor
 
-refactor-layout:
-	@python tools/build_refactor_layout.py --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md
+cleanup-refactor:
+	@./.venv/bin/python tools/apply_refactor_cleanup.py --src-dir client/refactor --plan-dir client/refactor/.refactor-plan
 
-compile-refactor: refactor-layout
+cleanup-candidates:
+	@./.venv/bin/python tools/find_cleanup_candidates.py --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
+
+cleanup-apply-high:
+	@./.venv/bin/python tools/apply_cleanup_candidates.py --candidates client/refactor/.refactor-plan/generated/cleanup_candidates.csv --drop-members client/refactor/.refactor-plan/drop_members.csv --confidence high
+
+cleanup-report:
+	@./.venv/bin/python tools/find_cleanup_candidates.py --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
+
+compile-refactor: rebuild-refactor
 	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
 
-compile-refactor-layout: compile-refactor
+static-split-candidates:
+	@./.venv/bin/python tools/static_split_candidates.py --src-dir client/refactor --scope-dir client/refactor/collections --out-md docs/static-split-candidates.md --out-csv docs/static-split-candidates.csv
+
+extract-statics:
+	@./.venv/bin/python tools/extract_statics_ts.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --max-manifests "$${MAX_MANIFESTS:--1}"
+
+extract-statics-dry:
+	@./.venv/bin/python tools/extract_statics_ts.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --max-manifests "$${MAX_MANIFESTS:--1}" --dry-run
+
+check-static-extract:
+	@./.venv/bin/python tools/check_static_extract.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated
+
+extract-statics-loop:
+	@$(MAKE) extract-statics
+	@$(MAKE) check-static-extract
+	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
+
+refactor-loop:
+	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --resume --skip-class-renames $${ALLOW_CONFLICTS:+--allow-conflicts}
+
+refactor-loop-dry:
+	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --dry-run --resume --skip-class-renames $${ALLOW_CONFLICTS:+--allow-conflicts}
+
+build-refactor-views:
+	@./.venv/bin/python tools/build_refactor_views.py --plan-dir client/refactor/.refactor-plan --refactor-src client/refactor --out-symbol-root client/refactor/.refactor-plan/generated/symbol_renames.csv --out-symbol-dir client/refactor/.refactor-plan/symbol-renames/generated --out-class-csv client/refactor/.refactor-plan/generated/classes.csv --out-extract-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/refactor-views-report.md $${ALLOW_CONFLICTS:+--allow-conflicts}
+
+migrate-refactor-plan:
+	@./.venv/bin/python tools/migrate_refactor_plan.py --plan-dir client/refactor/.refactor-plan --symbols-root-csv client/refactor/.refactor-plan/import/symbol_renames.csv --symbols-dir client/refactor/.refactor-plan/import/symbol-renames --extract-dir client/refactor/.refactor-plan/import/extract-statics --clean
 clean:
 	rm -rf "$(BUILD_DIR)"

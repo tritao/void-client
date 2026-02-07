@@ -1,9 +1,0 @@
-# High-confidence semantic HashTable roles across config/world/vars.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-EnumType,field,EnumType,,,,aClass356_1767,entriesByKey,,,"Primary enum entries keyed by id"
-EnumType,field,EnumType,,,,aClass356_1770,reverseLookup,,,"Reverse lookup cache for value->key queries"
-QuestType,field,QuestType,,,,aClass356_4006,params,,,"Arbitrary int/string params table"
-VarDomainImpl,field,VarDomainImpl,,,,aClass356_5070,timedVarEntries,,,"Timed variable override entries"
-ParamTable,field,ParamTable,,,,aClass356_9494,params,,,"Arbitrary int/string params table"
-WorldMap,field,WorldMap,,,,aClass356_1241,mapAreasById,,,"World map areas indexed by id"
-WorldMap,field,WorldMap,,,,aClass356_1271,tileObjectListsByCoord,,,"Per-tile world map object lists"

@@ -1,5 +1,0 @@
-# HashTableIterator + IntHashTable method naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-HashTableIterator,method,HashTableIterator,,,,method2644,first,,,,"Start iterator at first node"
-HashTableIterator,method,HashTableIterator,,,,method2646,next,,,,"Advance iterator to next node"
-IntHashTable,method,IntHashTable,,,,method2365,get,,,,"Lookup original index by int key"

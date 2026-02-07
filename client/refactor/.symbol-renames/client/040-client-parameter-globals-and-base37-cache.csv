@@ -1,6 +1,0 @@
-# ClientParameterGlobals + Base37Util safe naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ClientParameterGlobals,field,ClientParameterGlobals,,,,aClass114_1762,serverPacket50,,,"Server packet constant id 50"
-ClientParameterGlobals,method,ClientParameterGlobals,,,,method1062,clearStaticState,,,"Clear static references"
-ClientParameterGlobals,method,ClientParameterGlobals,,,,method1063,loadPreferencesFromDisk,,,"Load persisted preferences file and apply settings"
-Base37Util,field,Base37Util,,,,aClass356_389,videoEntryCache,,,"Cache of video entries keyed by id"

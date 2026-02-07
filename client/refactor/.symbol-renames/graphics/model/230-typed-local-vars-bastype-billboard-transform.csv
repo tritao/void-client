@@ -1,6 +1,0 @@
-# BASType and ModelBillboardTransform typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-BASType,local,BASType,,,,class225,basTypeDef,,,"BASType typed variable (collision-safe)"
-BASType,local,BASType,,,,class225s,basTypeDefs,,,"BASType[] typed variable"
-ModelBillboardTransform,local,ModelBillboardTransform,,,,class350,modelBillboardTransformVar,,,"ModelBillboardTransform typed variable"
-ModelBillboardTransform,local,ModelBillboardTransform,,,,class350s,modelBillboardTransformVars,,,"ModelBillboardTransform[] typed variable"

@@ -1,6 +1,0 @@
-# SoundEffectRequest and TextureConfig typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SoundEffectRequest,local,SoundEffectRequest,,,,class10,soundEffectRequestVar,,,"SoundEffectRequest typed variable"
-SoundEffectRequest,local,SoundEffectRequest,,,,class10s,soundEffectRequestVars,,,"SoundEffectRequest[] typed variable"
-TextureConfig,local,TextureConfig,,,,class12,textureConfigVar,,,"TextureConfig typed variable"
-TextureConfig,local,TextureConfig,,,,class12s,textureConfigVars,,,"TextureConfig[] typed variable"

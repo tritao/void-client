@@ -1,5 +1,0 @@
-# WhirlpoolDigest static helper naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-WhirlpoolDigest,method,WhirlpoolDigest,,,,method828,rebuildOffscreenSurfaces,,,"Rebuilds offscreen render targets after resize/state change"
-WhirlpoolDigest,method,WhirlpoolDigest,,,,method830,applyRendererPreferenceMode,,,"Applies renderer mode/window sizing preference"
-WhirlpoolDigest,method,WhirlpoolDigest,,,,method831,clampInt,,,"Clamp helper: max(min(value,max),min) equivalent"

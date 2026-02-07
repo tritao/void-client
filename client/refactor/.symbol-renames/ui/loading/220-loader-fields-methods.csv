@@ -1,8 +1,0 @@
-# Loader class readability renames.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Loader,field,Loader,,,,aProperties1,parameters,,,"Applet/loader parameter map"
-Loader,field,Loader,,,,aJFrame2,clientFrame,,,"Standalone client frame"
-Loader,field,Loader,,,,aJPanel3,rootPanel,,,"Root panel that hosts applet canvas"
-Loader,method,Loader,,,,doApplet,startAsApplet,,,"Initialize and run inside browser applet host"
-Loader,method,Loader,,,,doFrame,startInFrame,,,"Initialize and run in standalone JFrame mode"
-Loader,method,Loader,,,,setParms,initializeParameters,,,"Populate default loader parameter set"

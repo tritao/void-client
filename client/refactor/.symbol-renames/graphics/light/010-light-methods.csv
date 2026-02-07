@@ -1,9 +1,0 @@
-# LightType and LightTypeList method naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-LightType,method,LightType,,,,method1921,decode,,,"Decode light type from buffer opcodes"
-LightType,method,LightType,,,,method1923,decodeOpcode,,,"Decode single light type opcode"
-LightTypeList,method,LightTypeList,,,,method1391,get,,,"Get light type by id"
-LightTypeList,method,LightTypeList,,,,method1390,removeSoftReferences,,,"Remove cleared soft references from light type cache"
-LightTypeList,method,LightTypeList,,,,method1392,trimCaches,,,"Demote aged entries in light type cache"
-LightTypeList,method,LightTypeList,,,,method1393,clearCaches,,,"Clear light type cache"
-LightTypeList,method,LightTypeList,,,,method1395,clearStaticState,,,"Clear static LightTypeList state"

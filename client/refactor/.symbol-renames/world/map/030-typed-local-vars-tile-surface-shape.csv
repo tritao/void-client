@@ -1,6 +1,0 @@
-# Ground surface tile typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-GroundTilePaint,local,GroundTilePaint,,,,class266,groundTilePaint,,,"GroundTilePaint typed variable"
-GroundTilePaint,local,GroundTilePaint,,,,class266s,groundTilePaints,,,"GroundTilePaint[] typed variable"
-ShapedTile,local,ShapedTile,,,,class236,shapedTileDef,,,"ShapedTile typed variable"
-ShapedTile,local,ShapedTile,,,,class236s,shapedTileDefs,,,"ShapedTile[] typed variable"

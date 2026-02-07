@@ -1,4 +1,0 @@
-# VarcType metadata fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-VarcType,field,VarcType,,,,aChar2132,typeChar,,,,"Script/value type discriminator"
-VarcType,field,VarcType,,,,anInt2135,persistenceFlag,,,,"0 = non-persistent, 1 = persistent (default)"

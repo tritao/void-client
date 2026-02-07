@@ -1,4 +1,0 @@
-# TooltipRenderer core fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-TooltipRenderer,field,TooltipRenderer,,,,aClass339_4682,newsFetcher,,,
-TooltipRenderer,field,TooltipRenderer,,,,aClass125_4685,layout,,,

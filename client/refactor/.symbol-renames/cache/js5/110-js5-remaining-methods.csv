@@ -1,9 +1,0 @@
-# Remaining low-risk js5/config method names.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Js5ArchiveProvider,method,Js5ArchiveProvider,,,,method2336,removeAmbientSoundForObject,,,"Remove ambient sound entries for a specific map object"
-Js5ArchiveProvider,method,Js5ArchiveProvider,,,,method2337,lerp,,,"Linear interpolation helper"
-Js5Archive,method,Js5Archive,,,,method389,getIndexCrc,,,"Return CRC/hash value of loaded index"
-Js5NetQueue,method,Js5NetQueue,,,,method1898,replaceSocketStreamsWithNoop,,,"Replace underlying socket streams with no-op streams"
-Js5NetQueue,method,Js5NetQueue,,,,method1905,sendOpcode7,,,"Send opcode-7 control packet on js5 socket"
-ConfigArchive,method,ConfigArchive,,,,method868,getRotatedOffset,,,"Resolve rotated axis offset from orientation"
-ConfigArchive,method,ConfigArchive,,,,method869,clearStaticState,,,"Clear static config archive state"

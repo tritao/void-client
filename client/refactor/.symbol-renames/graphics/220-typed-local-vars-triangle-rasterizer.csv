@@ -1,4 +1,0 @@
-# SoftwareTriangleRasterizer typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SoftwareTriangleRasterizer,local,SoftwareTriangleRasterizer,,,,class109,triangleRasterizer,,,"SoftwareTriangleRasterizer typed variable"
-SoftwareTriangleRasterizer,local,SoftwareTriangleRasterizer,,,,class109s,triangleRasterizers,,,"SoftwareTriangleRasterizer[] typed variable"

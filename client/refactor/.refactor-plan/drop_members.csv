@@ -1,0 +1,52 @@
+file,kind,name,phase,status,notes
+collections/reference/ReferenceNode.java,field,anInt9546,cleanup,approved,Unused increment-only debug counter
+collections/reference/ReferenceNode.java,field,anInt9547,cleanup,approved,Unused increment-only debug counter
+collections/reference/ReferenceNode.java,field,anInt9549,cleanup,approved,Unused increment-only debug counter
+collections/reference/ReferenceNode.java,field,anInt9551,cleanup,approved,Unused increment-only debug counter
+collections/reference/ReferenceNode.java,field,aShort9555,cleanup,approved,Decompiler guard state field only used by dead guard assignment
+collections/reference/ReferenceNode.java,line_contains,anInt9551++,cleanup,approved,Remove orphan increment after dropping debug counter field
+collections/reference/ReferenceNode.java,line_contains,anInt9546++,cleanup,approved,Remove orphan increment after dropping debug counter field
+collections/reference/ReferenceNode.java,line_contains,anInt9549++,cleanup,approved,Remove orphan increment after dropping debug counter field
+collections/reference/ReferenceNode.java,line_contains,anInt9547++,cleanup,approved,Remove orphan increment after dropping debug counter field
+collections/reference/ReferenceNode.java,line_contains,aShort9555 = (short) -74;,cleanup,approved,Drop decompiler guard side-effect line
+client/GameShell.java,field,anInt42,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt43,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt44,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt45,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean46,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean47,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean48,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean49,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean50,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean51,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean52,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt53,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean54,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt55,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean56,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt57,cleanup,approved,No references outside declaration
+client/GameShell.java,field,aBoolean58,cleanup,approved,No references outside declaration
+client/GameShell.java,field,anInt59,cleanup,approved,No references outside declaration
+net/packets/PacketConstants.java,line_contains,if (i < 17) isLoginState3To6(60, -85);,cleanup,approved,Drop cross-owner predicate call after moving reset helper to packet constants owner
+net/packets/PacketConstants.java,line_contains,aString9554 = null;,cleanup,approved,Drop string reset from packet constants reset helper (field moved to LoginManager)
+net/packets/PacketConstants.java,line_contains,if (i < 17) LoginStateUtil.method3196(60, -85);,cleanup,approved,Drop cross-owner predicate call after moving reset helper to packet constants owner
+client/state/LoginStateUtil.java,line_contains,if (i_3_ != 56) aClass114_9552 = null;,cleanup,approved,Drop decompiler guard write to packet constant field now owned by PacketConstants
+collections/value/ByteArraySecondaryNode.java,line_contains,aClass114_9503 = null;,cleanup,approved,Drop packet-constant reset line after moving field to PacketConstants
+world/scene/Ground.java,line_contains,anInt9506++,cleanup,approved,Drop orphan counter increment after extracting setGroundResourceArchives
+world/scene/SceneViewportRenderer.java,line_contains,anInt9507++,cleanup,approved,Drop orphan counter increment after extracting viewport helper
+world/scene/SceneViewportRenderer.java,line_contains,anInt9509++,cleanup,approved,Drop orphan counter increment after extracting scene update helper
+world/map/WorldMap.java,line_contains,anInt9500++,cleanup,approved,Drop orphan counter increment after extracting world-map reset helper
+client/preferences/GraphicsRendererPreference.java,line_contains,anInt9508++,cleanup,approved,Drop orphan counter increment after extracting renderer preference helper
+client/ClientStepUtil.java,line_contains,anInt6910++,cleanup,approved,Drop orphan counter increment after extracting step archive helper
+collections/value/ByteArraySecondaryNode.java,field,anInt9500,cleanup,approved,Unused counter after method extraction
+collections/value/ByteArraySecondaryNode.java,field,anInt9506,cleanup,approved,Unused counter after method extraction
+collections/value/ByteArraySecondaryNode.java,field,anInt9507,cleanup,approved,Unused counter after method extraction
+collections/value/ByteArraySecondaryNode.java,field,anInt9508,cleanup,approved,Unused counter after method extraction
+collections/value/ByteArraySecondaryNode.java,field,anInt9509,cleanup,approved,Unused counter after method extraction
+collections/value/ShortNode.java,field,anInt6910,cleanup,approved,Unused counter after method extraction
+client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9500 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9506 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9507 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9508 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9509 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ShortNode.anInt6910 = 0;,cleanup,approved,Drop reset for removed unused counter

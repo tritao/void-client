@@ -1,4 +1,0 @@
-# JagBuffer: core cursor + backing array first (high fan-in).
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-JagBuffer,field,JagBuffer,,,,aByteArray7154,data,,,,"JagBuffer backing byte[]"
-JagBuffer,field,JagBuffer,,,,anInt7197,pos,,,,"JagBuffer cursor position"

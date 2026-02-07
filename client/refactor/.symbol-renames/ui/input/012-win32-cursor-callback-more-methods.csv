@@ -1,4 +1,0 @@
-# Additional Win32 cursor callback methods.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Win32CursorCallback,method,Win32CursorCallback,,,,method3621,setCursorPosition,,,
-Win32CursorCallback,method,Win32CursorCallback,,,,method3622,updateCursorHook,,,

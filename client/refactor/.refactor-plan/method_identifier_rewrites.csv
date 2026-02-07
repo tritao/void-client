@@ -1,0 +1,20 @@
+file,method,old,new,phase,status,notes
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i,originY,cleanup,approved,Projection origin Y component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_0_,pointY,cleanup,approved,Point Y component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_1_,rotationMode,cleanup,approved,UV rotation mode selector
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_2_,depthAxisIndex,cleanup,approved,Index of depth axis coefficient in transform array
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_3_,pointZ,cleanup,approved,Point Z component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,fs,outUv,cleanup,approved,Output UV array
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_4_,pointX,cleanup,approved,Point X component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f,vOffset,cleanup,approved,V coordinate offset
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_5_,originX,cleanup,approved,Projection origin X component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,i_6_,originZ,cleanup,approved,Projection origin Z component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_7_,uScale,cleanup,approved,U coordinate scale factor
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,fs_8_,transformCoefficients,cleanup,approved,3x3 transform coefficient array
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_9_,transformedX,cleanup,approved,Transformed X component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_10_,transformedY,cleanup,approved,Transformed Y component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_11_,transformedZ,cleanup,approved,Transformed Z component
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_12_,u,cleanup,approved,Computed U coordinate
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_13_,v,cleanup,approved,Computed V coordinate
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_14_,swapTmp1,cleanup,approved,Temporary for rotation remap branch 1
+graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_15_,swapTmp2,cleanup,approved,Temporary for rotation remap branch 3

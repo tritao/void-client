@@ -1,6 +1,0 @@
-# SignLink cache file handles.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SignLink,field,SignLink,,,,aClass234_3788,randomDatFile,,,
-SignLink,field,SignLink,,,,aClass234_3785,cacheDataFile,,,
-SignLink,field,SignLink,,,,aClass234_3779,cacheIndex255File,,,
-SignLink,field,SignLink,,,,aClass234Array3795,cacheIndexFiles,,,

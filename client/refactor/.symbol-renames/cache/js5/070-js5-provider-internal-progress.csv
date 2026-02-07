@@ -1,7 +1,0 @@
-# Js5ArchiveProviderImpl internal progress/state method naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2350,getOrCreateGroupOperation,,,,"Resolve/create operation for group (disk/local/network)"
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2345,getTotalGroupCount,,,,"Total group count from loaded index"
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2351,getLoadedGroupCount,,,,"Count of groups currently marked loaded/verified"
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2341,getSyncProgressValue,,,,"Current sync progress cursor/value"
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2346,enableRemoteSync,,,,"Enable remote sync pass for archive groups"

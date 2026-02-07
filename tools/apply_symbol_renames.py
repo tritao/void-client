@@ -20,7 +20,7 @@ from urllib.parse import unquote, urlparse
 Apply Java symbol renames (methods/fields/params/locals) via JDTLS (LSP).
 
 This is the method/variable counterpart to tools/apply_jdtls_renames.py, but it
-uses an explicit mapping file (client/refactor/symbol_renames.csv) so we can
+uses an explicit mapping file (client/refactor/.refactor-plan/generated/symbol_renames.csv) so we can
 rename *specific* symbols without guessing.
 """
 
@@ -864,10 +864,10 @@ def _text_in_range(path: Path, rng: dict[str, Any]) -> str:
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/symbol_renames.csv")])
-    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/.symbol-renames"))
+    ap.add_argument("--csv", type=Path, action="append", default=[Path("client/refactor/.refactor-plan/generated/symbol_renames.csv")])
+    ap.add_argument("--csv-dir", type=Path, default=Path("client/refactor/.refactor-plan/symbol-renames/generated"))
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"))
-    ap.add_argument("--classes-csv", type=Path, default=Path("client/refactor/classes.csv"))
+    ap.add_argument("--classes-csv", type=Path, default=Path("client/refactor/.refactor-plan/generated/classes.csv"))
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-symbols-lsp.md"))
     ap.add_argument("--max-renames", type=int, default=25)
     ap.add_argument("--dry-run", action="store_true")

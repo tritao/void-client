@@ -1,0 +1,7 @@
+source_file,source_class,kind,name,suggested_module,score,refs_total,target_class_hint
+collections/Node.java,Node,method,buildCachedModelVariant,graphics,0.778,18,NodeGraphicsStatics
+collections/deque/NodeDeque.java,NodeDeque,method,createOpenGLToolkit,graphics,0.750,4,NodeDequeGraphicsStatics
+collections/hash/HashTableIterator.java,HashTableIterator,method,setTileOverlayData,graphics,0.667,6,HashTableIteratorGraphicsStatics
+collections/hash/HashTable.java,HashTable,method,nextVisibleWorldMapMarker,world,0.636,11,HashTableWorldStatics
+collections/list/SecondaryLinkedList.java,SecondaryLinkedList,method,applyProjectionViewportProfile,graphics,0.571,21,SecondaryLinkedListGraphicsStatics
+collections/hash/IntHashTable.java,IntHashTable,method,formatChatMessageLine,ui,0.556,9,IntHashTableUiStatics

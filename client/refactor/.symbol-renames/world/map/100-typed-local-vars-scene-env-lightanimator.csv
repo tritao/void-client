@@ -1,6 +1,0 @@
-# SceneEnvironmentSettings and SceneLightAnimator typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SceneEnvironmentSettings,local,SceneEnvironmentSettings,,,,class190,sceneEnvironmentSettingsVar,,,"SceneEnvironmentSettings typed variable"
-SceneEnvironmentSettings,local,SceneEnvironmentSettings,,,,class190s,sceneEnvironmentSettingsVars,,,"SceneEnvironmentSettings[] typed variable"
-SceneLightAnimator,local,SceneLightAnimator,,,,class211,sceneLightAnimatorVar,,,"SceneLightAnimator typed variable"
-SceneLightAnimator,local,SceneLightAnimator,,,,class211s,sceneLightAnimatorVars,,,"SceneLightAnimator[] typed variable"

@@ -1,0 +1,55 @@
+kind,file,owner,member,signature,param_index,old,new,scope,phase,confidence,status,notes
+field,Actor,Actor,,,,aByte10222,hitmarkNextSlot,Actor,module,high,approved,Round-robin cursor for selecting next hitmark slot
+field,Actor,Actor,,,,anIntArray10219,hitmarkExpiryCycles,Actor,module,high,approved,Absolute client cycles when each hitmark slot expires
+field,Actor,Actor,,,,anIntArray10229,hitmarkValues,Actor,module,high,approved,Primary hitmark value per slot
+field,Actor,Actor,,,,anIntArray10259,hitmarkTypeIds,Actor,module,high,approved,Hitmark type id per slot
+field,Actor,Actor,,,,anIntArray10284,hitmarkTertiaryValues,Actor,module,high,approved,Tertiary hitmark payload per slot
+field,Actor,Actor,,,,anIntArray10303,hitmarkDelayCycles,Actor,module,high,approved,Delay/offset cycles per hitmark slot
+field,Actor,Actor,,,,anIntArray10304,hitmarkSecondaryValues,Actor,module,high,approved,Secondary hitmark payload per slot
+method,GameObjectEntity,GameObjectEntity,,,,method2414,getModelForFlags,GameObjectEntity,module,high,approved,
+method,GameObjectEntity,GameObjectEntity,,,,method2415,clearStaticState,GameObjectEntity,module,high,approved,
+method,GameObjectEntity,GameObjectEntity,,,,method2416,getModelHeightQuarter,GameObjectEntity,module,high,approved,
+method,GameObjectEntity,GameObjectEntity,,,,method2417,getModelWithShadow,GameObjectEntity,module,high,approved,
+method,GameObjectEntity,GameObjectEntity,,,,method2418,hashString,GameObjectEntity,module,high,approved,
+method,GameObjectEntity,GameObjectEntity,,,,method2419,getHighByte,GameObjectEntity,module,high,approved,
+field,LoginManager,LoginManager,,,,aPlayer_1907,localPlayer,LoginManager,module,high,approved,Current local player instance
+field,LoginManager,LoginManager,,,,anInt1905,hitmarkSlotCount,LoginManager,module,high,approved,Global hitmark slot count; default 4
+field,LoginManager,LoginManager,,,,anInt1906,currentOrthoZoom,LoginManager,module,high,approved,Current orthographic zoom after scene scaling
+field,LoginManager,LoginManager,,,,anInt1908,loginRequestCount,LoginManager,module,high,approved,Counter incremented for each login request attempt
+field,LoginManager,LoginManager,,,,anInt1910,clipMinY,LoginManager,module,high,approved,Global renderer clip minimum Y bound
+field,LoginManager,LoginManager,,,,anInt1911,baseOrthoZoom,LoginManager,module,high,approved,Configured base orthographic zoom (script/debug controlled)
+field,LoginManager,LoginManager,,,,anIntArray1909,offscreenFrameIds,LoginManager,module,high,approved,Per-surface frame id cache for redraw invalidation
+method,ParamTable,ParamTable,,,,method3165,clearStaticState,ParamTable,module,high,approved,
+method,ParamTable,ParamTable,,,,method3166,getIntParam,ParamTable,module,high,approved,
+method,ParamTable,ParamTable,,,,method3167,decodeOpcode,ParamTable,module,high,approved,
+method,ParamTable,ParamTable,,,,method3168,decode,ParamTable,module,high,approved,
+method,ParamTable,ParamTable,,,,method3170,getStringParam,ParamTable,module,high,approved,
+method,ParamTableList,ParamTableList,,,,method694,removeSoftReferences,ParamTableList,module,high,approved,
+method,ParamTableList,ParamTableList,,,,method695,clearCaches,ParamTableList,module,high,approved,
+method,ParamTableList,ParamTableList,,,,method697,trimCaches,ParamTableList,module,high,approved,
+method,ParamTableList,ParamTableList,,,,method698,clearStaticState,ParamTableList,module,high,approved,
+method,ParamTableList,ParamTableList,,,,method699,setWidgetArchives,ParamTableList,module,high,approved,
+method,ParamTableList,ParamTableList,,,,method700,get,ParamTableList,module,high,approved,
+local,ParticleEffectorType,ParticleEffectorType,,,,class174,particleEffectorTypeDef,ParticleEffectorType,module,high,approved,
+local,ParticleEffectorType,ParticleEffectorType,,,,class174s,particleEffectorTypeDefs,ParticleEffectorType,module,high,approved,
+local,ParticleEmitterType,ParticleEmitterType,,,,class181,particleEmitterTypeDef,ParticleEmitterType,module,high,approved,
+local,ParticleEmitterType,ParticleEmitterType,,,,class181s,particleEmitterTypeDefs,ParticleEmitterType,module,high,approved,
+method,Player,Player,,,,method2449,teleportToTile,Player,module,high,approved,
+method,Player,Player,,,,method2450,getDisplayName,Player,module,high,approved,
+method,Player,Player,,,,method2451,pushPathStep,Player,module,high,approved,
+method,Player,Player,,,,method2452,decodeAppearance,Player,module,high,approved,
+method,Player,Player,,,,method2455,moveToTile,Player,module,high,approved,
+method,Player,Player,,,,method2456,buildDisplayNameWithDecorations,Player,module,high,approved,
+method,Player,Player,,,,method2457,hasModelOverrides,Player,module,high,approved,
+method,Player,Player,,,,method2458,clearStaticState,Player,module,high,approved,
+method,Player,Player,,,,method2459,buildModelSet,Player,module,high,approved,
+method,Player,Player,,,,method2460,drawOverheadTextSprite,Player,module,high,approved,
+method,VarBitType,VarBitType,,,,method1191,decode,VarBitType,module,high,approved,
+method,VarBitType,VarBitType,,,,method1192,decodeOpcode,VarBitType,module,high,approved,
+method,VarBitType,VarBitType,,,,method1194,clearStaticState,VarBitType,module,high,approved,
+method,VarBitTypeList,VarBitTypeList,,,,method1441,clearStaticState,VarBitTypeList,module,high,approved,
+method,VarBitTypeList,VarBitTypeList,,,,method1442,trimCaches,VarBitTypeList,module,high,approved,
+method,VarBitTypeList,VarBitTypeList,,,,method1443,removeSoftReferences,VarBitTypeList,module,high,approved,
+method,VarBitTypeList,VarBitTypeList,,,,method1444,resizeCache,VarBitTypeList,module,high,approved,
+method,VarBitTypeList,VarBitTypeList,,,,method1445,clearCaches,VarBitTypeList,module,high,approved,
+method,VarBitTypeList,VarBitTypeList,,,,method1446,get,VarBitTypeList,module,high,approved,

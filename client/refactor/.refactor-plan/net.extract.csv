@@ -1,0 +1,2 @@
+file,kind,old,target_class,target_file,scope,phase,confidence,status,notes
+net/packets/InboundPacketDispatcher.java,field,aClass230_10434,ClientGlobals,client/ClientGlobals.java,InboundPacketDispatcher,split,high,approved,Move mode/game global state to client globals

@@ -1,4 +1,0 @@
-# Js5ArchiveProviderImpl scheduler/orchestration methods.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2342,processQueuedGroupRequests,,,,"Process explicit queued group ids against current index state"
-Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2343,processSyncPass,,,,"Advance local/remote sync pass and prune stale operations"

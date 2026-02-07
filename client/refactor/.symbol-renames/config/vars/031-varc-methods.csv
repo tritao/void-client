@@ -1,8 +1,0 @@
-# VarcType and VarcTypeList method naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-VarcType,method,VarcType,,,,method1254,clearStaticState,,,"Clear static VarcType state"
-VarcType,method,VarcType,,,,method1255,decode,,,"Decode varc type from buffer opcodes"
-VarcType,method,VarcType,,,,method1256,decodeOpcode,,,"Decode single varc opcode"
-VarcType,method,VarcType,,,,method1257,hasBit5Flag,,,"Check bit-5 flag in packed mask"
-VarcTypeList,method,VarcTypeList,,,,method1975,clearStaticState,,,"Clear static VarcTypeList state"
-VarcTypeList,method,VarcTypeList,,,,method1976,get,,,"Get varc type by id"

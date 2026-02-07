@@ -1,8 +1,0 @@
-# BZip2State/RandomDat follow-up naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-BZip2State,field,BZip2State,,,,anIntArray543,noiseScratchPixels,,,"Shared 128x128 scratch pixels for generated alpha/noise textures"
-BZip2State,method,BZip2State,,,,method368,startMusicPlayback,,,"Starts music playback or queues immediate play based on fade duration"
-BZip2State,method,BZip2State,,,,method369,clearCachedSprites,,,"Clear cached UI sprite/font resources"
-BZip2State,method,BZip2State,,,,method370,clearNoiseScratchPixels,,,"Clear shared noise-scratch pixel array"
-BZip2State,method,BZip2State,,,,method371,hasModelRenderFlag,,,"Checks model render flags mask (0x180)"
-RandomDatFile,field,RandomDatFile,,,,aClass74_4537,zoneUpdateType,,,"Zone-update opcode/type descriptor entry"

@@ -1,0 +1,552 @@
+kind,file,owner,member,signature,param_index,old,new,scope,phase,confidence,status,notes
+method,BASType,BASType,,,,method1618,buildAttachmentMatrices,BASType,module,high,approved,
+method,BASType,BASType,,,,method1619,clearStaticState,BASType,module,high,approved,
+method,BASType,BASType,,,,method1620,decode,BASType,module,high,approved,
+method,BASType,BASType,,,,method1621,getRandomAnimationId,BASType,module,high,approved,
+method,BASType,BASType,,,,method1622,decodeOpcode,BASType,module,high,approved,
+method,BASType,BASType,,,,method1623,hasAnimationId,BASType,module,high,approved,
+field,BASTypeList,BASTypeList,,,,aClass45_3319,configArchive,BASTypeList,module,high,approved,Archive containing BASType definitions
+field,BASTypeList,BASTypeList,,,,aClass60_3321,typeCache,BASTypeList,module,high,approved,BASType definition cache
+method,BASTypeList,BASTypeList,,,,method1980,clearStaticState,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1981,replaceChar,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1982,sendChatMessage,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1983,get,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1984,trimCaches,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1985,clearCaches,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1986,removeSoftReferences,BASTypeList,module,high,approved,
+method,BASTypeList,BASTypeList,,,,method1987,processContextMenuInput,BASTypeList,module,high,approved,
+method,BillboardType,BillboardType,,,,method1418,decodeOpcode,BillboardType,module,high,approved,
+method,BillboardType,BillboardType,,,,method1419,decode,BillboardType,module,high,approved,
+field,BillboardTypeList,BillboardTypeList,,,,aClass45_4785,archive,BillboardTypeList,module,high,approved,Archive used by load-progress checks
+field,BillboardTypeList,BillboardTypeList,,,,aString4778,archiveGroupName,BillboardTypeList,module,high,approved,Archive group name for readiness checks
+method,BillboardTypeList,BillboardTypeList,,,,method741,clearStaticState,BillboardTypeList,module,high,approved,
+method,BillboardTypeList,BillboardTypeList,,,,method742,get,BillboardTypeList,module,high,approved,
+method,BillboardTypeList,BillboardTypeList,,,,method743,queueStateChange,BillboardTypeList,module,high,approved,
+method,CursorType,CursorType,,,,method1608,decodeOpcode,CursorType,module,high,approved,
+method,CursorType,CursorType,,,,method1609,clearStaticState,CursorType,module,high,approved,
+method,CursorType,CursorType,,,,method1610,getSprite,CursorType,module,high,approved,
+method,CursorType,CursorType,,,,method1611,decode,CursorType,module,high,approved,
+field,CursorTypeList,CursorTypeList,,,,aClass45_2180,spriteArchive,CursorTypeList,module,high,approved,Archive containing cursor sprites
+field,CursorTypeList,CursorTypeList,,,,aClass45_2188,definitionArchive,CursorTypeList,module,high,approved,Archive containing cursor definitions [auto-conflict-resolve: CursorTypeList:aClass45_2188 -> definitionArchive]
+field,CursorTypeList,CursorTypeList,,,,aClass60_2185,typeCache,CursorTypeList,module,high,approved,CursorType definition cache
+field,CursorTypeList,CursorTypeList,,,,aClass60_2190,spriteCache,CursorTypeList,module,high,approved,Cursor sprite cache
+method,CursorTypeList,CursorTypeList,,,,method1283,removeSoftReferences,CursorTypeList,module,high,approved,
+method,CursorTypeList,CursorTypeList,,,,method1284,clearStaticState,CursorTypeList,module,high,approved,
+method,CursorTypeList,CursorTypeList,,,,method1285,trimCaches,CursorTypeList,module,high,approved,
+method,CursorTypeList,CursorTypeList,,,,method1286,registerFileByName,CursorTypeList,module,high,approved,
+method,CursorTypeList,CursorTypeList,,,,method1287,get,CursorTypeList,module,high,approved,
+method,CursorTypeList,CursorTypeList,,,,method1290,clearCaches,CursorTypeList,module,high,approved,
+local,EnumType,EnumType,,,,class117,enumTypeDefVar,EnumType,module,high,approved,
+local,EnumType,EnumType,,,,class117s,enumTypeDefVars,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1064,clearStaticState,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1065,decodeOpcode,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1066,containsStringValue,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1067,containsIntValue,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1068,buildIntReverseLookup,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1069,decode,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1070,ensureScratchIntArrayCapacity,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1071,buildStringReverseLookup,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1072,setBloomArchive,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1073,getIntValue,EnumType,module,high,approved,
+method,EnumType,EnumType,,,,method1074,getStringValue,EnumType,module,high,approved,
+field,EnumTypeList,EnumTypeList,,,,aClass45_458,configArchive,EnumTypeList,module,high,approved,Archive containing enum type definitions
+field,EnumTypeList,EnumTypeList,,,,aClass60_460,typeCache,EnumTypeList,module,high,approved,EnumType definition cache
+method,EnumTypeList,EnumTypeList,,,,method337,get,EnumTypeList,module,high,approved,
+method,EnumTypeList,EnumTypeList,,,,method338,setCursorType,EnumTypeList,module,high,approved,
+method,EnumTypeList,EnumTypeList,,,,method339,fillOnes,EnumTypeList,module,high,approved,
+method,EnumTypeList,EnumTypeList,,,,method340,nextPowerOfTwo,EnumTypeList,module,high,approved,
+method,FloorOverlayType,FloorOverlayType,,,,method2067,postDecode,FloorOverlayType,module,high,approved,
+method,FloorOverlayType,FloorOverlayType,,,,method2069,decodeOpcode,FloorOverlayType,module,high,approved,
+method,FloorOverlayType,FloorOverlayType,,,,method2070,decode,FloorOverlayType,module,high,approved,
+method,FloorOverlayType,FloorOverlayType,,,,method2071,clearStaticState,FloorOverlayType,module,high,approved,
+method,FloorOverlayTypeList,FloorOverlayTypeList,,,,method2031,encodeBase37,FloorOverlayTypeList,module,high,approved,
+method,FloorOverlayTypeList,FloorOverlayTypeList,,,,method2032,trimCaches,FloorOverlayTypeList,module,high,approved,
+method,FloorOverlayTypeList,FloorOverlayTypeList,,,,method2033,removeSoftReferences,FloorOverlayTypeList,module,high,approved,
+method,FloorOverlayTypeList,FloorOverlayTypeList,,,,method2034,get,FloorOverlayTypeList,module,high,approved,
+method,FloorOverlayTypeList,FloorOverlayTypeList,,,,method2036,clearStaticState,FloorOverlayTypeList,module,high,approved,
+method,FloorOverlayTypeList,FloorOverlayTypeList,,,,method2037,clearCaches,FloorOverlayTypeList,module,high,approved,
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt331,textureId,FloorUnderlayType,module,high,approved,Optional underlay texture id
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt332,saturation,FloorUnderlayType,module,high,approved,Computed HSL saturation (0-255)
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt335,lightness,FloorUnderlayType,module,high,approved,Computed HSL lightness (0-255)
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt336,textureScale,FloorUnderlayType,module,high,approved,Texture scale/tiling factor (opcode 3 << 2)
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt337,rgb,FloorUnderlayType,module,high,approved,Raw RGB color value
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt341,hue,FloorUnderlayType,module,high,approved,Computed hue scaled by hueMultiplier
+field,FloorUnderlayType,FloorUnderlayType,,,,anInt343,hueMultiplier,FloorUnderlayType,module,high,approved,Hue multiplier for blend weighting
+local,FloorUnderlayType,FloorUnderlayType,,,,class22,floorUnderlayTypeDef,FloorUnderlayType,module,high,approved,
+local,FloorUnderlayType,FloorUnderlayType,,,,class22s,floorUnderlayTypeDefs,FloorUnderlayType,module,high,approved,
+method,FloorUnderlayType,FloorUnderlayType,,,,method290,decode,FloorUnderlayType,module,high,approved,
+method,FloorUnderlayType,FloorUnderlayType,,,,method291,decodeOpcode,FloorUnderlayType,module,high,approved,
+method,FloorUnderlayType,FloorUnderlayType,,,,method292,computeHslFromRgb,FloorUnderlayType,module,high,approved,
+method,FloorUnderlayType,FloorUnderlayType,,,,method293,clearStaticState,FloorUnderlayType,module,high,approved,
+method,FloorUnderlayType,FloorUnderlayType,,,,method294,processItemSpriteRequests,FloorUnderlayType,module,high,approved,
+method,FloorUnderlayType,FloorUnderlayType,,,,method295,addByteBlock,FloorUnderlayType,module,high,approved,
+field,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,aClass45_2461,configArchive,FloorUnderlayTypeList,module,high,approved,Archive containing floor underlay definitions
+field,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,aClass60_2458,typeCache,FloorUnderlayTypeList,module,high,approved,FloorUnderlayType definition cache
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1376,unlinkSceneGraphNode,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1377,removeSoftReferences,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1378,clearStaticState,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1379,hasCombinedMaterialFlags,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1380,get,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1381,clearCaches,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1382,getGlFormatComponentCount,FloorUnderlayTypeList,module,high,approved,
+method,FloorUnderlayTypeList,FloorUnderlayTypeList,,,,method1383,trimCaches,FloorUnderlayTypeList,module,high,approved,
+field,GfxType,GfxType,,,,aBoolean4487,restartAnimationOnReapply,GfxType,module,high,approved,"When reapplied, consult sequence restart mode"
+field,GfxType,GfxType,,,,aByte4488,terrainContourMode,GfxType,module,high,approved,Ground contour mode passed to model placement
+field,GfxType,GfxType,,,,aShortArray4490,recolorFrom,GfxType,module,high,approved,Original model colors to replace
+field,GfxType,GfxType,,,,aShortArray4499,retextureFrom,GfxType,module,high,approved,Original model textures to replace
+field,GfxType,GfxType,,,,aShortArray4502,recolorTo,GfxType,module,high,approved,Replacement model colors
+field,GfxType,GfxType,,,,aShortArray4504,retextureTo,GfxType,module,high,approved,Replacement model textures
+field,GfxType,GfxType,,,,anInt4489,ambient,GfxType,module,high,approved,Ambient lighting adjustment
+field,GfxType,GfxType,,,,anInt4492,resizeY,GfxType,module,high,approved,Vertical model scale (Y)
+field,GfxType,GfxType,,,,anInt4498,resizeXZ,GfxType,module,high,approved,Horizontal model scale (X/Z)
+field,GfxType,GfxType,,,,anInt4501,id,GfxType,module,high,approved,GfxType id
+field,GfxType,GfxType,,,,anInt4503,seqId,GfxType,module,high,approved,Optional animation sequence id
+field,GfxType,GfxType,,,,anInt4506,modelId,GfxType,module,high,approved,Base model id
+field,GfxType,GfxType,,,,anInt4507,terrainContourParam,GfxType,module,high,approved,Ground contour mode parameter
+field,GfxType,GfxType,,,,anInt4508,rotationY,GfxType,module,high,approved,Y-axis rotation in degrees (0/90/180/270)
+field,GfxType,GfxType,,,,anInt4512,contrast,GfxType,module,high,approved,Contrast lighting adjustment
+local,GfxType,GfxType,,,,class368,gfxTypeDefVar,GfxType,module,high,approved,
+local,GfxType,GfxType,,,,class368s,gfxTypeDefVars,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3558,getSecondaryModel,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3559,decode,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3560,clearStaticState,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3561,getWidgetActionText,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3562,getModel,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3563,hasBit11Flag,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3564,decodeOpcode,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3565,getContouredModel,GfxType,module,high,approved,
+method,GfxType,GfxType,,,,method3566,buildModel,GfxType,module,high,approved,
+field,GfxTypeList,GfxTypeList,,,,aClass45_3979,definitionArchive,GfxTypeList,module,high,approved,Archive containing gfx type definitions [auto-conflict-resolve: GfxTypeList:aClass45_3979 -> definitionArchive]
+field,GfxTypeList,GfxTypeList,,,,aClass45_3981,modelArchive,GfxTypeList,module,high,approved,Archive containing referenced model data
+field,GfxTypeList,GfxTypeList,,,,aClass60_3989,typeCache,GfxTypeList,module,high,approved,GfxType definition cache
+field,GfxTypeList,GfxTypeList,,,,aClass60_3990,modelCache,GfxTypeList,module,high,approved,Built model cache keyed by gfx id + toolkit
+method,GfxTypeList,GfxTypeList,,,,method2541,setModelAmbientBias,GfxTypeList,module,high,approved,
+method,GfxTypeList,GfxTypeList,,,,method2542,removeSoftReferences,GfxTypeList,module,high,approved,
+method,GfxTypeList,GfxTypeList,,,,method2543,get,GfxTypeList,module,high,approved,
+method,GfxTypeList,GfxTypeList,,,,method2544,trimCaches,GfxTypeList,module,high,approved,
+method,GfxTypeList,GfxTypeList,,,,method2545,clearStaticState,GfxTypeList,module,high,approved,
+method,GfxTypeList,GfxTypeList,,,,method2546,clearCaches,GfxTypeList,module,high,approved,
+field,HitmarkType,HitmarkType,,,,aString423,textTemplate,HitmarkType,module,high,approved,Template string containing %1 placeholder
+field,HitmarkType,HitmarkType,,,,anInt420,textBaselineOffsetY,HitmarkType,module,high,approved,Extra baseline Y offset applied to text/sprites
+field,HitmarkType,HitmarkType,,,,anInt421,leftSpriteId,HitmarkType,module,high,approved,Left cap sprite id
+field,HitmarkType,HitmarkType,,,,anInt422,movementOffsetY,HitmarkType,module,high,approved,Vertical interpolation offset over lifetime
+field,HitmarkType,HitmarkType,,,,anInt424,movementOffsetX,HitmarkType,module,high,approved,Horizontal interpolation offset over lifetime
+field,HitmarkType,HitmarkType,,,,anInt426,fadeStartCycle,HitmarkType,module,high,approved,Cycle offset where alpha fade begins
+field,HitmarkType,HitmarkType,,,,anInt429,rightSpriteId,HitmarkType,module,high,approved,Right cap sprite id
+field,HitmarkType,HitmarkType,,,,anInt431,replacementMode,HitmarkType,module,high,approved,"Slot replacement strategy (0=earliest expiry, 1=lowest value)"
+field,HitmarkType,HitmarkType,,,,anInt433,middleSpriteId,HitmarkType,module,high,approved,Middle/tiled sprite id
+field,HitmarkType,HitmarkType,,,,anInt434,durationCycles,HitmarkType,module,high,approved,Lifetime in client cycles
+field,HitmarkType,HitmarkType,,,,anInt435,fontId,HitmarkType,module,high,approved,Font id used to render hitmark text
+field,HitmarkType,HitmarkType,,,,anInt439,iconSpriteId,HitmarkType,module,high,approved,Trailing icon sprite id
+field,HitmarkType,HitmarkType,,,,anInt444,textColor,HitmarkType,module,high,approved,Base RGB text color
+local,HitmarkType,HitmarkType,,,,class31,hitmarkTypeDefVar,HitmarkType,module,high,approved,
+local,HitmarkType,HitmarkType,,,,class31s,hitmarkTypeDefVars,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method324,getRightSprite,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method325,getIconSprite,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method327,getLeftSprite,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method328,clearStaticState,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method329,decodeOpcode,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method330,loadSprites,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method331,getMiddleSprite,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method332,decode,HitmarkType,module,high,approved,
+method,HitmarkType,HitmarkType,,,,method333,formatText,HitmarkType,module,high,approved,
+field,HitmarkTypeList,HitmarkTypeList,,,,aClass45_2866,definitionArchive,HitmarkTypeList,module,high,approved,Archive containing hitmark definitions [auto-conflict-resolve: HitmarkTypeList:aClass45_2866 -> definitionArchive]
+field,HitmarkTypeList,HitmarkTypeList,,,,aClass45_2873,spriteArchive,HitmarkTypeList,module,high,approved,Archive containing hitmark sprites/fonts
+field,HitmarkTypeList,HitmarkTypeList,,,,aClass60_2862,spriteCache,HitmarkTypeList,module,high,approved,Decoded hitmark sprite cache
+field,HitmarkTypeList,HitmarkTypeList,,,,aClass60_2875,typeCache,HitmarkTypeList,module,high,approved,HitmarkType definition cache
+method,HitmarkTypeList,HitmarkTypeList,,,,method1598,removeSoftReferences,HitmarkTypeList,module,high,approved,
+method,HitmarkTypeList,HitmarkTypeList,,,,method1601,get,HitmarkTypeList,module,high,approved,
+method,HitmarkTypeList,HitmarkTypeList,,,,method1602,clearCaches,HitmarkTypeList,module,high,approved,
+method,HitmarkTypeList,HitmarkTypeList,,,,method1603,trimCaches,HitmarkTypeList,module,high,approved,
+method,HitmarkTypeList,HitmarkTypeList,,,,method1604,clearStaticState,HitmarkTypeList,module,high,approved,
+method,IDKType,IDKType,,,,method341,getBodyModelData,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method342,areHeadModelsReady,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method343,getHeadModelData,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method344,decodeOpcode,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method346,decode,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method347,sortParallelIntArrays,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method348,areBodyModelsReady,IDKType,module,high,approved,
+method,IDKType,IDKType,,,,method351,clearStaticState,IDKType,module,high,approved,
+field,IDKTypeList,IDKTypeList,,,,aClass45_2048,definitionArchive,IDKTypeList,module,high,approved,Archive containing IDK type definitions [auto-conflict-resolve: IDKTypeList:aClass45_2048 -> definitionArchive]
+field,IDKTypeList,IDKTypeList,,,,aClass45_2054,modelArchive,IDKTypeList,module,high,approved,Archive containing model data referenced by IDK types
+field,IDKTypeList,IDKTypeList,,,,aClass60_2050,typeCache,IDKTypeList,module,high,approved,IDKType definition cache
+method,IDKTypeList,IDKTypeList,,,,method1202,buildWearableItemIds,IDKTypeList,module,high,approved,
+method,IDKTypeList,IDKTypeList,,,,method1203,get,IDKTypeList,module,high,approved,
+method,IDKTypeList,IDKTypeList,,,,method1204,removeSoftReferences,IDKTypeList,module,high,approved,
+method,IDKTypeList,IDKTypeList,,,,method1205,decodeWorldMapArea,IDKTypeList,module,high,approved,
+method,IDKTypeList,IDKTypeList,,,,method1206,clearCaches,IDKTypeList,module,high,approved,
+method,IDKTypeList,IDKTypeList,,,,method1207,trimCaches,IDKTypeList,module,high,approved,
+method,IDKTypeList,IDKTypeList,,,,method1208,clearStaticState,IDKTypeList,module,high,approved,
+field,InvType,InvType,,,,anInt9542,size,InvType,module,high,approved,Inventory capacity / slot count
+method,InvType,InvType,,,,method3191,decodeOpcode,InvType,module,high,approved,
+method,InvType,InvType,,,,method3192,decode,InvType,module,high,approved,
+field,InvTypeList,InvTypeList,,,,aClass45_3468,configArchive,InvTypeList,module,high,approved,Archive containing inv type definitions
+field,InvTypeList,InvTypeList,,,,aClass60_3466,typeCache,InvTypeList,module,high,approved,InvType definition cache
+method,InvTypeList,InvTypeList,,,,method2044,get,InvTypeList,module,high,approved,
+method,InvTypeList,InvTypeList,,,,method2045,clearStaticState,InvTypeList,module,high,approved,
+method,InvTypeList,InvTypeList,,,,method2046,resetMovementAnimationSelector,InvTypeList,module,high,approved,
+field,ItemType,ItemType,,,,aBoolean2755,tradable,ItemType,module,high,approved,Tradable flag (opcode 65)
+field,ItemType,ItemType,,,,aBoolean2783,membersOnly,ItemType,module,high,approved,Members-only item flag (opcode 16)
+field,ItemType,ItemType,,,,aByteArray2821,recolorPaletteIndices,ItemType,module,high,approved,Optional recolor palette map (opcode 42)
+field,ItemType,ItemType,,,,aClass255_2761,list,ItemType,module,high,approved,Owning ItemTypeList reference
+field,ItemType,ItemType,,,,aClass356_2757,params,ItemType,module,high,approved,Arbitrary param table (opcode 249)
+field,ItemType,ItemType,,,,aShortArray2771,recolorTo,ItemType,module,high,approved,Model recolor target indices (opcode 40)
+field,ItemType,ItemType,,,,aShortArray2777,recolorFrom,ItemType,module,high,approved,Model recolor source indices (opcode 40)
+field,ItemType,ItemType,,,,aShortArray2785,retextureFrom,ItemType,module,high,approved,Model retexture source indices (opcode 41)
+field,ItemType,ItemType,,,,aShortArray2801,retextureTo,ItemType,module,high,approved,Model retexture target indices (opcode 41)
+field,ItemType,ItemType,,,,aString2795,name,ItemType,module,high,approved,Item name (opcode 2)
+field,ItemType,ItemType,,,,aStringArray2763,inventoryActions,ItemType,module,high,approved,Inventory interaction actions (opcodes 35-39)
+field,ItemType,ItemType,,,,aStringArray2811,groundActions,ItemType,module,high,approved,Ground interaction actions (opcodes 30-34)
+field,ItemType,ItemType,,,,anInt2753,femaleWearOffsetY,ItemType,module,high,approved,Female wear model offset Y (opcode 126)
+field,ItemType,ItemType,,,,anInt2756,modelId,ItemType,module,high,approved,Base model id (opcode 1)
+field,ItemType,ItemType,,,,anInt2758,noteId,ItemType,module,high,approved,Noted linked item id (opcode 97)
+field,ItemType,ItemType,,,,anInt2760,femaleWearModel1,ItemType,module,high,approved,Female wearable model secondary (opcode 26)
+field,ItemType,ItemType,,,,anInt2765,resizeZ,ItemType,module,high,approved,Model resize Z (opcode 112)
+field,ItemType,ItemType,,,,anInt2767,maleHeadModel1,ItemType,module,high,approved,Male head model secondary (opcode 92)
+field,ItemType,ItemType,,,,anInt2769,id,ItemType,module,high,approved,Item definition id (set by ItemTypeList loader)
+field,ItemType,ItemType,,,,anInt2770,femaleWearModel2,ItemType,module,high,approved,Female wearable model tertiary (opcode 79)
+field,ItemType,ItemType,,,,anInt2775,femaleHeadModel1,ItemType,module,high,approved,Female head model secondary (opcode 93)
+field,ItemType,ItemType,,,,anInt2778,boughtId,ItemType,module,high,approved,Bought linked item id (opcode 121)
+field,ItemType,ItemType,,,,anInt2779,offsetX2d,ItemType,module,high,approved,Inventory X offset (opcode 7)
+field,ItemType,ItemType,,,,anInt2781,yan2d,ItemType,module,high,approved,Inventory Y rotation (opcode 6)
+field,ItemType,ItemType,,,,anInt2786,resizeX,ItemType,module,high,approved,Model resize X (opcode 110)
+field,ItemType,ItemType,,,,anInt2787,xan2d,ItemType,module,high,approved,Inventory X rotation (opcode 5)
+field,ItemType,ItemType,,,,anInt2788,femaleWearModel0,ItemType,module,high,approved,Female wearable model base (opcode 25)
+field,ItemType,ItemType,,,,anInt2791,ambient,ItemType,module,high,approved,Model ambient bias (opcode 113)
+field,ItemType,ItemType,,,,anInt2792,maleHeadModel0,ItemType,module,high,approved,Male head model base (opcode 90)
+field,ItemType,ItemType,,,,anInt2794,resizeY,ItemType,module,high,approved,Model resize Y (opcode 111)
+field,ItemType,ItemType,,,,anInt2797,maleWearOffsetY,ItemType,module,high,approved,Male wear model offset Y (opcode 125)
+field,ItemType,ItemType,,,,anInt2799,dummyItem,ItemType,module,high,approved,Dummy/hidden item flag (opcode 96)
+field,ItemType,ItemType,,,,anInt2802,value,ItemType,module,high,approved,Shop value/cost (opcode 12/18 path)
+field,ItemType,ItemType,,,,anInt2803,femaleWearOffsetX,ItemType,module,high,approved,Female wear model offset X (opcode 126)
+field,ItemType,ItemType,,,,anInt2804,maleWearModel1,ItemType,module,high,approved,Male wearable model secondary (opcode 24)
+field,ItemType,ItemType,,,,anInt2805,maleWearModel2,ItemType,module,high,approved,Male wearable model tertiary (opcode 78)
+field,ItemType,ItemType,,,,anInt2807,maleWearOffsetX,ItemType,module,high,approved,Male wear model offset X (opcode 125)
+field,ItemType,ItemType,,,,anInt2808,maleWearOffsetZ,ItemType,module,high,approved,Male wear model offset Z (opcode 125)
+field,ItemType,ItemType,,,,anInt2810,zan2d,ItemType,module,high,approved,Inventory Z rotation (opcode 95)
+field,ItemType,ItemType,,,,anInt2812,boughtTemplateId,ItemType,module,high,approved,Bought template item id (opcode 122)
+field,ItemType,ItemType,,,,anInt2815,maleWearModel0,ItemType,module,high,approved,Male wearable model base (opcode 23)
+field,ItemType,ItemType,,,,anInt2819,stackable,ItemType,module,high,approved,Stackable flag/int form (opcode 11)
+field,ItemType,ItemType,,,,anInt2820,alwaysShowCount,ItemType,module,high,approved,Force amount text in inventory sprite overlays
+field,ItemType,ItemType,,,,anInt2822,femaleHeadModel0,ItemType,module,high,approved,Female head model base (opcode 91)
+field,ItemType,ItemType,,,,anInt2823,femaleWearOffsetZ,ItemType,module,high,approved,Female wear model offset Z (opcode 126)
+field,ItemType,ItemType,,,,anInt2824,contrast,ItemType,module,high,approved,Model contrast bias (opcode 114 * 5)
+field,ItemType,ItemType,,,,anInt2825,zoom2d,ItemType,module,high,approved,Inventory sprite zoom (opcode 4)
+field,ItemType,ItemType,,,,anInt2826,offsetY2d,ItemType,module,high,approved,Inventory Y offset (opcode 8)
+field,ItemType,ItemType,,,,anInt2827,team,ItemType,module,high,approved,Team id (opcode 115)
+field,ItemType,ItemType,,,,anInt2833,noteTemplateId,ItemType,module,high,approved,Noted template item id (opcode 98)
+field,ItemType,ItemType,,,,anIntArray2762,stackVariantItemIds,ItemType,module,high,approved,Item ids for stack-size variants (opcodes 100-109)
+field,ItemType,ItemType,,,,anIntArray2772,questRequirementIds,ItemType,module,high,approved,Quest requirement ids (opcode 132)
+field,ItemType,ItemType,,,,anIntArray2831,stackVariantThresholds,ItemType,module,high,approved,Stack thresholds for variant ids (opcodes 100-109)
+local,ItemType,ItemType,,,,class213,itemTypeDefVar,ItemType,module,high,approved,
+local,ItemType,ItemType,,,,class213s,itemTypeDefVars,ItemType,module,high,approved,
+method,ItemType,ItemType,,,,method1554,getHeadModelData,ItemType,module,high,approved,Build head model data for gender
+method,ItemType,ItemType,,,,method1555,hasHeadModelData,ItemType,module,high,approved,Check head model availability
+method,ItemType,ItemType,,,,method1556,applyBoughtTemplate,ItemType,module,high,approved,Apply bought/lent linkage/template fields
+method,ItemType,ItemType,,,,method1558,getWearModelData,ItemType,module,high,approved,Build wearable model data for gender
+method,ItemType,ItemType,,,,method1559,getModel,ItemType,module,high,approved,Build/cache rendered item model
+method,ItemType,ItemType,,,,method1560,getStackVariant,ItemType,module,high,approved,Resolve stack-size variant item
+method,ItemType,ItemType,,,,method1561,getStringParam,ItemType,module,high,approved,Read string param with fallback
+method,ItemType,ItemType,,,,method1562,renderInventorySpritePixels,ItemType,module,high,approved,Render 36x32 inventory sprite pixels
+method,ItemType,ItemType,,,,method1563,postDecode,ItemType,module,high,approved,Finalize state after decode
+method,ItemType,ItemType,,,,method1565,hasWearModelData,ItemType,module,high,approved,Check wearable model availability
+method,ItemType,ItemType,,,,method1566,decodeOpcode,ItemType,module,high,approved,Decode a single item opcode
+method,ItemType,ItemType,,,,method1567,getIntParam,ItemType,module,high,approved,Read int param with fallback
+method,ItemType,ItemType,,,,method1569,decode,ItemType,module,high,approved,Decode full item definition payload
+method,ItemType,ItemType,,,,method1570,applyNoteTemplate,ItemType,module,high,approved,Apply note linkage/template fields
+method,ItemType,ItemType,,,,method1571,applySpriteShadow,ItemType,module,high,approved,Apply inventory sprite shadow pass
+method,ItemType,ItemType,,,,method1572,applySpriteOutline,ItemType,module,high,approved,Apply inventory sprite outline pass
+field,ItemTypeList,ItemTypeList,,,,aBoolean3269,allowMembers,ItemTypeList,module,high,approved,Whether members-only item data is enabled
+field,ItemTypeList,ItemTypeList,,,,aClass126_3289,spriteCacheKey,ItemTypeList,module,high,approved,Reusable lookup key for item sprite cache
+field,ItemTypeList,ItemTypeList,,,,aClass175_3288,spriteCache,ItemTypeList,module,high,approved,Item sprite/icon cache
+field,ItemTypeList,ItemTypeList,,,,aClass326_3292,paramTypeList,ItemTypeList,module,high,approved,ParamTypeList for member-only param filtering
+field,ItemTypeList,ItemTypeList,,,,aClass45_3267,definitionArchive,ItemTypeList,module,high,approved,Archive containing item definitions [auto-conflict-resolve: ItemTypeList:aClass45_3267 -> definitionArchive]
+field,ItemTypeList,ItemTypeList,,,,aClass45_3268,modelArchive,ItemTypeList,module,high,approved,Archive containing item model data
+field,ItemTypeList,ItemTypeList,,,,aClass60_3278,typeCache,ItemTypeList,module,high,approved,ItemType definition cache
+field,ItemTypeList,ItemTypeList,,,,aClass60_3287,modelCache,ItemTypeList,module,high,approved,Item model cache (per toolkit)
+field,ItemTypeList,ItemTypeList,,,,aStringArray3290,defaultGroundActions,ItemTypeList,module,high,approved,Fallback ground action labels for members items
+field,ItemTypeList,ItemTypeList,,,,aStringArray3293,defaultInventoryActions,ItemTypeList,module,high,approved,Fallback inventory action labels for members items
+field,ItemTypeList,ItemTypeList,,,,anInt3271,typeCount,ItemTypeList,module,high,approved,Total number of item type ids
+field,ItemTypeList,ItemTypeList,,,,anInt3286,languageId,ItemTypeList,module,high,approved,Language id used for localized default labels
+field,ItemTypeList,ItemTypeList,,,,anInt3291,modelAmbientBias,ItemTypeList,module,high,approved,Ambient bias used when building item models
+method,ItemTypeList,ItemTypeList,,,,method1929,zoneUpdateTypes,ItemTypeList,module,high,approved,Return zone update enum values
+method,ItemTypeList,ItemTypeList,,,,method1930,clearModelCache,ItemTypeList,module,high,approved,Clear model cache entries
+method,ItemTypeList,ItemTypeList,,,,method1931,clearStaticState,ItemTypeList,module,high,approved,Clear static cached state
+method,ItemTypeList,ItemTypeList,,,,method1932,getSprite,ItemTypeList,module,high,approved,Render/fetch item icon sprite
+method,ItemTypeList,ItemTypeList,,,,method1933,loadSprites,ItemTypeList,module,high,approved,Load shared UI sprite sets
+method,ItemTypeList,ItemTypeList,,,,method1934,setAllowMembers,ItemTypeList,module,high,approved,Toggle members filtering mode
+method,ItemTypeList,ItemTypeList,,,,method1935,populateBoundingCylinder,ItemTypeList,module,high,approved,Fill bounding cylinder from model bounds
+method,ItemTypeList,ItemTypeList,,,,method1936,clearSpriteCache,ItemTypeList,module,high,approved,Clear sprite cache entries
+method,ItemTypeList,ItemTypeList,,,,method1937,trimCaches,ItemTypeList,module,high,approved,Trim all caches to target size
+method,ItemTypeList,ItemTypeList,,,,method1938,removeSoftReferences,ItemTypeList,module,high,approved,Drop soft references from caches
+method,ItemTypeList,ItemTypeList,,,,method1939,clearCaches,ItemTypeList,module,high,approved,Clear all caches
+method,ItemTypeList,ItemTypeList,,,,method1940,get,ItemTypeList,module,high,approved,Get item type by id
+method,ItemTypeList,ItemTypeList,,,,method1941,getCachedSprite,ItemTypeList,module,high,approved,Lookup sprite from sprite cache
+method,ItemTypeList,ItemTypeList,,,,method1942,setModelAmbientBias,ItemTypeList,module,high,approved,Set shared model ambient bias
+field,LightTypeList,LightTypeList,,,,aClass45_2480,configArchive,LightTypeList,module,high,approved,Archive containing light definitions
+field,LightTypeList,LightTypeList,,,,aClass60_2479,typeCache,LightTypeList,module,high,approved,LightType definition cache
+local,LinkDeque,LinkDeque,,,,class243,linkDequeVar,LinkDeque,module,high,approved,
+local,LinkDeque,LinkDeque,,,,class243s,linkDequeVars,LinkDeque,module,high,approved,
+method,LoadingScreenTypeList,LoadingScreenTypeList,,,,method1043,loadType,LoadingScreenTypeList,module,high,approved,
+method,LoadingScreenTypeList,LoadingScreenTypeList,,,,method1044,hasGlobalFallback,LoadingScreenTypeList,module,high,approved,
+method,LoadingScreenTypeList,LoadingScreenTypeList,,,,method1045,rotateObjectCoord,LoadingScreenTypeList,module,high,approved,
+method,LoadingScreenTypeList,LoadingScreenTypeList,,,,method1046,getShuffledTypeIds,LoadingScreenTypeList,module,high,approved,
+method,LoadingScreenTypeList,LoadingScreenTypeList,,,,method1047,clearStaticState,LoadingScreenTypeList,module,high,approved,
+method,LoadingScreenTypeList,LoadingScreenTypeList,,,,method1048,layoutWidgetWithinParent,LoadingScreenTypeList,module,high,approved,
+local,LoginTokenUtil,LoginTokenUtil,,,,class182,loginTokenUtilVar,LoginTokenUtil,module,high,approved,
+local,LoginTokenUtil,LoginTokenUtil,,,,class182s,loginTokenUtilVars,LoginTokenUtil,module,high,approved,
+method,MapElementType,MapElementType,,,,method372,computeBounds,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method373,isEnabledForVarDomain,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method374,getMapSprite,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method375,getOverlaySprite,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method376,getStringParam,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method377,decodeOpcode,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method378,getIntParam,MapElementType,module,high,approved,
+method,MapElementType,MapElementType,,,,method379,decode,MapElementType,module,high,approved,
+field,MapElementTypeList,MapElementTypeList,,,,aClass45_2084,definitionArchive,MapElementTypeList,module,high,approved,Archive containing map element definitions [auto-conflict-resolve: MapElementTypeList:aClass45_2084 -> definitionArchive]
+field,MapElementTypeList,MapElementTypeList,,,,aClass45_2087,spriteArchive,MapElementTypeList,module,high,approved,Archive containing map element sprites
+field,MapElementTypeList,MapElementTypeList,,,,aClass60_2083,typeCache,MapElementTypeList,module,high,approved,MapElementType definition cache
+field,MapElementTypeList,MapElementTypeList,,,,aClass60_2089,spriteCache,MapElementTypeList,module,high,approved,Map element sprite cache
+method,MapElementTypeList,MapElementTypeList,,,,method1219,clearCaches,MapElementTypeList,module,high,approved,
+method,MapElementTypeList,MapElementTypeList,,,,method1220,resizeCaches,MapElementTypeList,module,high,approved,
+method,MapElementTypeList,MapElementTypeList,,,,method1222,removeSoftReferences,MapElementTypeList,module,high,approved,
+method,MapElementTypeList,MapElementTypeList,,,,method1223,loadClientScript,MapElementTypeList,module,high,approved,
+method,MapElementTypeList,MapElementTypeList,,,,method1224,trimCaches,MapElementTypeList,module,high,approved,
+method,MapElementTypeList,MapElementTypeList,,,,method1225,get,MapElementTypeList,module,high,approved,
+method,MapSceneType,MapSceneType,,,,method1593,isSpriteLoaded,MapSceneType,module,high,approved,
+method,MapSceneType,MapSceneType,,,,method1594,clearStaticState,MapSceneType,module,high,approved,
+method,MapSceneType,MapSceneType,,,,method1595,decodeOpcode,MapSceneType,module,high,approved,
+method,MapSceneType,MapSceneType,,,,method1596,getSprite,MapSceneType,module,high,approved,
+method,MapSceneType,MapSceneType,,,,method1597,decode,MapSceneType,module,high,approved,
+field,MapSceneTypeList,MapSceneTypeList,,,,aClass45_1965,spriteArchive,MapSceneTypeList,module,high,approved,Archive containing map scene sprites
+field,MapSceneTypeList,MapSceneTypeList,,,,aClass45_1971,definitionArchive,MapSceneTypeList,module,high,approved,Archive containing map scene definitions [auto-conflict-resolve: MapSceneTypeList:aClass45_1971 -> definitionArchive]
+field,MapSceneTypeList,MapSceneTypeList,,,,aClass60_1963,mapSceneTypeCache,MapSceneTypeList,module,high,approved,MapSceneType definition cache [auto-conflict-resolve: MapSceneTypeList:aClass60_1963 -> mapSceneTypeCache]
+field,MapSceneTypeList,MapSceneTypeList,,,,aClass60_1976,spriteCache,MapSceneTypeList,module,high,approved,Map scene sprite cache
+method,MapSceneTypeList,MapSceneTypeList,,,,method1173,get,MapSceneTypeList,module,high,approved,
+method,MapSceneTypeList,MapSceneTypeList,,,,method1174,removeSoftReferences,MapSceneTypeList,module,high,approved,
+method,MapSceneTypeList,MapSceneTypeList,,,,method1175,clearCaches,MapSceneTypeList,module,high,approved,
+method,MapSceneTypeList,MapSceneTypeList,,,,method1176,trimCaches,MapSceneTypeList,module,high,approved,
+method,MapSceneTypeList,MapSceneTypeList,,,,method1177,initializeNoiseTable,MapSceneTypeList,module,high,approved,
+method,MapSceneTypeList,MapSceneTypeList,,,,method1178,resizeCaches,MapSceneTypeList,module,high,approved,
+method,MapSceneTypeList,MapSceneTypeList,,,,method1179,clearStaticState,MapSceneTypeList,module,high,approved,
+local,MidiFileParser,MidiFileParser,,,,class204,midiFileParserVar,MidiFileParser,module,high,approved,
+local,MidiFileParser,MidiFileParser,,,,class204s,midiFileParserVars,MidiFileParser,module,high,approved,
+method,NpcType,NpcType,,,,method793,hasSound,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method794,getTransformedType,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method795,decodeOpcode,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method796,hasValidTransform,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method798,decode,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method799,postDecode,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method800,getModel,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method801,getStringParam,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method802,hasBridgeFlag,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method803,getHeadModel,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method804,clearStaticState,NpcType,module,high,approved,
+method,NpcType,NpcType,,,,method805,getIntParam,NpcType,module,high,approved,
+field,NpcTypeList,NpcTypeList,,,,aBoolean3583,allowMembers,NpcTypeList,module,high,approved,Whether members-only npc data is enabled
+field,NpcTypeList,NpcTypeList,,,,aClass45_3576,modelArchive,NpcTypeList,module,high,approved,Archive containing npc model data
+field,NpcTypeList,NpcTypeList,,,,aClass45_3585,definitionArchive,NpcTypeList,module,high,approved,Archive containing npc definitions [auto-conflict-resolve: NpcTypeList:aClass45_3585 -> definitionArchive]
+field,NpcTypeList,NpcTypeList,,,,aClass60_3577,npcTypeCache,NpcTypeList,module,high,approved,NpcType definition cache [auto-conflict-resolve: NpcTypeList:aClass60_3577 -> npcTypeCache]
+field,NpcTypeList,NpcTypeList,,,,aClass60_3590,modelCache,NpcTypeList,module,high,approved,Npc model cache
+field,NpcTypeList,NpcTypeList,,,,aClass60_3592,secondaryModelCache,NpcTypeList,module,high,approved,Secondary npc model cache
+field,NpcTypeList,NpcTypeList,,,,anInt3593,modelAmbientBias,NpcTypeList,module,high,approved,Ambient bias used when building npc models
+method,NpcTypeList,NpcTypeList,,,,method2072,setAllowMembers,NpcTypeList,module,high,approved,
+method,NpcTypeList,NpcTypeList,,,,method2073,setModelAmbientBias,NpcTypeList,module,high,approved,
+method,NpcTypeList,NpcTypeList,,,,method2074,clearModelCaches,NpcTypeList,module,high,approved,
+method,NpcTypeList,NpcTypeList,,,,method2076,trimCaches,NpcTypeList,module,high,approved,
+method,NpcTypeList,NpcTypeList,,,,method2078,clearCaches,NpcTypeList,module,high,approved,
+method,NpcTypeList,NpcTypeList,,,,method2079,get,NpcTypeList,module,high,approved,
+method,NpcTypeList,NpcTypeList,,,,method2080,removeSoftReferences,NpcTypeList,module,high,approved,
+local,ObjectType,ObjectType,,,,class51,objectTypeDef,ObjectType,module,high,approved,
+local,ObjectType,ObjectType,,,,class51s,objectTypeDefs,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method474,hasSound,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method475,getStringParam,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method476,getModelWithShadow,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method477,buildModel,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method478,isModelTypeReady,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method479,decode,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method480,getTransformedType,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method481,hasAnimation,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method482,decodeOpcode,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method483,getModel,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method484,skipModelData,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method485,areAllModelsReady,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method486,clearStaticState,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method487,getIntParam,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method488,postDecode,ObjectType,module,high,approved,
+method,ObjectType,ObjectType,,,,method489,getRandomAnimation,ObjectType,module,high,approved,
+field,ObjectTypeList,ObjectTypeList,,,,aBoolean3359,allowMembers,ObjectTypeList,module,high,approved,Whether members-only object data is enabled
+field,ObjectTypeList,ObjectTypeList,,,,aClass45_3343,definitionArchive,ObjectTypeList,module,high,approved,Archive containing object definitions [auto-conflict-resolve: ObjectTypeList:aClass45_3343 -> definitionArchive]
+field,ObjectTypeList,ObjectTypeList,,,,aClass45_3345,modelArchive,ObjectTypeList,module,high,approved,Archive containing object model data
+field,ObjectTypeList,ObjectTypeList,,,,aClass60_3350,objectTypeCache,ObjectTypeList,module,high,approved,ObjectType definition cache [auto-conflict-resolve: ObjectTypeList:aClass60_3350 -> objectTypeCache]
+field,ObjectTypeList,ObjectTypeList,,,,aClass60_3360,modelDataCache,ObjectTypeList,module,high,approved,Primary ObjectType model cache [auto-conflict-resolve: ObjectTypeList:aClass60_3360 -> modelDataCache]
+field,ObjectTypeList,ObjectTypeList,,,,aClass60_3361,modelWithShadowCache,ObjectTypeList,module,high,approved,ObjectType ModelWithShadow cache
+field,ObjectTypeList,ObjectTypeList,,,,aClass60_3362,secondaryModelCache,ObjectTypeList,module,high,approved,Secondary ObjectType model cache
+field,ObjectTypeList,ObjectTypeList,,,,anInt3363,modelAmbientBias,ObjectTypeList,module,high,approved,Ambient bias used when building object models
+method,ObjectTypeList,ObjectTypeList,,,,method2004,setAllowMembers,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2005,get,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2006,removeSoftReferences,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2007,findPathSize2,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2008,setUseExtendedModelData,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2009,setModelAmbientBias,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2010,trimCaches,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2011,clearStaticState,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2012,clearCaches,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2013,decodeClientObjectConfig,ObjectTypeList,module,high,approved,
+method,ObjectTypeList,ObjectTypeList,,,,method2014,resizeTypeCache,ObjectTypeList,module,high,approved,
+local,ParamType,ParamType,,,,class254,paramTypeDefVar,ParamType,module,high,approved,
+local,ParamType,ParamType,,,,class254s,paramTypeDefVars,ParamType,module,high,approved,
+method,ParamType,ParamType,,,,method1924,decode,ParamType,module,high,approved,
+method,ParamType,ParamType,,,,method1925,isStringType,ParamType,module,high,approved,
+method,ParamType,ParamType,,,,method1926,clearStaticState,ParamType,module,high,approved,
+method,ParamType,ParamType,,,,method1927,decodeOpcode,ParamType,module,high,approved,
+method,ParamType,ParamType,,,,method1928,floorDiv,ParamType,module,high,approved,
+field,ParamTypeList,ParamTypeList,,,,aClass45_4085,configArchive,ParamTypeList,module,high,approved,Archive containing ParamType definitions
+field,ParamTypeList,ParamTypeList,,,,aClass60_4087,typeCache,ParamTypeList,module,high,approved,ParamType definition cache
+method,ParamTypeList,ParamTypeList,,,,method2600,get,ParamTypeList,module,high,approved,
+method,ParamTypeList,ParamTypeList,,,,method2601,clearCaches,ParamTypeList,module,high,approved,
+method,ParamTypeList,ParamTypeList,,,,method2602,removeSoftReferences,ParamTypeList,module,high,approved,
+method,ParamTypeList,ParamTypeList,,,,method2603,trimCaches,ParamTypeList,module,high,approved,
+method,ParticleEffectorType,ParticleEffectorType,,,,method1332,isValidIntegerString,ParticleEffectorType,module,high,approved,
+method,ParticleEffectorType,ParticleEffectorType,,,,method1333,sortParallelStringsAndShorts,ParticleEffectorType,module,high,approved,
+method,ParticleEffectorType,ParticleEffectorType,,,,method1334,clearStaticState,ParticleEffectorType,module,high,approved,
+method,ParticleEffectorType,ParticleEffectorType,,,,method1335,decodeOpcode,ParticleEffectorType,module,high,approved,
+method,ParticleEffectorType,ParticleEffectorType,,,,method1336,decode,ParticleEffectorType,module,high,approved,
+method,ParticleEffectorType,ParticleEffectorType,,,,method1337,postDecode,ParticleEffectorType,module,high,approved,
+method,ParticleEffectorTypeList,ParticleEffectorTypeList,,,,method1943,get,ParticleEffectorTypeList,module,high,approved,
+method,ParticleEffectorTypeList,ParticleEffectorTypeList,,,,method1944,clearStaticState,ParticleEffectorTypeList,module,high,approved,
+method,ParticleEmitterType,ParticleEmitterType,,,,method1367,computeUvFromTransform,ParticleEmitterType,module,high,approved,
+method,ParticleEmitterType,ParticleEmitterType,,,,method1368,decodeOpcode,ParticleEmitterType,module,high,approved,
+method,ParticleEmitterType,ParticleEmitterType,,,,method1369,clearStaticState,ParticleEmitterType,module,high,approved,
+method,ParticleEmitterType,ParticleEmitterType,,,,method1370,decode,ParticleEmitterType,module,high,approved,
+method,ParticleEmitterType,ParticleEmitterType,,,,method1371,postDecode,ParticleEmitterType,module,high,approved,
+method,QuestType,QuestType,,,,method2548,postDecode,QuestType,module,high,approved,
+method,QuestType,QuestType,,,,method2549,clearStaticState,QuestType,module,high,approved,
+method,QuestType,QuestType,,,,method2550,decodeOpcode,QuestType,module,high,approved,
+method,QuestType,QuestType,,,,method2551,decode,QuestType,module,high,approved,
+field,QuestTypeList,QuestTypeList,,,,aClass45_2498,configArchive,QuestTypeList,module,high,approved,Archive containing quest type definitions
+field,QuestTypeList,QuestTypeList,,,,aClass60_2501,typeCache,QuestTypeList,module,high,approved,QuestType definition cache
+method,QuestTypeList,QuestTypeList,,,,method1404,clearCaches,QuestTypeList,module,high,approved,
+method,QuestTypeList,QuestTypeList,,,,method1407,clearStaticState,QuestTypeList,module,high,approved,
+method,QuestTypeList,QuestTypeList,,,,method1408,get,QuestTypeList,module,high,approved,
+method,QuestTypeList,QuestTypeList,,,,method1409,trimCaches,QuestTypeList,module,high,approved,
+method,QuestTypeList,QuestTypeList,,,,method1410,removeSoftReferences,QuestTypeList,module,high,approved,
+method,QuickChatCatType,QuickChatCatType,,,,method3220,clearStaticState,QuickChatCatType,module,high,approved,
+method,QuickChatCatType,QuickChatCatType,,,,method3221,decode,QuickChatCatType,module,high,approved,
+method,QuickChatCatType,QuickChatCatType,,,,method3222,getPhraseIdForHotkey,QuickChatCatType,module,high,approved,
+method,QuickChatCatType,QuickChatCatType,,,,method3224,markGlobalCategory,QuickChatCatType,module,high,approved,
+method,QuickChatCatType,QuickChatCatType,,,,method3226,getSubcategoryIdForHotkey,QuickChatCatType,module,high,approved,
+method,QuickChatCatType,QuickChatCatType,,,,method3227,decodeOpcode,QuickChatCatType,module,high,approved,
+field,QuickChatCatTypeList,QuickChatCatTypeList,,,,aClass45_2961,configArchive,QuickChatCatTypeList,module,high,approved,Archive containing local quick chat category definitions
+field,QuickChatCatTypeList,QuickChatCatTypeList,,,,aClass45_2965,globalConfigArchive,QuickChatCatTypeList,module,high,approved,Archive containing global quick chat category definitions
+field,QuickChatCatTypeList,QuickChatCatTypeList,,,,aClass60_2960,typeCache,QuickChatCatTypeList,module,high,approved,QuickChatCatType definition cache
+method,QuickChatCatTypeList,QuickChatCatTypeList,,,,method1624,clearStaticState,QuickChatCatTypeList,module,high,approved,
+method,QuickChatCatTypeList,QuickChatCatTypeList,,,,method1625,get,QuickChatCatTypeList,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3209,markGlobalPhrase,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3210,encodeArguments,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3211,resetClientConnectionState,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3212,getVarTypeAt,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3213,getParamOptionAt,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3214,decodeOpcode,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3215,getArgumentCount,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3216,decodeMessage,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3217,clearStaticState,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3218,decode,QuickChatPhraseType,module,high,approved,
+method,QuickChatPhraseType,QuickChatPhraseType,,,,method3219,getTemplatePreview,QuickChatPhraseType,module,high,approved,
+field,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,aClass45_4368,configArchive,QuickChatPhraseTypeList,module,high,approved,Archive containing local quick chat phrase definitions
+field,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,aClass45_4369,globalConfigArchive,QuickChatPhraseTypeList,module,high,approved,Archive containing global quick chat phrase definitions
+field,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,aClass60_4362,typeCache,QuickChatPhraseTypeList,module,high,approved,QuickChatPhraseType definition cache
+field,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,anInt4364,globalTypeCount,QuickChatPhraseTypeList,module,high,approved,Number of global quick chat phrase entries
+field,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,anInt4365,localTypeCount,QuickChatPhraseTypeList,module,high,approved,Number of local quick chat phrase entries
+field,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,anInterface15_4373,varFormatter,QuickChatPhraseTypeList,module,high,approved,Formatter used for script-var backed quickchat placeholders
+method,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,method3470,triggerLoadingFadeOut,QuickChatPhraseTypeList,module,high,approved,
+method,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,method3471,get,QuickChatPhraseTypeList,module,high,approved,
+method,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,method3472,formatVarValue,QuickChatPhraseTypeList,module,high,approved,
+method,QuickChatPhraseTypeList,QuickChatPhraseTypeList,,,,method3473,clearStaticState,QuickChatPhraseTypeList,module,high,approved,
+field,SeqType,SeqType,,,,aBoolean241,stretches,SeqType,module,high,approved,Whether this sequence stretches to actor movement
+field,SeqType,SeqType,,,,aBoolean242,hasAlphaTransform,SeqType,module,high,approved,Sequence uses alpha-transforming frames (model flag 0x200)
+field,SeqType,SeqType,,,,aBoolean254,allowsTweening,SeqType,module,high,approved,Sequence supports tweened frame interpolation
+field,SeqType,SeqType,,,,aBoolean268,streamSoundEffects,SeqType,module,high,approved,Sequence sound triggers should use streamed playback path
+field,SeqType,SeqType,,,,aClass87_251,list,SeqType,module,high,approved,Owning sequence type list
+field,SeqType,SeqType,,,,anInt238,frameStep,SeqType,module,high,approved,Loop/step count used when wrapping animation frames
+field,SeqType,SeqType,,,,anInt239,forcedPriority,SeqType,module,high,approved,Forced priority from opcode 5
+field,SeqType,SeqType,,,,anInt244,maxLoops,SeqType,module,high,approved,Maximum loops for this sequence
+field,SeqType,SeqType,,,,anInt245,priority,SeqType,module,high,approved,Sequence priority
+field,SeqType,SeqType,,,,anInt248,restartMode,SeqType,module,high,approved,Behavior when reapplying the same sequence (0/1/2)
+field,SeqType,SeqType,,,,anInt249,leftHandItem,SeqType,module,high,approved,Left-hand item model override
+field,SeqType,SeqType,,,,anInt261,rightHandItem,SeqType,module,high,approved,Right-hand item model override
+field,SeqType,SeqType,,,,anInt262,precedenceAnimating,SeqType,module,high,approved,Animation precedence
+field,SeqType,SeqType,,,,anIntArray236,frameSoundDelayMin,SeqType,module,high,approved,Per-frame minimum random delay for sound trigger
+field,SeqType,SeqType,,,,anIntArray237,frameIds,SeqType,module,high,approved,Primary frame ids (frameSet<<16 | frame)
+field,SeqType,SeqType,,,,anIntArray253,frameSoundVolumes,SeqType,module,high,approved,Per-frame sound volume/weight overrides
+field,SeqType,SeqType,,,,anIntArray260,secondaryFrameIds,SeqType,module,high,approved,Optional secondary frame ids
+field,SeqType,SeqType,,,,anIntArray265,frameSoundDelayMax,SeqType,module,high,approved,Per-frame maximum random delay for sound trigger
+field,SeqType,SeqType,,,,anIntArray267,frameLengths,SeqType,module,high,approved,Per-frame durations
+field,SeqType,SeqType,,,,anIntArrayArray264,frameSoundEffects,SeqType,module,high,approved,Per-frame sound effect lists (primary + alternates)
+method,SeqType,SeqType,,,,method263,getModelFlags,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method264,decodeOpcode,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method265,clearStaticState,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method266,applyTweenedFrame,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method267,decode,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method268,setCameraTransform,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method269,applyFrameWithSecondary,SeqType,module,high,approved,
+method,SeqType,SeqType,,,,method270,postDecode,SeqType,module,high,approved,
+field,SeqTypeList,SeqTypeList,,,,aClass45_1488,configArchive,SeqTypeList,module,high,approved,Archive containing SeqType definitions
+field,SeqTypeList,SeqTypeList,,,,aClass60_1487,typeCache,SeqTypeList,module,high,approved,SeqType definition cache
+field,SeqTypeList,SeqTypeList,,,,aClass60_1491,animFramesCache,SeqTypeList,module,high,approved,AnimFrames cache for sequence framesets
+local,SeqTypeList,SeqTypeList,,,,class87,seqTypeListVar,SeqTypeList,module,high,approved,
+local,SeqTypeList,SeqTypeList,,,,class87s,seqTypeListVars,SeqTypeList,module,high,approved,
+method,SeqTypeList,SeqTypeList,,,,method834,clearCaches,SeqTypeList,module,high,approved,
+method,SeqTypeList,SeqTypeList,,,,method835,get,SeqTypeList,module,high,approved,
+method,SeqTypeList,SeqTypeList,,,,method836,trimCaches,SeqTypeList,module,high,approved,
+method,SeqTypeList,SeqTypeList,,,,method837,rotateCoord8,SeqTypeList,module,high,approved,
+method,SeqTypeList,SeqTypeList,,,,method838,removeSoftReferences,SeqTypeList,module,high,approved,
+method,SeqTypeList,SeqTypeList,,,,method839,getAnimFrames,SeqTypeList,module,high,approved,
+method,SkyBoxSphereTypeList,SkyBoxSphereTypeList,,,,method299,trimCaches,SkyBoxSphereTypeList,module,high,approved,
+method,SkyBoxSphereTypeList,SkyBoxSphereTypeList,,,,method300,clearCaches,SkyBoxSphereTypeList,module,high,approved,
+method,SkyBoxSphereTypeList,SkyBoxSphereTypeList,,,,method301,get,SkyBoxSphereTypeList,module,high,approved,
+method,SkyBoxSphereTypeList,SkyBoxSphereTypeList,,,,method302,removeSoftReferences,SkyBoxSphereTypeList,module,high,approved,
+method,SkyBoxSphereTypeList,SkyBoxSphereTypeList,,,,method305,clearStaticState,SkyBoxSphereTypeList,module,high,approved,
+method,SkyBoxType,SkyBoxType,,,,method2273,allocatePacketBufferNode,SkyBoxType,module,high,approved,
+method,SkyBoxType,SkyBoxType,,,,method2274,findStringIndexIgnoreCase,SkyBoxType,module,high,approved,
+method,SkyBoxType,SkyBoxType,,,,method2275,decode,SkyBoxType,module,high,approved,
+method,SkyBoxType,SkyBoxType,,,,method2276,decodeOpcode,SkyBoxType,module,high,approved,
+method,SkyBoxType,SkyBoxType,,,,method2277,loadModelData,SkyBoxType,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method816,removeSoftReferences,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method817,getActorAtTile,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method818,reverseBits,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method819,trimCaches,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method820,getType,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method821,clearDirtyRectangleCache,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method822,clearCaches,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method823,createSkyBox,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method824,ensureSceneTilesForPlane,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method825,clearStaticState,SkyBoxTypeList,module,high,approved,
+method,SkyBoxTypeList,SkyBoxTypeList,,,,method826,drawFrameSprites,SkyBoxTypeList,module,high,approved,
+field,VarBitType,VarBitType,,,,anInt2016,startBit,VarBitType,module,high,approved,Least-significant bit index
+field,VarBitType,VarBitType,,,,anInt2019,baseVarId,VarBitType,module,high,approved,Backing var id
+field,VarBitType,VarBitType,,,,anInt2020,endBit,VarBitType,module,high,approved,Most-significant bit index
+field,VarBitTypeList,VarBitTypeList,,,,aClass45_2597,configArchive,VarBitTypeList,module,high,approved,Archive containing VarBitType definitions
+field,VarBitTypeList,VarBitTypeList,,,,aClass60_2594,typeCache,VarBitTypeList,module,high,approved,VarBitType definition cache
+field,VarPlayerType,VarPlayerType,,,,anInt2125,clientCode,VarPlayerType,module,high,approved,VarPlayer client-code / transmit behavior value
+method,VarPlayerType,VarPlayerType,,,,method1251,decodeOpcode,VarPlayerType,module,high,approved,
+method,VarPlayerType,VarPlayerType,,,,method1253,decode,VarPlayerType,module,high,approved,
+field,VarPlayerTypeList,VarPlayerTypeList,,,,aClass45_2842,configArchive,VarPlayerTypeList,module,high,approved,Archive containing VarPlayerType definitions
+field,VarPlayerTypeList,VarPlayerTypeList,,,,aClass60_2848,typeCache,VarPlayerTypeList,module,high,approved,VarPlayerType definition cache
+field,VarPlayerTypeList,VarPlayerTypeList,,,,anInt2845,typeCount,VarPlayerTypeList,module,high,approved,Number of VarPlayerType entries
+method,VarPlayerTypeList,VarPlayerTypeList,,,,method1585,clearStaticState,VarPlayerTypeList,module,high,approved,
+method,VarPlayerTypeList,VarPlayerTypeList,,,,method1587,trimCaches,VarPlayerTypeList,module,high,approved,
+method,VarPlayerTypeList,VarPlayerTypeList,,,,method1588,get,VarPlayerTypeList,module,high,approved,
+method,VarPlayerTypeList,VarPlayerTypeList,,,,method1589,clearCaches,VarPlayerTypeList,module,high,approved,
+method,VarPlayerTypeList,VarPlayerTypeList,,,,method1590,removeSoftReferences,VarPlayerTypeList,module,high,approved,
+field,VarcType,VarcType,,,,aChar2132,typeChar,VarcType,module,high,approved,Script/value type discriminator
+field,VarcType,VarcType,,,,anInt2135,persistenceFlag,VarcType,module,high,approved,"0 = non-persistent, 1 = persistent (default)"
+method,VarcType,VarcType,,,,method1254,clearStaticState,VarcType,module,high,approved,
+method,VarcType,VarcType,,,,method1255,decode,VarcType,module,high,approved,
+method,VarcType,VarcType,,,,method1256,decodeOpcode,VarcType,module,high,approved,
+method,VarcType,VarcType,,,,method1257,hasBit5Flag,VarcType,module,high,approved,
+field,VarcTypeList,VarcTypeList,,,,aClass45_3299,configArchive,VarcTypeList,module,high,approved,Archive containing VarcType definitions
+field,VarcTypeList,VarcTypeList,,,,aClass60_3303,varcTypeCache,VarcTypeList,module,high,approved,VarcType definition cache [auto-conflict-resolve: VarcTypeList:aClass60_3303 -> varcTypeCache]
+field,VarcTypeList,VarcTypeList,,,,anInt3305,typeCount,VarcTypeList,module,high,approved,Number of VarcType entries
+method,VarcTypeList,VarcTypeList,,,,method1975,clearStaticState,VarcTypeList,module,high,approved,
+method,VarcTypeList,VarcTypeList,,,,method1976,get,VarcTypeList,module,high,approved,

@@ -1,6 +1,0 @@
-# EnumType and MidiFileParser typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-EnumType,local,EnumType,,,,class117,enumTypeDefVar,,,"EnumType typed variable"
-EnumType,local,EnumType,,,,class117s,enumTypeDefVars,,,"EnumType[] typed variable"
-MidiFileParser,local,MidiFileParser,,,,class204,midiFileParserVar,,,"MidiFileParser typed variable"
-MidiFileParser,local,MidiFileParser,,,,class204s,midiFileParserVars,,,"MidiFileParser[] typed variable"

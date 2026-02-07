@@ -1,7 +1,0 @@
-# Collections linkage/cursor fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SecondaryNode,field,SecondaryNode,,,,aLong7057,secondaryKey,,,"Key used by LinkedNodeHashTable buckets"
-DualNode,field,DualNode,,,,aClass318_Sub9_6468,dualPrev,,,"Previous node in dual-linked chain"
-DualNode,field,DualNode,,,,aClass318_Sub9_6469,dualNext,,,"Next node in dual-linked chain"
-SecondaryLinkedListIterator,field,SecondaryLinkedListIterator,,,,aClass348_Sub42_2115,cursor,,,"Iterator cursor"
-SecondaryLinkedListIterator,field,SecondaryLinkedListIterator,,,,aClass107_2118,list,,,"Back-reference to iterated list"

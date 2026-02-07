@@ -1,5 +1,0 @@
-# DirectDraw display mode manager fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-DirectDrawDisplayModeManager,field,DirectDrawDisplayModeManager,,,,aDirectDraw4607,directDraw,,,
-DirectDrawDisplayModeManager,field,DirectDrawDisplayModeManager,,,,anIntArray4606,displayModesBuffer,,,
-DirectDrawDisplayModeManager,field,DirectDrawDisplayModeManager,,,,anInt4608,displayModeCount,,,

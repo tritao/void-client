@@ -1,6 +1,0 @@
-# ZoneUpdateType and ClientDisplayMode typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ZoneUpdateType,local,ZoneUpdateType,,,,class74,zoneUpdateTypeVar,,,"ZoneUpdateType typed variable"
-ZoneUpdateType,local,ZoneUpdateType,,,,class74s,zoneUpdateTypeVars,,,"ZoneUpdateType[] typed variable"
-ClientDisplayMode,local,ClientDisplayMode,,,,class57,clientDisplayModeVar,,,"ClientDisplayMode typed variable"
-ClientDisplayMode,local,ClientDisplayMode,,,,class57s,clientDisplayModeVars,,,"ClientDisplayMode[] typed variable"

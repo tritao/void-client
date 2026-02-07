@@ -1,0 +1,240 @@
+kind,file,owner,member,signature,param_index,old,new,scope,phase,confidence,status,notes
+method,CacheIndexCrcUtil,CacheIndexCrcUtil,,,,method1244,writeArchiveCrcs,CacheIndexCrcUtil,module,high,approved,
+method,CacheIndexCrcUtil,CacheIndexCrcUtil,,,,method1245,normalizeBase37Name,CacheIndexCrcUtil,module,high,approved,
+method,CacheIndexCrcUtil,CacheIndexCrcUtil,,,,method1246,clearStaticState,CacheIndexCrcUtil,module,high,approved,
+method,ClientCaches,ClientCaches,,,,method296,clearStaticState,ClientCaches,module,high,approved,
+method,ClientCaches,ClientCaches,,,,method297,clearLoadingScreenOpCache,ClientCaches,module,high,approved,
+method,ClientCaches,ClientCaches,,,,method298,configureSceneAndLoginState,ClientCaches,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2552,getAppearancePartId,ColorImageCache,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2553,getFullImage,ColorImageCache,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2554,resetRegionStateOnPlaneChange,ColorImageCache,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2555,clearStaticState,ColorImageCache,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2556,updateActorFrame,ColorImageCache,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2557,get,ColorImageCache,module,high,approved,
+method,ColorImageCache,ColorImageCache,,,,method2558,clear,ColorImageCache,module,high,approved,
+method,ColorImageCacheSlot,ColorImageCacheSlot,,,,method2991,processClientTick,ColorImageCacheSlot,module,high,approved,
+method,ConfigArchive,ConfigArchive,,,,method868,getRotatedOffset,ConfigArchive,module,high,approved,
+method,ConfigArchive,ConfigArchive,,,,method869,clearStaticState,ConfigArchive,module,high,approved,
+method,FileCache,FileCache,,,,method1464,findOrCreateCacheFile,FileCache,module,high,approved,
+method,FileCache,FileCache,,,,method1465,initializeCacheLocation,FileCache,module,high,approved,
+method,FileCache,FileCache,,,,method1466,getCacheFile,FileCache,module,high,approved,
+method,GroundItemPileCache,GroundItemPileCache,,,,method3458,clearStaticState,GroundItemPileCache,module,high,approved,
+method,GroundItemPileCache,GroundItemPileCache,,,,method3459,insertGroundItemSorted,GroundItemPileCache,module,high,approved,
+field,HardReferenceCacheEntry,HardReferenceCacheEntry,,,,anObject10440,value,HardReferenceCacheEntry,module,high,approved,
+method,HardReferenceCacheEntry,HardReferenceCacheEntry,,,,method3205,getValue,HardReferenceCacheEntry,module,high,approved,
+method,HardReferenceCacheEntry,HardReferenceCacheEntry,,,,method3206,isSoftReference,HardReferenceCacheEntry,module,high,approved,
+method,HardReferenceCacheEntry,HardReferenceCacheEntry,,,,method3207,clearStaticState,HardReferenceCacheEntry,module,high,approved,
+method,HardReferenceCacheEntry,HardReferenceCacheEntry,,,,method3208,applyQueuedAnimationStep,HardReferenceCacheEntry,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1427,getFullImage,IntImageCache,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1428,clearUiFontStatics,IntImageCache,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1429,pushGameMessage,IntImageCache,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1430,drawActorHintIcon,IntImageCache,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1431,clearImageCacheStatics,IntImageCache,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1432,clear,IntImageCache,module,high,approved,
+method,IntImageCache,IntImageCache,,,,method1433,get,IntImageCache,module,high,approved,
+field,Js5Archive,Js5Archive,,,,aBoolean655,discardPacked,Js5Archive,module,high,approved,Whether packed group payloads are discarded after unpack
+field,Js5Archive,Js5Archive,,,,aClass291_629,index,Js5Archive,module,high,approved,Archive index metadata
+field,Js5Archive,Js5Archive,,,,aClass314_659,provider,Js5Archive,module,high,approved,Archive data provider
+field,Js5Archive,Js5Archive,,,,anInt634,discardUnpackedMode,Js5Archive,module,high,approved,Unpacked file discard policy (0/1/2)
+field,Js5Archive,Js5Archive,,,,anObjectArray656,packedGroups,Js5Archive,module,high,approved,Per-group packed payload cache
+field,Js5Archive,Js5Archive,,,,anObjectArrayArray664,unpackedFiles,Js5Archive,module,high,approved,Per-group unpacked file cache
+local,Js5Archive,Js5Archive,,,,class45,js5ArchiveVar,Js5Archive,module,high,approved,
+local,Js5Archive,Js5Archive,,,,class45s,js5ArchiveVars,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method389,getIndexCrc,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method390,clearStaticState,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method391,getFileByName,Js5Archive,module,high,approved,"Read file bytes by (groupName,fileName)"
+method,Js5Archive,Js5Archive,,,,method392,isValidGroupId,Js5Archive,module,high,approved,Validate group id exists and has files
+method,Js5Archive,Js5Archive,,,,method393,getFileWithXtea,Js5Archive,module,high,approved,"Read file bytes by (groupId,fileId,xtea)"
+method,Js5Archive,Js5Archive,,,,method394,unpackGroup,Js5Archive,module,high,approved,Inflate/deinterleave packed group into file slots
+method,Js5Archive,Js5Archive,,,,method395,applyToolkitCanvasOffset,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method396,getGroupFileIds,Js5Archive,module,high,approved,File ids for a group
+method,Js5Archive,Js5Archive,,,,method397,getNamedGroupLoadPercent,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method398,getOverallLoadPercent,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method399,ensureIndexLoaded,Js5Archive,module,high,approved,Lazily load archive index metadata
+method,Js5Archive,Js5Archive,,,,method400,hasGroupName,Js5Archive,module,high,approved,Validate group name exists in index
+method,Js5Archive,Js5Archive,,,,method401,areAllGroupsLoaded,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method402,requestGroup,Js5Archive,module,high,approved,Request provider prefetch for group id
+method,Js5Archive,Js5Archive,,,,method403,isNamedFileLoadedInternal,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method404,discardNameLookupTables,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method405,clearPackedGroups,Js5Archive,module,high,approved,Drop packed group cache
+method,Js5Archive,Js5Archive,,,,method406,loadGroupPackedData,Js5Archive,module,high,approved,Load packed group payload from provider
+method,Js5Archive,Js5Archive,,,,method407,getGroupFileCount,Js5Archive,module,high,approved,Number of files in a group
+method,Js5Archive,Js5Archive,,,,method408,isGroupLoaded,Js5Archive,module,high,approved,Check if group packed payload is loaded
+method,Js5Archive,Js5Archive,,,,method409,requestGroupByName,Js5Archive,module,high,approved,Request provider prefetch for group name
+method,Js5Archive,Js5Archive,,,,method410,getFile,Js5Archive,module,high,approved,"Read file bytes by (groupId,fileId)"
+method,Js5Archive,Js5Archive,,,,method411,clearGroupFiles,Js5Archive,module,high,approved,Drop unpacked files for one group
+method,Js5Archive,Js5Archive,,,,method412,clearAllFiles,Js5Archive,module,high,approved,Drop unpacked files for all groups
+method,Js5Archive,Js5Archive,,,,method413,isGroupLoadedByName,Js5Archive,module,high,approved,Check group availability by name
+method,Js5Archive,Js5Archive,,,,method414,getGroupCapacity,Js5Archive,module,high,approved,Total group slot count from index
+method,Js5Archive,Js5Archive,,,,method415,getFileFlat,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method416,isNamedFileLoadedFlat,Js5Archive,module,high,approved,
+method,Js5Archive,Js5Archive,,,,method417,getGroupId,Js5Archive,module,high,approved,Resolve group id from group name
+method,Js5Archive,Js5Archive,,,,method418,isValidFileId,Js5Archive,module,high,approved,"Validate (group,file) tuple bounds"
+method,Js5Archive,Js5Archive,,,,method419,getGroupLoadPercent,Js5Archive,module,high,approved,Get percent loaded for one group
+method,Js5Archive,Js5Archive,,,,method420,isFileLoaded,Js5Archive,module,high,approved,Check if file is available or can be loaded
+method,Js5Archive,Js5Archive,,,,method421,isFileLoadedFlat,Js5Archive,module,high,approved,Single-group/single-file shortcut load check
+method,Js5Archive,Js5Archive,,,,method422,hasFileName,Js5Archive,module,high,approved,Check if file name exists in a named group
+method,Js5Archive,Js5Archive,,,,method423,getGroupIdByHash,Js5Archive,module,high,approved,Resolve group id from precomputed name hash
+method,Js5ArchiveProvider,Js5ArchiveProvider,,,,method2335,getGroupLoadPercent,Js5ArchiveProvider,module,high,approved,Group load percent from provider state
+method,Js5ArchiveProvider,Js5ArchiveProvider,,,,method2336,removeAmbientSoundForObject,Js5ArchiveProvider,module,high,approved,
+method,Js5ArchiveProvider,Js5ArchiveProvider,,,,method2337,lerp,Js5ArchiveProvider,module,high,approved,
+method,Js5ArchiveProvider,Js5ArchiveProvider,,,,method2338,requestGroup,Js5ArchiveProvider,module,high,approved,Queue/request group fetch
+method,Js5ArchiveProvider,Js5ArchiveProvider,,,,method2339,fetchGroup,Js5ArchiveProvider,module,high,approved,Fetch group bytes (if available)
+method,Js5ArchiveProvider,Js5ArchiveProvider,,,,method2340,getIndex,Js5ArchiveProvider,module,high,approved,Load/return js5 index
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aBoolean6368,syncPriorityMode,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aBoolean6371,syncNormalMode,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aBoolean6375,staleCheckEnabled,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aByteArray6346,indexDigest,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aByteArray6351,groupStatus,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass112_6354,archiveActionHandler,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass137_6364,masterIndexArchiveDisk,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass137_6365,groupArchiveDisk,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass248_6347,netQueue,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass262_6369,pendingGroupRequests,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass262_6372,syncQueue,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass291_6342,index,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass348_Sub42_Sub16_6355,indexRequest,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aClass356_6360,groupOperations,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,aLong6374,nextStaleCheckAt,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,anInt6344,indexCrc,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,anInt6350,archiveId,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,anInt6352,expectedIndexVersion,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,anInt6361,loadedGroupCount,Js5ArchiveProviderImpl,module,high,approved,
+field,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,anInt6373,syncGroupCursor,Js5ArchiveProviderImpl,module,high,approved,
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2335,getGroupLoadPercent,Js5ArchiveProviderImpl,module,high,approved,Implementation of group load progress query
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2338,requestGroup,Js5ArchiveProviderImpl,module,high,approved,Queue group id for local/network processing
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2339,fetchGroup,Js5ArchiveProviderImpl,module,high,approved,Fetch group bytes via request state machine
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2340,getIndex,Js5ArchiveProviderImpl,module,high,approved,Load/return archive index metadata
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2341,getSyncProgressValue,Js5ArchiveProviderImpl,module,high,approved,Current sync progress cursor/value
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2342,processQueuedGroupRequests,Js5ArchiveProviderImpl,module,high,approved,Process explicit queued group ids against current index state
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2343,processSyncPass,Js5ArchiveProviderImpl,module,high,approved,Advance local/remote sync pass and prune stale operations
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2344,clearStaticState,Js5ArchiveProviderImpl,module,high,approved,
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2345,getTotalGroupCount,Js5ArchiveProviderImpl,module,high,approved,Total group count from loaded index
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2346,enableRemoteSync,Js5ArchiveProviderImpl,module,high,approved,Enable remote sync pass for archive groups
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2347,getActiveMenuTargetText,Js5ArchiveProviderImpl,module,high,approved,
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2348,chooseAutoDetailTier,Js5ArchiveProviderImpl,module,high,approved,
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2349,getIndexLoadPercent,Js5ArchiveProviderImpl,module,high,approved,Index load progress (0-100)
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2350,getOrCreateGroupOperation,Js5ArchiveProviderImpl,module,high,approved,Resolve/create operation for group (disk/local/network)
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2351,getLoadedGroupCount,Js5ArchiveProviderImpl,module,high,approved,Count of groups currently marked loaded/verified
+method,Js5ArchiveProviderImpl,Js5ArchiveProviderImpl,,,,method2352,hasFlag16,Js5ArchiveProviderImpl,module,high,approved,
+method,Js5Index,Js5Index,,,,method2198,adjustHslLightness,Js5Index,module,high,approved,
+method,Js5Index,Js5Index,,,,method2199,clearStaticState,Js5Index,module,high,approved,
+method,Js5Index,Js5Index,,,,method2200,decodeIndexData,Js5Index,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aBigInteger4213,rsaExponent,Js5MasterIndex,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aBigInteger4218,rsaModulus,Js5MasterIndex,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aClass112_4217,archiveActionHandler,Js5MasterIndex,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aClass248_4212,netQueue,Js5MasterIndex,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aClass314_Sub1Array4216,archiveProviders,Js5MasterIndex,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aClass348_Sub42_Sub16_Sub1_4220,masterIndexRequest,Js5MasterIndex,module,high,approved,
+field,Js5MasterIndex,Js5MasterIndex,,,,aClass348_Sub49_4215,masterIndexBuffer,Js5MasterIndex,module,high,approved,
+method,Js5MasterIndex,Js5MasterIndex,,,,method2670,updateProviders,Js5MasterIndex,module,high,approved,Advance local/remote group sync state across providers
+method,Js5MasterIndex,Js5MasterIndex,,,,method2671,clearStaticState,Js5MasterIndex,module,high,approved,
+method,Js5MasterIndex,Js5MasterIndex,,,,method2672,isLoginProtocolState7to9,Js5MasterIndex,module,high,approved,
+method,Js5MasterIndex,Js5MasterIndex,,,,method2673,getArchiveProvider,Js5MasterIndex,module,high,approved,Get or create provider for archive id
+method,Js5MasterIndex,Js5MasterIndex,,,,method2674,ensureLoaded,Js5MasterIndex,module,high,approved,Load/verify master index payload and initialize providers array
+method,Js5MasterIndex,Js5MasterIndex,,,,method2675,getOrCreateArchiveProvider,Js5MasterIndex,module,high,approved,Internal provider construction path
+field,Js5NetQueue,Js5NetQueue,,,,aByte3212,xorKey,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass107_3197,priorityPendingRequests,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass107_3204,priorityInFlightRequests,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass107_3205,normalPendingRequests,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass107_3206,normalInFlightRequests,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass202_3209,socket,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass348_Sub42_Sub16_Sub1_3215,activeResponse,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass348_Sub49_3208,outboundHeaderBuffer,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aClass348_Sub49_3211,inboundHeaderBuffer,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,aLong3207,lastIoTimeMillis,Js5NetQueue,module,high,approved,
+field,Js5NetQueue,Js5NetQueue,,,,anInt3210,idleTimeMillis,Js5NetQueue,module,high,approved,
+method,Js5NetQueue,Js5NetQueue,,,,method1892,sendLoginState,Js5NetQueue,module,high,approved,Send login state/control packet
+method,Js5NetQueue,Js5NetQueue,,,,method1893,processIo,Js5NetQueue,module,high,approved,Pump js5 network I/O
+method,Js5NetQueue,Js5NetQueue,,,,method1894,getNormalRequestCount,Js5NetQueue,module,high,approved,Count of queued/inflight normal requests
+method,Js5NetQueue,Js5NetQueue,,,,method1895,subtractByteRows,Js5NetQueue,module,high,approved,
+method,Js5NetQueue,Js5NetQueue,,,,method1896,sendConnectionPing,Js5NetQueue,module,high,approved,
+method,Js5NetQueue,Js5NetQueue,,,,method1897,clearStaticState,Js5NetQueue,module,high,approved,
+method,Js5NetQueue,Js5NetQueue,,,,method1898,replaceSocketStreamsWithNoop,Js5NetQueue,module,high,approved,
+method,Js5NetQueue,Js5NetQueue,,,,method1899,isNormalRequestQueueFull,Js5NetQueue,module,high,approved,Whether normal queue reached capacity
+method,Js5NetQueue,Js5NetQueue,,,,method1900,isPriorityRequestQueueFull,Js5NetQueue,module,high,approved,Whether priority queue reached capacity
+method,Js5NetQueue,Js5NetQueue,,,,method1901,closeSocket,Js5NetQueue,module,high,approved,Close active socket if present
+method,Js5NetQueue,Js5NetQueue,,,,method1902,getPriorityRequestCount,Js5NetQueue,module,high,approved,Count of queued/inflight priority requests
+method,Js5NetQueue,Js5NetQueue,,,,method1903,setSocket,Js5NetQueue,module,high,approved,Bind/reset socket and replay pending requests
+method,Js5NetQueue,Js5NetQueue,,,,method1904,resetConnection,Js5NetQueue,module,high,approved,Drop socket and rotate xor key after failure
+method,Js5NetQueue,Js5NetQueue,,,,method1905,sendOpcode7,Js5NetQueue,module,high,approved,
+method,Js5NetQueue,Js5NetQueue,,,,method1906,request,Js5NetQueue,module,high,approved,Create and enqueue a js5 request
+method,Js5ResourceProviders,Js5ResourceProviders,,,,method225,clearStaticState,Js5ResourceProviders,module,high,approved,
+method,Js5ResourceProviders,Js5ResourceProviders,,,,method226,markDirtyRectangles,Js5ResourceProviders,module,high,approved,
+method,Js5ResourceProviders,Js5ResourceProviders,,,,method227,queueSceneNodeForRender,Js5ResourceProviders,module,high,approved,
+field,LruHashTable,LruHashTable,,,,aClass107_3889,lruList,LruHashTable,module,high,approved,LRU list (most-recent at head)
+field,LruHashTable,LruHashTable,,,,aClass356_3888,table,LruHashTable,module,high,approved,Backing hash table
+field,LruHashTable,LruHashTable,,,,anInt3890,capacity,LruHashTable,module,high,approved,Max entries
+field,LruHashTable,LruHashTable,,,,anInt3891,remaining,LruHashTable,module,high,approved,Remaining entry slots
+method,LruHashTable,LruHashTable,,,,method2302,get,LruHashTable,module,high,approved,Lookup node by key and promote
+method,LruHashTable,LruHashTable,,,,method2303,clear,LruHashTable,module,high,approved,Clear table and LRU state
+method,LruHashTable,LruHashTable,,,,method2304,remove,LruHashTable,module,high,approved,Remove node by key
+method,LruHashTable,LruHashTable,,,,method2305,put,LruHashTable,module,high,approved,Insert node by key with LRU eviction
+method,LruHashTable,LruHashTable,,,,method2306,clearStaticState,LruHashTable,module,high,approved,
+method,MonochromeImageCacheSlot,MonochromeImageCacheSlot,,,,method2768,clearStaticState,MonochromeImageCacheSlot,module,high,approved,
+method,MonochromeImageCacheSlot,MonochromeImageCacheSlot,,,,method2769,tryLoadNativeLibrary,MonochromeImageCacheSlot,module,high,approved,
+method,MonochromeImageCacheSlot,MonochromeImageCacheSlot,,,,method2770,initializeColorLut,MonochromeImageCacheSlot,module,high,approved,
+field,ReferenceCache,ReferenceCache,,,,aClass107_2316,lruList,ReferenceCache,module,high,approved,LRU list (most-recent at head)
+field,ReferenceCache,ReferenceCache,,,,aClass356_2312,table,ReferenceCache,module,high,approved,Backing hash table
+field,ReferenceCache,ReferenceCache,,,,anInt2311,remaining,ReferenceCache,module,high,approved,Remaining weight
+field,ReferenceCache,ReferenceCache,,,,anInt2324,capacity,ReferenceCache,module,high,approved,Max weight
+method,ReferenceCache,ReferenceCache,,,,method1338,removeByKey,ReferenceCache,module,high,approved,Remove entry matching CacheKey
+method,ReferenceCache,ReferenceCache,,,,method1339,getCapacity,ReferenceCache,module,high,approved,Configured cache capacity
+method,ReferenceCache,ReferenceCache,,,,method1340,get,ReferenceCache,module,high,approved,Lookup by CacheKey and promote
+method,ReferenceCache,ReferenceCache,,,,method1341,putSized,ReferenceCache,module,high,approved,Put with explicit entry size
+method,ReferenceCache,ReferenceCache,,,,method1342,removeEntry,ReferenceCache,module,high,approved,Remove entry and restore capacity
+method,ReferenceCache,ReferenceCache,,,,method1343,setActiveScriptWidgetContext,ReferenceCache,module,high,approved,
+method,ReferenceCache,ReferenceCache,,,,method1344,removeSoftEntries,ReferenceCache,module,high,approved,Purge soft reference entries
+method,ReferenceCache,ReferenceCache,,,,method1345,clear,ReferenceCache,module,high,approved,Clear cache contents
+method,ReferenceCache,ReferenceCache,,,,method1346,demoteAgedEntries,ReferenceCache,module,high,approved,Demote aged hard entries to soft refs
+method,ReferenceCache,ReferenceCache,,,,method1347,buildRotationScaleMatrix3x3,ReferenceCache,module,high,approved,
+method,ReferenceCache,ReferenceCache,,,,method1348,put,ReferenceCache,module,high,approved,Put with unit size
+method,ReferenceCache,ReferenceCache,,,,method1349,clearStaticState,ReferenceCache,module,high,approved,
+method,ReferenceCache,ReferenceCache,,,,method1350,getRemainingCapacity,ReferenceCache,module,high,approved,Remaining free capacity
+field,ReferenceCacheEntry,ReferenceCacheEntry,,,,anInt9556,size,ReferenceCacheEntry,module,high,approved,
+field,ReferenceCacheEntry,ReferenceCacheEntry,,,,anInterface14_9559,cacheKey,ReferenceCacheEntry,module,high,approved,
+method,ReferenceCacheEntry,ReferenceCacheEntry,,,,method3203,hasBit16Flag,ReferenceCacheEntry,module,high,approved,
+method,ReferenceCacheEntry,ReferenceCacheEntry,,,,method3204,clearStaticState,ReferenceCacheEntry,module,high,approved,
+method,ReferenceCacheEntry,ReferenceCacheEntry,,,,method3205,getValue,ReferenceCacheEntry,module,high,approved,
+method,ReferenceCacheEntry,ReferenceCacheEntry,,,,method3206,isSoftReference,ReferenceCacheEntry,module,high,approved,
+method,ReferenceCacheEntryConverter,ReferenceCacheEntryConverter,,,,method2693,clearStaticState,ReferenceCacheEntryConverter,module,high,approved,
+method,ReferenceCacheEntryConverter,ReferenceCacheEntryConverter,,,,method2694,convertEntry,ReferenceCacheEntryConverter,module,high,approved,
+field,,ReferenceNode,,,,anInt9545,size,ReferenceNode,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2307,pathfindToSceneTag,ResourceDownloadTask,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2308,isObjectActionOpcode,ResourceDownloadTask,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2309,copyBytes,ResourceDownloadTask,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2310,clearStaticState,ResourceDownloadTask,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2311,queueType16StateChange,ResourceDownloadTask,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2312,renderWorldMapElementMarkers,ResourceDownloadTask,module,high,approved,
+method,ResourceDownloadTask,ResourceDownloadTask,,,,method2313,isComplete,ResourceDownloadTask,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2024,getState,ResourceSlot,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2025,setTask,ResourceSlot,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2026,clearStaticState,ResourceSlot,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2027,getTask,ResourceSlot,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2028,drawMapSceneSprite,ResourceSlot,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2029,values,ResourceSlot,module,high,approved,
+method,ResourceSlot,ResourceSlot,,,,method2030,setState,ResourceSlot,module,high,approved,
+field,SoftLruCache,SoftLruCache,,,,aClass107_1089,lruList,SoftLruCache,module,high,approved,LRU list (most-recent at head)
+field,SoftLruCache,SoftLruCache,,,,aClass356_1100,table,SoftLruCache,module,high,approved,Backing hash table
+field,SoftLruCache,SoftLruCache,,,,anInt1084,capacity,SoftLruCache,module,high,approved,Max weight
+field,SoftLruCache,SoftLruCache,,,,anInt1086,remaining,SoftLruCache,module,high,approved,Remaining weight
+method,SoftLruCache,SoftLruCache,,,,method575,countHardEntries,SoftLruCache,module,high,approved,Count non-soft entries
+method,SoftLruCache,SoftLruCache,,,,method576,isType2Or3,SoftLruCache,module,high,approved,
+method,SoftLruCache,SoftLruCache,,,,method577,getCapacity,SoftLruCache,module,high,approved,Configured cache capacity units
+method,SoftLruCache,SoftLruCache,,,,method578,demoteAgedEntries,SoftLruCache,module,high,approved,Convert aged hard refs to soft refs
+method,SoftLruCache,SoftLruCache,,,,method579,getAny,SoftLruCache,module,high,approved,Get any live cached value (cleanup stale)
+method,SoftLruCache,SoftLruCache,,,,method580,putSized,SoftLruCache,module,high,approved,Insert value with explicit size cost
+method,SoftLruCache,SoftLruCache,,,,method581,getRemainingCapacity,SoftLruCache,module,high,approved,Remaining free capacity units
+method,SoftLruCache,SoftLruCache,,,,method582,put,SoftLruCache,module,high,approved,Insert value with unit cost
+method,SoftLruCache,SoftLruCache,,,,method583,get,SoftLruCache,module,high,approved,Lookup by key and promote in LRU order
+method,SoftLruCache,SoftLruCache,,,,method584,clearStaticState,SoftLruCache,module,high,approved,
+method,SoftLruCache,SoftLruCache,,,,method585,removeNode,SoftLruCache,module,high,approved,Remove node and restore capacity
+method,SoftLruCache,SoftLruCache,,,,method586,remove,SoftLruCache,module,high,approved,Remove entry by key
+method,SoftLruCache,SoftLruCache,,,,method587,removeClearedSoftEntries,SoftLruCache,module,high,approved,Purge soft refs cleared by GC
+method,SoftLruCache,SoftLruCache,,,,method588,getAnyFromStart,SoftLruCache,module,high,approved,Get first live value from table iteration
+method,SoftLruCache,SoftLruCache,,,,method589,shouldRenderWorldMapElement,SoftLruCache,module,high,approved,
+method,SoftLruCache,SoftLruCache,,,,method590,clear,SoftLruCache,module,high,approved,Clear all entries and reset capacity
+field,SoftReferenceCacheEntry,SoftReferenceCacheEntry,,,,aSoftReference10446,softValueRef,SoftReferenceCacheEntry,module,high,approved,
+method,SoftReferenceCacheEntry,SoftReferenceCacheEntry,,,,method3205,getValue,SoftReferenceCacheEntry,module,high,approved,
+method,SoftReferenceCacheEntry,SoftReferenceCacheEntry,,,,method3206,isSoftReference,SoftReferenceCacheEntry,module,high,approved,
+method,SoftReferenceCacheEntryConverter,SoftReferenceCacheEntryConverter,,,,method2694,convertEntry,SoftReferenceCacheEntryConverter,module,high,approved,

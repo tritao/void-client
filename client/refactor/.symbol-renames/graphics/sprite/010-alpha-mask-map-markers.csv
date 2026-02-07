@@ -1,4 +1,0 @@
-# AlphaMask: shared world-map marker iterator used by marker queries.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-AlphaMask,field,AlphaMask,,,,aClass312_9716,worldMapMarkerIterator,,,,"Reusable iterator over WorldMap marker deque"
-

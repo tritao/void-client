@@ -1,6 +1,0 @@
-# ContextMenuLayout and WidgetDragHandler typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ContextMenuLayout,local,ContextMenuLayout,,,,class63,contextMenuLayoutVar,,,"ContextMenuLayout typed variable"
-ContextMenuLayout,local,ContextMenuLayout,,,,class63s,contextMenuLayoutVars,,,"ContextMenuLayout[] typed variable"
-WidgetDragHandler,local,WidgetDragHandler,,,,class347,widgetDragHandlerVar,,,"WidgetDragHandler typed variable"
-WidgetDragHandler,local,WidgetDragHandler,,,,class347s,widgetDragHandlerVars,,,"WidgetDragHandler[] typed variable"

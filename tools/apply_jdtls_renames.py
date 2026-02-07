@@ -640,7 +640,7 @@ def _ensure_eclipse_project(root: Path, *, src_dir: Path, lib_jars: list[Path], 
 
 def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--csv", type=Path, default=Path("client/refactor/classes.csv"))
+    ap.add_argument("--csv", type=Path, default=Path("client/refactor/.refactor-plan/generated/classes.csv"))
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"))
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-lsp.md"))
     ap.add_argument("--max-renames", type=int, default=20)

@@ -1,9 +1,0 @@
-# ClientTickTiming + ClientGlobals method naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ClientTickTiming,method,ClientTickTiming,,,,method865,demoteImageCacheEntries,,,"Demote aged image-cache entries"
-ClientTickTiming,method,ClientTickTiming,,,,method866,clearStaticState,,,"Clear static references"
-ClientTickTiming,method,ClientTickTiming,,,,method867,resetTickTimingState,,,"Reset timing buffers/counters"
-ClientGlobals,method,ClientGlobals,,,,method1127,clearStaticState,,,"Clear static references"
-ClientGlobals,method,ClientGlobals,,,,method1128,toGlElementType,,,"Maps index element type to GL enum"
-ClientGlobals,method,ClientGlobals,,,,method1129,requestRendererReload,,,"Request renderer resource reload"
-ClientGlobals,method,ClientGlobals,,,,method1130,renderGroundLayerMask,,,"Render or test ground layer alpha mask"

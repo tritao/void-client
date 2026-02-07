@@ -1,0 +1,4 @@
+file,method,phase,status,notes
+collections/reference/SoftReferenceNodeFactory.java,getValue,cleanup,approved,Use no-arg ReferenceNode getter after signature cleanup
+cache/SoftLruCache.java,getValue,cleanup,approved,Use no-arg ReferenceNode getter after signature cleanup
+cache/SoftLruCache.java,isSoft,cleanup,approved,Use no-arg ReferenceNode soft-check after signature cleanup

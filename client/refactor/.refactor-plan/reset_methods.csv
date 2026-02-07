@@ -1,0 +1,3 @@
+owner_class,target_file,reset_method,field_name,reset_value,phase,status,notes
+ClientGlobals,client/ClientGlobals.java,clearModeGame,modeGame,null,cleanup,approved,Owner-local reset for mode game static
+ZoneUpdateType,net/packets/ZoneUpdateType.java,clearZoneUpdateType,InboundPacketDispatcher.zoneUpdateType,null,cleanup,approved,Owner-local reset for zone update type static

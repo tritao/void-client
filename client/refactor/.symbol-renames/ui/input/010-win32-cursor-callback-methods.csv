@@ -1,3 +1,0 @@
-# Win32 cursor callback hook.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Win32CursorCallback,method,Win32CursorCallback,,,,method3623,windowProcHook,,,

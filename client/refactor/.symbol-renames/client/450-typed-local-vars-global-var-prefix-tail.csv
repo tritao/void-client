@@ -1,7 +1,0 @@
-# Tail cleanup for remaining var_* aliases.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-*,local,*,,,,var_hb,hbVar,,,"hb typed variable"
-*,local,*,,,,var_i,safeModeModelVar,,,"SafeModeModel typed variable"
-*,local,*,,,,var_wa,nativeOffscreenSurfaceVar,,,"NativeOffscreenSurface typed variable"
-*,local,*,,,,var_dxVertexLayout,directXVertexLayoutVar,,,"DirectXVertexLayout typed variable"
-*,local,*,,,,var_fda,fdaVar,,,"fda typed variable"

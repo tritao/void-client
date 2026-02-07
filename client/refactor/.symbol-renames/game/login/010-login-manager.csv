@@ -1,7 +1,0 @@
-# Login/session shared player handle.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-LoginManager,field,LoginManager,,,,aPlayer_1907,localPlayer,,,,"Current local player instance"
-LoginManager,field,LoginManager,,,,anInt1905,hitmarkSlotCount,,,,"Global hitmark slot count; default 4"
-LoginManager,field,LoginManager,,,,anInt1910,clipMinY,,,,"Global renderer clip minimum Y bound"
-LoginManager,field,LoginManager,,,,anIntArray1909,offscreenFrameIds,,,,"Per-surface frame id cache for redraw invalidation"
-LoginManager,field,LoginManager,,,,anInt1908,loginRequestCount,,,,"Counter incremented for each login request attempt"

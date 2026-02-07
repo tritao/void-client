@@ -1,7 +1,0 @@
-# GfxTypeList archive/cache fields.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-GfxTypeList,field,GfxTypeList,,,,aClass45_3979,configArchive,,,,"Archive containing gfx type definitions"
-GfxTypeList,field,GfxTypeList,,,,aClass45_3981,modelArchive,,,,"Archive containing referenced model data"
-GfxTypeList,field,GfxTypeList,,,,aClass60_3989,typeCache,,,,"GfxType definition cache"
-GfxTypeList,field,GfxTypeList,,,,aClass60_3990,modelCache,,,,"Built model cache keyed by gfx id + toolkit"
-GfxType,field,GfxType,,,,anInt4501,id,,,,"GfxType id"

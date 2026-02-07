@@ -1,4 +1,0 @@
-# Huffman static helper naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Huffman,method,Huffman,,,,method2224,hasFlag2048,,,"Bit-test helper for 0x800 scene/render flags"
-Huffman,method,Huffman,,,,method2228,updateMusicFadeAndLoading,,,"Per-tick music fade update + loading screen refresh"

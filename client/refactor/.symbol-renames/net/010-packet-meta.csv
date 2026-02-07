@@ -1,7 +1,0 @@
-# Packet metadata fields used at many callsites.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ServerPacket,field,ServerPacket,,,,anInt1747,id,,,,"Server packet opcode id"
-ServerPacket,field,ServerPacket,,,,anInt1749,length,,,,"Server packet payload length"
-ClientPacket,field,ClientPacket,,,,anInt4326,id,,,,"Client packet opcode id"
-ClientPacket,field,ClientPacket,,,,anInt4323,length,,,,"Client packet payload length"
-

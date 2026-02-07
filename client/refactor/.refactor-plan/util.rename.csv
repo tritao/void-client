@@ -1,0 +1,5 @@
+kind,file,owner,member,signature,param_index,old,new,scope,phase,confidence,status,notes
+method,Base37Util,Base37Util,,,,method313,decodeBase37,Base37Util,module,high,approved,
+method,Base37Util,Base37Util,,,,method315,indexOfIgnoreCase,Base37Util,module,high,approved,
+method,Base37Util,Base37Util,,,,method316,clearStaticState,Base37Util,module,high,approved,
+method,Base37Util,Base37Util,,,,method317,addFriendByName,Base37Util,module,high,approved,

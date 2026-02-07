@@ -84,6 +84,23 @@ def _run_apply_class_renames(*, csv_path: Path, src_dir: Path, report: Path) -> 
     subprocess.run(cmd, check=True)
 
 
+def _count_class_mappings(csv_path: Path) -> int:
+    with csv_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames:
+            return 0
+        required = {"src", "dst"}
+        if not required.issubset(set(reader.fieldnames)):
+            return 0
+        count = 0
+        for row in reader:
+            src = (row.get("src") or "").strip()
+            dst = (row.get("dst") or "").strip()
+            if src and dst:
+                count += 1
+        return count
+
+
 def _load_rules(rules_csv: Path) -> list[Rule]:
     if not rules_csv.exists():
         raise SystemExit(f"--rules not found: {rules_csv}")
@@ -166,10 +183,10 @@ def main(argv: list[str]) -> int:
             "Output is idempotent: reruns rewrite dst_dir from scratch."
         )
     )
-    ap.add_argument("--csv", type=Path, default=Path("client/refactor/classes.csv"), help="Rename mapping CSV (src,dst[,score,anchors])")
+    ap.add_argument("--csv", type=Path, default=Path("client/refactor/.refactor-plan/generated/classes.csv"), help="Rename mapping CSV (src,dst[,score,anchors])")
     ap.add_argument("--src-dir", type=Path, default=Path("client/src"), help="Flat directory containing *.java")
     ap.add_argument("--dst-dir", type=Path, default=Path("client/refactor"), help="Output directory (nested)")
-    ap.add_argument("--rules", type=Path, default=Path("client/refactor/layout_rules.csv"), help="Layout rules CSV")
+    ap.add_argument("--rules", type=Path, default=Path("client/refactor/.refactor-plan/layout_rules.csv"), help="Layout rules CSV")
     ap.add_argument("--default-dir", default="_unclassified", help="Fallback folder for files that match no rules")
     ap.add_argument("--work-dir", type=Path, default=Path("build/refactor-layout"), help="Scratch working directory under build/")
     ap.add_argument("--rename-report", type=Path, default=Path("build/refactor-layout-rename-report.md"), help="Rename report output path")
@@ -189,6 +206,12 @@ def main(argv: list[str]) -> int:
         raise SystemExit(f"--csv not found: {csv_path}")
     if not src_dir.exists():
         raise SystemExit(f"--src-dir not found: {src_dir}")
+    class_mappings = _count_class_mappings(csv_path)
+    if class_mappings == 0:
+        raise SystemExit(
+            f"--csv has no class mappings: {csv_path}\n"
+            "Run `make build-refactor-views` and ensure canonical `*.class_rename.csv` inputs exist."
+        )
 
     rules = _load_rules(rules_csv)
 

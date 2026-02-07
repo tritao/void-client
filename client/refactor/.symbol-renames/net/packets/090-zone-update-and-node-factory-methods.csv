@@ -1,8 +1,0 @@
-# Zone-update decoder and packet-node factory helper names.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-ZoneUpdateDecoder,method,ZoneUpdateDecoder,,,,method127,clearStaticState,,,"Clear static zone-update decoder state"
-ZoneUpdateDecoder,method,ZoneUpdateDecoder,,,,method128,decodeZoneUpdate,,,"Decode and apply one zone-update packet payload"
-PacketBufferNodeFactory,method,PacketBufferNodeFactory,,,,method1477,queueStateChange,,,"Queue delayed state change with int payload"
-PacketBufferNodeFactory,method,PacketBufferNodeFactory,,,,method1478,createPacketBufferNode,,,"Create/reuse packet buffer node for outbound packets"
-PacketBufferNodeFactory,method,PacketBufferNodeFactory,,,,method1479,refreshGroundItemPile,,,"Refresh ground-item pile scene node for tile"
-ZoneUpdateType,method,ZoneUpdateType,,,,method744,clearStaticState,,,"Clear static zone-update type state"

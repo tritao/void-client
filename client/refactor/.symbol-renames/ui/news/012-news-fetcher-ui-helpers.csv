@@ -1,4 +1,0 @@
-# NewsFetcher UI helper methods.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-NewsFetcher,method,NewsFetcher,,,,method2665,drawClippedLine,,,
-NewsFetcher,method,NewsFetcher,,,,method2666,setActiveWidgetContext,,,

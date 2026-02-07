@@ -1,7 +1,0 @@
-# High-confidence archive role names for remaining type lists.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-VarcTypeList,field,VarcTypeList,,,,aClass45_3299,archive,,,"Archive for varc type definitions"
-FloorOverlayTypeList,field,FloorOverlayTypeList,,,,aClass45_3442,archive,,,"Archive for floor overlay definitions"
-NpcTypeList,field,NpcTypeList,,,,aClass45_3585,definitionArchive,,,"Archive for npc type definitions"
-NpcTypeList,field,NpcTypeList,,,,aClass45_3576,modelArchive,,,"Archive for npc model data"
-BillboardTypeList,field,BillboardTypeList,,,,aClass45_4785,archive,,,"Archive used by billboard load task"

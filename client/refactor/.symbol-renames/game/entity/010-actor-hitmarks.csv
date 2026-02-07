@@ -1,9 +1,0 @@
-# Actor hitmark storage arrays and slot cursor.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Actor,field,Actor,,,,anIntArray10219,hitmarkExpiryCycles,,,,"Absolute client cycles when each hitmark slot expires"
-Actor,field,Actor,,,,anIntArray10259,hitmarkTypeIds,,,,"Hitmark type id per slot"
-Actor,field,Actor,,,,anIntArray10229,hitmarkValues,,,,"Primary hitmark value per slot"
-Actor,field,Actor,,,,anIntArray10304,hitmarkSecondaryValues,,,,"Secondary hitmark payload per slot"
-Actor,field,Actor,,,,anIntArray10284,hitmarkTertiaryValues,,,,"Tertiary hitmark payload per slot"
-Actor,field,Actor,,,,anIntArray10303,hitmarkDelayCycles,,,,"Delay/offset cycles per hitmark slot"
-Actor,field,Actor,,,,aByte10222,hitmarkNextSlot,,,,"Round-robin cursor for selecting next hitmark slot"

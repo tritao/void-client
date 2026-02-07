@@ -1,6 +1,0 @@
-# IDKTypeList and PlayerModelOverrides typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-IDKTypeList,local,IDKTypeList,,,,class150,idkTypeListVar,,,"IDKTypeList typed variable"
-IDKTypeList,local,IDKTypeList,,,,class150s,idkTypeListVars,,,"IDKTypeList[] typed variable"
-PlayerModelOverrides,local,PlayerModelOverrides,,,,class154,playerModelOverridesVar,,,"PlayerModelOverrides typed variable"
-PlayerModelOverrides,local,PlayerModelOverrides,,,,class154s,playerModelOverridesVars,,,"PlayerModelOverrides[] typed variable"

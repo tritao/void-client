@@ -1,0 +1,11 @@
+file,method,old_param_text,new_param_text,drop_line_contains,phase,status,notes
+collections/reference/ReferenceNode.java,getValue,int i,,,cleanup,approved,ReferenceNode accessor API no-arg signature
+collections/reference/ReferenceNode.java,isSoft,int i,,,cleanup,approved,ReferenceNode soft-check API no-arg signature
+collections/reference/HardReferenceNode.java,isSoft,int i,,"if (i != -4)",cleanup,approved,Drop decompiler guard side-effect line
+collections/reference/HardReferenceNode.java,getValue,int i,,"if (i < 75)",cleanup,approved,Drop recursive decompiler guard line
+collections/reference/SoftReferenceNode.java,isSoft,int i,,"if (i != -4)",cleanup,approved,Drop decompiler guard side-effect line
+collections/reference/SoftReferenceNode.java,getValue,int i,,"if (i <= 75)",cleanup,approved,Drop decompiler guard conditional return
+collections/reference/HardReferenceNode.java,isSoft,,,"isSoftChecks++",cleanup,approved,Drop dead counter increment after counter field removal
+collections/reference/HardReferenceNode.java,getValue,,,"getValueCount++",cleanup,approved,Drop dead counter increment after counter field removal
+collections/reference/ReferenceNodeFactory.java,createSoftReferenceNode,"int i, ReferenceNode referenceNode",ReferenceNode referenceNode,,cleanup,approved,Drop decompiler sentinel arg from abstract factory method
+collections/reference/SoftReferenceNodeFactory.java,createSoftReferenceNode,"int i, ReferenceNode referenceNode",ReferenceNode referenceNode,"if (i != 3) return null;",cleanup,approved,Drop decompiler sentinel arg and guard from concrete factory method

@@ -1,4 +1,0 @@
-# BZip2State typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-BZip2State,local,BZip2State,,,,class40,bzip2State,,,"BZip2State typed variable"
-BZip2State,local,BZip2State,,,,class40s,bzip2States,,,"BZip2State[] typed variable"

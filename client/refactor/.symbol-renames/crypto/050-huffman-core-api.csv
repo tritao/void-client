@@ -1,8 +1,0 @@
-# Huffman core API naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Huffman,field,Huffman,,,,anIntArray3766,codewords,,,"Per-symbol canonical Huffman codewords"
-Huffman,field,Huffman,,,,aByteArray3769,codewordLengths,,,"Per-symbol Huffman codeword bit lengths"
-Huffman,field,Huffman,,,,anIntArray3774,decodeTree,,,"Flattened decode trie used by decompression"
-Huffman,method,Huffman,,,,method2225,clearStaticState,,,"Clear static references"
-Huffman,method,Huffman,,,,method2226,decompress,,,"Decode compressed bytes into plain bytes"
-Huffman,method,Huffman,,,,method2227,compress,,,"Encode plain bytes into compressed bytes"

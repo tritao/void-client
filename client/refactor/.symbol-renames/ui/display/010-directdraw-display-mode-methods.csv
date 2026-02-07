@@ -1,6 +1,0 @@
-# DirectDraw display mode manager methods.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-DirectDrawDisplayModeManager,method,DirectDrawDisplayModeManager,,,,method1144,onEnumDisplayMode,,,
-DirectDrawDisplayModeManager,method,DirectDrawDisplayModeManager,,,,method1145,getAvailableDisplayModes,,,
-DirectDrawDisplayModeManager,method,DirectDrawDisplayModeManager,,,,method1146,enterFullscreenMode,,,
-DirectDrawDisplayModeManager,method,DirectDrawDisplayModeManager,,,,method1147,exitFullscreenMode,,,

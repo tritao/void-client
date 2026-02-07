@@ -1,5 +1,0 @@
-# VarBitType packed var slice definition.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-VarBitType,field,VarBitType,,,,anInt2019,baseVarId,,,,"Backing var id"
-VarBitType,field,VarBitType,,,,anInt2016,startBit,,,,"Least-significant bit index"
-VarBitType,field,VarBitType,,,,anInt2020,endBit,,,,"Most-significant bit index"

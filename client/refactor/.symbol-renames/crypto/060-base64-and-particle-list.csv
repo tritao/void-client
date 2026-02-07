@@ -1,6 +1,0 @@
-# Base64 helper and embedded particle list naming pass.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Base64,field,Base64,,,,aClass88_1569,particleList,,,"Per-system particle linked list container"
-Base64,method,Base64,,,,method877,hasRenderableSceneFlags,,,"Checks scene/model renderability flags"
-Base64,method,Base64,,,,method878,decodeBase64,,,"Decode Base64 string into bytes"
-Base64,method,Base64,,,,method879,clearStaticState,,,"Clear static references"

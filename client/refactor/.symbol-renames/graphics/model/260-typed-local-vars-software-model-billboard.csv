@@ -1,4 +1,0 @@
-# SoftwareModelBillboard typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SoftwareModelBillboard,local,SoftwareModelBillboard,,,,class6,softwareModelBillboardVar,,,"SoftwareModelBillboard typed variable"
-SoftwareModelBillboard,local,SoftwareModelBillboard,,,,class6s,softwareModelBillboardVars,,,"SoftwareModelBillboard[] typed variable"

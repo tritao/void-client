@@ -1,3 +1,0 @@
-# Final high-frequency typed local cleanup for ModelWithShadow alias.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-*,local,*,,,,class2,modelWithShadowVar,,,"ModelWithShadow typed variable"

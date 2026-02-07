@@ -1,5 +1,0 @@
-# LoginManager: orthographic zoom control state.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-LoginManager,field,LoginManager,,,,anInt1911,baseOrthoZoom,,,,"Configured base orthographic zoom (script/debug controlled)"
-LoginManager,field,LoginManager,,,,anInt1906,currentOrthoZoom,,,,"Current orthographic zoom after scene scaling"
-

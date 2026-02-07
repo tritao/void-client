@@ -1,4 +1,0 @@
-# LoginRequestSender typed local/parameter cleanup.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-LoginRequestSender,local,LoginRequestSender,,,,class48,loginRequestSenderVar,,,"LoginRequestSender typed variable"
-LoginRequestSender,local,LoginRequestSender,,,,class48s,loginRequestSenderVars,,,"LoginRequestSender[] typed variable"

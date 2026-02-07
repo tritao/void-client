@@ -1,3 +1,0 @@
-# Global cleanup for high-frequency toolkit alias.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-*,local,*,,,,var_ha,toolkitVar,,,"Toolkit typed variable"

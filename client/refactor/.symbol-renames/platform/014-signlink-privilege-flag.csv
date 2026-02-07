@@ -1,3 +1,0 @@
-# SignLink privilege mode flag.
-file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-SignLink,field,SignLink,,,,aBoolean3777,hasFullPrivileges,,,"Enables privileged platform operations"
