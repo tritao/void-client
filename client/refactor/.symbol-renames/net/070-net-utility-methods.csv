@@ -1,0 +1,14 @@
+# Network utility and handshake/world-list helper methods.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LoginHandshake,method,LoginHandshake,,,,method840,getPendingNodeCount,,,"Count nodes linked in handshake queue"
+LoginHandshake,method,LoginHandshake,,,,method841,values,,,"Return window mode enum values"
+LoginHandshake,method,LoginHandshake,,,,method842,redrawViewportWidgets,,,"Redraw root viewport widgets and overlays"
+LoginHandshake,method,LoginHandshake,,,,method843,processHandshake,,,"Process login handshake socket state machine"
+PacketWriter,method,PacketWriter,,,,method3398,renderSceneGraphLayer,,,"Render scene graph layer with visibility/culling checks"
+PacketWriter,method,PacketWriter,,,,method3401,adjustColorBrightness,,,"Adjust packed color brightness with clamping"
+PacketWriter,method,PacketWriter,,,,method3402,initializeKeyCodeMap,,,"Initialize platform-specific keycode mapping"
+WorldListDecoder,method,WorldListDecoder,,,,method1384,adjustColorBrightness,,,"Adjust packed color brightness with clamping"
+WorldListDecoder,method,WorldListDecoder,,,,method1385,decodeWorldListPayload,,,"Decode world list payload and update entries"
+WorldListDecoder,method,WorldListDecoder,,,,method1386,clearStaticState,,,"Clear static world-list decoder state"
+WorldListDecoder,method,WorldListDecoder,,,,method1387,refreshPendingSpawnMetadata,,,"Refresh pending spawn metadata from scene object"
+WorldListDecoder,method,WorldListDecoder,,,,method1388,drawHorizontalSpanAndSides,,,"Draw span plus side columns on raster grid"
