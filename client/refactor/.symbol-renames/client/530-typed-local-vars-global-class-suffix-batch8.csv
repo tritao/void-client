@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 8).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class143_389_,gameFontMetricsVar389,,,"GameFontMetrics typed variable"
+Global,local,Global,,,,class124_16_,modelDataVar16,,,"ModelData typed variable"
+Global,local,Global,,,,class105_9_,spriteVar9,,,"Sprite typed variable"
+Global,local,Global,,,,class79_1_,npcTypeVar1,,,"NpcType typed variable"
+Global,local,Global,,,,class64_61_,modelVar61,,,"Model typed variable"
+Global,local,Global,,,,class57_5_,clientDisplayModeVar5,,,"ClientDisplayMode typed variable"
+Global,local,Global,,,,class46_1_,widgetVar1,,,"Widget typed variable"
+Global,local,Global,,,,class46_14_,widgetVar14,,,"Widget typed variable"
+Global,local,Global,,,,class41_0_,faceNormalVar0,,,"FaceNormal typed variable"
+Global,local,Global,,,,class348_0_,nodeVar0,,,"Node typed variable"
+Global,local,Global,,,,class324_387_,fontRendererVar387,,,"FontRenderer typed variable"
+Global,local,Global,,,,class284_0_,renderBenchmarkVar0,,,"RenderBenchmark typed variable"
+Global,local,Global,,,,class277_83_,floorOverlayTypeVar83,,,"FloorOverlayType typed variable"
+Global,local,Global,,,,class23_56_,musicPatchNode2Var56,,,"MusicPatchNode2 typed variable"
+Global,local,Global,,,,class23_53_,musicPatchNode2Var53,,,"MusicPatchNode2 typed variable"
