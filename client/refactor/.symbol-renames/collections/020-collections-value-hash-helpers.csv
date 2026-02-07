@@ -1,0 +1,17 @@
+# Collections value/hash helper method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+IntNode,method,IntNode,,,,method3027,updateAudioState,,,"Update audio state depending on client preferences"
+IntNode,method,IntNode,,,,method3028,clearStaticState,,,"Clear static IntNode state"
+StringNode,method,StringNode,,,,method3418,clearStaticByteArrays,,,"Clear static StringNode byte-array storage"
+StringNode,method,StringNode,,,,method3419,clearImageProcessingBuffers,,,"Clear static image-processing scratch buffers"
+StringNode,method,StringNode,,,,method3420,getCurrentTick,,,"Get current engine tick value"
+ShortNode,method,ShortNode,,,,method3003,clearStaticState,,,"Clear static ShortNode state"
+ShortNode,method,ShortNode,,,,method3004,setStepArchiveAndTextureProvider,,,"Set step archive and texture-provider API"
+HashTable,method,HashTable,,,,method3478,clearStaticState,,,"Clear static HashTable state"
+HashTable,method,HashTable,,,,method3479,nextVisibleWorldMapMarker,,,"Iterate to next visible world-map marker"
+HashTableIterator,method,HashTableIterator,,,,method2643,setTileOverlayData,,,"Set tile overlay color/texture/shape data"
+HashTableIterator,method,HashTableIterator,,,,method2645,clearStaticState,,,"Clear static HashTableIterator state"
+IntHashTable,method,IntHashTable,,,,method2363,prepareSceneHeightLoad,,,"Prepare scene-height loading state"
+IntHashTable,method,IntHashTable,,,,method2366,clearStaticState,,,"Clear static IntHashTable state"
+IntHashTable,method,IntHashTable,,,,method2367,formatChatMessageLine,,,"Build formatted chat message display line"
+IntHashTable,method,IntHashTable,,,,method2368,clearCharCountCache,,,"Clear character-count cache"
