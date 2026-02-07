@@ -1,0 +1,17 @@
+# Global typed local/parameter cleanup for remaining runtime aliases (batch 4).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class252,worldMapElementListVar,,,"WorldMapElementList typed variable"
+Global,local,Global,,,,class248,js5NetQueueVar,,,"Js5NetQueue typed variable"
+Global,local,Global,,,,class163,audioResamplerVar,,,"AudioResampler typed variable"
+Global,local,Global,,,,class130,clientGlobalsVar,,,"ClientGlobals typed variable"
+Global,local,Global,,,,class112,archiveDiskActionHandlerVar,,,"ArchiveDiskActionHandler typed variable"
+Global,local,Global,,,,class77,isaacCipherVar,,,"IsaacCipher typed variable"
+Global,local,Global,,,,class305,skyBoxVar,,,"SkyBox typed variable"
+Global,local,Global,,,,class296,huffmanVar,,,"Huffman typed variable"
+Global,local,Global,,,,class295,tileRotation8x8Var,,,"TileRotation8x8 typed variable"
+Global,local,Global,,,,class25,skyBoxSphereTypeListVar,,,"SkyBoxSphereTypeList typed variable"
+Global,local,Global,,,,class239,clientPreferenceVar,,,"ClientPreference typed variable"
+Global,local,Global,,,,class188,openGLNormalMapGeneratorVar,,,"OpenGLNormalMapGenerator typed variable"
+Global,local,Global,,,,class179,stringArrayBuilderVar,,,"StringArrayBuilder typed variable"
+Global,local,Global,,,,class106,loadingScreenElementFactoryVar,,,"LoadingScreenElementFactory typed variable"
+Global,local,Global,,,,class351,clientPacketVar,,,"ClientPacket typed variable"
