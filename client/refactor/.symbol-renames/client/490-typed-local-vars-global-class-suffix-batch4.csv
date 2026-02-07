@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 4).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class46_251_,widgetVar251,,,"Widget typed variable"
+Global,local,Global,,,,class46_0_,widgetVar0,,,"Widget typed variable"
+Global,local,Global,,,,class45_4_,js5ArchiveVar4,,,"Js5Archive typed variable"
+Global,local,Global,,,,class277_25_,floorOverlayTypeVar25,,,"FloorOverlayType typed variable"
+Global,local,Global,,,,class277_20_,floorOverlayTypeVar20,,,"FloorOverlayType typed variable"
+Global,local,Global,,,,class277_15_,floorOverlayTypeVar15,,,"FloorOverlayType typed variable"
+Global,local,Global,,,,class277_10_,floorOverlayTypeVar10,,,"FloorOverlayType typed variable"
+Global,local,Global,,,,class17_18_,seqTypeVar18,,,"SeqType typed variable"
+Global,local,Global,,,,class126_3_,particleSystemKeyVar3,,,"ParticleSystemKey typed variable"
+Global,local,Global,,,,class48_7_,loginRequestSenderVar7,,,"LoginRequestSender typed variable"
+Global,local,Global,,,,class45_0_,js5ArchiveVar0,,,"Js5Archive typed variable"
+Global,local,Global,,,,class360_596_,softwareVertexNormalAccumulatorVar596,,,"SoftwareVertexNormalAccumulator typed variable"
+Global,local,Global,,,,class360_595_,softwareVertexNormalAccumulatorVar595,,,"SoftwareVertexNormalAccumulator typed variable"
+Global,local,Global,,,,class360_594_,softwareVertexNormalAccumulatorVar594,,,"SoftwareVertexNormalAccumulator typed variable"
+Global,local,Global,,,,class350_3_,modelBillboardTransformVar3,,,"ModelBillboardTransform typed variable"
