@@ -1,0 +1,17 @@
+# Collections deque/list iterator method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+NodeDeque,method,NodeDeque,,,,method1988,moveAllToBackOf,,,"Move all nodes from this deque to the back of target deque"
+NodeDeque,method,NodeDeque,,,,method1989,spliceFromNodeToBackOf,,,"Splice range starting at node into target deque tail"
+LinkDeque,method,LinkDeque,,,,method1869,addLast,,,"Add doubly-linked node to deque tail"
+LinkDeque,method,LinkDeque,,,,method1870,iterateFromBack,,,"Start reverse iteration and return first element"
+LinkDeque,method,LinkDeque,,,,method1871,isEmpty,,,"Check whether deque has no elements"
+LinkDeque,method,LinkDeque,,,,method1872,iterateFromFront,,,"Start forward iteration and return first element"
+LinkDeque,method,LinkDeque,,,,method1874,size,,,"Return node count"
+LinkDeque,method,LinkDeque,,,,method1875,removeFirst,,,"Remove and return first node"
+LinkDeque,method,LinkDeque,,,,method1876,clear,,,"Clear all nodes from deque"
+LinkDeque,method,LinkDeque,,,,method1878,iterateNext,,,"Continue forward iteration"
+DequeIterator,method,DequeIterator,,,,method2327,first,,,"Start iteration and return first node"
+DequeIterator,method,DequeIterator,,,,method2328,setDeque,,,"Set deque to iterate"
+DequeIterator,method,DequeIterator,,,,method2329,next,,,"Return next node in iteration"
+SecondaryLinkedListIterator,method,SecondaryLinkedListIterator,,,,method1240,first,,,"Start secondary-list iteration and return first node"
+SecondaryLinkedListIterator,method,SecondaryLinkedListIterator,,,,method1243,next,,,"Return next secondary-list node in iteration"
