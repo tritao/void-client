@@ -1,0 +1,17 @@
+# Collections reference/world-state helper method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ByteArraySecondaryNode,method,ByteArraySecondaryNode,,,,method3174,fitViewportAndApplyLetterbox,,,"Compute viewport fit and optional letterbox bars"
+ByteArraySecondaryNode,method,ByteArraySecondaryNode,,,,method3175,updateSceneEnvironmentAndPostEffects,,,"Update scene environment and post-effects"
+ByteArraySecondaryNode,method,ByteArraySecondaryNode,,,,method3176,clearStaticState,,,"Clear static ByteArraySecondaryNode state"
+ByteArraySecondaryNode,method,ByteArraySecondaryNode,,,,method3177,clearWorldMapOverlayState,,,"Clear world-map overlay state and caches"
+ByteArraySecondaryNode,method,ByteArraySecondaryNode,,,,method3178,setGroundResourceArchives,,,"Set archives/resources used for ground systems"
+ByteArraySecondaryNode,method,ByteArraySecondaryNode,,,,method3179,applyRendererPreferenceMode,,,"Apply renderer mode based on client preferences"
+ReferenceNode,method,ReferenceNode,,,,method3196,isLoginState3To6,,,"Check login protocol state range 3..6"
+ReferenceNode,method,ReferenceNode,,,,method3197,isLoginState7Or9,,,"Check login protocol state values 7 or 9"
+ReferenceNode,method,ReferenceNode,,,,method3198,resetClientWorldState,,,"Reset client world state and local player context"
+ReferenceNode,method,ReferenceNode,,,,method3199,clearStaticState,,,"Clear static ReferenceNode state"
+HardReferenceNode,method,HardReferenceNode,,,,method3200,hasRenderableSceneFlags,,,"Check render/scene flags for visibility tests"
+HardReferenceNode,method,HardReferenceNode,,,,method3202,clearStaticState,,,"Clear static HardReferenceNode state"
+ReferenceNodeFactory,method,ReferenceNodeFactory,,,,method1885,computeProjectedUv,,,"Compute projected UV coordinates from transform"
+ReferenceNodeFactory,method,ReferenceNodeFactory,,,,method1887,hasCompositeRenderFlags,,,"Check composite render-flag conditions"
+SecondaryLinkedListIterator,method,SecondaryLinkedListIterator,,,,method1238,hasBit0x800,,,"Check whether bit 0x800 is set"
