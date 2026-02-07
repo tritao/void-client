@@ -1,0 +1,10 @@
+# Ping requester/request and socket factory method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+PingRequester,method,PingRequester,,,,method1300,clearStaticState,,,"Clear static PingRequester state"
+PingRequester,method,PingRequester,,,,method1302,requestPing,,,"Enqueue ping request for host"
+PingRequester,method,PingRequester,,,,method1303,shutdown,,,"Stop requester thread"
+PingRequester,method,PingRequester,,,,method1304,enqueue,,,"Enqueue node for requester thread processing"
+PingRequest,method,PingRequest,,,,method2998,clearStaticState,,,"Clear static PingRequest state"
+SocketFactory,method,SocketFactory,,,,method2047,openDirectSocket,,,"Open raw socket to configured host/port"
+SocketFactory,method,SocketFactory,,,,method2048,clearStaticState,,,"Clear static SocketFactory state"
+SocketFactory,method,SocketFactory,,,,method2050,openSocket,,,"Open socket using factory-specific strategy"
