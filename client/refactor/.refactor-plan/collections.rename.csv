@@ -269,3 +269,6 @@ method,StringNode,StringNode,,,,method3419,clearImageProcessingBuffers,StringNod
 method,StringNode,StringNode,,,,method3420,getCurrentTick,StringNode,module,high,approved,
 local,Widget,Widget,,,,class46,widget,Widget,module,high,approved,
 local,Widget,Widget,,,,class46s,widgets,Widget,module,high,approved,
+field,IntNode,IntNode,,,,anInt6975,updateAudioStateCallCount,IntNode,module,high,approved,Counter incremented by updateAudioState
+field,StringNode,StringNode,,,,anInt7210,clearImageProcessingBuffersCallCount,StringNode,module,high,approved,Counter incremented by clearImageProcessingBuffers
+field,StringNode,StringNode,,,,anInt7214,getCurrentTickCallCount,StringNode,module,high,approved,Counter incremented by getCurrentTick
