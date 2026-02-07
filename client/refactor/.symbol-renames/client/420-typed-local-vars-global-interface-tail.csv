@@ -1,0 +1,4 @@
+# Final interface### alias cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,interface19,disposableResourceVar,,,"DisposableResource typed variable"
+Global,local,Global,,,,interface15,scriptVarFormatterVar,,,"ScriptVarFormatter typed variable"
