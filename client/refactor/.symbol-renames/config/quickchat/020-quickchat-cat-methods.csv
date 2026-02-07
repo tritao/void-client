@@ -1,0 +1,10 @@
+# QuickChatCatType and QuickChatCatTypeList method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+QuickChatCatType,method,QuickChatCatType,,,,method3220,clearStaticState,,,"Clear static QuickChatCatType state"
+QuickChatCatType,method,QuickChatCatType,,,,method3221,decode,,,"Decode quickchat category type from buffer"
+QuickChatCatType,method,QuickChatCatType,,,,method3227,decodeOpcode,,,"Decode single quickchat category opcode"
+QuickChatCatType,method,QuickChatCatType,,,,method3224,markGlobalCategory,,,"Mark global category ids with high-bit flag"
+QuickChatCatType,method,QuickChatCatType,,,,method3222,getPhraseIdForHotkey,,,"Resolve phrase id by category hotkey"
+QuickChatCatType,method,QuickChatCatType,,,,method3226,getSubcategoryIdForHotkey,,,"Resolve subcategory id by category hotkey"
+QuickChatCatTypeList,method,QuickChatCatTypeList,,,,method1624,clearStaticState,,,"Clear static QuickChatCatTypeList state"
+QuickChatCatTypeList,method,QuickChatCatTypeList,,,,method1625,get,,,"Get quickchat category type by id"
