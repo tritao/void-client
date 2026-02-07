@@ -1,0 +1,6 @@
+# PlatformUtil and OpenGLTextureMipmapUtil typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+PlatformUtil,local,PlatformUtil,,,,class334,platformUtilVar,,,"PlatformUtil typed variable"
+PlatformUtil,local,PlatformUtil,,,,class334s,platformUtilVars,,,"PlatformUtil[] typed variable"
+OpenGLTextureMipmapUtil,local,OpenGLTextureMipmapUtil,,,,class353,mipmapUtilVar,,,"OpenGLTextureMipmapUtil typed variable"
+OpenGLTextureMipmapUtil,local,OpenGLTextureMipmapUtil,,,,class353s,mipmapUtilVars,,,"OpenGLTextureMipmapUtil[] typed variable"
