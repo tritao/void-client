@@ -1,0 +1,16 @@
+# Cache/loading and Js5Index method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LruHashTable,method,LruHashTable,,,,method2306,clearStaticState,,,"Clear static LruHashTable state"
+ClientCaches,method,ClientCaches,,,,method296,clearStaticState,,,"Clear static client cache globals"
+ClientCaches,method,ClientCaches,,,,method297,clearLoadingScreenOpCache,,,"Clear loading-screen op cache"
+ClientCaches,method,ClientCaches,,,,method298,configureSceneAndLoginState,,,"Apply mode-dependent scene and login state"
+ResourceSlot,method,ResourceSlot,,,,method2028,drawMapSceneSprite,,,"Draw object map-scene sprite onto minimap/map"
+ResourceDownloadTask,method,ResourceDownloadTask,,,,method2307,pathfindToSceneTag,,,"Pathfind toward a scene tag/object interaction"
+ResourceDownloadTask,method,ResourceDownloadTask,,,,method2308,isObjectActionOpcode,,,"Check whether menu opcode is an object action"
+ResourceDownloadTask,method,ResourceDownloadTask,,,,method2309,copyBytes,,,"Clone byte array"
+ResourceDownloadTask,method,ResourceDownloadTask,,,,method2311,queueType16StateChange,,,"Queue delayed state-change type 16"
+ResourceDownloadTask,method,ResourceDownloadTask,,,,method2312,renderWorldMapElementMarkers,,,"Draw/render world map element markers"
+Js5Index,method,Js5Index,,,,method2198,adjustHslLightness,,,"Adjust packed HSL lightness channel"
+Js5Index,method,Js5Index,,,,method2199,clearStaticState,,,"Clear static Js5Index state"
+Js5Index,method,Js5Index,,,,method2200,decodeIndexData,,,"Decode JS5 index/group metadata payload"
+CacheIndexCrcUtil,method,CacheIndexCrcUtil,,,,method1245,normalizeBase37Name,,,"Normalize name through base37 encode/decode"
