@@ -1,0 +1,6 @@
+# TooltipRenderer methods.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+TooltipRenderer,method,TooltipRenderer,,,,method1852,scaleWallDecorOffsets,,,
+TooltipRenderer,method,TooltipRenderer,,,,method1853,clearStaticState,,,
+TooltipRenderer,method,TooltipRenderer,,,,method1854,getPlayerAppearanceValue,,,
+TooltipRenderer,method,TooltipRenderer,,,,method1855,drawTooltipTextLines,,,
