@@ -1,0 +1,4 @@
+# GroundTileModel typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+GroundTileModel,local,GroundTileModel,,,,class145,groundTileModel,,,"GroundTileModel typed variable"
+GroundTileModel,local,GroundTileModel,,,,class145s,groundTileModels,,,"GroundTileModel[] typed variable"
