@@ -1,0 +1,17 @@
+# Global typed local/parameter cleanup for high-frequency, stable aliases.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class230,modeGameVar,,,"ModeGame typed variable"
+Global,local,Global,,,,class297,signLinkVar,,,"SignLink typed variable"
+Global,local,Global,,,,class324,fontRendererVar,,,"FontRenderer typed variable"
+Global,local,Global,,,,class143,fontMetricsVar,,,"GameFontMetrics typed variable"
+Global,local,Global,,,,class138,scriptVarTypeVar,,,"ScriptVarType typed variable"
+Global,local,Global,,,,class261,basTypeListVar,,,"BASTypeList typed variable"
+Global,local,Global,,,,class255,itemTypeListVar,,,"ItemTypeList typed variable"
+Global,local,Global,,,,class278,npcTypeListVar,,,"NpcTypeList typed variable"
+Global,local,Global,,,,class268,floorOverlayTypeListVar,,,"FloorOverlayTypeList typed variable"
+Global,local,Global,,,,class183,floorUnderlayTypeListVar,,,"FloorUnderlayTypeList typed variable"
+Global,local,Global,,,,class153,mapElementTypeListVar,,,"MapElementTypeList typed variable"
+Global,local,Global,,,,class141,mapSceneTypeListVar,,,"MapSceneTypeList typed variable"
+Global,local,Global,,,,class273,clientScriptTriggerVar,,,"ClientScriptTrigger typed variable"
+Global,local,Global,,,,class344,byteArrayCopierVar,,,"AbstractByteArrayCopier typed variable"
+Global,local,Global,,,,class365,rendererInfoVar,,,"RendererInfo typed variable"
