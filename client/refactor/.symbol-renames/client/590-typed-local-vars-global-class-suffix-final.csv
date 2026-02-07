@@ -1,0 +1,10 @@
+# Final cleanup for remaining classNNN_suffix_ aliases.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class299_525_,inboundPacketBufferVar525,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_524_,inboundPacketBufferVar524,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_33_,inboundPacketBufferVar33,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_204_,inboundPacketBufferVar204,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_203_,inboundPacketBufferVar203,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_155_,inboundPacketBufferVar155,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_154_,inboundPacketBufferVar154,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class101_16_,matrixVar16,,,"Matrix typed variable"
