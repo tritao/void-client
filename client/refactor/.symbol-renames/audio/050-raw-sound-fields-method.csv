@@ -1,0 +1,7 @@
+# RawSound field/method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+RawSound,field,RawSound,,,,aByteArray8984,samples,,,"PCM sample byte buffer"
+RawSound,field,RawSound,,,,anInt8985,loopEnd,,,"Loop end sample index"
+RawSound,field,RawSound,,,,anInt8986,loopStart,,,"Loop start sample index"
+RawSound,field,RawSound,,,,anInt8988,sampleRate,,,"Playback sample rate"
+RawSound,method,RawSound,,,,method2944,resample,,,"Resample PCM data and loop points"
