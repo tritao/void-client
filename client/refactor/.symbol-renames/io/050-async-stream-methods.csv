@@ -1,0 +1,10 @@
+# AsyncInputStream and ClientStreamWriter method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+AsyncInputStream,method,AsyncInputStream,,,,method3615,close,,,"Signal shutdown and join reader thread"
+AsyncInputStream,method,AsyncInputStream,,,,method3617,read,,,"Read up to requested bytes from circular input buffer"
+AsyncInputStream,method,AsyncInputStream,,,,method3618,shutdownInput,,,"Replace input stream with no-op/closed sentinel"
+AsyncInputStream,method,AsyncInputStream,,,,method3619,isAvailable,,,"Check whether requested byte count is buffered"
+ClientStreamWriter,method,ClientStreamWriter,,,,method1525,clearStaticState,,,"Clear static ClientStreamWriter state"
+ClientStreamWriter,method,ClientStreamWriter,,,,method1526,close,,,"Signal shutdown and join writer thread"
+ClientStreamWriter,method,ClientStreamWriter,,,,method1527,shutdownOutput,,,"Replace output stream with no-op/closed sentinel"
+ClientStreamWriter,method,ClientStreamWriter,,,,method1528,write,,,"Queue bytes into circular output buffer"
