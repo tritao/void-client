@@ -1,0 +1,16 @@
+# AWT loading-screen reflection and fallback rendering helpers.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2211,loadAppletLoadingAssets,,,"Load loading assets via applet reflection"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2212,getIntFieldValue,,,"Read integer field via reflection"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2213,takeFieldValue,,,"Fetch field value and clear source field"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2214,clearStaticState,,,"Clear static loading-screen references"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2215,getAlignedX,,,"Compute horizontally aligned position"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2216,getBooleanFieldValue,,,"Read boolean field via reflection"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2217,hasAnyFlagBits,,,"Check bitmask overlap for two flag sets"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2218,getAlignedY,,,"Compute vertically aligned position"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method2219,renderFallbackLoadingBar,,,"Render generic fallback loading bar"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method55,getTransitionDuration,,,"Get transition duration in milliseconds"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method56,isReady,,,"Check whether loading screen is ready for display"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method57,onStageChanged,,,"Notification hook for stage changes"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method59,dispose,,,"Dispose loading-screen resources"
+AwtLoadingScreen,method,AwtLoadingScreen,,,,method60,getDisplayedProgress,,,"Return displayed loading progress percentage"
