@@ -1,0 +1,14 @@
+# Js5 provider/master-index/net-queue infrastructure helpers.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2344,clearStaticState,,,"Clear static archive-provider state"
+Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2347,getActiveMenuTargetText,,,"Get active menu/target display text"
+Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2348,chooseAutoDetailTier,,,"Choose automatic detail tier based on benchmark"
+Js5ArchiveProviderImpl,method,Js5ArchiveProviderImpl,,,,method2352,hasFlag16,,,"Check bitmask flag 0x10"
+Js5MasterIndex,method,Js5MasterIndex,,,,method2671,clearStaticState,,,"Clear static master-index state"
+Js5MasterIndex,method,Js5MasterIndex,,,,method2672,isLoginProtocolState7to9,,,"Check whether login protocol state is 7/8/9"
+Js5ResourceProviders,method,Js5ResourceProviders,,,,method225,clearStaticState,,,"Clear static js5-provider arrays"
+Js5ResourceProviders,method,Js5ResourceProviders,,,,method226,markDirtyRectangles,,,"Mark overlapping dirty rectangles"
+Js5ResourceProviders,method,Js5ResourceProviders,,,,method227,queueSceneNodeForRender,,,"Queue scene node into renderer buckets"
+Js5NetQueue,method,Js5NetQueue,,,,method1895,subtractByteRows,,,"Subtract source byte rows from destination buffer"
+Js5NetQueue,method,Js5NetQueue,,,,method1896,sendConnectionPing,,,"Send queue-level ping packet over socket"
+Js5NetQueue,method,Js5NetQueue,,,,method1897,clearStaticState,,,"Clear static js5-net-queue state"
