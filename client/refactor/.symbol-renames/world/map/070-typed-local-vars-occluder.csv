@@ -1,0 +1,4 @@
+# Occluder typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Occluder,local,Occluder,,,,class338,occluderDef,,,"Occluder typed variable"
+Occluder,local,Occluder,,,,class338s,occluderDefs,,,"Occluder[] typed variable"
