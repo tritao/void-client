@@ -1,0 +1,16 @@
+# RawPcmStream core state fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+RawPcmStream,field,RawPcmStream,,,,anInt8975,loopStart,,,"Loop start sample index (copied from RawSound)"
+RawPcmStream,field,RawPcmStream,,,,anInt8982,loopEnd,,,"Loop end sample index (copied from RawSound)"
+RawPcmStream,field,RawPcmStream,,,,anInt8983,samplePosition,,,"Current sample position in 24.8 fixed-point"
+RawPcmStream,field,RawPcmStream,,,,anInt8979,sampleStep,,,"Playback step per output sample (signed)"
+RawPcmStream,field,RawPcmStream,,,,anInt8980,loopsRemaining,,,"Remaining loop count (-1 for infinite)"
+RawPcmStream,field,RawPcmStream,,,,anInt8969,targetVolume,,,"Target stream volume for ramping"
+RawPcmStream,field,RawPcmStream,,,,anInt8976,currentVolume,,,"Current stream volume"
+RawPcmStream,field,RawPcmStream,,,,anInt8977,pan,,,"Pan value used to derive channel gains"
+RawPcmStream,field,RawPcmStream,,,,anInt8970,currentLeftGain,,,"Current left-channel gain"
+RawPcmStream,field,RawPcmStream,,,,anInt8974,currentRightGain,,,"Current right-channel gain"
+RawPcmStream,field,RawPcmStream,,,,anInt8973,volumeStep,,,"Per-sample volume ramp step"
+RawPcmStream,field,RawPcmStream,,,,anInt8971,leftGainStep,,,"Per-sample left gain ramp step"
+RawPcmStream,field,RawPcmStream,,,,anInt8978,rightGainStep,,,"Per-sample right gain ramp step"
+RawPcmStream,field,RawPcmStream,,,,anInt8972,rampStepsRemaining,,,"Remaining samples in current ramp"

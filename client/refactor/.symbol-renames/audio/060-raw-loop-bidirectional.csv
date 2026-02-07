@@ -1,0 +1,4 @@
+# Raw loop direction semantics.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+RawSound,field,RawSound,,,,aBoolean8987,bidirectionalLoop,,,"Ping-pong (bidirectional) loop flag on sample"
+RawPcmStream,field,RawPcmStream,,,,aBoolean8981,bidirectionalLoop,,,"Cached loop direction from RawSound"
