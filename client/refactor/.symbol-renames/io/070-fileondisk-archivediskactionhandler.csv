@@ -1,0 +1,17 @@
+# FileOnDisk + ArchiveDiskActionHandler naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+FileOnDisk,field,FileOnDisk,,,,aRandomAccessFile3036,randomAccessFile,,,"Underlying random-access file handle"
+FileOnDisk,field,FileOnDisk,,,,aLong3037,maxLength,,,"Maximum allowed file length"
+FileOnDisk,field,FileOnDisk,,,,aLong3039,position,,,"Current file pointer position"
+FileOnDisk,field,FileOnDisk,,,,aFile3046,backingFile,,,"Backing file path"
+ArchiveDiskActionHandler,field,ArchiveDiskActionHandler,,,,aClass107_1730,requestQueue,,,"Queue of pending archive disk actions"
+ArchiveDiskActionHandler,field,ArchiveDiskActionHandler,,,,aThread1733,workerThread,,,"Background worker thread"
+ArchiveDiskActionHandler,field,ArchiveDiskActionHandler,,,,anInt1734,pendingRequestCount,,,"Count of queued requests"
+ArchiveDiskActionHandler,field,ArchiveDiskActionHandler,,,,aBoolean1738,shutdownRequested,,,"Signals worker thread shutdown"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1049,enqueueWrite,,,"Queue asynchronous archive write action"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1050,enqueueRequest,,,"Push request into queue and notify worker"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1051,shutdown,,,"Stop worker thread and join"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1052,clearStaticState,,,"Clear static handler state"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1053,getHoveredChatLineId,,,"Resolve hovered chat line id from context menu/chat UI"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1054,enqueueRead,,,"Queue asynchronous archive read action"
+ArchiveDiskActionHandler,method,ArchiveDiskActionHandler,,,,method1055,readOrGetPendingWrite,,,"Return pending write payload or perform synchronous read"
