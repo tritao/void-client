@@ -1,0 +1,6 @@
+# Base37Util method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Base37Util,method,Base37Util,,,,method313,decodeBase37,,,"Decode base-37 long into display name"
+Base37Util,method,Base37Util,,,,method315,indexOfIgnoreCase,,,"Case-insensitive lookup in known string array"
+Base37Util,method,Base37Util,,,,method316,clearStaticState,,,"Clear static references"
+Base37Util,method,Base37Util,,,,method317,addFriendByName,,,"Validate and enqueue add-friend request"
