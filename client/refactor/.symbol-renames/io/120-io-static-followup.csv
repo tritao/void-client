@@ -1,0 +1,7 @@
+# IO/static follow-up naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+AbstractByteArrayCopier,field,AbstractByteArrayCopier,,,,anInt4263,oscillationStep,,,"Signed step used for periodic UI/camera oscillation"
+AbstractByteArrayCopier,field,AbstractByteArrayCopier,,,,anInt4265,sampleY,,,"Temporary sampled Y index used by texture ops"
+FileOnDisk,field,FileOnDisk,,,,aClass138_3044,enumScriptVarType,,,"ScriptVarType used for enum-string formatter dispatch"
+FileOnDisk,field,FileOnDisk,,,,anInt3047,viewportY,,,"Current viewport top Y after letterbox fit"
+GzipDecompressor,field,GzipDecompressor,,,,aFloatArray2075,uvScratchPair,,,"Temporary UV pair scratch array"
