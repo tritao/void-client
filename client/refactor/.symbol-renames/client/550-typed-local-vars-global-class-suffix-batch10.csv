@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 10).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class64_38_,modelVar38,,,"Model typed variable"
+Global,local,Global,,,,class64_35_,modelVar35,,,"Model typed variable"
+Global,local,Global,,,,class51_42_,objectTypeVar42,,,"ObjectType typed variable"
+Global,local,Global,,,,class51_1_,objectTypeVar1,,,"ObjectType typed variable"
+Global,local,Global,,,,class4_113_,animFrameVar113,,,"AnimFrame typed variable"
+Global,local,Global,,,,class46_297_,widgetVar297,,,"Widget typed variable"
+Global,local,Global,,,,class46_294_,widgetVar294,,,"Widget typed variable"
+Global,local,Global,,,,class46_252_,widgetVar252,,,"Widget typed variable"
+Global,local,Global,,,,class45_29_,js5ArchiveVar29,,,"Js5Archive typed variable"
+Global,local,Global,,,,class45_22_,js5ArchiveVar22,,,"Js5Archive typed variable"
+Global,local,Global,,,,class45_17_,js5ArchiveVar17,,,"Js5Archive typed variable"
+Global,local,Global,,,,class45_13_,js5ArchiveVar13,,,"Js5Archive typed variable"
+Global,local,Global,,,,class45_10_,js5ArchiveVar10,,,"Js5Archive typed variable"
+Global,local,Global,,,,class378_19_,directXNativeToolkitVar19,,,"DirectXNativeToolkit typed variable"
+Global,local,Global,,,,class368_93_,gfxTypeVar93,,,"GfxType typed variable"
