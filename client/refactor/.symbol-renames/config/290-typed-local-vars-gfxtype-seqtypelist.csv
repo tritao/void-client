@@ -1,0 +1,6 @@
+# GfxType and SeqTypeList typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+GfxType,local,GfxType,,,,class368,gfxTypeDefVar,,,"GfxType typed variable"
+GfxType,local,GfxType,,,,class368s,gfxTypeDefVars,,,"GfxType[] typed variable"
+SeqTypeList,local,SeqTypeList,,,,class87,seqTypeListVar,,,"SeqTypeList typed variable"
+SeqTypeList,local,SeqTypeList,,,,class87s,seqTypeListVars,,,"SeqTypeList[] typed variable"
