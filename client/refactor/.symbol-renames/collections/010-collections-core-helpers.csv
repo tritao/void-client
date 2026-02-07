@@ -1,0 +1,17 @@
+# Collections core helper method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SecondaryNode,method,SecondaryNode,,,,method3161,clearStaticState,,,"Clear static SecondaryNode state"
+SecondaryNode,method,SecondaryNode,,,,method3163,resetPlayerUpdateTracking,,,"Reset player update tracking buffers"
+DualNode,method,DualNode,,,,method2514,unlinkDual,,,"Unlink dual-node links"
+DoublyLinkedNode,method,DoublyLinkedNode,,,,method2374,clearStaticState,,,"Clear static DoublyLinkedNode state"
+DoublyLinkedNode,method,DoublyLinkedNode,,,,method2375,clearBufferedSocketCache,,,"Clear buffered socket cache"
+DoublyLinkedNodeUtil,method,DoublyLinkedNodeUtil,,,,method1882,clearStaticState,,,"Clear static DoublyLinkedNodeUtil state"
+DoublyLinkedNodeUtil,method,DoublyLinkedNodeUtil,,,,method1883,linkBefore,,,"Insert node before another node in doubly-linked list"
+ReferenceNodeFactory,method,ReferenceNodeFactory,,,,method1886,clearStaticState,,,"Clear static ReferenceNodeFactory state"
+SoftReferenceNodeFactory,method,SoftReferenceNodeFactory,,,,method1888,createSoftReferenceNode,,,"Wrap reference node payload in soft-reference node"
+LinkDeque,method,LinkDeque,,,,method1873,clearStaticState,,,"Clear static LinkDeque state"
+DequeIterator,method,DequeIterator,,,,method2331,clearStaticState,,,"Clear static DequeIterator state"
+DequeIterator,method,DequeIterator,,,,method2332,hasBit0x20,,,"Check whether bit 0x20 is set"
+SecondaryLinkedListIterator,method,SecondaryLinkedListIterator,,,,method1239,clearStaticState,,,"Clear static SecondaryLinkedListIterator state"
+SecondaryLinkedListIterator,method,SecondaryLinkedListIterator,,,,method1242,reportClientError,,,"Report client-side error to telemetry endpoint"
+SecondaryLinkedNodeUtil,method,SecondaryLinkedNodeUtil,,,,method722,clearStaticState,,,"Clear static SecondaryLinkedNodeUtil state"
