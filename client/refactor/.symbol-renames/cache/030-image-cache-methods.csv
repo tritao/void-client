@@ -1,0 +1,8 @@
+# ColorImageCache and IntImageCache method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ColorImageCache,method,ColorImageCache,,,,method2553,getFullImage,,,"Return full 3-channel image cache"
+ColorImageCache,method,ColorImageCache,,,,method2557,get,,,"Get 3-channel cache row by index"
+ColorImageCache,method,ColorImageCache,,,,method2558,clear,,,"Release cached 3-channel image data"
+IntImageCache,method,IntImageCache,,,,method1427,getFullImage,,,"Return full monochrome image cache"
+IntImageCache,method,IntImageCache,,,,method1432,clear,,,"Release cached monochrome image data"
+IntImageCache,method,IntImageCache,,,,method1433,get,,,"Get monochrome cache row by index"
