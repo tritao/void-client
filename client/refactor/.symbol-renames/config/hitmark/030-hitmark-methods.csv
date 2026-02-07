@@ -1,0 +1,16 @@
+# HitmarkType / HitmarkTypeList method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+HitmarkType,method,HitmarkType,,,,method324,getRightSprite,,,"Fetch right cap sprite from cache/archive"
+HitmarkType,method,HitmarkType,,,,method325,getIconSprite,,,"Fetch icon sprite from cache/archive"
+HitmarkType,method,HitmarkType,,,,method327,getLeftSprite,,,"Fetch left cap sprite from cache/archive"
+HitmarkType,method,HitmarkType,,,,method329,decodeOpcode,,,"Decode single hitmark opcode"
+HitmarkType,method,HitmarkType,,,,method330,loadSprites,,,"Load required sprites into cache"
+HitmarkType,method,HitmarkType,,,,method331,getMiddleSprite,,,"Fetch middle/tile sprite from cache/archive"
+HitmarkType,method,HitmarkType,,,,method332,decode,,,"Decode hitmark type from buffer opcodes"
+HitmarkType,method,HitmarkType,,,,method333,formatText,,,"Expand %1 placeholder with value"
+HitmarkType,method,HitmarkType,,,,method328,clearStaticState,,,"Clear static HitmarkType state"
+HitmarkTypeList,method,HitmarkTypeList,,,,method1598,removeSoftReferences,,,"Remove cleared soft references from caches"
+HitmarkTypeList,method,HitmarkTypeList,,,,method1601,get,,,"Get hitmark type by id"
+HitmarkTypeList,method,HitmarkTypeList,,,,method1602,clearCaches,,,"Clear hitmark definition/sprite caches"
+HitmarkTypeList,method,HitmarkTypeList,,,,method1603,trimCaches,,,"Demote aged entries in hitmark caches"
+HitmarkTypeList,method,HitmarkTypeList,,,,method1604,clearStaticState,,,"Clear static HitmarkTypeList state"
