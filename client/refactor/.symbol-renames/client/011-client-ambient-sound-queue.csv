@@ -1,0 +1,3 @@
+# Client global ambient sound queue.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Client,field,Client,,,,aClass262_5185,ambientSoundQueue,,,"Global deque of active AmbientSound nodes"
