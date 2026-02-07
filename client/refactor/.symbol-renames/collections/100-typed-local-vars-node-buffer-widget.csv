@@ -1,0 +1,7 @@
+# Common typed local/parameter names across refactor tree.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Node,local,Node,,,,class348,node,,,"Node-typed variable"
+SecondaryNode,local,SecondaryNode,,,,class348_sub42,secondaryNode,,,"SecondaryNode-typed variable"
+JagBuffer,local,JagBuffer,,,,class348_sub49,buffer,,,"JagBuffer-typed variable"
+Widget,local,Widget,,,,class46,widget,,,"Widget-typed variable"
+Widget,local,Widget,,,,class46s,widgets,,,"Widget[]-typed variable"
