@@ -1,0 +1,8 @@
+# Matrix rotation methods shared by SoftwareMatrix/OpenGLMatrix.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Matrix,method,Matrix,,,,method895,setToRotationY,,,"Set matrix to pure Y-axis rotation"
+Matrix,method,Matrix,,,,method899,setToRotationX,,,"Set matrix to pure X-axis rotation"
+Matrix,method,Matrix,,,,method902,setToRotationZ,,,"Set matrix to pure Z-axis rotation"
+Matrix,method,Matrix,,,,method896,rotateY,,,"Apply Y-axis rotation"
+Matrix,method,Matrix,,,,method908,rotateX,,,"Apply X-axis rotation"
+Matrix,method,Matrix,,,,method900,rotateZ,,,"Apply Z-axis rotation"
