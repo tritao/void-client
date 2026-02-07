@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 9).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class229_129_,gameClockFactoryVar129,,,"GameClockFactory typed variable"
+Global,local,Global,,,,class207_29_,indexedSpriteVar29,,,"IndexedSprite typed variable"
+Global,local,Global,,,,class17_55_,seqTypeVar55,,,"SeqType typed variable"
+Global,local,Global,,,,class17_22_,seqTypeVar22,,,"SeqType typed variable"
+Global,local,Global,,,,class161_2_,serverEndpointVar2,,,"ServerEndpoint typed variable"
+Global,local,Global,,,,class148_1_,sceneEntityNodeVar1,,,"SceneEntityNode typed variable"
+Global,local,Global,,,,class124_2_,modelDataVar2,,,"ModelData typed variable"
+Global,local,Global,,,,class124_17_,modelDataVar17,,,"ModelData typed variable"
+Global,local,Global,,,,class79_98_,npcTypeVar98,,,"NpcType typed variable"
+Global,local,Global,,,,class79_42_,npcTypeVar42,,,"NpcType typed variable"
+Global,local,Global,,,,class78_26_,bufferedFileVar26,,,"BufferedFile typed variable"
+Global,local,Global,,,,class72_0_,skyBoxSphereVar0,,,"SkyBoxSphere typed variable"
+Global,local,Global,,,,class64_88_,modelVar88,,,"Model typed variable"
+Global,local,Global,,,,class64_46_,modelVar46,,,"Model typed variable"
+Global,local,Global,,,,class64_41_,modelVar41,,,"Model typed variable"
