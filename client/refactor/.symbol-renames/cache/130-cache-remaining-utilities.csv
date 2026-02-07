@@ -1,0 +1,14 @@
+# Remaining cache utility method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SoftLruCache,method,SoftLruCache,,,,method576,isType2Or3,,,"Small helper: true only for values 2 or 3"
+SoftLruCache,method,SoftLruCache,,,,method584,clearStaticState,,,"Clear static SoftLruCache state"
+SoftLruCache,method,SoftLruCache,,,,method589,shouldRenderWorldMapElement,,,"Check whether map element marker should be rendered"
+GroundItemPileCache,method,GroundItemPileCache,,,,method3458,clearStaticState,,,"Clear static ground-item pile cache state"
+GroundItemPileCache,method,GroundItemPileCache,,,,method3459,insertGroundItemSorted,,,"Insert ground item into pile sorted by value"
+IntImageCache,method,IntImageCache,,,,method1428,clearUiFontStatics,,,"Clear static UI image/font references"
+IntImageCache,method,IntImageCache,,,,method1429,pushGameMessage,,,"Push a chat/game message line"
+IntImageCache,method,IntImageCache,,,,method1430,drawActorHintIcon,,,"Draw actor hint icon and register clickable bounds"
+IntImageCache,method,IntImageCache,,,,method1431,clearImageCacheStatics,,,"Clear static IntImageCache utility state"
+ReferenceCacheEntry,method,ReferenceCacheEntry,,,,method3203,hasBit16Flag,,,"Check whether bit-16 flag is set"
+ReferenceCacheEntry,method,ReferenceCacheEntry,,,,method3204,clearStaticState,,,"Clear static ReferenceCacheEntry state"
+HardReferenceCacheEntry,method,HardReferenceCacheEntry,,,,method3208,applyQueuedAnimationStep,,,"Apply next queued animation step for actor"
