@@ -1,0 +1,7 @@
+# DelayedStateChangeUtil naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+DelayedStateChangeUtil,field,DelayedStateChangeUtil,,,,aClass229_6519,secondaryTexCoordMatrix,,,"Shared matrix/vector constant used in fixed-function combiner setup"
+DelayedStateChangeUtil,field,DelayedStateChangeUtil,,,,anIntArray6522,glDeleteScratchIds,,,"Scratch id buffer for batched GL deletes"
+DelayedStateChangeUtil,method,DelayedStateChangeUtil,,,,method2615,queueType12DelayedChange,,,"Queue delayed state change of internal type 12"
+DelayedStateChangeUtil,method,DelayedStateChangeUtil,,,,method2616,flushType12WaterState,,,"Flushes/reset associated state for type 12"
+DelayedStateChangeUtil,method,DelayedStateChangeUtil,,,,method2617,clearStaticState,,,"Clear static references"
