@@ -1,0 +1,17 @@
+# Global typed local/parameter cleanup for remaining runtime aliases (batch 6).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class120,loadingScreenFullscreenSpriteLayoutVar,,,"LoadingScreenFullscreenSpriteLayout typed variable"
+Global,local,Global,,,,class104,openGLAlphaMaskManagerVar,,,"OpenGLAlphaMaskManager typed variable"
+Global,local,Global,,,,class69,secondaryLinkedNodeUtilVar,,,"SecondaryLinkedNodeUtil typed variable"
+Global,local,Global,,,,class52,loadingScreenSolidFillLayoutVar,,,"LoadingScreenSolidFillLayout typed variable"
+Global,local,Global,,,,class39,openGLResourceHandleVar,,,"OpenGLResourceHandle typed variable"
+Global,local,Global,,,,class343,vorbisResidueVar,,,"VorbisResidue typed variable"
+Global,local,Global,,,,class315,toolkitWorkQueueVar,,,"ToolkitWorkQueue typed variable"
+Global,local,Global,,,,class314,js5ArchiveProviderVar,,,"Js5ArchiveProvider typed variable"
+Global,local,Global,,,,class293,toolkitWorkerThreadVar,,,"ToolkitWorkerThread typed variable"
+Global,local,Global,,,,class284,renderBenchmarkVar,,,"RenderBenchmark typed variable"
+Global,local,Global,,,,class263,objectTypeListVar,,,"ObjectTypeList typed variable"
+Global,local,Global,,,,class202,bufferedSocketVar,,,"BufferedSocket typed variable"
+Global,local,Global,,,,class197,audioEnvelopeVar,,,"AudioEnvelope typed variable"
+Global,local,Global,,,,class152,gzipDecompressorVar,,,"GzipDecompressor typed variable"
+Global,local,Global,,,,class351,clientPacketVar,,,"ClientPacket typed variable alias cleanup"
