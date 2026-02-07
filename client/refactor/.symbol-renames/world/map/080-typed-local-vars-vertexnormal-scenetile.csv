@@ -1,0 +1,6 @@
+# VertexNormalAccumulator and SceneTile typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+VertexNormalAccumulator,local,VertexNormalAccumulator,,,,class8,vertexNormalAccumulatorDef,,,"VertexNormalAccumulator typed variable"
+VertexNormalAccumulator,local,VertexNormalAccumulator,,,,class8s,vertexNormalAccumulatorDefs,,,"VertexNormalAccumulator[] typed variable"
+SceneTile,local,SceneTile,,,,class357,sceneTileDef,,,"SceneTile typed variable"
+SceneTile,local,SceneTile,,,,class357s,sceneTileDefs,,,"SceneTile[] typed variable"
