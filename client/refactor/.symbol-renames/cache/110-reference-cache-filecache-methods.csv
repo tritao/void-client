@@ -1,0 +1,17 @@
+# Reference cache and file cache method names.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ReferenceCacheEntry,method,ReferenceCacheEntry,,,,method3205,getValue,,,"Resolve cached value payload"
+ReferenceCacheEntry,method,ReferenceCacheEntry,,,,method3206,isSoftReference,,,"Whether entry is backed by a soft reference"
+ReferenceCacheEntryConverter,method,ReferenceCacheEntryConverter,,,,method2693,clearStaticState,,,"Clear static converter-side shared state"
+ReferenceCacheEntryConverter,method,ReferenceCacheEntryConverter,,,,method2694,convertEntry,,,"Convert cache entry representation"
+SoftReferenceCacheEntryConverter,method,SoftReferenceCacheEntryConverter,,,,method2694,convertEntry,,,"Convert hard entry into soft-reference entry"
+HardReferenceCacheEntry,method,HardReferenceCacheEntry,,,,method3205,getValue,,,"Return strongly referenced value"
+HardReferenceCacheEntry,method,HardReferenceCacheEntry,,,,method3206,isSoftReference,,,"Hard entries are never soft"
+HardReferenceCacheEntry,method,HardReferenceCacheEntry,,,,method3207,clearStaticState,,,"Clear static cache-entry state"
+SoftReferenceCacheEntry,method,SoftReferenceCacheEntry,,,,method3205,getValue,,,"Return softly referenced value"
+SoftReferenceCacheEntry,method,SoftReferenceCacheEntry,,,,method3206,isSoftReference,,,"Soft entries report soft-reference semantics"
+FileCache,method,FileCache,,,,method1464,findOrCreateCacheFile,,,"Resolve writable cache file path and create if needed"
+FileCache,method,FileCache,,,,method1465,initializeCacheLocation,,,"Initialize cache root and profile name"
+FileCache,method,FileCache,,,,method1466,getCacheFile,,,"Get cache file under configured cache location"
+CacheIndexCrcUtil,method,CacheIndexCrcUtil,,,,method1244,writeArchiveCrcs,,,"Write expected archive CRC set to packet"
+CacheIndexCrcUtil,method,CacheIndexCrcUtil,,,,method1246,clearStaticState,,,"Clear static cache CRC utility state"
