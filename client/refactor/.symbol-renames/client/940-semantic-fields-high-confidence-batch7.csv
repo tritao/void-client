@@ -1,0 +1,10 @@
+# High-confidence archive role names for quickchat + texture/index providers.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+QuickChatCatTypeList,field,QuickChatCatTypeList,,,,aClass45_2961,baseArchive,,,"Base quickchat category archive (<32768 ids)"
+QuickChatCatTypeList,field,QuickChatCatTypeList,,,,aClass45_2965,extendedArchive,,,"Extended quickchat category archive (>=32768 ids)"
+QuickChatPhraseTypeList,field,QuickChatPhraseTypeList,,,,aClass45_4368,baseArchive,,,"Base quickchat phrase archive (<32768 ids)"
+QuickChatPhraseTypeList,field,QuickChatPhraseTypeList,,,,aClass45_4369,extendedArchive,,,"Extended quickchat phrase archive (>=32768 ids)"
+TextureProvider,field,TextureProvider,,,,aClass45_4619,definitionArchive,,,"Texture definition/config archive"
+TextureProvider,field,TextureProvider,,,,aClass45_4624,dataArchive,,,"Texture pixel/source data archive"
+IndexGroupLoader,field,IndexGroupLoader,,,,aClass45_4789,archive,,,"Archive providing named index group"
+IndexProgressProvider,field,IndexProgressProvider,,,,aClass45_4804,archive,,,"Archive being tracked for load progress"
