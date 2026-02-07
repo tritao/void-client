@@ -1,0 +1,7 @@
+# Win32CursorCallback internal state fields.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Win32CursorCallback,field,Win32CursorCallback,,,,aBoolean7460,cursorVisible,,,"Whether cursor should be visible"
+Win32CursorCallback,field,Win32CursorCallback,,,,anInt7461,windowHandle,,,"Current hooked HWND"
+Win32CursorCallback,field,Win32CursorCallback,,,,anInt7462,defaultCursorHandle,,,"System arrow cursor handle"
+Win32CursorCallback,field,Win32CursorCallback,,,,anInt7463,previousWndProc,,,"Previous window procedure pointer"
+Win32CursorCallback,field,Win32CursorCallback,,,,aBoolean7464,callbackAllocated,,,"Whether callback/root allocation was initialized"
