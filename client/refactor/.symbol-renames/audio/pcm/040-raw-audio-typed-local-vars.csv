@@ -1,0 +1,4 @@
+# Typed parameter/local cleanup for raw audio classes.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+RawPcmStream,local,RawPcmStream,,,,class348_sub16_sub5,rawPcmStream,,,"Typed RawPcmStream temp/param variable"
+RawSound,local,RawSound,,,,class348_sub19_sub1,rawSound,,,"Typed RawSound temp/param variable"
