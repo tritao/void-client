@@ -1,0 +1,12 @@
+# Matrix core methods (high-confidence semantics).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Matrix,method,Matrix,,,,method890,inverseTransformPointInPlace,,,"Inverse-transform point stored in int[3]"
+Matrix,method,Matrix,,,,method891,translate,,,"Apply translation"
+Matrix,method,Matrix,,,,method892,inverseTransformPoint,,,"Inverse-transform point into output int[3]"
+Matrix,method,Matrix,,,,method894,setTranslation,,,"Set to identity with translation"
+Matrix,method,Matrix,,,,method897,transformPoint,,,"Transform point with translation into output"
+Matrix,method,Matrix,,,,method898,copyFrom,,,"Copy matrix values from another matrix"
+Matrix,method,Matrix,,,,method903,setFromEulerAndTranslation,,,"Set transform from euler angles and translation"
+Matrix,method,Matrix,,,,method905,transformVector,,,"Transform vector without translation"
+Matrix,method,Matrix,,,,method907,copy,,,"Create matrix copy"
+Matrix,method,Matrix,,,,method910,setIdentity,,,"Set matrix to identity"
