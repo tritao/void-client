@@ -1,0 +1,6 @@
+# GameStateReset + ClientGlobals cache naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+GameStateReset,method,GameStateReset,,,,method1122,resetSceneRuntimeState,,,"Reset transient scene/runtime state after map or mode changes"
+GameStateReset,method,GameStateReset,,,,method1123,clearStaticState,,,"Clear static references"
+ClientGlobals,field,ClientGlobals,,,,aClass60_1894,sharedModelCache,,,"Shared soft LRU cache for generated models"
+ClientGlobals,field,ClientGlobals,,,,aClass356_1895,activeTextureOpDecoderTable,,,"Active TextureOpDecoder table keyed by scene/location"
