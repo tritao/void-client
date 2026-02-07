@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 3).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class72_60_,skyBoxSphereVar60,,,"SkyBoxSphere typed variable"
+Global,local,Global,,,,class72_19_,skyBoxSphereVar19,,,"SkyBoxSphere typed variable"
+Global,local,Global,,,,class64_91_,modelVar91,,,"Model typed variable"
+Global,local,Global,,,,class64_80_,modelVar80,,,"Model typed variable"
+Global,local,Global,,,,class64_53_,modelVar53,,,"Model typed variable"
+Global,local,Global,,,,class64_42_,modelVar42,,,"Model typed variable"
+Global,local,Global,,,,class45_9_,js5ArchiveVar9,,,"Js5Archive typed variable"
+Global,local,Global,,,,class45_6_,js5ArchiveVar6,,,"Js5Archive typed variable"
+Global,local,Global,,,,class45_3_,js5ArchiveVar3,,,"Js5Archive typed variable"
+Global,local,Global,,,,class17_51_,seqTypeVar51,,,"SeqType typed variable"
+Global,local,Global,,,,class105_381_,spriteVar381,,,"Sprite typed variable"
+Global,local,Global,,,,class105_379_,spriteVar379,,,"Sprite typed variable"
+Global,local,Global,,,,class105_377_,spriteVar377,,,"Sprite typed variable"
+Global,local,Global,,,,class105_375_,spriteVar375,,,"Sprite typed variable"
+Global,local,Global,,,,class64_37_,modelVar37,,,"Model typed variable"
