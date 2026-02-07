@@ -1,0 +1,11 @@
+# Final cleanup for remaining plural obfuscated aliases.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class325s,vertexElementTypeVars,,,"VertexElementType[] typed variable"
+Global,local,Global,,,,class231s,modeWhatVars,,,"ModeWhat[] typed variable"
+Global,local,Global,,,,class227s,windowModeVars,,,"WindowMode[] typed variable"
+Global,local,Global,,,,class114s,serverPacketVars,,,"ServerPacket[] typed variable"
+Global,local,Global,,,,class348s,nodeVars,,,"Node[] typed variable"
+Global,local,Global,,,,class341s,verticalAlignmentVars,,,"VerticalAlignment[] typed variable"
+Global,local,Global,,,,class232s,openGLAlphaMaskTileVars,,,"OpenGLAlphaMaskTile[] typed variable"
+Global,local,Global,,,,class221s,horizontalAlignmentVars,,,"HorizontalAlignment[] typed variable"
+Global,local,Global,,,,interface16s,loadingScreenVars,,,"LoadingScreen[] typed variable"
