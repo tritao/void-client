@@ -1,0 +1,6 @@
+# ParamType and LoginTokenUtil typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ParamType,local,ParamType,,,,class254,paramTypeDefVar,,,"ParamType typed variable"
+ParamType,local,ParamType,,,,class254s,paramTypeDefVars,,,"ParamType[] typed variable"
+LoginTokenUtil,local,LoginTokenUtil,,,,class182,loginTokenUtilVar,,,"LoginTokenUtil typed variable (per classes.csv mapping)"
+LoginTokenUtil,local,LoginTokenUtil,,,,class182s,loginTokenUtilVars,,,"LoginTokenUtil[] typed variable"
