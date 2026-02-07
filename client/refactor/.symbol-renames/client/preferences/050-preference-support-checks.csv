@@ -1,0 +1,15 @@
+# Per-preference capability checks used by option validation UI.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+AntiAliasingPreference,method,AntiAliasingPreference,,,,method1806,isSupported,,,"Whether anti-aliasing is supported by active renderer"
+BloomPreference,method,BloomPreference,,,,method1774,isSupported,,,"Whether bloom is supported by active renderer"
+BuildAreaPreference,method,BuildAreaPreference,,,,method1744,isSupported,,,"Whether selected build-area levels are supported on this machine"
+CharacterShadowsPreference,method,CharacterShadowsPreference,,,,method1809,isSupported,,,"Whether character shadows can be enabled"
+FogPreference,method,FogPreference,,,,method1790,isSupported,,,"Whether fog option is exposed/supported"
+GroundDecorationsPreference,method,GroundDecorationsPreference,,,,method1736,isSupported,,,"Whether ground decorations can be enabled"
+HighDetailRenderingPreference,method,HighDetailRenderingPreference,,,,method1757,isSupported,,,"Whether high-detail rendering is supported"
+OrthographicModePreference,method,OrthographicModePreference,,,,method1729,isSupported,,,"Whether orthographic mode option is supported"
+ParticlesPreference,method,ParticlesPreference,,,,method1786,isSupported,,,"Whether particles are supported by current hardware profile"
+SceneryShadowsPreference,method,SceneryShadowsPreference,,,,method1747,isSupported,,,"Whether scenery shadows can be enabled"
+ScreenSizePreference,method,ScreenSizePreference,,,,method1817,isSupported,,,"Whether screen size preference applies in current renderer mode"
+TexturesPreference,method,TexturesPreference,,,,method1824,isSupported,,,"Whether textures can be enabled"
+WaterDetailPreference,method,WaterDetailPreference,,,,method1801,isSupported,,,"Whether water detail can be enabled"
