@@ -1,0 +1,17 @@
+# IDKType and IDKTypeList method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+IDKType,method,IDKType,,,,method341,getBodyModelData,,,"Build body model data from primary model id list"
+IDKType,method,IDKType,,,,method342,areHeadModelsReady,,,"Check archive readiness for head model parts"
+IDKType,method,IDKType,,,,method343,getHeadModelData,,,"Build head model data from head model part ids"
+IDKType,method,IDKType,,,,method344,decodeOpcode,,,"Decode single IDK opcode"
+IDKType,method,IDKType,,,,method346,decode,,,"Decode IDK type from buffer opcodes"
+IDKType,method,IDKType,,,,method348,areBodyModelsReady,,,"Check archive readiness for body model ids"
+IDKType,method,IDKType,,,,method351,clearStaticState,,,"Clear static IDKType state"
+IDKType,method,IDKType,,,,method347,sortParallelIntArrays,,,"Sort paired int arrays by primary values"
+IDKTypeList,method,IDKTypeList,,,,method1203,get,,,"Get IDK type by id"
+IDKTypeList,method,IDKTypeList,,,,method1204,removeSoftReferences,,,"Remove cleared soft references from IDK cache"
+IDKTypeList,method,IDKTypeList,,,,method1206,clearCaches,,,"Clear IDK type cache"
+IDKTypeList,method,IDKTypeList,,,,method1207,trimCaches,,,"Demote aged entries in IDK cache"
+IDKTypeList,method,IDKTypeList,,,,method1208,clearStaticState,,,"Clear static IDKTypeList state"
+IDKTypeList,method,IDKTypeList,,,,method1202,buildWearableItemIds,,,"Build cache of item ids with wearable models"
+IDKTypeList,method,IDKTypeList,,,,method1205,decodeWorldMapArea,,,"Decode world map area descriptor from archive"
