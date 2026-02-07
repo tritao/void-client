@@ -1,0 +1,6 @@
+# SkyBoxType and DirectXBaseTexture typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SkyBoxType,local,SkyBoxType,,,,class300,skyBoxTypeDefVar,,,"SkyBoxType typed variable"
+SkyBoxType,local,SkyBoxType,,,,class300s,skyBoxTypeDefVars,,,"SkyBoxType[] typed variable"
+DirectXBaseTexture,local,DirectXBaseTexture,,,,class310,directXBaseTextureVar,,,"DirectXBaseTexture typed variable"
+DirectXBaseTexture,local,DirectXBaseTexture,,,,class310s,directXBaseTextureVars,,,"DirectXBaseTexture[] typed variable"
