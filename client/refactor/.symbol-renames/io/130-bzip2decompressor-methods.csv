@@ -1,0 +1,12 @@
+# BZip2Decompressor naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+BZip2Decompressor,field,BZip2Decompressor,,,,aClass40_2750,sharedState,,,"Shared BZip2State used by synchronized decompression entrypoint"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1545,readBits,,,"Read N bits from BZip2 bitstream"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1546,buildDecodeTables,,,"Build Huffman decode tables from code lengths"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1547,decompress,,,"Public BZip2 decompression entrypoint"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1548,readByte,,,"Read next byte from BZip2 bitstream"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1549,writeRunLengthBlock,,,"Write decoded run-length block to output"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1550,buildUsedByteMap,,,"Build list of used symbols from bitmap flags"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1551,clearStaticState,,,"Clear shared decompressor state"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1552,decompressState,,,"Core BZip2 state-machine decompression loop"
+BZip2Decompressor,method,BZip2Decompressor,,,,method1553,readBit,,,"Read single bit from BZip2 bitstream"
