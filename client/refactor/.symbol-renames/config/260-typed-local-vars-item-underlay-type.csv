@@ -1,0 +1,6 @@
+# ItemType and FloorUnderlayType typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ItemType,local,ItemType,,,,class213,itemTypeDefVar,,,"ItemType typed variable (collision-safe)"
+ItemType,local,ItemType,,,,class213s,itemTypeDefVars,,,"ItemType[] typed variable"
+FloorUnderlayType,local,FloorUnderlayType,,,,class22,floorUnderlayTypeDef,,,"FloorUnderlayType typed variable"
+FloorUnderlayType,local,FloorUnderlayType,,,,class22s,floorUnderlayTypeDefs,,,"FloorUnderlayType[] typed variable"
