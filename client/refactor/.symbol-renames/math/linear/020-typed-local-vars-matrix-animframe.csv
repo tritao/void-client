@@ -1,0 +1,6 @@
+# Matrix and AnimFrame typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Matrix,local,Matrix,,,,class101,matrixVar,,,"Matrix typed variable"
+Matrix,local,Matrix,,,,class101s,matrixVars,,,"Matrix[] typed variable"
+AnimFrame,local,AnimFrame,,,,class4,animFrameDefVar,,,"AnimFrame typed variable (collision-safe)"
+AnimFrame,local,AnimFrame,,,,class4s,animFrameDefVars,,,"AnimFrame[] typed variable"
