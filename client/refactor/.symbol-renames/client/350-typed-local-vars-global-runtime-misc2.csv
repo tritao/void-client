@@ -1,0 +1,17 @@
+# Global typed local/parameter cleanup for remaining runtime aliases (batch 2).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class159,varPlayerTypeVar,,,"VarPlayerType typed variable"
+Global,local,Global,,,,class56,loadingStageVar,,,"LoadingStage typed variable"
+Global,local,Global,,,,class34,idkTypeVar,,,"IDKType typed variable"
+Global,local,Global,,,,class317,soundEffectVar,,,"SoundEffect typed variable"
+Global,local,Global,,,,class288,loadingScreenSpriteLayoutVar,,,"LoadingScreenSpriteLayout typed variable"
+Global,local,Global,,,,class283,rendererUpdateTrackerVar,,,"RendererUpdateTracker typed variable"
+Global,local,Global,,,,class251,widgetRedrawVar,,,"WidgetRedraw typed variable"
+Global,local,Global,,,,class126,particleSystemKeyVar,,,"ParticleSystemKey typed variable"
+Global,local,Global,,,,class53,directXSwapChainVar,,,"DirectXSwapChain typed variable"
+Global,local,Global,,,,class49,softwareOffscreenSurfaceVar,,,"SoftwareOffscreenSurface typed variable"
+Global,local,Global,,,,class43,clientCookieUtilVar,,,"ClientCookieUtil typed variable"
+Global,local,Global,,,,class364,gameBuildVar,,,"GameBuild typed variable"
+Global,local,Global,,,,class274,localisedTextVar,,,"LocalisedText typed variable"
+Global,local,Global,,,,class196,toolkitStateVar,,,"ToolkitState typed variable"
+Global,local,Global,,,,class186,overheadTextTimeoutUtilVar,,,"OverheadTextTimeoutUtil typed variable"
