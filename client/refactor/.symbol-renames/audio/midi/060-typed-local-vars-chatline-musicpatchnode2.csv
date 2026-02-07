@@ -1,0 +1,6 @@
+# ChatLine and MusicPatchNode2 typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ChatLine,local,ChatLine,,,,class147,chatLineVar,,,"ChatLine typed variable (collision-safe)"
+ChatLine,local,ChatLine,,,,class147s,chatLineVars,,,"ChatLine[] typed variable"
+MusicPatchNode2,local,MusicPatchNode2,,,,class23,musicPatchNode2Var,,,"MusicPatchNode2 typed variable"
+MusicPatchNode2,local,MusicPatchNode2,,,,class23s,musicPatchNode2Vars,,,"MusicPatchNode2[] typed variable"
