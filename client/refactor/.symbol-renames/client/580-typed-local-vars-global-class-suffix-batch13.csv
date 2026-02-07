@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 13).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class299_32_,inboundPacketBufferVar32,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class299_25_,inboundPacketBufferVar25,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class274_1_,localisedTextVar1,,,"LocalisedText typed variable"
+Global,local,Global,,,,class262_0_,nodeDequeVar0,,,"NodeDeque typed variable"
+Global,local,Global,,,,class242_6_,openGLShaderVar6,,,"OpenGLShader typed variable"
+Global,local,Global,,,,class242_4_,openGLShaderVar4,,,"OpenGLShader typed variable"
+Global,local,Global,,,,class17_94_,seqTypeVar94,,,"SeqType typed variable"
+Global,local,Global,,,,class17_71_,seqTypeVar71,,,"SeqType typed variable"
+Global,local,Global,,,,class17_56_,seqTypeVar56,,,"SeqType typed variable"
+Global,local,Global,,,,class17_49_,seqTypeVar49,,,"SeqType typed variable"
+Global,local,Global,,,,class12_797_,textureConfigVar797,,,"TextureConfig typed variable"
+Global,local,Global,,,,class12_707_,textureConfigVar707,,,"TextureConfig typed variable"
+Global,local,Global,,,,class12_346_,textureConfigVar346,,,"TextureConfig typed variable"
+Global,local,Global,,,,class105_328_,spriteVar328,,,"Sprite typed variable"
+Global,local,Global,,,,class64_77_,modelVar77,,,"Model typed variable"
