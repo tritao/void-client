@@ -1,0 +1,8 @@
+# OpenGLMatrix helper methods not part of Matrix base API.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+OpenGLMatrix,method,OpenGLMatrix,,,,method937,transformPlane,,,"Transforms plane equation into output coefficients"
+OpenGLMatrix,method,OpenGLMatrix,,,,method939,setToScaleRotateTranslate,,,"Set matrix from scale/rotation/translation tuple"
+OpenGLMatrix,method,OpenGLMatrix,,,,method940,toOpenGLMatrixArray,,,"Export transform to reusable OpenGL float array"
+OpenGLMatrix,method,OpenGLMatrix,,,,method942,negateYZAxes,,,"Negate Y/Z axis rows and translation components"
+OpenGLMatrix,method,OpenGLMatrix,,,,method945,toOpenGLRotationArray,,,"Export rotation-only OpenGL float array"
+OpenGLMatrix,method,OpenGLMatrix,,,,method946,setFromInverse,,,"Set this matrix to inverse of another matrix"
