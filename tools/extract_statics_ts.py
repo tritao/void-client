@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import re
 from pathlib import Path
 
@@ -159,6 +160,122 @@ def _replace_callsites(src_dir: Path, source_class: str, target_class: str, move
     return changed
 
 
+def _replace_callsites_per_member(
+    src_dir: Path,
+    *,
+    source_class: str,
+    targets: list[tuple[str, str, str]],
+    dry_run: bool,
+) -> int:
+    """
+    Rewrite `SourceClass.member` to per-member target classes.
+
+    targets: list of (from_member_name, target_class, to_member_name)
+    """
+    patterns: list[tuple[re.Pattern[str], str]] = []
+    for from_name, target_class, to_name in targets:
+        rx = re.compile(rf"\b{re.escape(source_class)}\s*\.\s*{re.escape(from_name)}\b")
+        repl = f"{target_class}.{to_name}"
+        patterns.append((rx, repl))
+    if not patterns:
+        return 0
+
+    changed = 0
+    for path in sorted(src_dir.rglob("*.java")):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        new_text = apply_non_string_comment_replacements(text, patterns)
+        if new_text == text:
+            continue
+        changed += 1
+        if not dry_run:
+            path.write_text(new_text, encoding="utf-8")
+    return changed
+
+
+def _build_move_map(all_manifests: list[ExtractManifest]) -> dict[tuple[str, str, str], tuple[str, Path]]:
+    """
+    Build a chainable map of moved members:
+      (source_class_stem, kind, member) -> (target_class, target_file)
+    """
+    out: dict[tuple[str, str, str], tuple[str, Path]] = {}
+    for m in all_manifests:
+        source_stem = m.source.stem
+        for mv in m.moves:
+            out[(source_stem, mv.kind, mv.name)] = (m.target_class, m.target_file)
+    return out
+
+
+def _chase_final_target(
+    move_map: dict[tuple[str, str, str], tuple[str, Path]],
+    *,
+    source_class: str,
+    kind: str,
+    name: str,
+) -> tuple[str, Path] | None:
+    """
+    Follow move chains to find the final target class+file for a member.
+    Returns None when no chain exists.
+    """
+    cur = source_class
+    seen: set[str] = set()
+    last: tuple[str, Path] | None = None
+    while True:
+        key = (cur, kind, name)
+        nxt = move_map.get(key)
+        if nxt is None:
+            return last
+        target_class, target_file = nxt
+        last = (target_class, target_file)
+        if target_class in seen:
+            return last
+        seen.add(target_class)
+        cur = target_class
+
+
+def _load_symbol_renames(path: Path) -> dict[tuple[str, str, str], str]:
+    """
+    Load (owner, kind, old) -> new mapping from generated symbol rename view.
+    """
+    out: dict[tuple[str, str, str], str] = {}
+    if not path.exists():
+        return out
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader((line for line in handle if line.strip() and not line.lstrip().startswith("#")))
+        for row in reader:
+            kind = (row.get("kind") or "").strip()
+            owner = (row.get("owner") or "").strip()
+            old = (row.get("old") or "").strip()
+            new = (row.get("new") or "").strip()
+            if kind not in ("field", "method"):
+                continue
+            if not owner or not old or not new:
+                continue
+            out.setdefault((owner, kind, old), new)
+    return out
+
+
+def _candidate_names(
+    rename_map: dict[tuple[str, str, str], str],
+    *,
+    owner: str,
+    kind: str,
+    old_name: str,
+) -> list[str]:
+    names: list[str] = [old_name]
+    alt = rename_map.get((owner, kind, old_name), "")
+    if alt and alt != old_name:
+        names.append(alt)
+    # Dedupe while preserving order.
+    seen: set[str] = set()
+    out: list[str] = []
+    for n in names:
+        if n in seen:
+            continue
+        seen.add(n)
+        out.append(n)
+    return out
+
+
 def _qualify_extracted_member_refs(
     member_text: str,
     source_class: str,
@@ -206,7 +323,15 @@ def _qualify_source_member_refs(
     return apply_non_string_comment_replacements(source_text, patterns)
 
 
-def _process_manifest(manifest: ExtractManifest, *, src_dir: Path, parser, dry_run: bool) -> tuple[int, int]:
+def _process_manifest(
+    manifest: ExtractManifest,
+    *,
+    src_dir: Path,
+    parser,
+    dry_run: bool,
+    move_map: dict[tuple[str, str, str], tuple[str, Path]],
+    rename_map: dict[tuple[str, str, str], str],
+) -> tuple[int, int]:
     source_path = (src_dir / manifest.source).resolve()
     target_path = (src_dir / manifest.target_file).resolve()
     if not source_path.exists():
@@ -243,16 +368,48 @@ def _process_manifest(manifest: ExtractManifest, *, src_dir: Path, parser, dry_r
     imported_member_texts: list[str] = []
     moved_field_names: list[str] = []
     moved_method_names: list[str] = []
+    callsite_targets: list[tuple[str, str, str]] = []
     for move in manifest.moves:
+        candidate_names = _candidate_names(rename_map, owner=source_class, kind=move.kind, old_name=move.name)
+        member = None
+        actual_source_name = ""
         key = (move.kind, move.name)
-        member = by_key.get(key)
+        for n in candidate_names:
+            m = by_key.get((move.kind, n))
+            if m is not None:
+                member = m
+                actual_source_name = n
+                break
         if member is None:
-            if key in target_keys:
+            target_candidate_names = _candidate_names(rename_map, owner=manifest.target_class, kind=move.kind, old_name=move.name)
+            existing_target_name = next((n for n in target_candidate_names if (move.kind, n) in target_keys), "")
+            if existing_target_name:
+                # Idempotent: already in the immediate target (possibly renamed).
+                for from_name in candidate_names:
+                    callsite_targets.append((from_name, manifest.target_class, existing_target_name))
                 if move.kind == "field":
-                    moved_field_names.append(move.name)
+                    moved_field_names.append(existing_target_name)
                 if move.kind == "method":
-                    moved_method_names.append(move.name)
+                    moved_method_names.append(existing_target_name)
                 continue
+            final = _chase_final_target(move_map, source_class=source_class, kind=move.kind, name=move.name)
+            if final is not None:
+                final_class, final_file = final
+                final_path = (src_dir / final_file).resolve()
+                if final_path.exists():
+                    final_members = parse_static_members(final_path, parser=parser)
+                    final_keys = {(m.kind, m.name) for m in final_members}
+                    final_candidate_names = _candidate_names(rename_map, owner=final_class, kind=move.kind, old_name=move.name)
+                    existing_final_name = next((n for n in final_candidate_names if (move.kind, n) in final_keys), "")
+                    if existing_final_name:
+                        # Idempotent across multi-hop moves: member ended up in a later target.
+                        for from_name in candidate_names:
+                            callsite_targets.append((from_name, final_class, existing_final_name))
+                        if move.kind == "field":
+                            moved_field_names.append(existing_final_name)
+                        if move.kind == "method":
+                            moved_method_names.append(existing_final_name)
+                        continue
             raise SystemExit(f"{manifest.path}: missing source member {move.kind} {move.name}")
         to_move.append(move)
         move_spans.append((member.start, member.end))
@@ -266,9 +423,12 @@ def _process_manifest(manifest: ExtractManifest, *, src_dir: Path, parser, dry_r
         moved_text.append(formatted_member)
         imported_member_texts.append(formatted_member)
         if move.kind == "field":
-            moved_field_names.append(move.name)
+            moved_field_names.append(actual_source_name or move.name)
         if move.kind == "method":
-            moved_method_names.append(move.name)
+            moved_method_names.append(actual_source_name or move.name)
+        # Rewrite callsites from both old and already-renamed spellings.
+        for from_name in candidate_names:
+            callsite_targets.append((from_name, manifest.target_class, actual_source_name or move.name))
 
     new_source = source_text
     target_updated = target_text
@@ -283,7 +443,12 @@ def _process_manifest(manifest: ExtractManifest, *, src_dir: Path, parser, dry_r
     if not dry_run and target_updated != target_text:
         target_path.write_text(target_updated, encoding="utf-8")
 
-    callsite_files = _replace_callsites(src_dir, source_class, manifest.target_class, list(manifest.moves), dry_run=dry_run)
+    callsite_files = _replace_callsites_per_member(
+        src_dir,
+        source_class=source_class,
+        targets=callsite_targets,
+        dry_run=dry_run,
+    )
     return len(to_move), callsite_files
 
 
@@ -291,24 +456,35 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Extract selected static members into target classes (manifest-driven).")
     ap.add_argument("--src-dir", type=Path, default=Path("client/refactor"))
     ap.add_argument("--manifest-dir", type=Path, default=Path("client/refactor/.refactor-plan/extract-statics/generated"))
+    ap.add_argument("--rename-csv", type=Path, default=Path("client/refactor/.refactor-plan/generated/symbol_renames.csv"))
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--max-manifests", type=int, default=10)
     ap.add_argument("--language-so", type=Path, default=Path("build/ts-languages-java.so"))
     args = ap.parse_args()
 
     src_dir = args.src_dir.resolve()
-    manifests = load_manifests(args.manifest_dir.resolve())
+    all_manifests = load_manifests(args.manifest_dir.resolve())
+    move_map = _build_move_map(all_manifests)
+    manifests = all_manifests
     if not manifests:
         print(f"No extraction manifests found under {args.manifest_dir}")
         return 0
     if args.max_manifests >= 0:
         manifests = manifests[: args.max_manifests]
     parser = build_java_parser(out_so=args.language_so)
+    rename_map = _load_symbol_renames(args.rename_csv.resolve())
 
     moved_total = 0
     touched_total = 0
     for manifest in manifests:
-        moved, touched = _process_manifest(manifest, src_dir=src_dir, parser=parser, dry_run=args.dry_run)
+        moved, touched = _process_manifest(
+            manifest,
+            src_dir=src_dir,
+            parser=parser,
+            dry_run=args.dry_run,
+            move_map=move_map,
+            rename_map=rename_map,
+        )
         moved_total += moved
         touched_total += touched
         print(f"{manifest.path}: moved {moved} members, updated {touched} callsite files")

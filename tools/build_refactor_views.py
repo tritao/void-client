@@ -39,7 +39,26 @@ VALID_PHASES = {"core", "module", "cleanup", "split"}
 VALID_CONFIDENCE = {"low", "medium", "high"}
 VALID_STATUS = {"proposed", "approved", "applied", "blocked"}
 
-SYMBOL_VIEW_HEADER = ["file", "kind", "owner", "member", "signature", "param_index", "old", "new", "detail_regex", "line", "col", "notes"]
+SYMBOL_VIEW_HEADER = [
+    "file",
+    "kind",
+    "owner",
+    "member",
+    "signature",
+    "param_index",
+    "old",
+    "new",
+    "detail_regex",
+    "line",
+    "col",
+    "notes",
+    # Plan metadata for schedulers/filters (ignored by renamer).
+    "module",
+    "phase",
+    "confidence",
+    "status",
+    "source",
+]
 CLASS_VIEW_HEADER = ["src", "dst", "score", "anchors"]
 
 
@@ -329,6 +348,11 @@ def _emit_symbol_views(rows: list[PlanRow], out_root_csv: Path, out_dir: Path, w
             "",
             "",
             d["notes"],
+            d["module"],
+            d["phase"],
+            d["confidence"],
+            d["status"],
+            f"{row.source_file}:{row.source_line}",
         ]
         root_rows.append(emitted)
         by_module[d["module"]].append(emitted)

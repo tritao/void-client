@@ -61,6 +61,10 @@ def _build_steps(args) -> list[Step]:
     state_dir = args.state_dir
     logs_dir = state_dir / "logs"
 
+    rename_csv = args.rename_csv or args.symbols_csv
+    rename_csv_dir = args.rename_csv_dir or args.symbols_csv_dir
+    selected_csv = state_dir / "selected-renames.csv"
+
     steps: list[Step] = []
     steps.append(
         Step(
@@ -147,6 +151,30 @@ def _build_steps(args) -> list[Step]:
                 log_path=logs_dir / "03-check-extract.log",
             )
         )
+    if args.select_effective and args.max_renames >= 0:
+        steps.append(
+            Step(
+                name="select_renames",
+                cmd=[
+                    py,
+                    "tools/select_effective_renames.py",
+                    "--src-dir",
+                    str(args.refactor_src_dir),
+                    "--in-csv",
+                    str(rename_csv),
+                    "--out-csv",
+                    str(selected_csv),
+                    "--max",
+                    str(args.max_renames),
+                    "--min-confidence",
+                    str(args.min_confidence),
+                ]
+                + sum((["--status", s] for s in args.status), [])
+                + sum((["--phase", p] for p in args.phase), []),
+                marker=state_dir / "03-select-renames.json",
+                log_path=logs_dir / "03-select-renames.log",
+            )
+        )
     steps.append(
         Step(
             name="symbol_renames",
@@ -154,9 +182,9 @@ def _build_steps(args) -> list[Step]:
                 py,
                 "tools/ts_rename_identifiers.py",
                 "--csv",
-                str(args.symbols_csv),
+                str(selected_csv if args.select_effective and args.max_renames >= 0 else rename_csv),
                 "--csv-dir",
-                str(args.symbols_csv_dir),
+                str(Path("/tmp/void-empty-dir") if args.select_effective and args.max_renames >= 0 else rename_csv_dir),
                 "--src-dir",
                 str(args.refactor_src_dir),
                 "--extract-manifest-dir",
@@ -164,7 +192,7 @@ def _build_steps(args) -> list[Step]:
                 "--report",
                 "docs/rename-report-refactor.md",
                 "--max-mappings",
-                str(args.max_renames),
+                str(-1 if args.select_effective and args.max_renames >= 0 else args.max_renames),
                 "--safe-preflight",
                 "--allow-non-obfuscated",
             ]
@@ -215,6 +243,18 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--classes-csv", type=Path, default=Path("client/refactor/.refactor-plan/generated/classes.csv"))
     ap.add_argument("--symbols-csv", type=Path, default=Path("client/refactor/.refactor-plan/generated/symbol_renames.csv"))
     ap.add_argument("--symbols-csv-dir", type=Path, default=Path("client/refactor/.refactor-plan/symbol-renames/generated"))
+    ap.add_argument(
+        "--rename-csv",
+        type=Path,
+        default=None,
+        help="Optional override for symbol renames input CSV (build_views outputs still go to --symbols-csv).",
+    )
+    ap.add_argument(
+        "--rename-csv-dir",
+        type=Path,
+        default=None,
+        help="Optional override for symbol renames input directory (build_views outputs still go to --symbols-csv-dir).",
+    )
     ap.add_argument("--extract-manifest-dir", type=Path, default=Path("client/refactor/.refactor-plan/extract-statics/generated"))
     ap.add_argument("--plan-dir", type=Path, default=Path("client/refactor/.refactor-plan"))
     ap.add_argument("--class-src-dir", type=Path, default=Path("client/src"))
@@ -223,12 +263,17 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--report", type=Path, default=Path("docs/refactor-pipeline-report.md"))
     ap.add_argument("--max-renames", type=int, default=int(os.environ.get("MAX_RENAMES", "20")))
     ap.add_argument("--max-manifests", type=int, default=int(os.environ.get("MAX_MANIFESTS", "10")))
+    ap.add_argument("--no-select-effective", action="store_true", help="Disable selecting effective renames (use raw first-N rows).")
+    ap.add_argument("--min-confidence", default="high", choices=["low", "medium", "high"])
+    ap.add_argument("--status", action="append", default=["approved"], help="Allowed status for rename rows (repeatable).")
+    ap.add_argument("--phase", action="append", default=[], help="Allowed phase for rename rows (repeatable).")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--resume", action="store_true", help="Skip steps with successful marker in state-dir.")
     ap.add_argument("--skip-compile", action="store_true")
     ap.add_argument("--skip-class-renames", action="store_true")
     ap.add_argument("--allow-conflicts", action="store_true")
     args = ap.parse_args(argv)
+    args.select_effective = not args.no_select_effective
 
     cwd = Path.cwd()
     state_dir = args.state_dir.resolve()
