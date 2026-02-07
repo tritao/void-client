@@ -1,0 +1,6 @@
+# CollisionMap and OpenGLTextureFactory typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+CollisionMap,local,CollisionMap,,,,class361,collisionMapVar,,,"CollisionMap typed variable"
+CollisionMap,local,CollisionMap,,,,class361s,collisionMapVars,,,"CollisionMap[] typed variable"
+OpenGLTextureFactory,local,OpenGLTextureFactory,,,,class371,glTextureFactoryVar,,,"OpenGLTextureFactory typed variable"
+OpenGLTextureFactory,local,OpenGLTextureFactory,,,,class371s,glTextureFactoryVars,,,"OpenGLTextureFactory[] typed variable"
