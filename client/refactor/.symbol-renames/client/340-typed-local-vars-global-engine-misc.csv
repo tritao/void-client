@@ -1,0 +1,17 @@
+# Global typed local/parameter cleanup for engine/support aliases.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class38,devConsoleVar,,,"DevConsole typed variable"
+Global,local,Global,,,,class358,modelTextureProjectionDataVar,,,"ModelTextureProjectionData typed variable"
+Global,local,Global,,,,class352,groundItemPileCacheVar,,,"GroundItemPileCache typed variable"
+Global,local,Global,,,,class323,worldMapFontVar,,,"WorldMapFont typed variable"
+Global,local,Global,,,,class209,musicStreamGlobalsVar,,,"MusicStreamGlobals typed variable"
+Global,local,Global,,,,class156,secondaryLinkedListIteratorVar,,,"SecondaryLinkedListIterator typed variable"
+Global,local,Global,,,,class321,questTypeVar,,,"QuestType typed variable"
+Global,local,Global,,,,class356,hashTableVar,,,"HashTable typed variable"
+Global,local,Global,,,,class269,waterNormalMapResourcesVar,,,"WaterNormalMapResources typed variable"
+Global,local,Global,,,,class222,cursorTypeVar,,,"CursorType typed variable"
+Global,local,Global,,,,class206,openGLFramebufferVar,,,"OpenGLFramebuffer typed variable"
+Global,local,Global,,,,class113,clientScriptResourcesVar,,,"ClientScriptResources typed variable"
+Global,local,Global,,,,class41,faceNormalVar,,,"FaceNormal typed variable"
+Global,local,Global,,,,class19,overheadTextRendererVar,,,"OverheadTextRenderer typed variable"
+Global,local,Global,,,,class184,worldListDecoderVar,,,"WorldListDecoder typed variable"
