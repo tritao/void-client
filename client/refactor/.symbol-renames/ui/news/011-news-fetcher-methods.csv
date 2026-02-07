@@ -1,0 +1,6 @@
+# NewsFetcher high-confidence methods.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+NewsFetcher,method,NewsFetcher,,,,method2664,clearStaticState,,,
+NewsFetcher,method,NewsFetcher,,,,method2667,getNewsEntry,,,
+NewsFetcher,method,NewsFetcher,,,,method2668,pollLoaded,,,
+NewsFetcher,method,NewsFetcher,,,,method2669,sortObjectsByLongKeys,,,
