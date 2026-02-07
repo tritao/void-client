@@ -1,0 +1,7 @@
+# TooltipLayout static fields/methods (high confidence).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+TooltipLayout,field,TooltipLayout,,,,aClass356_4915,mapRegionLoaderTable,,,
+TooltipLayout,field,TooltipLayout,,,,aClass323_4921,worldMapFont,,,
+TooltipLayout,method,TooltipLayout,,,,method1109,clearStaticState,,,
+TooltipLayout,method,TooltipLayout,,,,method1110,isTileVisibleForEntity,,,
+TooltipLayout,method,TooltipLayout,,,,method1111,drawClippedHorizontalSpanRange,,,
