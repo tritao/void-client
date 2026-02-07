@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 1).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class124_228_,modelDataVar228,,,"ModelData typed variable"
+Global,local,Global,,,,class213_9_,itemTypeVar9,,,"ItemType typed variable"
+Global,local,Global,,,,class124_240_,modelDataVar240,,,"ModelData typed variable"
+Global,local,Global,,,,class64_13_,modelVar13,,,"Model typed variable"
+Global,local,Global,,,,class17_0_,seqTypeVar0,,,"SeqType typed variable"
+Global,local,Global,,,,class31_349_,hitmarkTypeVar349,,,"HitmarkType typed variable"
+Global,local,Global,,,,class124_225_,modelDataVar225,,,"ModelData typed variable"
+Global,local,Global,,,,class64_27_,modelVar27,,,"Model typed variable"
+Global,local,Global,,,,class17_36_,seqTypeVar36,,,"SeqType typed variable"
+Global,local,Global,,,,class4_8_,animFrameVar8,,,"AnimFrame typed variable"
+Global,local,Global,,,,class51_2_,objectTypeVar2,,,"ObjectType typed variable"
+Global,local,Global,,,,class213_95_,itemTypeVar95,,,"ItemType typed variable"
+Global,local,Global,,,,class357_2_,sceneTileVar2,,,"SceneTile typed variable"
+Global,local,Global,,,,class213_10_,itemTypeVar10,,,"ItemType typed variable"
+Global,local,Global,,,,class64_82_,modelVar82,,,"Model typed variable"
