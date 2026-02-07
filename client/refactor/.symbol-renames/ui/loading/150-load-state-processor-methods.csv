@@ -1,0 +1,4 @@
+# Core loading state processor entry points.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LoadStateProcessor,method,LoadStateProcessor,,,,method1277,clearLoadingCaches,,,"Clear shared caches used during loading"
+LoadStateProcessor,method,LoadStateProcessor,,,,method1278,processCurrentStage,,,"Process current loading stage and return progress percent"
