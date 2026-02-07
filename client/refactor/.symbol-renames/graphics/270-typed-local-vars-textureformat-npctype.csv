@@ -1,0 +1,6 @@
+# TextureFormat and NpcType typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+TextureFormat,local,TextureFormat,,,,class304,textureFormatVar,,,"TextureFormat typed variable"
+TextureFormat,local,TextureFormat,,,,class304s,textureFormatVars,,,"TextureFormat[] typed variable"
+NpcType,local,NpcType,,,,class79,npcTypeDefVar,,,"NpcType typed variable"
+NpcType,local,NpcType,,,,class79s,npcTypeDefVars,,,"NpcType[] typed variable"
