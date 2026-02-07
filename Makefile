@@ -8,6 +8,7 @@ CLASSES_CSV ?= client/refactor/.refactor-plan/generated/classes.csv
 SYMBOLS_CSV ?= client/refactor/.refactor-plan/generated/symbol_renames.csv
 SYMBOLS_CSV_DIR ?= client/refactor/.refactor-plan/symbol-renames/generated
 LSP_TIMEOUT_S ?= 180
+REF_PY ?= ./.venv/bin/python
 
 LIBS ?= libs/clientlibs.jar
 MAIN_CLASS ?= Loader
@@ -90,18 +91,18 @@ help:
 	@echo "  make jar       - build runnable jar at $(OUT_JAR) (Main-Class: $(MAIN_CLASS))"
 	@echo "  make run       - run $(MAIN_CLASS) using $(OUT_JAR) + $(LIBS)"
 	@echo "  make reports   - regenerate docs/*.md reports"
-	@echo "  make rebuild-refactor - full refactor rebuild (layout + views + static extraction + validation)"
-	@echo "  make compile-refactor - compile client/refactor (after rebuild-refactor)"
-	@echo "  make rename-refactor - apply symbol renames in client/refactor"
+	@echo "  make rebuild-refactor - full refactor rebuild (layout + views + extract + rename + cleanup)"
+	@echo "  make compile-refactor - rebuild-refactor + compile client/refactor"
+	@echo "  make rename-refactor - apply symbol renames in client/refactor (legacy; prefer refactor-loop)"
 	@echo "  make rename-refactor-dry - dry-run rename-refactor"
-	@echo "  make rename-refactor-loop - rebuild-refactor + rename-refactor + compile + reports"
+	@echo "  make rename-refactor-loop - compile-refactor + reports-refactor (legacy)"
 	@echo "  make static-split-candidates - rank static members for extraction manifests"
 	@echo "  make extract-statics - apply client/refactor/.refactor-plan/extract-statics/generated/*.yaml"
 	@echo "  make extract-statics-dry - dry-run static extraction"
 	@echo "  make check-static-extract - validate manifests are fully applied"
 	@echo "  make extract-statics-loop - extract + validate + compile client/refactor"
-	@echo "  make refactor-loop - unified class+symbol+extract+validate+compile pipeline"
-	@echo "  make refactor-loop-dry - dry-run unified pipeline"
+	@echo "  make refactor-loop - incremental pipeline (select effective renames + extract + rename + compile)"
+	@echo "  make refactor-loop-dry - dry-run incremental pipeline"
 	@echo "  make build-refactor-views - build generated symbol/extract/class views from .refactor-plan"
 	@echo "  make migrate-refactor-plan - import existing symbol/extract artifacts into .refactor-plan"
 	@echo "  make cleanup-refactor - apply post-rebuild cleanup pass in client/refactor"
@@ -115,7 +116,7 @@ help:
 	@echo "  JAVA_HOME=/path/to/jdk   (used if compatible with JDK; otherwise ./.jdk/temurin\$$JDK is preferred)"
 	@echo "  LIBS=libs/clientlibs.jar (classpath deps)"
 	@echo "  EXCLUDE_REGEX=regex      (exclude source paths matching regex; useful for platform-specific files)"
-	@echo "  MAX_RENAMES=20           (cap renames per run for rename/rename-loop)"
+	@echo "  MAX_RENAMES=20           (cap effective renames per run for refactor-loop)"
 	@echo ""
 	@echo "Tip:"
 	@echo "  tools/bootstrap-jdk.sh \$$JDK  (downloads a repo-local JDK into .jdk/)"
@@ -194,15 +195,13 @@ reports-refactor:
 	@python tools/java_dossier.py --root client/refactor --all --write docs/rename-dossiers-refactor.md
 
 rename-refactor:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --extract-manifest-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/rename-report-refactor.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight
+	@$(REF_PY) tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --extract-manifest-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/rename-report-refactor.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight
 
 rename-refactor-dry:
-	@./.venv/bin/python tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --extract-manifest-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/rename-report-refactor.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight --dry-run
+	@$(REF_PY) tools/ts_rename_identifiers.py --csv "$(SYMBOLS_CSV)" --csv-dir "$(SYMBOLS_CSV_DIR)" --src-dir client/refactor --extract-manifest-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/rename-report-refactor.md --max-mappings "$${MAX_RENAMES:-20}" --safe-preflight --dry-run
 
 rename-refactor-loop:
-	@$(MAKE) rebuild-refactor
-	@$(MAKE) rename-refactor
-	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
+	@$(MAKE) compile-refactor
 	@$(MAKE) reports-refactor
 	@echo "Done. See:"
 	@echo "  docs/rename-report-refactor.md"
@@ -220,31 +219,31 @@ rebuild-refactor:
 	@$(MAKE) cleanup-refactor
 
 cleanup-refactor:
-	@./.venv/bin/python tools/apply_refactor_cleanup.py --src-dir client/refactor --plan-dir client/refactor/.refactor-plan
+	@$(REF_PY) tools/apply_refactor_cleanup.py --src-dir client/refactor --plan-dir client/refactor/.refactor-plan
 
 cleanup-candidates:
-	@./.venv/bin/python tools/find_cleanup_candidates.py --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
+	@$(REF_PY) tools/find_cleanup_candidates.py --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
 
 cleanup-apply-high:
-	@./.venv/bin/python tools/apply_cleanup_candidates.py --candidates client/refactor/.refactor-plan/generated/cleanup_candidates.csv --drop-members client/refactor/.refactor-plan/drop_members.csv --confidence high
+	@$(REF_PY) tools/apply_cleanup_candidates.py --candidates client/refactor/.refactor-plan/generated/cleanup_candidates.csv --drop-members client/refactor/.refactor-plan/drop_members.csv --confidence high
 
 cleanup-report:
-	@./.venv/bin/python tools/find_cleanup_candidates.py --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
+	@$(REF_PY) tools/find_cleanup_candidates.py --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
 
 compile-refactor: rebuild-refactor
 	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
 
 static-split-candidates:
-	@./.venv/bin/python tools/static_split_candidates.py --src-dir client/refactor --scope-dir client/refactor/collections --out-md docs/static-split-candidates.md --out-csv docs/static-split-candidates.csv
+	@$(REF_PY) tools/static_split_candidates.py --src-dir client/refactor --scope-dir client/refactor/collections --out-md docs/static-split-candidates.md --out-csv docs/static-split-candidates.csv
 
 extract-statics:
-	@./.venv/bin/python tools/extract_statics_ts.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --max-manifests "$${MAX_MANIFESTS:--1}"
+	@$(REF_PY) tools/extract_statics_ts.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --rename-csv "$(SYMBOLS_CSV)" --max-manifests "$${MAX_MANIFESTS:--1}"
 
 extract-statics-dry:
-	@./.venv/bin/python tools/extract_statics_ts.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --max-manifests "$${MAX_MANIFESTS:--1}" --dry-run
+	@$(REF_PY) tools/extract_statics_ts.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --rename-csv "$(SYMBOLS_CSV)" --max-manifests "$${MAX_MANIFESTS:--1}" --dry-run
 
 check-static-extract:
-	@./.venv/bin/python tools/check_static_extract.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated
+	@$(REF_PY) tools/check_static_extract.py --src-dir client/refactor --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --rename-csv "$(SYMBOLS_CSV)"
 
 extract-statics-loop:
 	@$(MAKE) extract-statics
@@ -252,16 +251,16 @@ extract-statics-loop:
 	@$(MAKE) compile-recursive SRC_DIR=client/refactor CLASSES_DIR=build/classes-refactor-layout SOURCES_FILE=build/sources-refactor-layout.txt
 
 refactor-loop:
-	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --resume --skip-class-renames $${ALLOW_CONFLICTS:+--allow-conflicts}
+	@$(REF_PY) tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --resume --skip-class-renames --report build/refactor-pipeline-report.md $${ALLOW_CONFLICTS:+--allow-conflicts}
 
 refactor-loop-dry:
-	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --dry-run --resume --skip-class-renames --report build/refactor-pipeline-report-dry.md $${ALLOW_CONFLICTS:+--allow-conflicts}
+	@$(REF_PY) tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --dry-run --resume --skip-class-renames --report build/refactor-pipeline-report-dry.md $${ALLOW_CONFLICTS:+--allow-conflicts}
 
 build-refactor-views:
-	@./.venv/bin/python tools/build_refactor_views.py --plan-dir client/refactor/.refactor-plan --refactor-src client/refactor --out-symbol-root client/refactor/.refactor-plan/generated/symbol_renames.csv --out-symbol-dir client/refactor/.refactor-plan/symbol-renames/generated --out-class-csv client/refactor/.refactor-plan/generated/classes.csv --out-extract-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/refactor-views-report.md $${ALLOW_CONFLICTS:+--allow-conflicts}
+	@$(REF_PY) tools/build_refactor_views.py --plan-dir client/refactor/.refactor-plan --refactor-src client/refactor --out-symbol-root client/refactor/.refactor-plan/generated/symbol_renames.csv --out-symbol-dir client/refactor/.refactor-plan/symbol-renames/generated --out-class-csv client/refactor/.refactor-plan/generated/classes.csv --out-extract-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/refactor-views-report.md $${ALLOW_CONFLICTS:+--allow-conflicts}
 
 migrate-refactor-plan:
-	@./.venv/bin/python tools/migrate_refactor_plan.py --plan-dir client/refactor/.refactor-plan --symbols-root-csv client/refactor/.refactor-plan/import/symbol_renames.csv --symbols-dir client/refactor/.refactor-plan/import/symbol-renames --extract-dir client/refactor/.refactor-plan/import/extract-statics --clean
+	@$(REF_PY) tools/migrate_refactor_plan.py --plan-dir client/refactor/.refactor-plan --symbols-root-csv client/refactor/.refactor-plan/import/symbol_renames.csv --symbols-dir client/refactor/.refactor-plan/import/symbol-renames --extract-dir client/refactor/.refactor-plan/import/extract-statics --clean
 clean:
 	rm -rf "$(BUILD_DIR)"
 
