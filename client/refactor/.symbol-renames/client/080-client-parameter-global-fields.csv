@@ -1,0 +1,5 @@
+# ClientParameterGlobals field naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ClientParameterGlobals,field,ClientParameterGlobals,,,,anInt1758,staffModLevel,,,"Logged-in account rights/mod level from login response"
+ClientParameterGlobals,field,ClientParameterGlobals,,,,anInt1760,preferencesLoadCount,,,"Counter for preferences load attempts"
+ClientParameterGlobals,field,ClientParameterGlobals,,,,aString1761,quitUrl,,,"Configured quit-url parameter from applet/bootstrap"
