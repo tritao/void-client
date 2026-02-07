@@ -1,4 +1,4 @@
 # Final cleanup for remaining interface suffix aliases.
 file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
-Global,local,Global,,,,interface10_42_,groundAlphaMaskProjectorVar42,,,"GroundAlphaMaskProjector typed variable"
-Global,local,Global,,,,interface14_0_,cacheKeyVar0,,,"CacheKey typed variable"
+*,local,*,,,,interface10_42_,groundAlphaMaskProjectorVar42,,,"GroundAlphaMaskProjector typed variable"
+*,local,*,,,,interface14_0_,cacheKeyVar0,,,"CacheKey typed variable"
