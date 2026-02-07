@@ -1,0 +1,6 @@
+# SignLinkRequest and FloorOverlayType typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SignLinkRequest,local,SignLinkRequest,,,,class144,signLinkRequestVar,,,"SignLinkRequest typed variable (collision-safe)"
+SignLinkRequest,local,SignLinkRequest,,,,class144s,signLinkRequestVars,,,"SignLinkRequest[] typed variable"
+FloorOverlayType,local,FloorOverlayType,,,,class277,floorOverlayTypeDef,,,"FloorOverlayType typed variable"
+FloorOverlayType,local,FloorOverlayType,,,,class277s,floorOverlayTypeDefs,,,"FloorOverlayType[] typed variable"
