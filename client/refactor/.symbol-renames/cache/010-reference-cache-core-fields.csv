@@ -1,0 +1,7 @@
+# Cache entry internals with clear semantics.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ReferenceNode,field,ReferenceNode,,,,anInt9545,size,,,"Entry size/weight used for cache capacity accounting"
+ReferenceCacheEntry,field,ReferenceCacheEntry,,,,anInt9556,size,,,"Entry size/weight used by ReferenceCache"
+ReferenceCacheEntry,field,ReferenceCacheEntry,,,,anInterface14_9559,cacheKey,,,"Cache key object for equality/hash checks"
+HardReferenceCacheEntry,field,HardReferenceCacheEntry,,,,anObject10440,value,,,"Strongly referenced cached value"
+SoftReferenceCacheEntry,field,SoftReferenceCacheEntry,,,,aSoftReference10446,softValueRef,,,"SoftReference-wrapped cached value"
