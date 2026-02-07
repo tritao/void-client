@@ -1,0 +1,17 @@
+# Neutral cleanup for decompiler string_/bool_ aliases (batch 4).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+*,local,*,,,,string_228_,text228,,,"Neutral string alias"
+*,local,*,,,,string_19_,text19,,,"Neutral string alias"
+*,local,*,,,,string_18_,text18,,,"Neutral string alias"
+*,local,*,,,,string_175_,text175,,,"Neutral string alias"
+*,local,*,,,,string_14_,text14,,,"Neutral string alias"
+*,local,*,,,,string_142_,text142,,,"Neutral string alias"
+*,local,*,,,,string_141_,text141,,,"Neutral string alias"
+*,local,*,,,,string_114_,text114,,,"Neutral string alias"
+*,local,*,,,,bool_7_,flag7,,,"Neutral boolean alias"
+*,local,*,,,,bool_75_,flag75,,,"Neutral boolean alias"
+*,local,*,,,,bool_51_,flag51,,,"Neutral boolean alias"
+*,local,*,,,,bool_48_,flag48,,,"Neutral boolean alias"
+*,local,*,,,,bool_40_,flag40,,,"Neutral boolean alias"
+*,local,*,,,,bool_18_,flag18,,,"Neutral boolean alias"
+*,local,*,,,,bool_54_,flag54,,,"Neutral boolean alias"
