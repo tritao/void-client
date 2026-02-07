@@ -1,0 +1,15 @@
+# SignLink runtime/environment metadata.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SignLink,field,SignLink,,,,aLong3781,networkCooldownUntilMillis,,,
+SignLink,field,SignLink,,,,aString3782,javaVendor,,,
+SignLink,field,SignLink,,,,aString3796,javaVersion,,,
+SignLink,field,SignLink,,,,aString3784,osName,,,
+SignLink,field,SignLink,,,,aString3780,osArch,,,
+SignLink,field,SignLink,,,,aString3778,osVersion,,,
+SignLink,field,SignLink,,,,aString3800,userHomeDir,,,
+SignLink,field,SignLink,,,,aString3789,cacheSubdir,,,
+SignLink,field,SignLink,,,,anInt3792,cacheBuild,,,
+SignLink,field,SignLink,,,,aMethod3783,setFocusTraversalKeysEnabledMethod,,,
+SignLink,field,SignLink,,,,aMethod3786,setFocusCycleRootMethod,,,
+SignLink,field,SignLink,,,,anEventQueue3799,eventQueue,,,
+SignLink,field,SignLink,,,,aString3803,osNameLower,,,
