@@ -1,0 +1,17 @@
+# Cleanup for high-frequency classNNN_suffix_ aliases (batch 11).
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,class368_55_,gfxTypeVar55,,,"GfxType typed variable"
+Global,local,Global,,,,class368_48_,gfxTypeVar48,,,"GfxType typed variable"
+Global,local,Global,,,,class348_9_,nodeVar9,,,"Node typed variable"
+Global,local,Global,,,,class348_10_,nodeVar10,,,"Node typed variable"
+Global,local,Global,,,,class324_392_,fontRendererVar392,,,"FontRenderer typed variable"
+Global,local,Global,,,,class324_390_,fontRendererVar390,,,"FontRenderer typed variable"
+Global,local,Global,,,,class305_5_,skyBoxVar5,,,"SkyBox typed variable"
+Global,local,Global,,,,class299_24_,inboundPacketBufferVar24,,,"InboundPacketBuffer typed variable"
+Global,local,Global,,,,class274_5_,localisedTextVar5,,,"LocalisedText typed variable"
+Global,local,Global,,,,class23_90_,musicPatchNode2Var90,,,"MusicPatchNode2 typed variable"
+Global,local,Global,,,,class23_88_,musicPatchNode2Var88,,,"MusicPatchNode2 typed variable"
+Global,local,Global,,,,class213_2_,itemTypeVar2,,,"ItemType typed variable"
+Global,local,Global,,,,class213_1_,itemTypeVar1,,,"ItemType typed variable"
+Global,local,Global,,,,class181_29_,particleEmitterTypeVar29,,,"ParticleEmitterType typed variable"
+Global,local,Global,,,,class181_28_,particleEmitterTypeVar28,,,"ParticleEmitterType typed variable"
