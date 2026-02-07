@@ -1,0 +1,17 @@
+# Neutral cleanup for decompiler array aliases (`is_*`) batch 6.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Global,local,Global,,,,is_33_,array33,,,"Neutral array alias"
+Global,local,Global,,,,is_24_,array24,,,"Neutral array alias"
+Global,local,Global,,,,is_180_,array180,,,"Neutral array alias"
+Global,local,Global,,,,is_79_,array79,,,"Neutral array alias"
+Global,local,Global,,,,is_60_,array60,,,"Neutral array alias"
+Global,local,Global,,,,is_55_,array55,,,"Neutral array alias"
+Global,local,Global,,,,is_376_,array376,,,"Neutral array alias"
+Global,local,Global,,,,is_34_,array34,,,"Neutral array alias"
+Global,local,Global,,,,is_32_,array32,,,"Neutral array alias"
+Global,local,Global,,,,is_302_,array302,,,"Neutral array alias"
+Global,local,Global,,,,is_62_,array62,,,"Neutral array alias"
+Global,local,Global,,,,is_61_,array61,,,"Neutral array alias"
+Global,local,Global,,,,is_35_,array35,,,"Neutral array alias"
+Global,local,Global,,,,is_31_,array31,,,"Neutral array alias"
+Global,local,Global,,,,is_89_,array89,,,"Neutral array alias"
