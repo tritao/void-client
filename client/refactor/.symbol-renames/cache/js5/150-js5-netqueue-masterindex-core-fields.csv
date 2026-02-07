@@ -1,0 +1,16 @@
+# Js5NetQueue + Js5MasterIndex core field naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Js5MasterIndex,field,Js5MasterIndex,,,,aClass248_4212,netQueue,,,"JS5 network queue used to request master/index data"
+Js5MasterIndex,field,Js5MasterIndex,,,,aBigInteger4213,rsaExponent,,,"RSA exponent used to verify/decrypt signed master index payload"
+Js5MasterIndex,field,Js5MasterIndex,,,,aBigInteger4218,rsaModulus,,,"RSA modulus used to verify/decrypt signed master index payload"
+Js5NetQueue,field,Js5NetQueue,,,,aClass107_3197,priorityPendingRequests,,,"Priority requests queued to send"
+Js5NetQueue,field,Js5NetQueue,,,,aClass107_3204,priorityInFlightRequests,,,"Priority requests sent and awaiting response"
+Js5NetQueue,field,Js5NetQueue,,,,aClass107_3205,normalPendingRequests,,,"Normal requests queued to send"
+Js5NetQueue,field,Js5NetQueue,,,,aClass107_3206,normalInFlightRequests,,,"Normal requests sent and awaiting response"
+Js5NetQueue,field,Js5NetQueue,,,,aLong3207,lastIoTimeMillis,,,"Timestamp of last socket I/O activity"
+Js5NetQueue,field,Js5NetQueue,,,,aClass348_Sub49_3208,outboundHeaderBuffer,,,"4-byte outbound control/header buffer"
+Js5NetQueue,field,Js5NetQueue,,,,aClass202_3209,socket,,,"Underlying JS5 buffered socket"
+Js5NetQueue,field,Js5NetQueue,,,,anInt3210,idleTimeMillis,,,"Accumulated idle time used for timeout detection"
+Js5NetQueue,field,Js5NetQueue,,,,aClass348_Sub49_3211,inboundHeaderBuffer,,,"8-byte inbound response header buffer"
+Js5NetQueue,field,Js5NetQueue,,,,aByte3212,xorKey,,,"Session XOR key applied to inbound/outbound bytes"
+Js5NetQueue,field,Js5NetQueue,,,,aClass348_Sub42_Sub16_Sub1_3215,activeResponse,,,"Current response being read from socket"
