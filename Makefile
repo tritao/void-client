@@ -75,6 +75,7 @@ endif
 .PHONY: refactor-loop refactor-loop-dry
 .PHONY: build-refactor-views migrate-refactor-plan cleanup-refactor
 .PHONY: cleanup-candidates cleanup-apply-high cleanup-report
+.PHONY: clean-refactor-cache
 
 help:
 	@echo "Targets:"
@@ -254,7 +255,7 @@ refactor-loop:
 	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --resume --skip-class-renames $${ALLOW_CONFLICTS:+--allow-conflicts}
 
 refactor-loop-dry:
-	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --dry-run --resume --skip-class-renames $${ALLOW_CONFLICTS:+--allow-conflicts}
+	@./.venv/bin/python tools/refactor_pipeline.py --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --dry-run --resume --skip-class-renames --report build/refactor-pipeline-report-dry.md $${ALLOW_CONFLICTS:+--allow-conflicts}
 
 build-refactor-views:
 	@./.venv/bin/python tools/build_refactor_views.py --plan-dir client/refactor/.refactor-plan --refactor-src client/refactor --out-symbol-root client/refactor/.refactor-plan/generated/symbol_renames.csv --out-symbol-dir client/refactor/.refactor-plan/symbol-renames/generated --out-class-csv client/refactor/.refactor-plan/generated/classes.csv --out-extract-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/refactor-views-report.md $${ALLOW_CONFLICTS:+--allow-conflicts}
@@ -263,3 +264,6 @@ migrate-refactor-plan:
 	@./.venv/bin/python tools/migrate_refactor_plan.py --plan-dir client/refactor/.refactor-plan --symbols-root-csv client/refactor/.refactor-plan/import/symbol_renames.csv --symbols-dir client/refactor/.refactor-plan/import/symbol-renames --extract-dir client/refactor/.refactor-plan/import/extract-statics --clean
 clean:
 	rm -rf "$(BUILD_DIR)"
+
+clean-refactor-cache:
+	rm -rf "$(BUILD_DIR)/refactor-cache"

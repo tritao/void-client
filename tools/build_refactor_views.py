@@ -9,6 +9,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from static_extract_common import build_java_parser, iter_nodes
+
 
 SCHEMA = [
     "id",
@@ -99,6 +101,75 @@ def _validate(rows: list[PlanRow], refactor_src: Path) -> tuple[list[str], list[
         for row in rows
         if row.data.get("action") == "extract" and row.data.get("target_file")
     }
+    java_by_stem: dict[str, list[Path]] = defaultdict(list)
+    if refactor_src.exists():
+        for p in refactor_src.rglob("*.java"):
+            try:
+                java_by_stem[p.stem].append(p.relative_to(refactor_src))
+            except ValueError:
+                continue
+
+    # Best-effort overload detection: if a method rename row omits signature and the
+    # source class has multiple overloads for that obfuscated name, force authors to
+    # specify a signature to disambiguate.
+    parser = None
+    method_decl_cache: dict[tuple[str, str], dict[str, int]] = {}
+
+    def _node_text(data: bytes, start: int, end: int) -> str:
+        return data[start:end].decode("utf-8", errors="replace")
+
+    def _class_method_counts(rel_path: Path, class_name: str) -> dict[str, int]:
+        key = (str(rel_path), class_name)
+        cached = method_decl_cache.get(key)
+        if cached is not None:
+            return cached
+        abs_path = refactor_src / rel_path
+        try:
+            data = abs_path.read_bytes()
+        except OSError:
+            method_decl_cache[key] = {}
+            return {}
+        nonlocal parser
+        if parser is None:
+            parser = build_java_parser(out_so=Path("build/ts-languages-java.so"))
+        tree = parser.parse(data)
+        class_node = None
+        for node in iter_nodes(tree.root_node):
+            if node.type != "class_declaration":
+                continue
+            name_node = node.child_by_field_name("name")
+            if name_node is None:
+                continue
+            if _node_text(data, name_node.start_byte, name_node.end_byte) == class_name:
+                class_node = node
+                break
+        root = class_node or tree.root_node
+        counts: dict[str, int] = defaultdict(int)
+        for node in iter_nodes(root):
+            if node.type != "method_declaration":
+                continue
+            name_node = node.child_by_field_name("name")
+            if name_node is None:
+                continue
+            name = _node_text(data, name_node.start_byte, name_node.end_byte).strip()
+            if name:
+                counts[name] += 1
+        method_decl_cache[key] = dict(counts)
+        return method_decl_cache[key]
+
+    def _resolve_java_file(d: dict[str, str]) -> list[Path]:
+        file_value = (d.get("file") or "").strip()
+        owner_value = (d.get("owner") or "").strip() or _normalize_owner_from_file(file_value)
+        if file_value and ("/" in file_value or file_value.endswith(".java")):
+            rel = Path(file_value)
+            if rel.suffix != ".java":
+                rel = rel.with_suffix(".java")
+            if (refactor_src / rel).exists():
+                return [rel]
+            return []
+        if not owner_value:
+            return []
+        return list(java_by_stem.get(owner_value, []))
 
     for row in rows:
         d = row.data
@@ -134,6 +205,21 @@ def _validate(rows: list[PlanRow], refactor_src: Path) -> tuple[list[str], list[
             scope = d["scope"] or d["file"] or "<global>"
             rename_conflicts[(scope, d["old"])].add(d["new"])
             rename_targets[(scope, d["new"])].add(d["old"])
+
+            if d["kind"] == "method" and not d["signature"] and d["old"] and refactor_src.exists():
+                candidates = _resolve_java_file(d)
+                # Only enforce when we can resolve to a single file; otherwise we'd
+                # risk false positives due to multiple classes sharing a stem.
+                if len(candidates) == 1:
+                    owner = (d.get("owner") or "").strip() or _normalize_owner_from_file(d.get("file") or "")
+                    if not owner:
+                        continue
+                    counts = _class_method_counts(candidates[0], owner)
+                    if counts.get(d["old"], 0) > 1:
+                        warnings.append(
+                            f"overload-signature-required: {owner}.{d['old']} has {counts[d['old']]} overloads "
+                            f"but rename row has empty signature ({prefix})"
+                        )
         elif d["action"] == "extract":
             if d["kind"] not in ("method", "field"):
                 errors.append(f"{prefix}: extract requires kind=method|field")

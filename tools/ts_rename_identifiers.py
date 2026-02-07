@@ -5,9 +5,11 @@ import argparse
 import csv
 import ctypes
 import dataclasses
+import json
 import os
 import re
 import sys
+import hashlib
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -32,6 +34,8 @@ except Exception as e:  # pragma: no cover
 
 JAVA_GRAMMAR_DIR = Path("tools/vendor/tree-sitter-java")
 _TS_LIB_HANDLES: dict[str, ctypes.CDLL] = {}
+
+CACHE_SCHEMA_VERSION = 1
 
 # Conservative default: only rename classic JODE-style numbered identifiers.
 #
@@ -148,6 +152,102 @@ class Report:
                 lines.append(f"- {s}")
             lines.append("")
         return "\n".join(lines)
+
+    def to_summary_json(self) -> dict:
+        def _reason(s: str) -> str:
+            # Heuristic buckets: stable reporting without threading structured
+            # codes through every skip site.
+            if ":" in s:
+                return s.split(":", 1)[0].strip()
+            return s.split("(", 1)[0].strip()
+
+        reasons: dict[str, int] = {}
+        for s in self.skipped:
+            r = _reason(s)
+            reasons[r] = reasons.get(r, 0) + 1
+        top = sorted(reasons.items(), key=lambda kv: (-kv[1], kv[0]))
+        return {
+            "edited_files": len(self.renamed_files),
+            "renamed_identifiers": self.renamed_total,
+            "skipped": len(self.skipped),
+            "skipped_reasons": {k: v for k, v in top},
+        }
+
+
+@dataclasses.dataclass(frozen=True)
+class CachedIndexes:
+    field_decls: dict[str, set[Path]]
+    class_index: ClassIndex
+
+
+def _java_tree_fingerprint(*, src_dir: Path, java_files: list[Path]) -> str:
+    """
+    Fingerprint the Java tree using cheap stat metadata.
+
+    This intentionally avoids hashing file contents (too expensive) and is good enough
+    for our loop: any edit should bump mtime and/or size for affected files.
+    """
+    h = hashlib.sha256()
+    h.update(f"schema={CACHE_SCHEMA_VERSION}\n".encode("utf-8"))
+    # Include src_dir to avoid cross-tree collisions.
+    h.update(f"src={src_dir}\n".encode("utf-8"))
+    for p in java_files:
+        try:
+            st = p.stat()
+        except OSError:
+            continue
+        try:
+            rel = str(p.relative_to(src_dir))
+        except ValueError:
+            rel = str(p)
+        h.update(rel.encode("utf-8", errors="replace"))
+        h.update(b"\0")
+        h.update(str(st.st_size).encode("ascii"))
+        h.update(b"\0")
+        h.update(str(getattr(st, "st_mtime_ns", int(st.st_mtime * 1e9))).encode("ascii"))
+        h.update(b"\n")
+    return h.hexdigest()[:16]
+
+
+def _load_cached_indexes(cache_path: Path) -> CachedIndexes | None:
+    try:
+        data = json.loads(cache_path.read_text(encoding="utf-8"))
+    except OSError:
+        return None
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(data, dict) or data.get("schema_version") != CACHE_SCHEMA_VERSION:
+        return None
+    try:
+        field_decls_raw = data.get("field_decls", {})
+        class_index_raw = data.get("class_index", {})
+        field_decls: dict[str, set[Path]] = {
+            str(k): {Path(p) for p in (v or [])} for k, v in (field_decls_raw or {}).items()
+        }
+        ci = ClassIndex(
+            fields=dict(class_index_raw.get("fields") or {}),
+            extends_of=dict(class_index_raw.get("extends_of") or {}),
+            methods=dict(class_index_raw.get("methods") or {}),
+            implements_of=dict(class_index_raw.get("implements_of") or {}),
+        )
+        return CachedIndexes(field_decls=field_decls, class_index=ci)
+    except Exception:
+        return None
+
+
+def _write_cached_indexes(cache_path: Path, *, field_decls: dict[str, set[Path]], class_index: ClassIndex) -> None:
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "schema_version": CACHE_SCHEMA_VERSION,
+        "field_decls": {k: sorted({str(p) for p in v}) for k, v in field_decls.items()},
+        "class_index": {
+            "fields": class_index.fields,
+            "extends_of": class_index.extends_of,
+            "methods": class_index.methods,
+            "implements_of": class_index.implements_of,
+        },
+    }
+    cache_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 def _load_static_extract_moves(manifest_dir: Path) -> dict[tuple[str, str, str], str]:
     """
@@ -445,29 +545,26 @@ def _resolve_scope_files(*, mapping_file: str, src_dir: Path, java_files: list[P
     return out
 
 
-def _collect_field_declarations(*, parser: Parser, java_files: list[Path]) -> dict[str, set[Path]]:
+def _collect_field_declarations_from_tree(*, data: bytes, root: Node, path: Path) -> dict[str, set[Path]]:
     out: dict[str, set[Path]] = {}
-    for path in java_files:
-        data = path.read_bytes()
-        tree = parser.parse(data)
-        for n in _iter_nodes(tree.root_node):
-            if n.type != "variable_declarator":
-                continue
-            parent = n.parent
-            if parent is None or parent.type != "field_declaration":
-                continue
-            ident = None
-            for ch in n.children:
-                if ch.type in ("identifier", "type_identifier"):
-                    ident = data[ch.start_byte : ch.end_byte]
-                    break
-            if ident is None:
-                continue
-            try:
-                name = ident.decode("utf-8")
-            except UnicodeDecodeError:
-                continue
-            out.setdefault(name, set()).add(path.resolve())
+    for n in _iter_nodes(root):
+        if n.type != "variable_declarator":
+            continue
+        parent = n.parent
+        if parent is None or parent.type != "field_declaration":
+            continue
+        ident = None
+        for ch in n.children:
+            if ch.type in ("identifier", "type_identifier"):
+                ident = data[ch.start_byte : ch.end_byte]
+                break
+        if ident is None:
+            continue
+        try:
+            name = ident.decode("utf-8")
+        except UnicodeDecodeError:
+            continue
+        out.setdefault(name, set()).add(path.resolve())
     return out
 
 
@@ -574,6 +671,97 @@ def _build_class_index(*, parser: Parser, java_files: list[Path]) -> ClassIndex:
             if mname and rtype and mname not in class_methods:
                 class_methods[mname] = rtype
     return ClassIndex(fields=fields, extends_of=extends_of, methods=methods, implements_of=implements_of)
+
+
+def _build_indexes(*, parser: Parser, java_files: list[Path]) -> CachedIndexes:
+    """
+    Build all heavyweight indexes in a single parse pass per file.
+    """
+    field_decls: dict[str, set[Path]] = {}
+    fields: dict[str, dict[str, str]] = {}
+    extends_of: dict[str, str] = {}
+    methods: dict[str, dict[str, str]] = {}
+    implements_of: dict[str, list[str]] = {}
+
+    for path in java_files:
+        data = path.read_bytes()
+        tree = parser.parse(data)
+
+        # Field declarations index (used by safe-preflight).
+        per_file = _collect_field_declarations_from_tree(data=data, root=tree.root_node, path=path)
+        for name, ps in per_file.items():
+            field_decls.setdefault(name, set()).update(ps)
+
+        # Class index (used by semantic member renames).
+        class_name = ""
+        superclass_name = ""
+        interface_names: list[str] = []
+        for n in _iter_nodes(tree.root_node):
+            if n.type not in ("class_declaration", "interface_declaration", "enum_declaration"):
+                continue
+            name_node = n.child_by_field_name("name")
+            if name_node is None:
+                continue
+            class_name = _node_text(data, name_node).strip()
+            if n.type == "class_declaration":
+                sc = n.child_by_field_name("superclass")
+                if sc is not None:
+                    raw = _node_text(data, sc).strip()
+                    raw = re.sub(r"^\s*extends\s+", "", raw).strip()
+                    superclass_name = _normalize_type_name(raw)
+            iface_node = n.child_by_field_name("interfaces") or n.child_by_field_name("super_interfaces")
+            if iface_node is not None:
+                raw = _node_text(data, iface_node).strip()
+                raw = re.sub(r"^\s*(?:implements|extends)\s+", "", raw).strip()
+                parts = [p.strip() for p in raw.split(",") if p.strip()]
+                interface_names = [_normalize_type_name(p) for p in parts if _normalize_type_name(p)]
+            if class_name:
+                break
+        if not class_name:
+            continue
+        if superclass_name:
+            extends_of[class_name] = superclass_name
+        if interface_names:
+            implements_of[class_name] = interface_names
+        class_fields: dict[str, str] = fields.setdefault(class_name, {})
+        class_methods: dict[str, str] = methods.setdefault(class_name, {})
+
+        for n in _iter_nodes(tree.root_node):
+            if n.type != "field_declaration":
+                continue
+            type_node = n.child_by_field_name("type")
+            if type_node is None:
+                continue
+            type_name = _normalize_type_name(_node_text(data, type_node))
+            if not type_name:
+                continue
+            for ch in n.children:
+                if ch.type != "variable_declarator":
+                    continue
+                name_node = ch.child_by_field_name("name")
+                if name_node is None:
+                    continue
+                field_name = _node_text(data, name_node).strip()
+                if not field_name:
+                    continue
+                class_fields[field_name] = type_name
+
+        for n in _iter_nodes(tree.root_node):
+            if n.type != "method_declaration":
+                continue
+            name_node = n.child_by_field_name("name")
+            type_node = n.child_by_field_name("type")
+            if name_node is None or type_node is None:
+                continue
+            mname = _node_text(data, name_node).strip()
+            rtype = _normalize_type_name(_node_text(data, type_node))
+            if mname and rtype and mname not in class_methods:
+                class_methods[mname] = rtype
+
+    return CachedIndexes(
+        field_decls=field_decls,
+        class_index=ClassIndex(fields=fields, extends_of=extends_of, methods=methods, implements_of=implements_of),
+    )
 
 
 def _iter_owner_chain(type_name: str, class_index: ClassIndex) -> Iterable[str]:
@@ -1013,6 +1201,7 @@ def main(argv: list[str]) -> int:
         help="Optional directory of extract-statics manifests; when present, member renames are also applied to moved targets.",
     )
     ap.add_argument("--report", type=Path, default=Path("docs/rename-report-refactor.md"))
+    ap.add_argument("--report-json", type=Path, default=Path("build/refactor-state/rename-summary.json"))
     ap.add_argument("--max-mappings", type=int, default=25, help="Apply at most N mapping rows (default 25). Use -1 for all.")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--allow-non-obfuscated", action="store_true", help="Allow renaming identifiers not matching the default obfuscated-name regex.")
@@ -1022,6 +1211,8 @@ def main(argv: list[str]) -> int:
         help="Preflight mappings and skip unsafe rows (e.g. ambiguous field declarations).",
     )
     ap.add_argument("--language-so", type=Path, default=Path("build/ts-languages-java.so"))
+    ap.add_argument("--cache-dir", type=Path, default=Path("build/refactor-cache/ts_rename_identifiers"))
+    ap.add_argument("--no-cache", action="store_true", help="Disable disk cache for indexes.")
     ap.add_argument(
         "--semantic-members",
         action="store_true",
@@ -1047,12 +1238,21 @@ def main(argv: list[str]) -> int:
     parser = Parser()
     parser.set_language(java)
     field_decls: dict[str, set[Path]] = {}
-    if args.safe_preflight:
-        field_decls = _collect_field_declarations(parser=parser, java_files=java_files)
-
     class_index = ClassIndex(fields={}, extends_of={}, methods={}, implements_of={})
-    if args.semantic_members:
-        class_index = _build_class_index(parser=parser, java_files=java_files)
+    need_indexes = bool(args.safe_preflight or args.semantic_members)
+    if need_indexes:
+        fingerprint = _java_tree_fingerprint(src_dir=src_dir, java_files=java_files)
+        cache_path = (args.cache_dir / f"indexes-{fingerprint}.json").resolve()
+        cached = None if args.no_cache else _load_cached_indexes(cache_path)
+        if cached is not None:
+            field_decls = cached.field_decls
+            class_index = cached.class_index
+        else:
+            built = _build_indexes(parser=parser, java_files=java_files)
+            field_decls = built.field_decls
+            class_index = built.class_index
+            if not args.no_cache:
+                _write_cached_indexes(cache_path, field_decls=field_decls, class_index=class_index)
 
     moved_members: dict[tuple[str, str, str], str] = {}
     if extract_manifest_dir:
@@ -1323,15 +1523,15 @@ def main(argv: list[str]) -> int:
             if not args.dry_run:
                 path.write_bytes(out)
 
-    args.report.parent.mkdir(parents=True, exist_ok=True)
-    args.report.write_text(
-        Report(
-            renamed_files=renamed_files,
-            renamed_total=renamed_total,
-            skipped=(skipped + overlap_skips),
-        ).to_markdown(),
-        encoding="utf-8",
+    report_obj = Report(
+        renamed_files=renamed_files,
+        renamed_total=renamed_total,
+        skipped=(skipped + overlap_skips),
     )
+    args.report.parent.mkdir(parents=True, exist_ok=True)
+    args.report.write_text(report_obj.to_markdown() + "\n", encoding="utf-8")
+    args.report_json.parent.mkdir(parents=True, exist_ok=True)
+    args.report_json.write_text(json.dumps(report_obj.to_summary_json(), indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"Renamed {renamed_total} identifiers across {len(renamed_files)} files. Wrote {args.report}")
     return 0
 

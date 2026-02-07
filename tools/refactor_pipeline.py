@@ -129,21 +129,24 @@ def _build_steps(args) -> list[Step]:
             log_path=logs_dir / "02-extract-statics.log",
         )
     )
-    steps.append(
-        Step(
-            name="check_extract",
-            cmd=[
-                py,
-                "tools/check_static_extract.py",
-                "--src-dir",
-                str(args.refactor_src_dir),
-                "--manifest-dir",
-                str(args.extract_manifest_dir),
-            ],
-            marker=state_dir / "03-check-extract.json",
-            log_path=logs_dir / "03-check-extract.log",
+    # check_static_extract validates that targets contain moved members. In dry-run
+    # mode we intentionally don't mutate the tree, so the check would always fail.
+    if not args.dry_run:
+        steps.append(
+            Step(
+                name="check_extract",
+                cmd=[
+                    py,
+                    "tools/check_static_extract.py",
+                    "--src-dir",
+                    str(args.refactor_src_dir),
+                    "--manifest-dir",
+                    str(args.extract_manifest_dir),
+                ],
+                marker=state_dir / "03-check-extract.json",
+                log_path=logs_dir / "03-check-extract.log",
+            )
         )
-    )
     steps.append(
         Step(
             name="symbol_renames",
