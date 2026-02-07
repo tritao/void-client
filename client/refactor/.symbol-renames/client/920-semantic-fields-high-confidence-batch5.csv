@@ -1,0 +1,12 @@
+# High-confidence Js5Archive holder normalization for single-archive list classes.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+BASTypeList,field,BASTypeList,,,,aClass45_3319,archive,,,"Backing JS5 archive"
+FloorUnderlayTypeList,field,FloorUnderlayTypeList,,,,aClass45_2461,archive,,,"Backing JS5 archive"
+SeqTypeList,field,SeqTypeList,,,,aClass45_1488,archive,,,"Backing JS5 archive"
+EnumTypeList,field,EnumTypeList,,,,aClass45_458,archive,,,"Backing JS5 archive"
+InvTypeList,field,InvTypeList,,,,aClass45_3468,archive,,,"Backing JS5 archive"
+VarBitTypeList,field,VarBitTypeList,,,,aClass45_2597,archive,,,"Backing JS5 archive"
+VarPlayerTypeList,field,VarPlayerTypeList,,,,aClass45_2842,archive,,,"Backing JS5 archive"
+ParamTypeList,field,ParamTypeList,,,,aClass45_4085,archive,,,"Backing JS5 archive"
+LightTypeList,field,LightTypeList,,,,aClass45_2480,archive,,,"Backing JS5 archive"
+QuestTypeList,field,QuestTypeList,,,,aClass45_2498,archive,,,"Backing JS5 archive"
