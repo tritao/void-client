@@ -1,0 +1,11 @@
+# ReflectionCheck core field/method naming pass.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ReflectionCheck,field,ReflectionCheck,,,,anInt7126,operationCount,,,"Number of reflection operations in this check"
+ReflectionCheck,field,ReflectionCheck,,,,aClass144Array7127,methodRequests,,,"Pending SignLink method lookup/invoke requests"
+ReflectionCheck,field,ReflectionCheck,,,,aByteArrayArrayArray7128,methodArgumentBytes,,,"Serialized argument byte arrays per method operation"
+ReflectionCheck,field,ReflectionCheck,,,,anInt7130,requestId,,,"Reflection check request id"
+ReflectionCheck,field,ReflectionCheck,,,,anIntArray7131,operationStatusCodes,,,"Per-operation status/error codes"
+ReflectionCheck,field,ReflectionCheck,,,,anIntArray7132,operationTypes,,,"Per-operation type opcode"
+ReflectionCheck,field,ReflectionCheck,,,,aClass144Array7135,fieldRequests,,,"Pending SignLink field lookup requests"
+ReflectionCheck,field,ReflectionCheck,,,,anIntArray7136,fieldSetValues,,,"Per-operation field values for SET_INT ops"
+ReflectionCheck,method,ReflectionCheck,,,,method3328,setOverlayFontRenderer,,,"Sets overlay message font renderer"
