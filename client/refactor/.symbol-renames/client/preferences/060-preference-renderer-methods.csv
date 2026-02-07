@@ -1,0 +1,6 @@
+# Renderer/machine capability helpers used by preferences.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+ClientPreferences,method,ClientPreferences,,,,method3428,getMachineInfo,,,"Return machine capability descriptor"
+GraphicsRendererPreference,method,GraphicsRendererPreference,,,,method1826,setRendererAvailable,,,"Set renderer-availability guard flag"
+GraphicsRendererPreference,method,GraphicsRendererPreference,,,,method1830,isRendererAvailable,,,"Check renderer-availability guard flag"
+GraphicsRendererPreference,method,GraphicsRendererPreference,,,,method1831,isHardwareRendererSupported,,,"Check whether hardware renderer is supported by machine"
