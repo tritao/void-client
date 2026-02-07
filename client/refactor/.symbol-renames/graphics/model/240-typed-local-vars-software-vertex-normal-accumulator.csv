@@ -1,0 +1,4 @@
+# SoftwareVertexNormalAccumulator typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+SoftwareVertexNormalAccumulator,local,SoftwareVertexNormalAccumulator,,,,class360,vertexNormalAccumulatorVar,,,"SoftwareVertexNormalAccumulator typed variable"
+SoftwareVertexNormalAccumulator,local,SoftwareVertexNormalAccumulator,,,,class360s,vertexNormalAccumulatorVars,,,"SoftwareVertexNormalAccumulator[] typed variable"
