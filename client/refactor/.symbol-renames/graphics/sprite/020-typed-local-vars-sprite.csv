@@ -1,0 +1,4 @@
+# Sprite typed local/parameter cleanup.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+Sprite,local,Sprite,,,,class105,spriteVar,,,"Sprite typed variable"
+Sprite,local,Sprite,,,,class105s,spriteVars,,,"Sprite[] typed variable"
