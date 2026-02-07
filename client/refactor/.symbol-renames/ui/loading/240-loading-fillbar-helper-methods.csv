@@ -1,0 +1,5 @@
+# Loading fill-bar helper methods.
+file,kind,owner,member,signature,param_index,old,new,detail_regex,line,col,notes
+LoadingScreenFillBarOp,method,LoadingScreenFillBarOp,,,,method191,applyPendingSceneClick,,,"Applies queued scene click action and clears pending click state"
+LoadingScreenFillBarOp,method,LoadingScreenFillBarOp,,,,method192,setChunkEnvironment,,,"Stores environment settings for a map chunk slot"
+LoadingScreenFillBarOp,method,LoadingScreenFillBarOp,,,,method197,getCurrentPlane,,,"Returns currently active scene plane index"
