@@ -87,6 +87,7 @@ class Mapping:
     kind: str = ""
     owner: str = ""
     file: str = ""
+    signature: str = ""
     notes: str = ""
 
 
@@ -97,6 +98,8 @@ class PreparedMapping:
     kind: str
     owner: str
     file: str
+    signature: str
+    signature_types: tuple[str, ...] | None
     notes: str
     scope_files: frozenset[Path]
 
@@ -258,10 +261,52 @@ def _load_mappings_from_csv(path: Path, *, label: str) -> list[Mapping]:
                 kind=(row.get("kind") or "").strip(),
                 owner=(row.get("owner") or "").strip(),
                 file=(row.get("file") or "").strip(),
+                signature=(row.get("signature") or "").strip(),
                 notes=(row.get("notes") or "").strip(),
             )
         )
     return out
+
+
+def _parse_signature_types(signature_text: str) -> tuple[str, ...] | None:
+    """
+    Parse a signature string into a tuple of normalized parameter type names.
+
+    Conventions supported (best-effort):
+    - "(int, String)" / "int, String"
+    - "int i, String s"
+    - "byte[] data"
+    - "String... args"
+
+    Returns:
+    - None when signature_text is empty (unspecified)
+    - () for an explicitly empty signature like "()" (zero args)
+    """
+    s = (signature_text or "").strip()
+    if not s:
+        return None
+    if s.startswith("(") and s.endswith(")"):
+        s = s[1:-1].strip()
+    if not s:
+        return ()
+    parts = [p.strip() for p in s.split(",")]
+    out: list[str] = []
+    for p in parts:
+        if not p:
+            continue
+        # Drop common modifiers/annotations and collapse whitespace.
+        p = re.sub(r"@\w+(?:\\([^)]*\\))?\\s*", "", p)
+        p = re.sub(r"\\bfinal\\b", "", p)
+        p = re.sub(r"\\s+", " ", p).strip()
+        # If it looks like "Type name", drop trailing param name.
+        toks = p.split(" ")
+        if len(toks) >= 2 and JAVA_IDENT_RX.match(toks[-1]):
+            p = " ".join(toks[:-1]).strip()
+        p = p.replace("...", "").strip()
+        t = _normalize_type_name(p)
+        if t:
+            out.append(t)
+    return tuple(out)
 
 
 def load_mappings(*, csv_files: list[Path], csv_dir: Path | None) -> list[Mapping]:
@@ -443,6 +488,9 @@ def _normalize_type_name(type_text: str) -> str:
     # Strip generics.
     if "<" in t:
         t = t.split("<", 1)[0].strip()
+    # Strip varargs suffix.
+    if t.endswith("..."):
+        t = t[:-3].strip()
     # Strip array suffixes.
     while t.endswith("[]"):
         t = t[:-2].strip()
@@ -465,22 +513,23 @@ def _build_class_index(*, parser: Parser, java_files: list[Path]) -> ClassIndex:
         interface_names: list[str] = []
         # Prefer first top-level class declaration name.
         for n in _iter_nodes(tree.root_node):
-            if n.type != "class_declaration":
+            if n.type not in ("class_declaration", "interface_declaration", "enum_declaration"):
                 continue
             name_node = n.child_by_field_name("name")
             if name_node is None:
                 continue
             class_name = _node_text(data, name_node).strip()
-            sc = n.child_by_field_name("superclass")
-            if sc is not None:
-                raw = _node_text(data, sc).strip()
-                # raw usually looks like: "extends Foo" or "extends pkg.Foo"
-                raw = re.sub(r"^\s*extends\s+", "", raw).strip()
-                superclass_name = _normalize_type_name(raw)
+            if n.type == "class_declaration":
+                sc = n.child_by_field_name("superclass")
+                if sc is not None:
+                    raw = _node_text(data, sc).strip()
+                    # raw usually looks like: "extends Foo" or "extends pkg.Foo"
+                    raw = re.sub(r"^\s*extends\s+", "", raw).strip()
+                    superclass_name = _normalize_type_name(raw)
             iface_node = n.child_by_field_name("interfaces") or n.child_by_field_name("super_interfaces")
             if iface_node is not None:
                 raw = _node_text(data, iface_node).strip()
-                raw = re.sub(r"^\s*implements\s+", "", raw).strip()
+                raw = re.sub(r"^\s*(?:implements|extends)\s+", "", raw).strip()
                 parts = [p.strip() for p in raw.split(",") if p.strip()]
                 interface_names = [_normalize_type_name(p) for p in parts if _normalize_type_name(p)]
             if class_name:
@@ -705,13 +754,113 @@ def _resolve_expr_type(*, data: bytes, class_index: ClassIndex, env: TypeEnv, ex
     return ""
 
 
+@dataclasses.dataclass(frozen=True)
+class MethodRename:
+    signature_types: tuple[str, ...] | None
+    new: str
+
+
+def _iter_args(node: Node) -> list[Node]:
+    args = node.child_by_field_name("arguments")
+    if args is None:
+        for ch in node.children:
+            if ch.type == "argument_list":
+                args = ch
+                break
+    if args is None:
+        return []
+    # named_children should be expressions only.
+    return list(getattr(args, "named_children", []) or [])
+
+
+def _resolve_literal_type(data: bytes, expr: Node) -> str:
+    t = expr.type
+    if t in ("true", "false"):
+        return "boolean"
+    if t == "string_literal":
+        return "String"
+    if t == "character_literal":
+        return "char"
+    if t == "null_literal":
+        return ""
+    if t.endswith("_integer_literal"):
+        return "int"
+    if t.endswith("_floating_point_literal"):
+        return "float"
+    return ""
+
+
+def _resolve_arg_type(*, data: bytes, class_index: ClassIndex, env: TypeEnv, expr: Node) -> str:
+    lit = _resolve_literal_type(data, expr)
+    if lit:
+        return lit
+    return _resolve_expr_type(data=data, class_index=class_index, env=env, expr=expr)
+
+
+def _pick_method_rename(
+    *,
+    candidates: list[MethodRename],
+    arg_types: list[str],
+) -> str:
+    if not candidates:
+        return ""
+    # Fast path: single candidate.
+    if len(candidates) == 1:
+        return candidates[0].new
+
+    # If all candidates map to the same new name, we can rename safely.
+    unique_new = {c.new for c in candidates}
+    if len(unique_new) == 1:
+        return next(iter(unique_new))
+
+    argc = len(arg_types)
+    # Prefer exact signature match when provided.
+    exact: list[MethodRename] = []
+    partial: list[MethodRename] = []
+    wildcard: list[MethodRename] = []
+    for c in candidates:
+        if c.signature_types is None:
+            wildcard.append(c)
+            continue
+        if len(c.signature_types) != argc:
+            continue
+        # Match known arg types; unknown args don't disqualify.
+        ok = True
+        all_known = True
+        for want, got in zip(c.signature_types, arg_types, strict=False):
+            if not got:
+                all_known = False
+                continue
+            if got != want:
+                ok = False
+                break
+        if not ok:
+            continue
+        if all_known:
+            exact.append(c)
+        else:
+            partial.append(c)
+    if len(exact) == 1:
+        return exact[0].new
+    if len(exact) > 1:
+        return ""
+    if len(partial) == 1:
+        return partial[0].new
+    if len(partial) > 1:
+        return ""
+    if len(wildcard) == 1:
+        return wildcard[0].new
+    return ""
+
+
 def _rename_member_accesses(
     *,
     data: bytes,
     class_index: ClassIndex,
     env: TypeEnv,
     scope_node: Node,
-    member_map: dict[tuple[str, str, str], str],
+    field_map: dict[tuple[str, str], str],
+    method_map: dict[tuple[str, str], list[MethodRename]],
 ) -> list[tuple[int, int, bytes]]:
     edits: list[tuple[int, int, bytes]] = []
 
@@ -733,10 +882,6 @@ def _rename_member_accesses(
         )
 
     def _resolve_chain_type(parts: list[str]) -> str:
-        """
-        Resolve the type of a dotted chain like A.b.c (treating each `b` as a field),
-        returning the type of the final segment in `parts`.
-        """
         if not parts:
             return ""
         head = parts[0]
@@ -771,7 +916,7 @@ def _rename_member_accesses(
                 continue
             new = ""
             for owner in _iter_owner_closure(env.current_class, class_index):
-                new = member_map.get((owner, "field", old), "")
+                new = field_map.get((owner, old), "")
                 if new:
                     break
             if new and new != old:
@@ -792,10 +937,14 @@ def _rename_member_accesses(
                         if receiver_type:
                             new_leaf = ""
                             for owner in _iter_owner_closure(receiver_type, class_index):
-                                new_leaf = member_map.get((owner, "field", leaf), "") or member_map.get(
-                                    (owner, "method", leaf), ""
-                                )
+                                new_leaf = field_map.get((owner, leaf), "")
                                 if new_leaf:
+                                    break
+                                picked = _pick_method_rename(
+                                    candidates=method_map.get((owner, leaf), []), arg_types=[]
+                                )
+                                if picked:
+                                    new_leaf = picked
                                     break
                             if new_leaf and new_leaf != leaf:
                                 last_ident: Node | None = None
@@ -803,9 +952,7 @@ def _rename_member_accesses(
                                     if ch.type in ("identifier", "type_identifier"):
                                         last_ident = ch
                                 if last_ident is not None:
-                                    edits.append(
-                                        (last_ident.start_byte, last_ident.end_byte, new_leaf.encode("utf-8"))
-                                    )
+                                    edits.append((last_ident.start_byte, last_ident.end_byte, new_leaf.encode("utf-8")))
                                     continue
 
         if n.type == "field_access":
@@ -821,13 +968,14 @@ def _rename_member_accesses(
                 continue
             new = ""
             for owner in _iter_owner_closure(owner_type, class_index):
-                new = member_map.get((owner, "field", old), "")
+                new = field_map.get((owner, old), "")
                 if new:
                     break
-            if not new or new == old:
+            if new and new != old:
+                edits.append((field.start_byte, field.end_byte, new.encode("utf-8")))
                 continue
-            edits.append((field.start_byte, field.end_byte, new.encode("utf-8")))
-        elif n.type == "method_invocation":
+
+        if n.type == "method_invocation":
             name_node = n.child_by_field_name("name")
             if name_node is None:
                 continue
@@ -837,16 +985,19 @@ def _rename_member_accesses(
             obj = n.child_by_field_name("object")
             owner_type = _resolve_expr_type(data=data, class_index=class_index, env=env, expr=obj)
             if not owner_type:
-                # Unqualified call: assume current class.
                 owner_type = env.current_class
+            arg_exprs = _iter_args(n)
+            arg_types = [_resolve_arg_type(data=data, class_index=class_index, env=env, expr=a) for a in arg_exprs]
             new = ""
             for owner in _iter_owner_closure(owner_type, class_index):
-                new = member_map.get((owner, "method", old), "")
-                if new:
+                picked = _pick_method_rename(candidates=method_map.get((owner, old), []), arg_types=arg_types)
+                if picked:
+                    new = picked
                     break
-            if not new or new == old:
+            if new and new != old:
+                edits.append((name_node.start_byte, name_node.end_byte, new.encode("utf-8")))
                 continue
-            edits.append((name_node.start_byte, name_node.end_byte, new.encode("utf-8")))
+
     return edits
 
 
@@ -918,6 +1069,7 @@ def main(argv: list[str]) -> int:
             skipped.append(f"Not obfuscated (use --allow-non-obfuscated): {m.old} -> {m.new}")
             continue
         scope_files = _resolve_scope_files(mapping_file=m.file, src_dir=src_dir, java_files=java_files)
+        sig_types = _parse_signature_types(m.signature) if (m.kind or "").strip().lower() == "method" else None
         if args.safe_preflight and m.kind.lower() == "field":
             old_decl_files = field_decls.get(m.old, set())
             new_decl_files = field_decls.get(m.new, set())
@@ -958,6 +1110,8 @@ def main(argv: list[str]) -> int:
                 kind=m.kind,
                 owner=m.owner,
                 file=m.file,
+                signature=m.signature,
+                signature_types=sig_types,
                 notes=m.notes,
                 scope_files=frozenset(scope_files),
             )
@@ -972,11 +1126,13 @@ def main(argv: list[str]) -> int:
             return True
         return bool(a.scope_files.intersection(b.scope_files))
 
-    # Validate conflicts for same-old mappings, taking scope overlap into account.
-    by_old: dict[str, list[PreparedMapping]] = {}
+    # Validate conflicts for same-key mappings, taking scope overlap into account.
+    by_key: dict[tuple[str, str, tuple[str, ...] | None], list[PreparedMapping]] = {}
     for m in prepared:
-        by_old.setdefault(m.old, []).append(m)
-    for old, entries in by_old.items():
+        k = (m.kind or "").strip().lower()
+        sig = m.signature_types if k == "method" else None
+        by_key.setdefault((k, m.old, sig), []).append(m)
+    for (k, old, sig), entries in by_key.items():
         for i in range(len(entries)):
             for j in range(i + 1, len(entries)):
                 left = entries[i]
@@ -985,7 +1141,7 @@ def main(argv: list[str]) -> int:
                     continue
                 if _scopes_overlap(left, right):
                     raise SystemExit(
-                        f"Conflicting mappings for {old}: {left.new} vs {right.new} "
+                        f"Conflicting mappings for {k}:{old}{' ' + str(sig) if sig is not None else ''}: {left.new} vs {right.new} "
                         f"(scope overlap: {left.file or '<global>'} / {right.file or '<global>'})"
                     )
 
@@ -1034,6 +1190,13 @@ def main(argv: list[str]) -> int:
             scoped = [m for m in candidates if not m.scope_files or resolved_path in m.scope_files]
             if not scoped:
                 continue
+            # Methods are renamed semantically (signature-aware) to support overloads.
+            if args.semantic_members and all((m.kind or "").strip().lower() == "method" for m in scoped):
+                continue
+            if args.semantic_members:
+                scoped_non_method = [m for m in scoped if (m.kind or "").strip().lower() != "method"]
+                if scoped_non_method:
+                    scoped = scoped_non_method
             # Overlapping conflicts are validated above; any matching candidate has same target.
             new = scoped[0].new
             if new == s:
@@ -1042,7 +1205,8 @@ def main(argv: list[str]) -> int:
 
         # Second pass: type-aware member access renames for method/field uses.
         if args.semantic_members:
-            member_map: dict[tuple[str, str, str], str] = {}
+            field_map: dict[tuple[str, str], str] = {}
+            method_map: dict[tuple[str, str], list[MethodRename]] = {}
             for m in prepared:
                 k = (m.kind or "").strip().lower()
                 if k not in ("field", "method"):
@@ -1050,7 +1214,12 @@ def main(argv: list[str]) -> int:
                 owner = (m.owner or "").strip()
                 if not owner:
                     continue
-                member_map[(owner, k, m.old)] = m.new
+                if k == "field":
+                    field_map[(owner, m.old)] = m.new
+                else:
+                    method_map.setdefault((owner, m.old), []).append(
+                        MethodRename(signature_types=m.signature_types, new=m.new)
+                    )
                 # If extraction moved this member, also apply the mapping under the target owner.
                 if moved_members:
                     cur_owner = owner
@@ -1059,13 +1228,18 @@ def main(argv: list[str]) -> int:
                         target = moved_members.get((cur_owner, k, m.old))
                         if not target or target == cur_owner:
                             break
-                        member_map[(target, k, m.old)] = m.new
+                        if k == "field":
+                            field_map[(target, m.old)] = m.new
+                        else:
+                            method_map.setdefault((target, m.old), []).append(
+                                MethodRename(signature_types=m.signature_types, new=m.new)
+                            )
                         cur_owner = target
-            if member_map:
+            if field_map or method_map:
                 # Determine current class name (best-effort from first class declaration in the file).
                 current_class = ""
                 for n in _iter_nodes(tree.root_node):
-                    if n.type != "class_declaration":
+                    if n.type not in ("class_declaration", "interface_declaration", "enum_declaration"):
                         continue
                     name_node = n.child_by_field_name("name")
                     if name_node is None:
@@ -1086,10 +1260,25 @@ def main(argv: list[str]) -> int:
                         old_name = _node_text(data, name_node).strip()
                         if not old_name:
                             continue
+                        # Compute declared parameter types for overload resolution.
+                        params_node = n.child_by_field_name("parameters")
+                        declared_types: list[str] = []
+                        if params_node is not None:
+                            for p in getattr(params_node, "named_children", []) or []:
+                                if p.type != "formal_parameter":
+                                    continue
+                                tnode = p.child_by_field_name("type")
+                                if tnode is None:
+                                    continue
+                                declared_types.append(_normalize_type_name(_node_text(data, tnode)))
                         new_name = ""
                         for owner in _iter_owner_closure(current_class, class_index):
-                            new_name = member_map.get((owner, "method", old_name), "")
-                            if new_name:
+                            cands = method_map.get((owner, old_name), [])
+                            if not cands:
+                                continue
+                            picked = _pick_method_rename(candidates=cands, arg_types=declared_types)
+                            if picked:
+                                new_name = picked
                                 break
                         if new_name and new_name != old_name:
                             edits.append((name_node.start_byte, name_node.end_byte, new_name.encode("utf-8")))
@@ -1114,7 +1303,8 @@ def main(argv: list[str]) -> int:
                                 class_index=class_index,
                                 env=env,
                                 scope_node=scope,
-                                member_map=member_map,
+                                field_map=field_map,
+                                method_map=method_map,
                             )
                         )
 
