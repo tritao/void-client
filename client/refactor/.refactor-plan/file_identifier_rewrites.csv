@@ -96,3 +96,5 @@ client/refactor/ui/widget/Widget.java,method3480,get,cleanup,approved,Auto fallb
 client/refactor/ui/widget/Widget.java,anInt6976,value,cleanup,approved,Auto fallback from compile log: IntNode.anInt6976->value
 client/refactor/ui/widget/Widget.java,aString7211,value,cleanup,approved,Auto fallback from compile log: StringNode.aString7211->value
 collections/value/StringNode.java,getCurrentTick,getLoadedResourceCount,cleanup,approved,Rename non-obfuscated wrapper to semantic loading-progress name
+collections/list/SecondaryLinkedListIterator.java,datainputstream,responseStream,cleanup,approved,Fallback identifier rewrite for nested error-report response stream local
+collections/list/SecondaryLinkedListIterator.java,secondaryLinkedListVar,secondaryList,cleanup,approved,Fallback identifier rewrite for iterator constructor parameter

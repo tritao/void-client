@@ -343,3 +343,8 @@ local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,
 local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,class144,errorReportRequest,SecondaryLinkedListIterator,module,high,approved,URL request handle for remote client error report
 local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,datainputstream,responseStream,SecondaryLinkedListIterator,module,high,approved,Response stream for error report acknowledgment
 local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,i,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
+field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aFloat2111,projectedDepthOffset,SecondaryLinkedListIterator,module,high,approved,Projected depth offset term reused in OpenGL model transform calculations
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,clearStaticState,,,i,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,first,,,i,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedList,SecondaryLinkedList,addLast,,,bool,shouldLink,SecondaryLinkedList,module,medium,approved,Decompiler boolean controlling list-link operation
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,secondaryLinkedListVar,secondaryList,SecondaryLinkedListIterator,module,high,approved,List instance injected into iterator constructor
