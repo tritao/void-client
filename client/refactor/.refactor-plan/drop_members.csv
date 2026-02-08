@@ -303,4 +303,22 @@ client/ClientDebugCounters.java,line_contains,Node.anInt4298 = 0;,cleanup,approv
 collections/DoublyLinkedNodeUtil.java,field,anInt3171,cleanup,approved,Unused debug counter for linkBefore invocations
 collections/DoublyLinkedNodeUtil.java,line_contains,anInt3171++,cleanup,approved,Drop orphan increment after removing unused debug counter
 client/ClientDebugCounters.java,line_contains,DoublyLinkedNodeUtil.anInt3171 = 0;,cleanup,approved,Drop reset for removed DoublyLinkedNodeUtil debug counter
+collections/list/SecondaryLinkedList.java,field,sizeCallCount,cleanup,approved,Unused debug counter for size invocations
+collections/list/SecondaryLinkedList.java,field,nextCallCount,cleanup,approved,Unused debug counter for next invocations
+collections/list/SecondaryLinkedList.java,field,clearCallCount,cleanup,approved,Unused debug counter for clear invocations
+collections/list/SecondaryLinkedList.java,field,firstCallCount,cleanup,approved,Unused debug counter for first invocations
+collections/list/SecondaryLinkedList.java,field,removeFirstCallCount,cleanup,approved,Unused debug counter for removeFirst invocations
+collections/list/SecondaryLinkedList.java,field,addLastCallCount,cleanup,approved,Unused debug counter for addLast invocations
+collections/list/SecondaryLinkedList.java,line_contains,sizeCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedList.java,line_contains,nextCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedList.java,line_contains,clearCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedList.java,line_contains,firstCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedList.java,line_contains,removeFirstCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedList.java,line_contains,addLastCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.sizeCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.nextCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.clearCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.firstCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.removeFirstCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.addLastCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
