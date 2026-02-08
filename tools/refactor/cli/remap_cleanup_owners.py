@@ -104,6 +104,7 @@ def _remap_owner_columns(
     aliases: dict[tuple[str, str, str], set[str]],
     move_targets: dict[tuple[str, str, str], set[str]],
     java_index: JavaIndex,
+    allow_file_remap: bool,
 ) -> tuple[list[dict[str, str]], int, int, list[str]]:
     remapped = 0
     file_remapped = 0
@@ -140,7 +141,7 @@ def _remap_owner_columns(
         # Keep cleanup plan rows aligned with moved owners by remapping the file path
         # to the resolved owner when a unique destination exists.
         file_value = next_row.get("file", "").strip()
-        if file_value:
+        if allow_file_remap and file_value:
             method_name = next_row.get("method", "").strip() or next_row.get("old_method", "").strip()
             if method_name:
                 if (not java_index.has_file(file_value)) or (not java_index.file_has_method(file_value, method_name)):
@@ -197,11 +198,13 @@ def main() -> int:
         if not header:
             continue
         total_rows += len(rows)
+        allow_file_remap = name not in {"call_rewrites.csv", "call_arg_rewrites.csv", "qualified_call_rewrites.csv"}
         remapped_rows, remapped, file_remapped, file_warnings = _remap_owner_columns(
             rows=rows,
             aliases=aliases,
             move_targets=move_targets,
             java_index=java_index,
+            allow_file_remap=allow_file_remap,
         )
         total_remapped += remapped
         total_file_remapped += file_remapped

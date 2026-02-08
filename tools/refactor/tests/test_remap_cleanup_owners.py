@@ -40,6 +40,7 @@ class RemapCleanupOwnersTests(unittest.TestCase):
                 aliases=aliases,
                 move_targets=move_targets,
                 java_index=index,
+                allow_file_remap=True,
             )
 
             self.assertEqual(owner_remaps, 1)
@@ -47,6 +48,46 @@ class RemapCleanupOwnersTests(unittest.TestCase):
             self.assertEqual(warnings, [])
             self.assertEqual(out[0]["owner_class"], "NewOwner")
             self.assertEqual(out[0]["file"], "new/NewOwner.java")
+
+    def test_owner_remap_without_file_remap_for_callsite_rules(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            src_dir = Path(tmp) / "src"
+            src_dir.mkdir(parents=True)
+            (src_dir / "callsite").mkdir()
+            (src_dir / "new").mkdir()
+            (src_dir / "callsite" / "Caller.java").write_text(
+                "final class Caller { static void call() { OldOwner.foo(0); } }\n",
+                encoding="utf-8",
+            )
+            (src_dir / "new" / "NewOwner.java").write_text(
+                "final class NewOwner { static void foo() {} }\n",
+                encoding="utf-8",
+            )
+            index = JavaIndex(src_dir)
+
+            rows = [
+                {
+                    "file": "callsite/Caller.java",
+                    "owner_class": "OldOwner",
+                    "method": "foo",
+                }
+            ]
+            aliases: dict[tuple[str, str, str], set[str]] = {}
+            move_targets = {("method", "OldOwner", "foo"): {"NewOwner"}}
+
+            out, owner_remaps, file_remaps, warnings = _remap_owner_columns(
+                rows=rows,
+                aliases=aliases,
+                move_targets=move_targets,
+                java_index=index,
+                allow_file_remap=False,
+            )
+
+            self.assertEqual(owner_remaps, 1)
+            self.assertEqual(file_remaps, 0)
+            self.assertEqual(warnings, [])
+            self.assertEqual(out[0]["owner_class"], "NewOwner")
+            self.assertEqual(out[0]["file"], "callsite/Caller.java")
 
 
 if __name__ == "__main__":

@@ -26,7 +26,11 @@ BOOTSTRAP_JAVA_HOME ?= $(CURDIR)/.jdk/temurin$(JDK)
 JDTLS_JDK ?= 21
 JDTLS_JAVA_HOME ?= $(CURDIR)/.jdk/temurin$(JDTLS_JDK)
 ifeq ($(wildcard $(JDTLS_JAVA_HOME)/bin/java),)
+ifneq ($(wildcard $(BOOTSTRAP_JAVA_HOME)/bin/java),)
+JDTLS_JAVA ?= $(BOOTSTRAP_JAVA_HOME)/bin/java
+else
 JDTLS_JAVA ?= java
+endif
 else
 JDTLS_JAVA ?= $(JDTLS_JAVA_HOME)/bin/java
 endif
@@ -277,7 +281,7 @@ $(REFACTOR_STAMP_DIR):
 
 $(REFACTOR_LAYOUT_STAMP): tools/refactor/orchestration/build_refactor_layout.py tools/refactor/cli/build_refactor_views.py client/refactor/.refactor-plan/layout_rules.csv $(REFACTOR_CLASS_PLAN_INPUTS) $(REFACTOR_SRC_SOURCES) Makefile | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,build_refactor_class_view,$(MAKE) build-refactor-class-view)
-	$(call RUN_WITH_PROFILE,build_refactor_layout,python -m tools.refactor.orchestration.build_refactor_layout --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/.refactor-plan/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md)
+	$(call RUN_WITH_PROFILE,build_refactor_layout,$(REF_PY) -m tools.refactor.orchestration.build_refactor_layout --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/.refactor-plan/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md)
 	@touch "$@"
 
 $(REFACTOR_VIEWS_STAMP): tools/refactor/cli/build_refactor_views.py $(REFACTOR_LAYOUT_STAMP) $(REFACTOR_PLAN_INPUTS) Makefile | $(REFACTOR_STAMP_DIR)
