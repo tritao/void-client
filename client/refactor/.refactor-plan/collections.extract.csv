@@ -76,3 +76,4 @@ collections/list/SecondaryLinkedList.java,method,method1006,WorldMap,world/map/W
 collections/list/SecondaryLinkedList.java,method,method1007,MinimapSpriteUtil,graphics/sprite/MinimapSpriteUtil.java,SecondaryLinkedList,split,high,approved,Minimap rendering routine belongs with minimap sprite utilities
 collections/list/SecondaryLinkedList.java,method,method1010,MinimapSpriteUtil,graphics/sprite/MinimapSpriteUtil.java,SecondaryLinkedList,split,high,approved,Projection viewport profile helper belongs with minimap render utilities
 collections/hash/HashTable.java,method,nextVisibleWorldMapMarker,WorldMap,world/map/WorldMap.java,HashTable,split,high,approved,World-map marker iteration helper belongs with world map traversal state
+collections/deque/NodeDeque.java,method,createOpenGLToolkit,OpenGLToolkit,graphics/opengl/OpenGLToolkit.java,NodeDeque,split,high,approved,OpenGL toolkit factory helper belongs with OpenGL toolkit owner
