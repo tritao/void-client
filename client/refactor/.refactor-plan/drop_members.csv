@@ -267,4 +267,19 @@ collections/SecondaryNode.java,line_contains,anInt7064++,cleanup,approved,Drop o
 client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7061 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7062 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7064 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
+collections/list/SecondaryLinkedNodeUtil.java,field,anInt1191,cleanup,approved,Unused debug counter for hasAnyOcclusionFlags invocations
+collections/list/SecondaryLinkedNodeUtil.java,field,anInt1192,cleanup,approved,Unused debug counter for toString invocations
+collections/list/SecondaryLinkedNodeUtil.java,field,anInt1193,cleanup,approved,Unused debug counter for clearClientCachesWithBudget invocations
+collections/list/SecondaryLinkedNodeUtil.java,field,anInt1194,cleanup,approved,Unused debug counter for linkSecondaryBefore invocations
+collections/list/SecondaryLinkedNodeUtil.java,field,anInt1196,cleanup,approved,Unused debug counter for hasPrimaryOcclusionFlags invocations
+collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1191++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1192++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1193++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1194++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1196++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1191 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1192 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1193 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1194 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1196 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
