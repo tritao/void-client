@@ -341,4 +341,6 @@ client/ClientDebugCounters.java,line_contains,ReferenceNode.anInt9549 = 0;,clean
 client/ClientDebugCounters.java,line_contains,ReferenceNode.anInt9551 = 0;,cleanup,approved,Drop reset for removed ReferenceNode debug counter
 graphics/opengl/OpenGLToolkit.java,line_contains,NodeDeque.anInt3324++,cleanup,approved,Drop orphan increment after removing NodeDeque debug counter
 world/map/WorldMap.java,line_contains,HashTable.anInt4378++,cleanup,approved,Drop orphan increment after removing HashTable debug counter
+collections/Node.java,line_contains,if (i_1_ != -1) Actor.buildCachedModelVariant(,cleanup,approved,Drop decompiler guard call after extracting model-variant builder to Actor
+collections/Node.java,line_contains,if (i != 0) Actor.buildCachedModelVariant(,cleanup,approved,Drop decompiler guard call after extracting model-variant builder to Actor
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
