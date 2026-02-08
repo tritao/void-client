@@ -551,6 +551,7 @@ def _candidate_static_source_lines(
 
 def _candidate_names(
     rename_map: dict[tuple[str, str, str], str],
+    reverse_rename_map: dict[tuple[str, str, str], str],
     *,
     owner: str,
     kind: str,
@@ -560,6 +561,9 @@ def _candidate_names(
     alt = rename_map.get((owner, kind, old_name), "")
     if alt and alt != old_name:
         names.append(alt)
+    reverse_alt = reverse_rename_map.get((owner, kind, old_name), "")
+    if reverse_alt and reverse_alt != old_name:
+        names.append(reverse_alt)
     # Dedupe while preserving order.
     seen: set[str] = set()
     out: list[str] = []
@@ -671,7 +675,13 @@ def _process_manifest(
     for move in manifest.moves:
         if move.kind not in ("field", "method"):
             continue
-        for candidate in _candidate_names(rename_map, owner=manifest.target_class, kind=move.kind, old_name=move.name):
+        for candidate in _candidate_names(
+            rename_map,
+            reverse_rename_map,
+            owner=manifest.target_class,
+            kind=move.kind,
+            old_name=move.name,
+        ):
             if candidate and candidate != move.name:
                 local_aliases[candidate] = move.name
     for move in manifest.moves:
@@ -692,7 +702,13 @@ def _process_manifest(
                 static_target_lines.append(target_line)
             to_move.append(move)
             continue
-        candidate_names = _candidate_names(rename_map, owner=source_class, kind=move.kind, old_name=move.name)
+        candidate_names = _candidate_names(
+            rename_map,
+            reverse_rename_map,
+            owner=source_class,
+            kind=move.kind,
+            old_name=move.name,
+        )
         member = None
         actual_source_name = ""
         key = (move.kind, move.name)
@@ -703,7 +719,16 @@ def _process_manifest(
                 actual_source_name = n
                 break
         if member is None:
-            target_candidate_names = _candidate_names(rename_map, owner=manifest.target_class, kind=move.kind, old_name=move.name)
+            target_candidate_names = _candidate_names(
+                rename_map,
+                reverse_rename_map,
+                owner=manifest.target_class,
+                kind=move.kind,
+                old_name=move.name,
+            )
+            for source_candidate in candidate_names:
+                if source_candidate not in target_candidate_names:
+                    target_candidate_names.append(source_candidate)
             existing_target_name = next((n for n in target_candidate_names if (move.kind, n) in target_keys), "")
             if existing_target_name:
                 # Idempotent: already in the immediate target (possibly renamed).
@@ -721,7 +746,16 @@ def _process_manifest(
                 if final_path.exists():
                     final_members = parse_static_members(final_path, parser=parser)
                     final_keys = {(m.kind, m.name) for m in final_members}
-                    final_candidate_names = _candidate_names(rename_map, owner=final_class, kind=move.kind, old_name=move.name)
+                    final_candidate_names = _candidate_names(
+                        rename_map,
+                        reverse_rename_map,
+                        owner=final_class,
+                        kind=move.kind,
+                        old_name=move.name,
+                    )
+                    for source_candidate in candidate_names:
+                        if source_candidate not in final_candidate_names:
+                            final_candidate_names.append(source_candidate)
                     existing_final_name = next((n for n in final_candidate_names if (move.kind, n) in final_keys), "")
                     if existing_final_name:
                         # Idempotent across multi-hop moves: member ended up in a later target.

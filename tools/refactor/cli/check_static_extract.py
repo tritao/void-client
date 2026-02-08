@@ -44,6 +44,7 @@ def _build_reverse_rename_map(
 
 def _candidate_names(
     rename_map: dict[tuple[str, str, str], str],
+    reverse_rename_map: dict[tuple[str, str, str], str],
     *,
     owner: str,
     kind: str,
@@ -53,6 +54,9 @@ def _candidate_names(
     alt = rename_map.get((owner, kind, old_name), "")
     if alt and alt != old_name:
         names.append(alt)
+    reverse_alt = reverse_rename_map.get((owner, kind, old_name), "")
+    if reverse_alt and reverse_alt != old_name:
+        names.append(reverse_alt)
     seen: set[str] = set()
     out: list[str] = []
     for n in names:
@@ -188,6 +192,7 @@ def main() -> int:
             if move.kind in ("field", "method"):
                 for candidate in _candidate_names(
                     rename_map,
+                    reverse_rename_map,
                     owner=source_class,
                     kind=move.kind,
                     old_name=move.name,
@@ -224,7 +229,13 @@ def main() -> int:
         for move in manifest.moves:
             if move.kind not in ("field", "method"):
                 continue
-            for candidate in _candidate_names(rename_map, owner=manifest.target_class, kind=move.kind, old_name=move.name):
+            for candidate in _candidate_names(
+                rename_map,
+                reverse_rename_map,
+                owner=manifest.target_class,
+                kind=move.kind,
+                old_name=move.name,
+            ):
                 if candidate and candidate != move.name:
                     local_aliases[candidate] = move.name
         for move in manifest.moves:
@@ -245,8 +256,23 @@ def main() -> int:
                 if not moved_downstream and not (_line_present(target_text, target_line) or _line_present(target_text, source_line)):
                     errors.append(f"{manifest.path}: static_init missing in target: {source_line}")
                 continue
-            source_names = _candidate_names(rename_map, owner=source_class, kind=move.kind, old_name=move.name)
-            target_names = _candidate_names(rename_map, owner=manifest.target_class, kind=move.kind, old_name=move.name)
+            source_names = _candidate_names(
+                rename_map,
+                reverse_rename_map,
+                owner=source_class,
+                kind=move.kind,
+                old_name=move.name,
+            )
+            target_names = _candidate_names(
+                rename_map,
+                reverse_rename_map,
+                owner=manifest.target_class,
+                kind=move.kind,
+                old_name=move.name,
+            )
+            for source_candidate in source_names:
+                if source_candidate not in target_names:
+                    target_names.append(source_candidate)
             if any((move.kind, n) in source_keys for n in source_names):
                 errors.append(f"{manifest.path}: still in source: {move.kind} {move.name}")
             if not any((move.kind, n) in target_keys for n in target_names):

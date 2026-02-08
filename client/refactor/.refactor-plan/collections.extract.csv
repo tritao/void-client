@@ -79,6 +79,3 @@ collections/hash/HashTable.java,method,method3479,WorldMap,world/map/WorldMap.ja
 collections/deque/NodeDeque.java,method,method2000,OpenGLToolkit,graphics/opengl/OpenGLToolkit.java,NodeDeque,split,high,approved,OpenGL toolkit factory helper belongs with OpenGL toolkit owner
 collections/hash/HashTableIterator.java,method,method2643,MapRegion,world/region/MapRegion.java,HashTableIterator,split,high,approved,Tile-overlay write helper belongs with map-region decode/application flow
 collections/Node.java,method,buildCachedModelVariant,Actor,game/entity/Actor.java,Node,split,high,approved,Cached model-variant builder is shared entity-rendering logic and belongs with Actor model assembly
-collections/hash/IntHashTable.java,method,formatChatMessageLine,ChatMessage,ui/chat/ChatMessage.java,IntHashTable,split,high,approved,Chat-line label formatter belongs with ChatMessage domain model
-collections/deque/LinkDeque.java,method,updateActiveParticleSystems,OpenGLTexture3D,graphics/opengl/OpenGLTexture3D.java,LinkDeque,split,high,approved,Active particle-system update loop belongs with OpenGL 3D texture render/update flow
-collections/SecondaryNode.java,method,resetPlayerUpdateTracking,TextureOpNormalMap,graphics/textureops/TextureOpNormalMap.java,SecondaryNode,split,high,approved,Player update tracking reset helper is invoked by world-reset flow in TextureOpNormalMap
