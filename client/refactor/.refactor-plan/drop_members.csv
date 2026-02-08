@@ -225,4 +225,34 @@ client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3960 = 0;,cleanu
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3962 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3964 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3965 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
+collections/list/SecondaryLinkedListIterator.java,field,anInt2112,cleanup,approved,Unused debug counter for reportClientError invocations
+collections/list/SecondaryLinkedListIterator.java,field,anInt2114,cleanup,approved,Unused debug counter for first invocations
+collections/list/SecondaryLinkedListIterator.java,field,anInt2116,cleanup,approved,Unused debug counter for hasBit0x800 invocations
+collections/list/SecondaryLinkedListIterator.java,field,anInt2119,cleanup,approved,Unused debug counter for hasOverlayInteractionBits invocations
+collections/list/SecondaryLinkedListIterator.java,field,anInt2120,cleanup,approved,Unused debug counter for next invocations
+collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2112++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2114++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2116++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2119++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2120++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2112 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2114 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2116 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2119 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2120 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
+collections/deque/DequeIterator.java,field,anInt3924,cleanup,approved,Unused debug counter for resetInboundProtocolState invocations
+collections/deque/DequeIterator.java,field,anInt3926,cleanup,approved,Unused debug counter for hasBit0x20 invocations
+collections/deque/DequeIterator.java,field,anInt3927,cleanup,approved,Unused debug counter for setDeque invocations
+collections/deque/DequeIterator.java,field,anInt3928,cleanup,approved,Unused debug counter for next invocations
+collections/deque/DequeIterator.java,field,anInt3929,cleanup,approved,Unused debug counter for first invocations
+collections/deque/DequeIterator.java,line_contains,anInt3924++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/DequeIterator.java,line_contains,anInt3926++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/DequeIterator.java,line_contains,anInt3927++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/DequeIterator.java,line_contains,anInt3928++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/DequeIterator.java,line_contains,anInt3929++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3924 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
+client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3926 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
+client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3927 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
+client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3928 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
+client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3929 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
