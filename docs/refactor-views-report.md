@@ -1,10 +1,10 @@
 # Refactor view build report
 
-- Plan rows: `4059`
+- Plan rows: `4068`
 - Symbol rename rows emitted: `3124`
-- Symbol owner/file rebinds: `51`
+- Symbol owner/file rebinds: `55`
 - Class rename rows emitted: `784`
-- Extract manifests emitted: `57`
+- Extract manifests emitted: `60`
 
 ## Symbol rows by module
 

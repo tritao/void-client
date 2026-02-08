@@ -263,6 +263,16 @@ def main() -> int:
                 kind=move.kind,
                 old_name=move.name,
             )
+            target_owner_source_names = _candidate_names(
+                rename_map,
+                reverse_rename_map,
+                owner=manifest.target_class,
+                kind=move.kind,
+                old_name=move.name,
+            )
+            for candidate in target_owner_source_names:
+                if candidate not in source_names:
+                    source_names.append(candidate)
             target_names = _candidate_names(
                 rename_map,
                 reverse_rename_map,

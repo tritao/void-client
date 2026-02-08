@@ -658,7 +658,20 @@ def _process_manifest(
     by_key = {(m.kind, m.name): m for m in source_members}
     target_keys = {(m.kind, m.name) for m in target_members}
     source_class = source_path.stem
-    moved_keys = {(m.kind, m.name) for m in manifest.moves}
+    moved_keys: set[tuple[str, str]] = set()
+    for move in manifest.moves:
+        if move.kind not in ("field", "method"):
+            continue
+        for owner in (source_class, manifest.target_class):
+            for candidate in _candidate_names(
+                rename_map,
+                reverse_rename_map,
+                owner=owner,
+                kind=move.kind,
+                old_name=move.name,
+            ):
+                moved_keys.add((move.kind, candidate))
+        moved_keys.add((move.kind, move.name))
     remaining_static_fields = [m.name for m in source_members if m.kind == "field" and (m.kind, m.name) not in moved_keys]
     remaining_static_methods = [m.name for m in source_members if m.kind == "method" and (m.kind, m.name) not in moved_keys]
 
@@ -709,6 +722,16 @@ def _process_manifest(
             kind=move.kind,
             old_name=move.name,
         )
+        target_owner_candidates_for_source = _candidate_names(
+            rename_map,
+            reverse_rename_map,
+            owner=manifest.target_class,
+            kind=move.kind,
+            old_name=move.name,
+        )
+        for candidate in target_owner_candidates_for_source:
+            if candidate not in candidate_names:
+                candidate_names.append(candidate)
         member = None
         actual_source_name = ""
         key = (move.kind, move.name)

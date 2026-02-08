@@ -1,4 +1,4 @@
 # Refactor class view build report
 
-- Plan rows: `4062`
+- Plan rows: `4068`
 - Class rename rows emitted: `784`
