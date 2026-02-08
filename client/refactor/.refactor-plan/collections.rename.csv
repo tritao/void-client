@@ -293,6 +293,12 @@ local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,first,,,class348_s
 local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,next,,,class348_sub42,node,SecondaryLinkedListIterator,module,high,approved,Next node returned by iterator
 local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,class348_sub42,beforeNode,SecondaryLinkedNodeUtil,module,high,approved,Anchor node that receives insertion before it
 local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,class348_sub42_1_,nodeToInsert,SecondaryLinkedNodeUtil,module,high,approved,Node inserted before anchor
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1195,indexProgressHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by IndexProgressProvider
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1197,billboardTypeHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by BillboardTypeList
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1198,indexGroupHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by IndexGroupLoader
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1199,downloadTaskHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by ResourceDownloadTask
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass173_1201,blendModeAdditive,SecondaryLinkedNodeUtil,module,high,approved,Blend-mode token selecting additive blending in native toolkits
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,anInt1202,viewportCenterX,SecondaryLinkedNodeUtil,module,high,approved,Projected viewport center X used by scene/world-map screen coordinate transforms
 field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7060,secondaryPrev,SecondaryNode,module,high,approved,Previous node in secondary list
 field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7063,secondaryNext,SecondaryNode,module,high,approved,Next node in secondary list
 field,SecondaryNode,SecondaryNode,,,,aLong7057,secondaryKey,SecondaryNode,module,high,approved,
