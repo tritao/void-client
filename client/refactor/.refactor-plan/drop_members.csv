@@ -180,4 +180,34 @@ client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3162 = 0;,cleanup,a
 client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3163 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
 client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3164 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
 client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3168 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+collections/hash/HashTable.java,field,anInt4375,cleanup,approved,Unused debug counter for clear invocations
+collections/hash/HashTable.java,field,anInt4376,cleanup,approved,Unused debug counter for getBucketCount invocations
+collections/hash/HashTable.java,field,anInt4378,cleanup,approved,Unused debug counter for nextVisibleWorldMapMarker invocations
+collections/hash/HashTable.java,field,anInt4379,cleanup,approved,Unused debug counter for get invocations
+collections/hash/HashTable.java,field,anInt4380,cleanup,approved,Unused debug counter for copyNodesToArray invocations
+collections/hash/HashTable.java,field,anInt4381,cleanup,approved,Unused debug counter for next invocations
+collections/hash/HashTable.java,field,anInt4382,cleanup,approved,Unused debug counter for put invocations
+collections/hash/HashTable.java,field,anInt4384,cleanup,approved,Unused debug counter for nextWithKey invocations
+collections/hash/HashTable.java,field,anInt4386,cleanup,approved,Unused debug counter for first invocations
+collections/hash/HashTable.java,field,anInt4387,cleanup,approved,Unused debug counter for size invocations
+collections/hash/HashTable.java,line_contains,anInt4375++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4376++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4378++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4379++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4380++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4381++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4382++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4384++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4386++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,anInt4387++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4375 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4376 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4378 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4379 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4380 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4381 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4382 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4384 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4386 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+client/ClientDebugCounters.java,line_contains,HashTable.anInt4387 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
