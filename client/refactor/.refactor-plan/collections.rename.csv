@@ -323,3 +323,18 @@ field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1649,firstCallCount,Second
 field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1653,removeFirstCallCount,SecondaryLinkedList,module,high,approved,Call counter for remove-first helper
 field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1654,addLastCallCount,SecondaryLinkedList,module,high,approved,Call counter for add-last helper
 field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1655,resetWorldMapRenderStateCallCount,SecondaryLinkedList,module,high,approved,Call counter for world-map reset helper
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasBit0x800,,,i,flags,SecondaryLinkedListIterator,module,high,approved,Bitfield value checked for 0x800 flag
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasBit0x800,,,i_0_,unusedValue,SecondaryLinkedListIterator,module,medium,approved,Unused decompiler parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasBit0x800,,,i_1_,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasOverlayInteractionBits,,,i,unusedValue,SecondaryLinkedListIterator,module,medium,approved,Unused decompiler parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasOverlayInteractionBits,,,i_2_,flags,SecondaryLinkedListIterator,module,high,approved,Bitfield value checked for overlay interaction bits
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasOverlayInteractionBits,,,i_3_,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,next,,,i,guardByte,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard byte parameter
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,clearClientCachesWithBudget,,,i,cacheBudget,SecondaryLinkedNodeUtil,module,high,approved,Cache clear budget value
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,clearClientCachesWithBudget,,,i_0_,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,,i,occlusionFlags,SecondaryLinkedNodeUtil,module,high,approved,Occlusion flag mask to evaluate
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,,i_2_,interactionFlags,SecondaryLinkedNodeUtil,module,high,approved,Interaction/collision flags used in occlusion checks
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,,i_3_,guardByte,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard byte parameter
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i,occlusionFlags,SecondaryLinkedNodeUtil,module,high,approved,Occlusion flag mask to evaluate
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i_4_,interactionFlags,SecondaryLinkedNodeUtil,module,high,approved,Interaction/collision flags used in occlusion checks
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i_5_,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
