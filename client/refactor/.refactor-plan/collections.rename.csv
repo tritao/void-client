@@ -338,3 +338,8 @@ local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,
 local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i,occlusionFlags,SecondaryLinkedNodeUtil,module,high,approved,Occlusion flag mask to evaluate
 local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i_4_,interactionFlags,SecondaryLinkedNodeUtil,module,high,approved,Interaction/collision flags used in occlusion checks
 local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i_5_,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,i,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,text4,errorText,SecondaryLinkedListIterator,module,high,approved,Encoded client error text payload
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,class144,errorReportRequest,SecondaryLinkedListIterator,module,high,approved,URL request handle for remote client error report
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,datainputstream,responseStream,SecondaryLinkedListIterator,module,high,approved,Response stream for error report acknowledgment
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,i,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
