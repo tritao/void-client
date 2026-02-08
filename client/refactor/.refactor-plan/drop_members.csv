@@ -330,4 +330,7 @@ world/map/WorldMap.java,line_contains,SecondaryLinkedList.resetWorldMapRenderSta
 client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.applyProjectionViewportProfileCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.renderMinimapCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.resetWorldMapRenderStateCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+collections/hash/IntHashTable.java,field,anInt3966,cleanup,approved,Unused debug counter for object-action opcode dispatch branch
+graphics/gpu/VertexElementType.java,line_contains,IntHashTable.anInt3966++,cleanup,approved,Drop orphan increment after removing unused IntHashTable debug counter
+client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3966 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
