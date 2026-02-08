@@ -333,4 +333,12 @@ client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.resetWorldMapR
 collections/hash/IntHashTable.java,field,anInt3966,cleanup,approved,Unused debug counter for object-action opcode dispatch branch
 graphics/gpu/VertexElementType.java,line_contains,IntHashTable.anInt3966++,cleanup,approved,Drop orphan increment after removing unused IntHashTable debug counter
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3966 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
+client/state/LoginStateUtil.java,line_contains,ReferenceNode.anInt9551++,cleanup,approved,Drop orphan increment after removing ReferenceNode debug counter
+client/state/LoginStateUtil.java,line_contains,ReferenceNode.anInt9546++,cleanup,approved,Drop orphan increment after removing ReferenceNode debug counter
+client/state/LoginStateUtil.java,line_contains,ReferenceNode.anInt9549++,cleanup,approved,Drop orphan increment after removing ReferenceNode debug counter
+client/ClientDebugCounters.java,line_contains,ReferenceNode.anInt9546 = 0;,cleanup,approved,Drop reset for removed ReferenceNode debug counter
+client/ClientDebugCounters.java,line_contains,ReferenceNode.anInt9549 = 0;,cleanup,approved,Drop reset for removed ReferenceNode debug counter
+client/ClientDebugCounters.java,line_contains,ReferenceNode.anInt9551 = 0;,cleanup,approved,Drop reset for removed ReferenceNode debug counter
+graphics/opengl/OpenGLToolkit.java,line_contains,NodeDeque.anInt3324++,cleanup,approved,Drop orphan increment after removing NodeDeque debug counter
+world/map/WorldMap.java,line_contains,HashTable.anInt4378++,cleanup,approved,Drop orphan increment after removing HashTable debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
