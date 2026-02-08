@@ -196,15 +196,6 @@ field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aFloat3177,previousBrightness
 field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aClass143_3179,loadingFontMetrics,ReferenceNodeFactory,module,high,approved,Font metrics used by loading/map overlay text rendering
 field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1647,sentinel,SecondaryLinkedList,module,high,approved,List sentinel node
 field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1652,iterCursor,SecondaryLinkedList,module,high,approved,Iteration cursor
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1642,applyProjectionViewportProfileCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for applyProjectionViewportProfile helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1643,sizeCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for size
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1644,nextCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for next
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1646,clearCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for clear
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1648,renderMinimapCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for renderMinimap helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1649,firstCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for first
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1653,removeFirstCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for removeFirst
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1654,addLastCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for addLast
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1655,resetWorldMapRenderStateCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for resetWorldMapRenderState helper
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1002,size,SecondaryLinkedList,module,high,approved,Count nodes in list
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1003,next,SecondaryLinkedList,module,high,approved,Get next secondary node from iterator cursor
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1004,clearStaticState,SecondaryLinkedList,module,high,approved,
