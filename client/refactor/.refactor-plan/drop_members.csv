@@ -210,4 +210,19 @@ client/ClientDebugCounters.java,line_contains,HashTable.anInt4382 = 0;,cleanup,a
 client/ClientDebugCounters.java,line_contains,HashTable.anInt4384 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
 client/ClientDebugCounters.java,line_contains,HashTable.anInt4386 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
 client/ClientDebugCounters.java,line_contains,HashTable.anInt4387 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
+collections/hash/IntHashTable.java,field,anInt3958,cleanup,approved,Unused debug counter for prepareSceneHeightLoad invocations
+collections/hash/IntHashTable.java,field,anInt3960,cleanup,approved,Unused debug counter for get invocations
+collections/hash/IntHashTable.java,field,anInt3962,cleanup,approved,Unused debug counter for formatChatMessageLine invocations
+collections/hash/IntHashTable.java,field,anInt3964,cleanup,approved,Unused debug counter for drawCubicBezier invocations
+collections/hash/IntHashTable.java,field,anInt3965,cleanup,approved,Unused debug counter for clearCharCountCache invocations
+collections/hash/IntHashTable.java,line_contains,anInt3958++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/IntHashTable.java,line_contains,anInt3960++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/IntHashTable.java,line_contains,anInt3962++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/IntHashTable.java,line_contains,anInt3964++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/IntHashTable.java,line_contains,anInt3965++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3958 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
+client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3960 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
+client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3962 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
+client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3964 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
+client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3965 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
