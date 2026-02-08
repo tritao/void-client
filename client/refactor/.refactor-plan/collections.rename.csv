@@ -177,9 +177,6 @@ field,,ReferenceNode,,,,aClass114_9550,legacyServerPacket109,ReferenceNode,modul
 field,,ReferenceNode,,,,aClass114_9552,legacyServerPacket72,ReferenceNode,module,high,approved,Legacy server packet constant id 72
 field,,ReferenceNode,,,,aClass351_9553,legacyClientPacket36,ReferenceNode,module,high,approved,Legacy client packet constant id 36
 field,,ReferenceNode,,,,aString9554,loginStatusText,ReferenceNode,module,high,approved,Legacy login status text
-field,,ReferenceNode,,,,anInt9546,loginState3To6Checks,ReferenceNode,module,high,approved,Debug counter for login-state 3..6 checks
-field,,ReferenceNode,,,,anInt9549,loginState7Or9Checks,ReferenceNode,module,high,approved,Debug counter for login-state 7/9 checks
-field,,ReferenceNode,,,,anInt9551,legacyFlagChecks,ReferenceNode,module,high,approved,Debug counter for legacy-flag checks
 method,,ReferenceNode,,,,method3194,isLegacyFlagSupported,ReferenceNode,module,high,approved,
 method,,ReferenceNode,,,,method3195,isSoft,ReferenceNode,module,high,approved,Whether entry is soft-reference-backed
 method,,ReferenceNode,,,,method3196,isLoginState3To6,ReferenceNode,module,high,approved,

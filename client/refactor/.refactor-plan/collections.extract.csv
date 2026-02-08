@@ -12,9 +12,6 @@ collections/reference/ReferenceNode.java,field,aClass114_9550,PacketConstants,ne
 collections/reference/ReferenceNode.java,field,aClass114_9552,PacketConstants,net/packets/PacketConstants.java,ReferenceNode,split,high,approved,Legacy packet constant should live in packet constants owner
 collections/reference/ReferenceNode.java,field,aClass351_9553,PacketConstants,net/packets/PacketConstants.java,ReferenceNode,split,high,approved,Legacy outbound packet constant should live in packet constants owner
 collections/reference/ReferenceNode.java,field,aString9554,LoginManager,game/login/LoginManager.java,ReferenceNode,split,high,approved,Login text state should live with login manager
-collections/reference/ReferenceNode.java,field,anInt9551,LoginStateUtil,client/state/LoginStateUtil.java,ReferenceNode,split,high,approved,Login-state helper invocation counter should move with login-state methods
-collections/reference/ReferenceNode.java,field,anInt9546,LoginStateUtil,client/state/LoginStateUtil.java,ReferenceNode,split,high,approved,Login-state helper invocation counter should move with login-state methods
-collections/reference/ReferenceNode.java,field,anInt9549,LoginStateUtil,client/state/LoginStateUtil.java,ReferenceNode,split,high,approved,Login-state helper invocation counter should move with login-state methods
 collections/reference/ReferenceNode.java,field,anInt9547,GameStateReset,client/GameStateReset.java,ReferenceNode,split,high,approved,World reset invocation counter should move with world reset helper
 collections/reference/ReferenceNode.java,field,aShort9555,GameStateReset,client/GameStateReset.java,ReferenceNode,split,high,approved,World reset guard flag should move with world reset helper
 collections/reference/ReferenceNode.java,method,method3194,LoginStateUtil,client/state/LoginStateUtil.java,ReferenceNode,split,high,approved,Login-state helper belongs with other login-state predicates
