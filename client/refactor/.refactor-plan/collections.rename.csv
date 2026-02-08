@@ -314,3 +314,12 @@ method,StringNode,StringNode,,,,method3419,clearImageProcessingBuffers,StringNod
 method,StringNode,StringNode,,,,method3420,getLoadedResourceCount,StringNode,module,high,approved,Returns loaded resource-file count used by loading progress
 local,Widget,Widget,,,,class46,widget,Widget,module,high,approved,
 local,Widget,Widget,,,,class46s,widgets,Widget,module,high,approved,
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1642,applyProjectionViewportProfileCallCount,SecondaryLinkedList,module,high,approved,Call counter for projection viewport profile helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1643,sizeCallCount,SecondaryLinkedList,module,high,approved,Call counter for size helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1644,nextCallCount,SecondaryLinkedList,module,high,approved,Call counter for iterator next helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1646,clearCallCount,SecondaryLinkedList,module,high,approved,Call counter for clear helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1648,renderMinimapCallCount,SecondaryLinkedList,module,high,approved,Call counter for minimap render helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1649,firstCallCount,SecondaryLinkedList,module,high,approved,Call counter for first helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1653,removeFirstCallCount,SecondaryLinkedList,module,high,approved,Call counter for remove-first helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1654,addLastCallCount,SecondaryLinkedList,module,high,approved,Call counter for add-last helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1655,resetWorldMapRenderStateCallCount,SecondaryLinkedList,module,high,approved,Call counter for world-map reset helper
