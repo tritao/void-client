@@ -90,4 +90,25 @@ client/ClientDebugCounters.java,line_contains,HardReferenceNode.getValueCount = 
 audio/ClientHashAndSoundUtil.java,line_contains,ByteArrayPool.anInt490++,cleanup,approved,Drop orphan increment after extracting queueAreaSoundEffect from ByteArrayPool
 util/text/AmountFormatUtil.java,line_contains,ByteArrayPool.anInt494++,cleanup,approved,Drop orphan increment after extracting amount formatter from ByteArrayPool
 collections/value/IntNode.java,method,method3028,cleanup,approved,Keep IntNode as pure value node by removing static reset helper
+collections/DoublyLinkedNode.java,field,anInt3972,cleanup,approved,Unused debug counter for clearBufferedSocketCache invocations
+collections/DoublyLinkedNode.java,field,anInt3975,cleanup,approved,Unused debug counter for unlink invocations
+collections/DoublyLinkedNode.java,line_contains,anInt3972++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/DoublyLinkedNode.java,line_contains,anInt3975++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,DoublyLinkedNode.anInt3972 = 0;,cleanup,approved,Drop reset for removed DoublyLinkedNode debug counter
+client/ClientDebugCounters.java,line_contains,DoublyLinkedNode.anInt3975 = 0;,cleanup,approved,Drop reset for removed DoublyLinkedNode debug counter
+collections/hash/LinkedNodeHashTable.java,field,anInt447,cleanup,approved,Unused debug counter for put invocations
+collections/hash/LinkedNodeHashTable.java,field,anInt449,cleanup,approved,Unused debug counter for get invocations
+collections/hash/LinkedNodeHashTable.java,field,anInt455,cleanup,approved,Unused debug counter for nextWithKey invocations
+collections/hash/LinkedNodeHashTable.java,line_contains,anInt447++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/LinkedNodeHashTable.java,line_contains,anInt449++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/LinkedNodeHashTable.java,line_contains,anInt455++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,LinkedNodeHashTable.anInt447 = 0;,cleanup,approved,Drop reset for removed LinkedNodeHashTable debug counter
+client/ClientDebugCounters.java,line_contains,LinkedNodeHashTable.anInt449 = 0;,cleanup,approved,Drop reset for removed LinkedNodeHashTable debug counter
+client/ClientDebugCounters.java,line_contains,LinkedNodeHashTable.anInt455 = 0;,cleanup,approved,Drop reset for removed LinkedNodeHashTable debug counter
+collections/hash/HashTableIterator.java,field,anInt4145,cleanup,approved,Unused debug counter for first invocations
+collections/hash/HashTableIterator.java,field,anInt4149,cleanup,approved,Unused debug counter for next invocations
+collections/hash/HashTableIterator.java,line_contains,anInt4145++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTableIterator.java,line_contains,anInt4149++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,HashTableIterator.anInt4145 = 0;,cleanup,approved,Drop reset for removed HashTableIterator debug counter
+client/ClientDebugCounters.java,line_contains,HashTableIterator.anInt4149 = 0;,cleanup,approved,Drop reset for removed HashTableIterator debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
