@@ -255,4 +255,16 @@ client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3926 = 0;,clean
 client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3927 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
 client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3928 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
 client/ClientDebugCounters.java,line_contains,DequeIterator.anInt3929 = 0;,cleanup,approved,Drop reset for removed DequeIterator debug counter
+collections/DualNode.java,field,anInt6467,cleanup,approved,Unused debug counter for unlinkDual invocations
+collections/DualNode.java,line_contains,anInt6467++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,DualNode.anInt6467 = 0;,cleanup,approved,Drop reset for removed DualNode debug counter
+collections/SecondaryNode.java,field,anInt7061,cleanup,approved,Unused debug counter for isSecondaryLinked invocations
+collections/SecondaryNode.java,field,anInt7062,cleanup,approved,Unused debug counter for resetPlayerUpdateTracking invocations
+collections/SecondaryNode.java,field,anInt7064,cleanup,approved,Unused debug counter for unlinkSecondary invocations
+collections/SecondaryNode.java,line_contains,anInt7061++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/SecondaryNode.java,line_contains,anInt7062++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/SecondaryNode.java,line_contains,anInt7064++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7061 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7062 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7064 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
