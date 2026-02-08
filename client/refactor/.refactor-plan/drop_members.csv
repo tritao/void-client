@@ -111,4 +111,73 @@ collections/hash/HashTableIterator.java,line_contains,anInt4145++,cleanup,approv
 collections/hash/HashTableIterator.java,line_contains,anInt4149++,cleanup,approved,Drop orphan increment after removing unused debug counter
 client/ClientDebugCounters.java,line_contains,HashTableIterator.anInt4145 = 0;,cleanup,approved,Drop reset for removed HashTableIterator debug counter
 client/ClientDebugCounters.java,line_contains,HashTableIterator.anInt4149 = 0;,cleanup,approved,Drop reset for removed HashTableIterator debug counter
+collections/deque/NodeDeque.java,field,anInt3324,cleanup,approved,Unused debug counter for createOpenGLToolkit invocations
+collections/deque/NodeDeque.java,field,anInt3325,cleanup,approved,Unused debug counter for spliceFromNodeToBackOf invocations
+collections/deque/NodeDeque.java,field,anInt3327,cleanup,approved,Unused debug counter for isEmpty invocations
+collections/deque/NodeDeque.java,field,anInt3328,cleanup,approved,Unused debug counter for addLast invocations
+collections/deque/NodeDeque.java,field,anInt3329,cleanup,approved,Unused debug counter for next invocations
+collections/deque/NodeDeque.java,field,anInt3330,cleanup,approved,Unused debug counter for addFirst invocations
+collections/deque/NodeDeque.java,field,anInt3332,cleanup,approved,Unused debug counter for first invocations
+collections/deque/NodeDeque.java,field,anInt3333,cleanup,approved,Unused debug counter for size invocations
+collections/deque/NodeDeque.java,field,anInt3336,cleanup,approved,Unused debug counter for last invocations
+collections/deque/NodeDeque.java,field,anInt3337,cleanup,approved,Unused debug counter for prev invocations
+collections/deque/NodeDeque.java,field,anInt3338,cleanup,approved,Unused debug counter for computeProjectedUvByMode invocations
+collections/deque/NodeDeque.java,field,anInt3339,cleanup,approved,Unused debug counter for clear invocations
+collections/deque/NodeDeque.java,field,anInt3340,cleanup,approved,Unused debug counter for moveAllToBackOf invocations
+collections/deque/NodeDeque.java,field,anInt3341,cleanup,approved,Unused debug counter for removeFirst invocations
+collections/deque/NodeDeque.java,line_contains,anInt3324++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3325++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3327++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3328++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3329++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3330++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3332++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3333++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3336++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3337++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3338++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3339++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3340++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/NodeDeque.java,line_contains,anInt3341++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3324 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3325 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3327 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3328 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3329 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3330 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3332 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3333 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3336 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3337 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3338 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3339 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3340 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+client/ClientDebugCounters.java,line_contains,NodeDeque.anInt3341 = 0;,cleanup,approved,Drop reset for removed NodeDeque debug counter
+collections/deque/LinkDeque.java,field,anInt3157,cleanup,approved,Unused debug counter for isEmpty invocations
+collections/deque/LinkDeque.java,field,anInt3158,cleanup,approved,Unused debug counter for addLast invocations
+collections/deque/LinkDeque.java,field,anInt3159,cleanup,approved,Unused debug counter for iterateNext invocations
+collections/deque/LinkDeque.java,field,anInt3160,cleanup,approved,Unused debug counter for removeFirst invocations
+collections/deque/LinkDeque.java,field,anInt3161,cleanup,approved,Unused debug counter for size invocations
+collections/deque/LinkDeque.java,field,anInt3162,cleanup,approved,Unused debug counter for iterateFromBack invocations
+collections/deque/LinkDeque.java,field,anInt3163,cleanup,approved,Unused debug counter for iterateFromFront invocations
+collections/deque/LinkDeque.java,field,anInt3164,cleanup,approved,Unused debug counter for updateActiveParticleSystems invocations
+collections/deque/LinkDeque.java,field,anInt3168,cleanup,approved,Unused debug counter for clear invocations
+collections/deque/LinkDeque.java,line_contains,anInt3157++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3158++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3159++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3160++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3161++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3162++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3163++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3164++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/deque/LinkDeque.java,line_contains,anInt3168++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3157 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3158 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3159 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3160 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3161 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3162 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3163 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3164 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
+client/ClientDebugCounters.java,line_contains,LinkDeque.anInt3168 = 0;,cleanup,approved,Drop reset for removed LinkDeque debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
