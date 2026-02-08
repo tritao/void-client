@@ -282,4 +282,22 @@ client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1192 
 client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1193 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1194 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1196 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
+collections/Node.java,field,anInt4285,cleanup,approved,Unused debug counter for unlink invocations
+collections/Node.java,field,anInt4287,cleanup,approved,Unused debug counter for hasBit0x21 invocations
+collections/Node.java,field,anInt4289,cleanup,approved,Unused debug counter for classifyThreshold96And128 invocations
+collections/Node.java,field,anInt4296,cleanup,approved,Unused debug counter for isOneThreeOrFive invocations
+collections/Node.java,field,anInt4297,cleanup,approved,Unused debug counter for isLinked invocations
+collections/Node.java,field,anInt4298,cleanup,approved,Unused debug counter for buildCachedModelVariant invocations
+collections/Node.java,line_contains,anInt4285++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/Node.java,line_contains,anInt4287++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/Node.java,line_contains,anInt4289++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/Node.java,line_contains,anInt4296++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/Node.java,line_contains,anInt4297++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/Node.java,line_contains,anInt4298++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,Node.anInt4285 = 0;,cleanup,approved,Drop reset for removed Node debug counter
+client/ClientDebugCounters.java,line_contains,Node.anInt4287 = 0;,cleanup,approved,Drop reset for removed Node debug counter
+client/ClientDebugCounters.java,line_contains,Node.anInt4289 = 0;,cleanup,approved,Drop reset for removed Node debug counter
+client/ClientDebugCounters.java,line_contains,Node.anInt4296 = 0;,cleanup,approved,Drop reset for removed Node debug counter
+client/ClientDebugCounters.java,line_contains,Node.anInt4297 = 0;,cleanup,approved,Drop reset for removed Node debug counter
+client/ClientDebugCounters.java,line_contains,Node.anInt4298 = 0;,cleanup,approved,Drop reset for removed Node debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
