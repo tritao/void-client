@@ -300,4 +300,7 @@ client/ClientDebugCounters.java,line_contains,Node.anInt4289 = 0;,cleanup,approv
 client/ClientDebugCounters.java,line_contains,Node.anInt4296 = 0;,cleanup,approved,Drop reset for removed Node debug counter
 client/ClientDebugCounters.java,line_contains,Node.anInt4297 = 0;,cleanup,approved,Drop reset for removed Node debug counter
 client/ClientDebugCounters.java,line_contains,Node.anInt4298 = 0;,cleanup,approved,Drop reset for removed Node debug counter
+collections/DoublyLinkedNodeUtil.java,field,anInt3171,cleanup,approved,Unused debug counter for linkBefore invocations
+collections/DoublyLinkedNodeUtil.java,line_contains,anInt3171++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,DoublyLinkedNodeUtil.anInt3171 = 0;,cleanup,approved,Drop reset for removed DoublyLinkedNodeUtil debug counter
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
