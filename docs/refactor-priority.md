@@ -13,7 +13,7 @@ Deterministic rename priority for `client/refactor`, ordered by impact + remaini
 
 ## Regenerate
 
-- `python tools/refactor_priority.py --root client/refactor --write docs/refactor-priority.md --top 140 --queue 50`
+- `python tools/refactor/planning/refactor_priority.py --root client/refactor --write docs/refactor-priority.md --top 140 --queue 50`
 
 ## Ordered Queue
 

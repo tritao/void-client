@@ -95,3 +95,4 @@ client/refactor/ui/widget/Widget.java,aClass60_6517,fullscreenLayoutCache,cleanu
 client/refactor/ui/widget/Widget.java,method3480,get,cleanup,approved,Auto fallback from compile log: HashTable.method3480->get
 client/refactor/ui/widget/Widget.java,anInt6976,value,cleanup,approved,Auto fallback from compile log: IntNode.anInt6976->value
 client/refactor/ui/widget/Widget.java,aString7211,value,cleanup,approved,Auto fallback from compile log: StringNode.aString7211->value
+collections/value/StringNode.java,getCurrentTick,getLoadedResourceCount,cleanup,approved,Rename non-obfuscated wrapper to semantic loading-progress name

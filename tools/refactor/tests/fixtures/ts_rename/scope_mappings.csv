@@ -1,0 +1,6 @@
+old,new,kind,owner,member,file,signature,notes
+method100,handleInt,method,ScopeCaseA,,ScopeCaseA.java,int,signature-int
+method100,handleString,method,ScopeCaseA,,ScopeCaseA.java,String,signature-string
+i,inputTick,param,,foo,ScopeCaseA.java,,member-scoped-param
+i_0_,fooAccumulator,local,,foo,ScopeCaseA.java,,member-scoped-local-foo
+i_0_,barAccumulator,local,,bar,ScopeCaseA.java,,member-scoped-local-bar

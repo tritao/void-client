@@ -18,3 +18,17 @@ graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_12_,u,cleanup,app
 graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_13_,v,cleanup,approved,Computed V coordinate
 graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_14_,swapTmp1,cleanup,approved,Temporary for rotation remap branch 1
 graphics/model/TextureProjectionUtil.java,computeProjectedUv,f_15_,swapTmp2,cleanup,approved,Temporary for rotation remap branch 3
+util/text/AmountFormatUtil.java,formatAmountWithColorTags,i_0_,amount,cleanup,approved,Amount value formatted with group separators and suffix color
+util/text/AmountFormatUtil.java,formatAmountWithColorTags,string,formattedAmount,cleanup,approved,Formatted amount string with grouping separators and color suffix
+util/text/AmountFormatUtil.java,formatAmountWithColorTags,i_1_,groupingInsertIndex,cleanup,approved,Insertion index when applying 3-digit grouping separators
+collections/pool/ByteArrayPool.java,releaseByteArray,is,bytes,cleanup,approved,Released byte-array payload
+collections/pool/ByteArrayPool.java,releaseByteArray,i_2_,bucketIndex,cleanup,approved,Custom pool bucket index
+audio/ClientHashAndSoundUtil.java,queueAreaSoundEffect,i,delay,cleanup,approved,Delay before area sound plays
+audio/ClientHashAndSoundUtil.java,queueAreaSoundEffect,i_3_,packedPosition,cleanup,approved,Packed area-sound position and plane bits
+audio/ClientHashAndSoundUtil.java,queueAreaSoundEffect,i_4_,radius,cleanup,approved,Area-sound radius
+audio/ClientHashAndSoundUtil.java,queueAreaSoundEffect,i_5_,loops,cleanup,approved,Loop count for area sound
+audio/ClientHashAndSoundUtil.java,queueAreaSoundEffect,i_6_,area,cleanup,approved,Area attenuation/profile value
+audio/ClientHashAndSoundUtil.java,queueAreaSoundEffect,i_7_,soundEffectId,cleanup,approved,Sound effect id
+collections/pool/ByteArrayPool.java,acquireByteArray,i,length,cleanup,approved,Requested byte-array length
+collections/pool/ByteArrayPool.java,acquireByteArray,i_10_,bucketIndex,cleanup,approved,Custom pool bucket index
+collections/pool/ByteArrayPool.java,acquireByteArray,is,bytes,cleanup,approved,Acquired byte-array payload

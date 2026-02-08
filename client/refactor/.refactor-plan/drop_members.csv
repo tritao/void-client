@@ -3,11 +3,15 @@ collections/reference/ReferenceNode.java,field,anInt9546,cleanup,approved,Unused
 collections/reference/ReferenceNode.java,field,anInt9547,cleanup,approved,Unused increment-only debug counter
 collections/reference/ReferenceNode.java,field,anInt9549,cleanup,approved,Unused increment-only debug counter
 collections/reference/ReferenceNode.java,field,anInt9551,cleanup,approved,Unused increment-only debug counter
+collections/reference/ReferenceNode.java,field,anInt9548,cleanup,approved,Unused increment-only debug counter
+collections/reference/HardReferenceNode.java,field,getValueCount,cleanup,approved,Unused debug counter
+collections/reference/HardReferenceNode.java,field,isSoftChecks,cleanup,approved,Unused debug counter
 collections/reference/ReferenceNode.java,field,aShort9555,cleanup,approved,Decompiler guard state field only used by dead guard assignment
 collections/reference/ReferenceNode.java,line_contains,anInt9551++,cleanup,approved,Remove orphan increment after dropping debug counter field
 collections/reference/ReferenceNode.java,line_contains,anInt9546++,cleanup,approved,Remove orphan increment after dropping debug counter field
 collections/reference/ReferenceNode.java,line_contains,anInt9549++,cleanup,approved,Remove orphan increment after dropping debug counter field
 collections/reference/ReferenceNode.java,line_contains,anInt9547++,cleanup,approved,Remove orphan increment after dropping debug counter field
+client/preferences/TexturesPreference.java,line_contains,ReferenceNode.anInt9548++;,cleanup,approved,Drop orphan increment after dropping debug counter field
 collections/reference/ReferenceNode.java,line_contains,aShort9555 = (short) -74;,cleanup,approved,Drop decompiler guard side-effect line
 client/GameShell.java,field,anInt42,cleanup,approved,No references outside declaration
 client/GameShell.java,field,anInt43,cleanup,approved,No references outside declaration
@@ -27,10 +31,14 @@ client/GameShell.java,field,aBoolean56,cleanup,approved,No references outside de
 client/GameShell.java,field,anInt57,cleanup,approved,No references outside declaration
 client/GameShell.java,field,aBoolean58,cleanup,approved,No references outside declaration
 client/GameShell.java,field,anInt59,cleanup,approved,No references outside declaration
-net/packets/PacketConstants.java,line_contains,if (i < 17) isLoginState3To6(60, -85);,cleanup,approved,Drop cross-owner predicate call after moving reset helper to packet constants owner
+net/packets/PacketConstants.java,line_contains,if (i < 17) isLoginState3To6(60,-85);,cleanup,approved
 net/packets/PacketConstants.java,line_contains,aString9554 = null;,cleanup,approved,Drop string reset from packet constants reset helper (field moved to LoginManager)
-net/packets/PacketConstants.java,line_contains,if (i < 17) LoginStateUtil.method3196(60, -85);,cleanup,approved,Drop cross-owner predicate call after moving reset helper to packet constants owner
+net/packets/PacketConstants.java,line_contains,if (i < 17) LoginStateUtil.method3196(60,-85);,cleanup,approved
 client/state/LoginStateUtil.java,line_contains,if (i_3_ != 56) aClass114_9552 = null;,cleanup,approved,Drop decompiler guard write to packet constant field now owned by PacketConstants
+collections/reference/ReferenceNodeFactory.java,field,anInt3175,cleanup,approved,Unused increment-only debug counter
+collections/reference/ReferenceNodeFactory.java,field,anInt3178,cleanup,approved,Unused increment-only debug counter
+graphics/model/TextureProjectionUtil.java,line_contains,ReferenceNodeFactory.anInt3175++;,cleanup,approved,Drop orphan increment after dropping debug counter field
+world/scene/SceneRenderFlags.java,line_contains,ReferenceNodeFactory.anInt3178++;,cleanup,approved,Drop orphan increment after dropping debug counter field
 collections/value/ByteArraySecondaryNode.java,line_contains,aClass114_9503 = null;,cleanup,approved,Drop packet-constant reset line after moving field to PacketConstants
 world/scene/Ground.java,line_contains,anInt9506++,cleanup,approved,Drop orphan counter increment after extracting setGroundResourceArchives
 world/scene/SceneViewportRenderer.java,line_contains,anInt9507++,cleanup,approved,Drop orphan counter increment after extracting viewport helper
@@ -44,9 +52,42 @@ collections/value/ByteArraySecondaryNode.java,field,anInt9507,cleanup,approved,U
 collections/value/ByteArraySecondaryNode.java,field,anInt9508,cleanup,approved,Unused counter after method extraction
 collections/value/ByteArraySecondaryNode.java,field,anInt9509,cleanup,approved,Unused counter after method extraction
 collections/value/ShortNode.java,field,anInt6910,cleanup,approved,Unused counter after method extraction
+collections/value/IntNode.java,field,updateAudioStateCallCount,cleanup,approved,Unused method call counter with no runtime reads
+collections/value/StringNode.java,field,clearImageProcessingBuffersCallCount,cleanup,approved,Unused method call counter with no runtime reads
+collections/value/StringNode.java,field,getCurrentTickCallCount,cleanup,approved,Unused method call counter with no runtime reads
+collections/pool/ByteArrayPool.java,field,anInt490,cleanup,approved,Unused method invocation counter
+collections/pool/ByteArrayPool.java,field,anInt491,cleanup,approved,Unused method invocation counter
+collections/pool/ByteArrayPool.java,field,anInt493,cleanup,approved,Unused method invocation counter
+collections/pool/ByteArrayPool.java,field,anInt494,cleanup,approved,Unused method invocation counter
+collections/value/IntNode.java,line_contains,updateAudioStateCallCount++,cleanup,approved,Drop orphan increment after removing unused call counter
+collections/value/StringNode.java,line_contains,clearImageProcessingBuffersCallCount++,cleanup,approved,Drop orphan increment after removing unused call counter
+collections/value/StringNode.java,line_contains,getCurrentTickCallCount++,cleanup,approved,Drop orphan increment after removing unused call counter
+cache/ColorImageCacheSlot.java,line_contains,IntNode.updateAudioStateCallCount++,cleanup,approved,Drop orphan increment after moving audio-state helper
+ui/canvas/GameCanvas.java,line_contains,StringNode.clearImageProcessingBuffersCallCount++,cleanup,approved,Drop orphan increment after moving image-buffer helper
+ui/loading/LoadStateProcessor.java,line_contains,StringNode.getCurrentTickCallCount++,cleanup,approved,Drop orphan increment after moving loading-progress helper
+collections/pool/ByteArrayPool.java,line_contains,anInt490++,cleanup,approved,Drop orphan increment after removing counter field
+collections/pool/ByteArrayPool.java,line_contains,anInt491++,cleanup,approved,Drop orphan increment after removing counter field
+collections/pool/ByteArrayPool.java,line_contains,anInt493++,cleanup,approved,Drop orphan increment after removing counter field
+collections/pool/ByteArrayPool.java,line_contains,anInt494++,cleanup,approved,Drop orphan increment after removing counter field
 client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9500 = 0;,cleanup,approved,Drop reset for removed unused counter
 client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9506 = 0;,cleanup,approved,Drop reset for removed unused counter
 client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9507 = 0;,cleanup,approved,Drop reset for removed unused counter
 client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9508 = 0;,cleanup,approved,Drop reset for removed unused counter
 client/ClientDebugCounters.java,line_contains,ByteArraySecondaryNode.anInt9509 = 0;,cleanup,approved,Drop reset for removed unused counter
 client/ClientDebugCounters.java,line_contains,ShortNode.anInt6910 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,IntNode.updateAudioStateCallCount = 0;,cleanup,approved,Drop reset for removed unused call counter
+client/ClientDebugCounters.java,line_contains,StringNode.clearImageProcessingBuffersCallCount = 0;,cleanup,approved,Drop reset for removed unused call counter
+client/ClientDebugCounters.java,line_contains,StringNode.getCurrentTickCallCount = 0;,cleanup,approved,Drop reset for removed unused call counter
+client/ClientDebugCounters.java,line_contains,ByteArrayPool.anInt490 = 0;,cleanup,approved,Drop reset for removed ByteArrayPool counter
+client/ClientDebugCounters.java,line_contains,ByteArrayPool.anInt491 = 0;,cleanup,approved,Drop reset for removed ByteArrayPool counter
+client/ClientDebugCounters.java,line_contains,ByteArrayPool.anInt493 = 0;,cleanup,approved,Drop reset for removed ByteArrayPool counter
+client/ClientDebugCounters.java,line_contains,ByteArrayPool.anInt494 = 0;,cleanup,approved,Drop reset for removed ByteArrayPool counter
+client/ClientDebugCounters.java,line_contains,ReferenceNode.anInt9548 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ReferenceNodeFactory.anInt3175 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,ReferenceNodeFactory.anInt3178 = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,HardReferenceNode.isSoftChecks = 0;,cleanup,approved,Drop reset for removed unused counter
+client/ClientDebugCounters.java,line_contains,HardReferenceNode.getValueCount = 0;,cleanup,approved,Drop reset for removed unused counter
+audio/ClientHashAndSoundUtil.java,line_contains,ByteArrayPool.anInt490++,cleanup,approved,Drop orphan increment after extracting queueAreaSoundEffect from ByteArrayPool
+util/text/AmountFormatUtil.java,line_contains,ByteArrayPool.anInt494++,cleanup,approved,Drop orphan increment after extracting amount formatter from ByteArrayPool
+collections/value/IntNode.java,method,method3028,cleanup,approved,Keep IntNode as pure value node by removing static reset helper
+client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper

@@ -1,0 +1,2 @@
+conflict: rename old='anInt1000'
+collision: rename new='sharedFieldName'

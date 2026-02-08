@@ -1,3 +1,6 @@
 owner_class,target_file,reset_method,field_name,reset_value,phase,status,notes
 ClientGlobals,client/ClientGlobals.java,clearModeGame,modeGame,null,cleanup,approved,Owner-local reset for mode game static
 ZoneUpdateType,net/packets/ZoneUpdateType.java,clearZoneUpdateType,InboundPacketDispatcher.zoneUpdateType,null,cleanup,approved,Owner-local reset for zone update type static
+ZoneUpdateDecoder,net/packets/ZoneUpdateDecoder.java,clearZoneUpdateType8,zoneUpdateType8,null,cleanup,approved,Owner-local reset for zone update type 8 static
+LoadStateProcessor,ui/loading/LoadStateProcessor.java,clearLoadingScreenArchive,loadingScreenArchive,null,cleanup,approved,Owner-local reset for loading screen archive static
+ReflectionCheck,platform/ReflectionCheck.java,clearReflectionCheckQueue,reflectionCheckQueue,null,cleanup,approved,Owner-local reset for reflection-check queue static

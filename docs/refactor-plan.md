@@ -10,7 +10,7 @@
 - Format: action-focused module CSVs (`*.rename.csv`, `*.extract.csv`, `*.class_rename.csv`, `*.defer.csv`) documented in `client/refactor/.refactor-plan/README.md`.
 
 ## Generated Views
-Built by `tools/build_refactor_views.py`:
+Built by `tools/refactor/build_refactor_views.py`:
 - `client/refactor/.refactor-plan/generated/symbol_renames.csv`
 - `client/refactor/.refactor-plan/symbol-renames/generated/*.csv`
 - `client/refactor/.refactor-plan/generated/classes.csv`
@@ -29,7 +29,7 @@ Readability model:
 Legacy imports are no longer stored in-repo; migrate once into canonical `*.csv` files.
 
 ## Execution Pipeline
-`tools/refactor_pipeline.py` runs:
+`tools/refactor/orchestration/refactor_pipeline.py` runs:
 1. `build_views`
 2. `class_renames` (optional; skip by default in make target)
 3. `symbol_renames`

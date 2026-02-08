@@ -1,11 +1,53 @@
-file,method,old_param_text,new_param_text,drop_line_contains,phase,status,notes
-collections/reference/ReferenceNode.java,getValue,int i,,,cleanup,approved,ReferenceNode accessor API no-arg signature
-collections/reference/ReferenceNode.java,isSoft,int i,,,cleanup,approved,ReferenceNode soft-check API no-arg signature
-collections/reference/HardReferenceNode.java,isSoft,int i,,"if (i != -4)",cleanup,approved,Drop decompiler guard side-effect line
-collections/reference/HardReferenceNode.java,getValue,int i,,"if (i < 75)",cleanup,approved,Drop recursive decompiler guard line
-collections/reference/SoftReferenceNode.java,isSoft,int i,,"if (i != -4)",cleanup,approved,Drop decompiler guard side-effect line
-collections/reference/SoftReferenceNode.java,getValue,int i,,"if (i <= 75)",cleanup,approved,Drop decompiler guard conditional return
-collections/reference/HardReferenceNode.java,isSoft,,,"isSoftChecks++",cleanup,approved,Drop dead counter increment after counter field removal
-collections/reference/HardReferenceNode.java,getValue,,,"getValueCount++",cleanup,approved,Drop dead counter increment after counter field removal
-collections/reference/ReferenceNodeFactory.java,createSoftReferenceNode,"int i, ReferenceNode referenceNode",ReferenceNode referenceNode,,cleanup,approved,Drop decompiler sentinel arg from abstract factory method
-collections/reference/SoftReferenceNodeFactory.java,createSoftReferenceNode,"int i, ReferenceNode referenceNode",ReferenceNode referenceNode,"if (i != 3) return null;",cleanup,approved,Drop decompiler sentinel arg and guard from concrete factory method
+file,owner,method,signature_before,signature_after,op,param_index,new_name,match_text,phase,status,notes
+collections/reference/ReferenceNode.java,ReferenceNode,getValue,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from accessor
+collections/reference/ReferenceNode.java,ReferenceNode,isSoft,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from soft-check
+collections/reference/HardReferenceNode.java,HardReferenceNode,isSoft,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from hard-reference soft-check
+collections/reference/HardReferenceNode.java,HardReferenceNode,isSoft,(),(),drop_statement_contains,,,if (i != -4),cleanup,approved,Drop decompiler guard side-effect line
+collections/reference/HardReferenceNode.java,HardReferenceNode,getValue,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from hard-reference accessor
+collections/reference/HardReferenceNode.java,HardReferenceNode,getValue,(),(),drop_statement_contains,,,if (i < 75),cleanup,approved,Drop recursive decompiler guard line
+collections/reference/SoftReferenceNode.java,SoftReferenceNode,isSoft,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from soft-reference soft-check
+collections/reference/SoftReferenceNode.java,SoftReferenceNode,isSoft,(),(),drop_statement_contains,,,if (i != -4),cleanup,approved,Drop decompiler guard side-effect line
+collections/reference/SoftReferenceNode.java,SoftReferenceNode,getValue,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from soft-reference accessor
+collections/reference/SoftReferenceNode.java,SoftReferenceNode,getValue,(),(),drop_statement_contains,,,if (i <= 75),cleanup,approved,Drop decompiler guard conditional return
+collections/reference/HardReferenceNode.java,HardReferenceNode,isSoft,(),(),drop_statement_contains,,,isSoftChecks++,cleanup,approved,Drop dead counter increment after counter removal
+collections/reference/HardReferenceNode.java,HardReferenceNode,getValue,(),(),drop_statement_contains,,,getValueCount++,cleanup,approved,Drop dead counter increment after counter removal
+collections/reference/ReferenceNodeFactory.java,ReferenceNodeFactory,createSoftReferenceNode,"int,ReferenceNode",ReferenceNode,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from abstract factory method
+collections/reference/SoftReferenceNodeFactory.java,SoftReferenceNodeFactory,createSoftReferenceNode,"int,ReferenceNode",ReferenceNode,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from concrete factory method
+collections/reference/SoftReferenceNodeFactory.java,SoftReferenceNodeFactory,createSoftReferenceNode,ReferenceNode,ReferenceNode,drop_statement_contains,,,if (i != 3) return null;,cleanup,approved,Drop decompiler guard from concrete factory method
+collections/value/IntNode.java,IntNode,updateAudioState,byte,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from audio state helper
+collections/value/IntNode.java,IntNode,updateAudioState,(),(),drop_statement_contains,,,if (i != 33) clearStaticState(-79);,cleanup,approved,Drop decompiler guard line from audio state helper
+collections/value/ByteArraySecondaryNode.java,ByteArraySecondaryNode,clearStaticState,boolean,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from clear helper
+collections/value/ByteArraySecondaryNode.java,ByteArraySecondaryNode,clearStaticState,(),(),drop_statement_contains,,,if (bool != true) RasterizerVerticalLine.recolorPalette = null;,cleanup,approved,Drop decompiler guard branch from clear helper
+collections/value/ShortNode.java,ShortNode,clearStaticState,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from short-node clear helper
+collections/value/ShortNode.java,ShortNode,clearStaticState,(),(),drop_statement_contains,,,if (i != -4587) clearStaticState(-101);,cleanup,approved,Drop recursive decompiler guard from short-node clear helper
+collections/value/StringNode.java,StringNode,clearImageProcessingBuffers,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from image-buffer clear helper
+collections/value/StringNode.java,StringNode,clearImageProcessingBuffers,(),(),drop_statement_contains,,,if (i != 13022) NpcSpawnLoader.clearNpcSpawnPayloads(-79);,cleanup,approved,Drop decompiler guard line from image-buffer clear helper
+collections/value/StringNode.java,StringNode,getLoadedResourceCount,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from loading-progress helper
+collections/value/StringNode.java,StringNode,getLoadedResourceCount,(),(),drop_statement_contains,,,if (i != 0) getLoadedResourceCount(101);,cleanup,approved,Drop recursive decompiler guard from loading-progress helper
+net/packets/PacketConstants.java,PacketConstants,clearStaticState,boolean,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg after move
+net/packets/PacketConstants.java,PacketConstants,clearStaticState,(),(),drop_statement_contains,,,if (bool != true) RasterizerVerticalLine.recolorPalette = null;,cleanup,approved,Drop decompiler guard branch after move
+ui/loading/LoadStateProcessor.java,LoadStateProcessor,clearStaticState,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg after move
+ui/loading/LoadStateProcessor.java,LoadStateProcessor,clearStaticState,(),(),drop_statement_contains,,,if (i != -4587) clearStaticState(-101);,cleanup,approved,Drop recursive decompiler guard after move
+ui/canvas/GameCanvas.java,GameCanvas,clearImageProcessingBuffers,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg after move
+ui/canvas/GameCanvas.java,GameCanvas,clearImageProcessingBuffers,(),(),drop_statement_contains,,,if (i != 13022) NpcSpawnLoader.clearNpcSpawnPayloads(-79);,cleanup,approved,Drop decompiler guard line after move
+ui/loading/LoadStateProcessor.java,LoadStateProcessor,getLoadedResourceCount,int,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg after move
+ui/loading/LoadStateProcessor.java,LoadStateProcessor,getLoadedResourceCount,(),(),drop_statement_contains,,,if (i != 0) getLoadedResourceCount(101);,cleanup,approved,Drop recursive decompiler guard after move
+cache/ColorImageCacheSlot.java,ColorImageCacheSlot,updateAudioState,byte,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg after move
+cache/ColorImageCacheSlot.java,ColorImageCacheSlot,updateAudioState,(),(),drop_statement_contains,,,if (i != 33),cleanup,approved,Drop decompiler guard branch after move
+util/text/AmountFormatUtil.java,AmountFormatUtil,formatAmountWithColorTags,"int,int",int,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from amount formatter
+util/text/AmountFormatUtil.java,AmountFormatUtil,formatAmountWithColorTags,int,int,rename_param,0,amount,,cleanup,approved,Rename retained argument to semantic name
+util/text/AmountFormatUtil.java,AmountFormatUtil,formatAmountWithColorTags,int,int,drop_statement_contains,,,if (i >= -109) return null;,cleanup,approved,Drop decompiler guard line
+collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,"int,byte",byte,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from release helper
+collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,byte,byte,rename_param,0,bytes,,cleanup,approved,Rename remaining byte-array parameter
+collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,byte,byte,drop_statement_contains,,,if (i != 0) acquireByteArray(-119, -101);,cleanup,approved,Drop decompiler guard line
+collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,"int,int",int,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from acquire helper
+collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,int,int,rename_param,0,length,,cleanup,approved,Rename retained length parameter
+collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,int,int,drop_statement_contains,,,if (i_9_ != -1) acquireByteArray(-88, -45);,cleanup,approved,Drop decompiler guard line
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int,int","int,int,int,int,int,int",drop_param,6,,,cleanup,approved,Drop decompiler sentinel arg from area sound queue helper
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,0,delay,,cleanup,approved,Rename parameter for queueAreaSoundEffect
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,1,packedPosition,,cleanup,approved,Rename parameter for queueAreaSoundEffect
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,2,radius,,cleanup,approved,Rename parameter for queueAreaSoundEffect
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,3,loops,,cleanup,approved,Rename parameter for queueAreaSoundEffect
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,4,area,,cleanup,approved,Rename parameter for queueAreaSoundEffect
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,5,soundEffectId,,cleanup,approved,Rename parameter for queueAreaSoundEffect
+audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",drop_statement_contains,,,if (i_8_ != -29494),cleanup,approved,Drop decompiler guard line from area sound queue helper

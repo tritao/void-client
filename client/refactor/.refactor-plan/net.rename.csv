@@ -32,6 +32,7 @@ method,LoginHandshake,LoginHandshake,,,,method841,values,LoginHandshake,module,h
 method,LoginHandshake,LoginHandshake,,,,method842,redrawViewportWidgets,LoginHandshake,module,high,approved,
 method,LoginHandshake,LoginHandshake,,,,method843,processHandshake,LoginHandshake,module,high,approved,
 method,PacketBuffer,PacketBuffer,,,,method3404,peekEncryptedSmartFlag,PacketBuffer,module,high,approved,
+method,PacketBuffer,PacketBuffer,,,,method3405,countLoadedResourceFiles,PacketBuffer,module,high,approved,Counts loaded files across required archives for loading-stage progress
 method,PacketBuffer,PacketBuffer,,,,method3406,initIsaacCipher,PacketBuffer,module,high,approved,
 method,PacketBuffer,PacketBuffer,,,,method3407,readEncryptedSmart,PacketBuffer,module,high,approved,
 method,PacketBuffer,PacketBuffer,,,,method3408,writeOpcode,PacketBuffer,module,high,approved,

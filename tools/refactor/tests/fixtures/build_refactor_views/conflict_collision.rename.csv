@@ -1,0 +1,5 @@
+action,kind,file,owner,member,signature,param_index,old,new,scope,notes
+rename,field,collections/value/ScopeOwner.java,ScopeOwner,,,,"anInt1000",firstFieldName,,first
+rename,field,collections/value/ScopeOwner.java,ScopeOwner,,,,"anInt1000",secondFieldName,,conflict
+rename,field,collections/value/ScopeOwner.java,ScopeOwner,,,,"anInt2000",sharedFieldName,,collision-a
+rename,field,collections/value/ScopeOwner.java,ScopeOwner,,,,"anInt3000",sharedFieldName,,collision-b

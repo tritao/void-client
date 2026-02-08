@@ -3,6 +3,18 @@ method,ByteArrayPool,ByteArrayPool,,,,method356,formatAmountWithColorTags,ByteAr
 method,ByteArrayPool,ByteArrayPool,,,,method357,releaseByteArray,ByteArrayPool,module,high,approved,
 method,ByteArrayPool,ByteArrayPool,,,,method358,queueAreaSoundEffect,ByteArrayPool,module,high,approved,
 method,ByteArrayPool,ByteArrayPool,,,,method359,acquireByteArray,ByteArrayPool,module,high,approved,
+field,ByteArrayPool,ByteArrayPool,,,,anInt492,visibleTileMinX,ByteArrayPool,module,high,approved,Minimum visible scene tile X for viewport culling window
+field,ByteArrayPool,ByteArrayPool,,,,anInt495,entityPriorityMode,ByteArrayPool,module,high,approved,Server-driven entity sort/priority mode flag
+field,ByteArrayPool,ByteArrayPool,,,,anInt496,chatChannelMemberCount,ByteArrayPool,module,high,approved,Current chat-channel roster size
+field,ByteArrayPool,ByteArrayPool,,,,anInt9412,smallPoolCount,ByteArrayPool,module,high,approved,Current number of cached 100-byte buffers
+field,ByteArrayPool,ByteArrayPool,,,,aByteArrayArray358,smallPoolBuffers,ByteArrayPool,module,high,approved,Cached 100-byte buffer storage
+field,ByteArrayPool,ByteArrayPool,,,,anInt9280,mediumPoolCount,ByteArrayPool,module,high,approved,Current number of cached 5000-byte buffers
+field,ByteArrayPool,ByteArrayPool,,,,aByteArrayArray1918,mediumPoolBuffers,ByteArrayPool,module,high,approved,Cached 5000-byte buffer storage
+field,ByteArrayPool,ByteArrayPool,,,,anInt6913,largePoolCount,ByteArrayPool,module,high,approved,Current number of cached 30000-byte buffers
+field,ByteArrayPool,ByteArrayPool,,,,aByteArrayArray8505,largePoolBuffers,ByteArrayPool,module,high,approved,Cached 30000-byte buffer storage
+field,ByteArrayPool,ByteArrayPool,,,,aByteArrayArrayArray9134,customPoolBuffers,ByteArrayPool,module,high,approved,Cached custom-size buffer buckets
+field,ByteArrayPool,ByteArrayPool,,,,anIntArray8684,customPoolBucketSizes,ByteArrayPool,module,high,approved,Configured custom-size buffer bucket lengths
+field,ByteArrayPool,ByteArrayPool,,,,anIntArray2552,customPoolCounts,ByteArrayPool,module,high,approved,Current cached-count per custom-size bucket
 method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3174,fitViewportAndApplyLetterbox,ByteArraySecondaryNode,module,high,approved,
 method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3175,updateSceneEnvironmentAndPostEffects,ByteArraySecondaryNode,module,high,approved,
 method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3176,clearStaticState,ByteArraySecondaryNode,module,high,approved,
@@ -11,9 +23,11 @@ method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3178,setGroundReso
 method,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,method3179,applyRendererPreferenceMode,ByteArraySecondaryNode,module,high,approved,
 field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aClass114_9503,legacyServerPacket9,ByteArraySecondaryNode,module,high,approved,Legacy server packet constant id 9
 field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aByteArray9499,value,ByteArraySecondaryNode,module,high,approved,Stored byte-array payload
-field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aShortArray9502,recolorPalette,ByteArraySecondaryNode,module,high,approved,Shared recolor palette lookup
-field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,anInt9504,onscreenTransientCount,ByteArraySecondaryNode,module,high,approved,Count of onscreen transient entities for sorting/debug
+field,RasterizerVerticalLine,RasterizerVerticalLine,,,,aShortArray9502,recolorPalette,RasterizerVerticalLine,module,high,approved,Shared recolor palette lookup
+field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,aBoolean9498,mapBuildShadowsEnabled,ByteArraySecondaryNode,module,high,approved,Global toggle used during map build to apply object-ground shadow stamping
+field,PacketWriter,PacketWriter,,,,anInt9504,onscreenTransientCount,PacketWriter,module,high,approved,Count of onscreen transient entities for sorting/debug
 field,ByteArraySecondaryNode,ByteArraySecondaryNode,,,,anIntArray9505,projectedScreenCoords,ByteArraySecondaryNode,module,high,approved,Temporary projected screen xyz coords
+field,ChatLine,ChatLine,,,,anInt9501,chatMessageCycle,ChatLine,module,high,approved,Chat-line event cycle marker used by widget trigger comparisons
 local,ClientFrameUpdateUtil,ClientFrameUpdateUtil,,,,class302,frameUpdateUtilVar,ClientFrameUpdateUtil,module,high,approved,
 local,ClientFrameUpdateUtil,ClientFrameUpdateUtil,,,,class302s,frameUpdateUtilVars,ClientFrameUpdateUtil,module,high,approved,
 field,DequeIterator,DequeIterator,,,,aClass262_3923,deque,DequeIterator,module,high,approved,Deque being iterated
@@ -45,6 +59,7 @@ field,HardReferenceNode,HardReferenceNode,,,,anInt10430,processInboundServerPack
 field,,SceneRenderFlags,,,,anInt10433,hasRenderableSceneFlagsChecks,SceneRenderFlags,module,high,approved,Invocation counter for hasRenderableSceneFlags
 field,HardReferenceNode,HardReferenceNode,,,,anInt10435,getValueCount,HardReferenceNode,module,high,approved,Invocation counter for getValue
 field,HardReferenceNode,HardReferenceNode,,,,anInt10438,isSoftChecks,HardReferenceNode,module,high,approved,Invocation counter for isSoft
+field,HardReferenceNode,HardReferenceNode,,,,anInt10432,renderHeight,HardReferenceNode,module,high,approved,Global game render height
 field,HardReferenceNode,HardReferenceNode,,,,anObject10429,value,HardReferenceNode,module,high,approved,Hard reference payload value
 method,HardReferenceNode,HardReferenceNode,,,,method3193,getValue,HardReferenceNode,module,high,approved,Hard reference value accessor
 method,HardReferenceNode,HardReferenceNode,,,,method3195,isSoft,HardReferenceNode,module,high,approved,Hard reference nodes are not soft
@@ -104,11 +119,10 @@ method,IntHashTable,IntHashTable,,,,method2367,formatChatMessageLine,IntHashTabl
 method,IntHashTable,IntHashTable,,,,method2368,clearCharCountCache,IntHashTable,module,high,approved,
 field,IntNode,IntNode,,,,anInt6976,value,IntNode,module,high,approved,Stored integer payload
 method,IntNode,IntNode,,,,method3027,updateAudioState,IntNode,module,high,approved,
-method,IntNode,IntNode,,,,method3028,clearStaticState,IntNode,module,high,approved,
-field,IntNode,IntNode,,,,aClass74_6977,zoneUpdateType8,IntNode,module,high,approved,Zone-update type constant id 8
-field,IntNode,IntNode,,,,aClass45_6980,loadingScreenArchive,IntNode,module,high,approved,Archive used for loading/login screen resources
-field,IntNode,IntNode,,,,anInt6979,cameraDistance,IntNode,module,high,approved,Smoothed scene camera distance accumulator
-field,IntNode,IntNode,,,,anInt6981,dynamicLightingLevel,IntNode,module,high,approved,Dynamic-lighting intensity level
+field,ZoneUpdateDecoder,ZoneUpdateDecoder,,,,aClass74_6977,zoneUpdateType8,ZoneUpdateDecoder,module,high,approved,Zone-update type constant id 8
+field,LoadStateProcessor,LoadStateProcessor,,,,aClass45_6980,loadingScreenArchive,LoadStateProcessor,module,high,approved,Archive used for loading/login screen resources
+field,LowMemoryTextureResolutionPreference,LowMemoryTextureResolutionPreference,,,,anInt6979,cameraDistance,LowMemoryTextureResolutionPreference,module,high,approved,Smoothed scene camera distance accumulator
+field,DynamicLightingPreference,DynamicLightingPreference,,,,anInt6981,dynamicLightingLevel,DynamicLightingPreference,module,high,approved,Dynamic-lighting intensity level
 field,ReflectionCheck,ReflectionCheck,,,,aClass262_6978,reflectionCheckQueue,ReflectionCheck,module,high,approved,Queue of pending reflection checks extracted from IntNode
 local,JagBuffer,JagBuffer,,,,class348_sub49,buffer,JagBuffer,module,high,approved,
 method,LinkDeque,LinkDeque,,,,method1869,addLast,LinkDeque,module,high,approved,
@@ -175,8 +189,22 @@ method,,ReferenceNode,,,,method3199,clearLegacyPacketConstants,ReferenceNode,mod
 method,ReferenceNodeFactory,ReferenceNodeFactory,,,,method1885,computeProjectedUv,ReferenceNodeFactory,module,high,approved,
 method,ReferenceNodeFactory,ReferenceNodeFactory,,,,method1886,clearStaticState,ReferenceNodeFactory,module,high,approved,
 method,ReferenceNodeFactory,ReferenceNodeFactory,,,,method1887,hasCompositeRenderFlags,ReferenceNodeFactory,module,high,approved,
+field,ReferenceNodeFactory,ReferenceNodeFactory,,,,anIntArray3173,mapRegionOverlayShapeTable,ReferenceNodeFactory,module,high,approved,Lookup table for map-region overlay shape mapping
+field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aBoolean3174,worldMapInteractionActive,ReferenceNodeFactory,module,high,approved,Flag indicating active world-map interaction hover processing
+field,ReferenceNodeFactory,ReferenceNodeFactory,,,,anInt3176,activeWidgetParamId,ReferenceNodeFactory,module,high,approved,Selected widget param id used by debug/interaction filters
+field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aFloat3177,previousBrightnessValue,ReferenceNodeFactory,module,high,approved,Previous brightness value used for interpolation
+field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aClass143_3179,loadingFontMetrics,ReferenceNodeFactory,module,high,approved,Font metrics used by loading/map overlay text rendering
 field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1647,sentinel,SecondaryLinkedList,module,high,approved,List sentinel node
 field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1652,iterCursor,SecondaryLinkedList,module,high,approved,Iteration cursor
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1642,applyProjectionViewportProfileCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for applyProjectionViewportProfile helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1643,sizeCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for size
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1644,nextCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for next
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1646,clearCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for clear
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1648,renderMinimapCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for renderMinimap helper
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1649,firstCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for first
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1653,removeFirstCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for removeFirst
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1654,addLastCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for addLast
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1655,resetWorldMapRenderStateCallCount,SecondaryLinkedList,module,high,approved,Invocation counter for resetWorldMapRenderState helper
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1002,size,SecondaryLinkedList,module,high,approved,Count nodes in list
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1003,next,SecondaryLinkedList,module,high,approved,Get next secondary node from iterator cursor
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1004,clearStaticState,SecondaryLinkedList,module,high,approved,
@@ -187,6 +215,12 @@ method,SecondaryLinkedList,SecondaryLinkedList,,,,method1008,removeFirst,Seconda
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1009,clear,SecondaryLinkedList,module,high,approved,Unlink all secondary nodes
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1010,applyProjectionViewportProfile,SecondaryLinkedList,module,high,approved,
 method,SecondaryLinkedList,SecondaryLinkedList,,,,method1011,first,SecondaryLinkedList,module,high,approved,Get first secondary node and set iterator cursor
+local,SecondaryLinkedList,SecondaryLinkedList,size,,,i,initialCount,SecondaryLinkedList,module,high,approved,Initial count offset before traversal
+local,SecondaryLinkedList,SecondaryLinkedList,next,,,i,guardByte,SecondaryLinkedList,module,medium,approved,Decompiler guard byte parameter
+local,SecondaryLinkedList,SecondaryLinkedList,clearStaticState,,,i,guardByte,SecondaryLinkedList,module,medium,approved,Decompiler guard byte parameter
+local,SecondaryLinkedList,SecondaryLinkedList,removeFirst,,,i,guardValue,SecondaryLinkedList,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedList,SecondaryLinkedList,clear,,,i,guardValue,SecondaryLinkedList,module,medium,approved,Decompiler guard parameter
+local,SecondaryLinkedList,SecondaryLinkedList,first,,,i,guardValue,SecondaryLinkedList,module,medium,approved,Decompiler guard parameter
 local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool,isFriend,SecondaryLinkedList,module,high,approved,Whether player is marked in friend list arrays
 local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool_30_,isIgnoreEntry,SecondaryLinkedList,module,high,approved,Whether player appears in ignore list array
 local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool_32_,isSameTeam,SecondaryLinkedList,module,high,approved,Whether player shares team id
@@ -242,6 +276,23 @@ method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method721,linkSecondar
 method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method722,clearStaticState,SecondaryLinkedNodeUtil,module,high,approved,
 method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method723,hasPrimaryOcclusionFlags,SecondaryLinkedNodeUtil,module,high,approved,
 method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method724,hasAnyOcclusionFlags,SecondaryLinkedNodeUtil,module,high,approved,
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1651,viewportHeight,SecondaryLinkedList,module,high,approved,Current viewport height used across rendering/layout code
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anIntArray1650,glDeleteHandleBuffer,SecondaryLinkedList,module,high,approved,Scratch int buffer used for batched GL object deletes
+field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1645,currentDisplayMode,SecondaryLinkedList,module,medium,approved,Current display/window mode value used by script and GL paths
+field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aStringArray2113,wrappedTextLines,SecondaryLinkedListIterator,module,high,approved,Shared wrapped-lines buffer used by font renderer
+field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,anIntArray2117,occluderDepthByColumn,SecondaryLinkedListIterator,module,medium,approved,Per-column occluder depth buffer used in scene visibility passes
+field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,anInt1200,activeOccluderCount,SecondaryLinkedNodeUtil,module,high,approved,Current active occluder count emitted for scene rendering
+local,SecondaryLinkedList,SecondaryLinkedList,size,,,i_0_,count,SecondaryLinkedList,module,high,approved,Current running node count
+local,SecondaryLinkedList,SecondaryLinkedList,size,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Secondary node iterator variable
+local,SecondaryLinkedList,SecondaryLinkedList,next,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Iterator return node
+local,SecondaryLinkedList,SecondaryLinkedList,addLast,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Node being inserted at list tail
+local,SecondaryLinkedList,SecondaryLinkedList,removeFirst,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,First node being removed
+local,SecondaryLinkedList,SecondaryLinkedList,clear,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Node being unlinked during clear loop
+local,SecondaryLinkedList,SecondaryLinkedList,first,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,First node returned by iterator reset
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,first,,,class348_sub42,node,SecondaryLinkedListIterator,module,high,approved,First node returned by iterator start
+local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,next,,,class348_sub42,node,SecondaryLinkedListIterator,module,high,approved,Next node returned by iterator
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,class348_sub42,beforeNode,SecondaryLinkedNodeUtil,module,high,approved,Anchor node that receives insertion before it
+local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,class348_sub42_1_,nodeToInsert,SecondaryLinkedNodeUtil,module,high,approved,Node inserted before anchor
 field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7060,secondaryPrev,SecondaryNode,module,high,approved,Previous node in secondary list
 field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7063,secondaryNext,SecondaryNode,module,high,approved,Next node in secondary list
 field,SecondaryNode,SecondaryNode,,,,aLong7057,secondaryKey,SecondaryNode,module,high,approved,
@@ -251,7 +302,7 @@ method,SecondaryNode,SecondaryNode,,,,method3162,unlinkSecondary,SecondaryNode,m
 method,SecondaryNode,SecondaryNode,,,,method3163,resetPlayerUpdateTracking,SecondaryNode,module,high,approved,
 method,SecondaryNode,SecondaryNode,,,,method3164,isSecondaryLinked,SecondaryNode,module,high,approved,Whether node is currently linked in secondary list
 field,ShortNode,ShortNode,,,,aShort6911,value,ShortNode,module,high,approved,Stored short payload
-field,ShortNode,ShortNode,,,,aClass45_6909,animationArchive,ShortNode,module,high,approved,Archive used for animation/sequence resources during loading
+field,LoadStateProcessor,LoadStateProcessor,,,,aClass45_6909,animationArchive,LoadStateProcessor,module,high,approved,Archive used for animation/sequence resources during loading
 method,ShortNode,ShortNode,,,,method3003,clearStaticState,ShortNode,module,high,approved,
 method,ShortNode,ShortNode,,,,method3004,setStepArchiveAndTextureProvider,ShortNode,module,high,approved,
 method,SoftReferenceNode,SoftReferenceNode,,,,method3193,getValue,SoftReferenceNode,module,high,approved,Soft reference value accessor
@@ -262,11 +313,11 @@ method,,ReferenceNodeFactory,,,,method1888,createSoftReferenceNode,ReferenceNode
 local,ReferenceNodeFactory,ReferenceNodeFactory,createSoftReferenceNode,,,class348_sub42_sub8,referenceNode,ReferenceNodeFactory,module,high,approved,Reference node argument in abstract factory API
 local,SoftReferenceNodeFactory,SoftReferenceNodeFactory,createSoftReferenceNode,,,class348_sub42_sub8,referenceNode,SoftReferenceNodeFactory,module,high,approved,Reference node argument in soft-reference factory
 field,StringNode,StringNode,,,,aString7211,value,StringNode,module,high,approved,Stored string payload
-field,StringNode,StringNode,,,,aByteArrayArray7212,npcSpawnData,StringNode,module,high,approved,NPC spawn payloads loaded per map region
-field,StringNode,StringNode,,,,anInt7213,npcSpawnTimeoutTicks,StringNode,module,high,approved,Timeout watchdog ticks while waiting for npc spawn data
-method,StringNode,StringNode,,,,method3418,clearStaticByteArrays,StringNode,module,high,approved,
+field,StringNode,StringNode,,,,aByteArrayArray7212,npcSpawnPayloads,StringNode,module,high,approved,NPC spawn payloads loaded per map region
+field,StringNode,StringNode,,,,anInt7213,npcSpawnLoadTimeoutTicks,StringNode,module,high,approved,Timeout watchdog ticks while waiting for npc spawn payloads
+method,StringNode,StringNode,,,,method3418,clearNpcSpawnPayloads,StringNode,module,high,approved,
 method,StringNode,StringNode,,,,method3419,clearImageProcessingBuffers,StringNode,module,high,approved,
-method,StringNode,StringNode,,,,method3420,getCurrentTick,StringNode,module,high,approved,
+method,StringNode,StringNode,,,,method3420,getLoadedResourceCount,StringNode,module,high,approved,Returns loaded resource-file count used by loading progress
 local,Widget,Widget,,,,class46,widget,Widget,module,high,approved,
 local,Widget,Widget,,,,class46s,widgets,Widget,module,high,approved,
 field,IntNode,IntNode,,,,anInt6975,updateAudioStateCallCount,IntNode,module,high,approved,Counter incremented by updateAudioState

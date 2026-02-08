@@ -34,7 +34,7 @@ Apply + compile + regenerate reports:
 
 If auto-detection can’t find JDTLS, pass an explicit home directory:
 
-- `python tools/apply_jdtls_renames.py --jdtls-home /path/to/jdtls --dry-run`
+- `python tools/lsp/apply_jdtls_renames.py --jdtls-home /path/to/jdtls --dry-run`
 
 If you’re on Linux/macOS and compilation fails due to platform-specific sources, use `EXCLUDE_REGEX`:
 

@@ -1,2 +1,9 @@
-file,method,first_arg_text,phase,status,notes
-cache/SoftLruCache.java,createSoftReferenceNode,3,cleanup,approved,Drop decompiler sentinel arg from soft-reference factory call
+file,owner_class,method,arg_index,arg_text,phase,status,notes
+cache/SoftLruCache.java,,createSoftReferenceNode,0,3,cleanup,approved,Drop decompiler sentinel arg from soft-reference factory call
+collections/value/IntNode.java,,updateAudioState,0,(byte) -80,cleanup,approved,Drop decompiler sentinel arg from self-call after signature cleanup
+graphics/textureops/TextureOpMirror.java,AmountFormatUtil,formatAmountWithColorTags,0,-127,cleanup,approved,Drop decompiler sentinel arg from amount formatter call
+io/buffer/JagBuffer.java,ByteArrayPool,releaseByteArray,0,0,cleanup,approved,Drop decompiler sentinel arg from byte-array release call
+io/buffer/JagBuffer.java,ByteArrayPool,acquireByteArray,1,-1,cleanup,approved,Drop decompiler sentinel arg from byte-array acquire call
+net/packets/ZoneUpdateDecoder.java,ClientHashAndSoundUtil,queueAreaSoundEffect,6,-29494,cleanup,approved,Drop decompiler sentinel arg from area-sound queue call
+client/Client.java,PacketConstants,clearStaticState,0,true,cleanup,approved,Drop decompiler boolean guard arg after moving ByteArraySecondaryNode static clear call
+client/Client.java,LoadStateProcessor,clearStaticState,0,-4587,cleanup,approved,Drop decompiler sentinel arg after moving ShortNode static clear call

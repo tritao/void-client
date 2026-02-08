@@ -2,3 +2,7 @@ file,method,phase,status,notes
 collections/reference/SoftReferenceNodeFactory.java,getValue,cleanup,approved,Use no-arg ReferenceNode getter after signature cleanup
 cache/SoftLruCache.java,getValue,cleanup,approved,Use no-arg ReferenceNode getter after signature cleanup
 cache/SoftLruCache.java,isSoft,cleanup,approved,Use no-arg ReferenceNode soft-check after signature cleanup
+cache/ColorImageCacheSlot.java,updateAudioState,cleanup,approved,Use no-arg IntNode audio state helper after signature cleanup
+collections/value/IntNode.java,updateAudioState,cleanup,approved,Use no-arg IntNode audio state helper after signature cleanup
+ui/canvas/GameCanvas.java,clearImageProcessingBuffers,cleanup,approved,Use no-arg StringNode image-buffer clear helper after signature cleanup
+ui/loading/LoadStateProcessor.java,getLoadedResourceCount,cleanup,approved,Use no-arg loading progress helper after signature cleanup
