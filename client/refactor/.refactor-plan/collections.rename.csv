@@ -105,6 +105,7 @@ method,HashTable,HashTable,,,,method3484,first,HashTable,module,high,approved,St
 field,HashTableIterator,HashTableIterator,,,,aClass348_4150,iterCursor,HashTableIterator,module,high,approved,Cursor within current bucket chain
 field,HashTableIterator,HashTableIterator,,,,aClass356_4146,table,HashTableIterator,module,high,approved,Hash table being iterated
 field,HashTableIterator,HashTableIterator,,,,anInt4148,iterBucketIndex,HashTableIterator,module,high,approved,Current bucket index during iteration
+method,HashTableIterator,HashTableIterator,,,,method2643,setTileOverlayData,HashTableIterator,module,high,approved,Write decoded tile-overlay color/texture/shape into region overlay buffers
 method,HashTableIterator,HashTableIterator,,,,method2644,first,HashTableIterator,module,high,approved,Start iterator at first node
 method,HashTableIterator,HashTableIterator,,,,method2645,clearStaticState,HashTableIterator,module,high,approved,
 method,HashTableIterator,HashTableIterator,,,,method2646,next,HashTableIterator,module,high,approved,Advance iterator to next node
