@@ -42,3 +42,4 @@ collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,"int,int",int
 collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,int,int,drop_statement_contains,,,if (i_9_ != -1) acquireByteArray(-88, -45);,cleanup,approved,Drop decompiler guard line
 audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int,int","int,int,int,int,int,int",drop_param,6,,,cleanup,approved,Drop decompiler sentinel arg from area sound queue helper
 audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",drop_statement_contains,,,if (i_8_ != -29494),cleanup,approved,Drop decompiler guard line from area sound queue helper
+collections/list/SecondaryNodeIterator.java,SecondaryNodeIterator,next,byte,byte,drop_statement_contains,,,if (i < 44) FontRenderer.wrappedTextLines = null;,cleanup,approved,Drop decompiler guard line from iterator next helper

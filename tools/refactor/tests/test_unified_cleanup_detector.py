@@ -266,6 +266,60 @@ class UnifiedCleanupDetectorTests(unittest.TestCase):
             self.assertEqual(caller_dead[0].confidence, "high")
             self.assertEqual(caller_dead[0].gate_reason, "")
 
+    def test_project_closed_world_resolves_owner_for_casted_call_result(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / "src"
+            self._write(
+                src,
+                "collections/list/SecondaryNode.java",
+                (
+                    "class SecondaryNode {\n"
+                    "}\n"
+                ),
+            )
+            self._write(
+                src,
+                "collections/list/SecondaryNodeIterator.java",
+                (
+                    "final class SecondaryNodeIterator {\n"
+                    "    SecondaryNode next(byte i) {\n"
+                    "        if (i < 44) return null;\n"
+                    "        return null;\n"
+                    "    }\n"
+                    "}\n"
+                ),
+            )
+            self._write(
+                src,
+                "client/ChatChannel.java",
+                (
+                    "final class ChatChannel extends SecondaryNode {\n"
+                    "}\n"
+                ),
+            )
+            self._write(
+                src,
+                "client/Caller.java",
+                (
+                    "final class Caller {\n"
+                    "    static void use(SecondaryNodeIterator iterator) {\n"
+                    "        ChatChannel node = (ChatChannel) iterator.next((byte) 74);\n"
+                    "    }\n"
+                    "}\n"
+                ),
+            )
+            candidates = detect_unified_cleanup_candidates(src, caller_auto_mode="project-closed-world")
+            caller_dead = [
+                c
+                for c in candidates
+                if c.rule_type == "guard_dead_by_callers"
+                and c.owner == "SecondaryNodeIterator"
+                and c.member == "next"
+            ]
+            self.assertEqual(len(caller_dead), 1)
+            self.assertEqual(caller_dead[0].confidence, "high")
+            self.assertEqual(caller_dead[0].gate_reason, "")
+
     def test_project_closed_world_keeps_instance_guard_medium_with_inheritance(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             src = Path(tmp) / "src"

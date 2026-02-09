@@ -82,6 +82,7 @@ endif
 .PHONY: build-refactor-views build-refactor-class-view migrate-refactor-plan cleanup-refactor
 .PHONY: cleanup-candidates cleanup-unified-candidates cleanup-unified-medium-report cleanup-apply-high cleanup-report
 .PHONY: build-cleanup-plan preflight-cleanup-refactor promote-scoped-fallback
+.PHONY: init-refactor-git
 .PHONY: clean-refactor-cache
 .PHONY: test-refactor-tools test-refactor-tools-fast test-refactor-tools-full verify-refactor-tooling
 
@@ -130,7 +131,8 @@ help:
 	@echo "  make build-refactor-class-view - build generated class rename view only"
 	@echo "  make build-refactor-views - build generated symbol/extract/class views from .refactor-plan"
 	@echo "  make migrate-refactor-plan - import existing symbol/extract artifacts into .refactor-plan"
-	@echo "  make cleanup-refactor - apply post-rebuild cleanup pass in client/refactor"
+	@echo "  make cleanup-refactor - apply cleanup to convergence in client/refactor"
+	@echo "  make init-refactor-git - init client/refactor git repo and local author identity"
 	@echo "  make build-cleanup-plan - generate cleanup plan with owner remaps in generated/"
 	@echo "  make preflight-cleanup-refactor - fail-fast validation for generated cleanup plan"
 	@echo "  make promote-scoped-fallback - promote approved scoped fallback rows into module *.rename.csv"
@@ -160,7 +162,10 @@ help:
 	@echo "  LOOP_SKIP_CLEANUP=1      (refactor-loop only: skip cleanup stages for faster iteration)"
 	@echo "  CLEANUP_DRIFT_WARN_RATIO=0.90 (preflight warning threshold for unmatched cleanup ratio)"
 	@echo "  CLEANUP_DRIFT_FAIL_RATIO=0.98 (optional preflight failure threshold for unmatched cleanup ratio)"
+	@echo "  CLEANUP_MAX_PASSES=8    (max cleanup convergence passes for cleanup-refactor)"
 	@echo "  PROFILE=1                (write stage timings to $(PROFILE_FILE) for rebuild-refactor/refactor-loop)"
+	@echo "  REFACTOR_GIT_USER_NAME=Refactor Bot"
+	@echo "  REFACTOR_GIT_USER_EMAIL=refactor-bot@local"
 	@echo ""
 	@echo "Tip:"
 	@echo "  tools/bootstrap/bootstrap-jdk.sh \$$JDK  (downloads a repo-local JDK into .jdk/)"
@@ -270,12 +275,16 @@ rebuild-refactor:
 	fi
 
 REFACTOR_STAMP_DIR ?= $(BUILD_DIR)/refactor-stamps
+REFACTOR_GIT_REPO ?= client/refactor
+REFACTOR_GIT_USER_NAME ?= Refactor Bot
+REFACTOR_GIT_USER_EMAIL ?= refactor-bot@local
+REFACTOR_GIT_HELPER ?= tools/refactor/orchestration/refactor_git.py
+REFACTOR_GIT_INIT_STAMP := $(REFACTOR_STAMP_DIR)/git-init.stamp
 REFACTOR_LAYOUT_STAMP := $(REFACTOR_STAMP_DIR)/layout.stamp
 REFACTOR_VIEWS_STAMP := $(REFACTOR_STAMP_DIR)/views.stamp
 REFACTOR_EXTRACT_STAMP := $(REFACTOR_STAMP_DIR)/extract.stamp
 REFACTOR_CHECK_STAMP := $(REFACTOR_STAMP_DIR)/check_extract.stamp
 REFACTOR_RENAME_STAMP := $(REFACTOR_STAMP_DIR)/rename.stamp
-REFACTOR_CLEANUP_PLAN_STAMP := $(REFACTOR_STAMP_DIR)/cleanup_plan.stamp
 REFACTOR_CLEANUP_STAMP := $(REFACTOR_STAMP_DIR)/cleanup.stamp
 REFACTOR_CLEANUP_PLAN_DIR := client/refactor/.refactor-plan/generated/cleanup-plan
 REFACTOR_PLAN_INPUTS := $(shell find client/refactor/.refactor-plan -type f \( -name '*.csv' -o -name '*.yaml' \) ! -path '*/generated/*' ! -path '*/import/*')
@@ -285,44 +294,49 @@ REFACTOR_SRC_SOURCES := $(shell find client/src -name '*.java' -print)
 $(REFACTOR_STAMP_DIR):
 	@mkdir -p "$@"
 
-$(REFACTOR_LAYOUT_STAMP): tools/refactor/orchestration/build_refactor_layout.py tools/refactor/cli/build_refactor_views.py client/refactor/.refactor-plan/layout_rules.csv $(REFACTOR_CLASS_PLAN_INPUTS) $(REFACTOR_SRC_SOURCES) Makefile | $(REFACTOR_STAMP_DIR)
+init-refactor-git: $(REFACTOR_GIT_INIT_STAMP)
+
+$(REFACTOR_GIT_INIT_STAMP): $(REFACTOR_GIT_HELPER) Makefile | $(REFACTOR_STAMP_DIR)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --init --user-name "$(REFACTOR_GIT_USER_NAME)" --user-email "$(REFACTOR_GIT_USER_EMAIL)"
+	@touch "$@"
+
+$(REFACTOR_LAYOUT_STAMP): tools/refactor/orchestration/build_refactor_layout.py tools/refactor/cli/build_refactor_views.py client/refactor/.refactor-plan/layout_rules.csv $(REFACTOR_CLASS_PLAN_INPUTS) $(REFACTOR_SRC_SOURCES) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,build_refactor_class_view,$(MAKE) build-refactor-class-view)
 	$(call RUN_WITH_PROFILE,build_refactor_layout,$(REF_PY) -m tools.refactor.orchestration.build_refactor_layout --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/.refactor-plan/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: layout"
 	@touch "$@"
 
-$(REFACTOR_VIEWS_STAMP): tools/refactor/cli/build_refactor_views.py $(REFACTOR_LAYOUT_STAMP) $(REFACTOR_PLAN_INPUTS) Makefile | $(REFACTOR_STAMP_DIR)
+$(REFACTOR_VIEWS_STAMP): tools/refactor/cli/build_refactor_views.py $(REFACTOR_LAYOUT_STAMP) $(REFACTOR_PLAN_INPUTS) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,build_refactor_views,$(MAKE) build-refactor-views)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: build views"
 	@touch "$@"
 
-$(REFACTOR_EXTRACT_STAMP): tools/refactor/cli/extract_statics_ts.py $(REFACTOR_VIEWS_STAMP) Makefile | $(REFACTOR_STAMP_DIR)
+$(REFACTOR_EXTRACT_STAMP): tools/refactor/cli/extract_statics_ts.py $(REFACTOR_VIEWS_STAMP) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,extract_statics,$(MAKE) extract-statics)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: extract statics"
 	@touch "$@"
 
-$(REFACTOR_CHECK_STAMP): tools/refactor/cli/check_static_extract.py $(REFACTOR_EXTRACT_STAMP) Makefile | $(REFACTOR_STAMP_DIR)
+$(REFACTOR_CHECK_STAMP): tools/refactor/cli/check_static_extract.py $(REFACTOR_EXTRACT_STAMP) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,check_static_extract,$(MAKE) check-static-extract)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: validate extract statics"
 	@touch "$@"
 
-$(REFACTOR_RENAME_STAMP): tools/refactor/cli/ts_rename_identifiers.py $(REFACTOR_CHECK_STAMP) Makefile | $(REFACTOR_STAMP_DIR)
+$(REFACTOR_RENAME_STAMP): tools/refactor/cli/ts_rename_identifiers.py $(REFACTOR_CHECK_STAMP) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,rename_refactor,env MAX_RENAMES=-1 $(MAKE) rename-refactor)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: apply symbol renames"
 	@touch "$@"
 
-$(REFACTOR_CLEANUP_PLAN_STAMP): tools/refactor/cli/remap_cleanup_owners.py tools/refactor/cli/preflight_refactor_cleanup.py $(REFACTOR_RENAME_STAMP) Makefile | $(REFACTOR_STAMP_DIR)
-	$(call RUN_WITH_PROFILE,build_cleanup_plan,$(MAKE) build-cleanup-plan)
-	$(call RUN_WITH_PROFILE,preflight_cleanup_refactor,$(MAKE) preflight-cleanup-refactor)
-	@touch "$@"
-
-$(REFACTOR_CLEANUP_STAMP): tools/refactor/cli/apply_refactor_cleanup.py $(REFACTOR_CLEANUP_PLAN_STAMP) Makefile | $(REFACTOR_STAMP_DIR)
+$(REFACTOR_CLEANUP_STAMP): tools/refactor/orchestration/cleanup_refactor_converge.py tools/refactor/cleanup/candidate_detector.py tools/refactor/cli/remap_cleanup_owners.py tools/refactor/cli/preflight_refactor_cleanup.py tools/refactor/cli/apply_refactor_cleanup.py tools/refactor/cli/prune_cleanup_plan.py $(REFACTOR_RENAME_STAMP) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,cleanup_refactor,$(MAKE) cleanup-refactor)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: apply cleanup"
 	@touch "$@"
 
 cleanup-refactor:
-	@$(REF_PY) -m tools.refactor.cli.apply_refactor_cleanup --src-dir client/refactor --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)"
-	@$(REF_PY) -m tools.refactor.cli.prune_cleanup_plan --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --summary-json build/refactor-state/cleanup-apply-summary.json
+	@$(REF_PY) -m tools.refactor.orchestration.cleanup_refactor_converge --src-dir client/refactor --plan-dir client/refactor/.refactor-plan --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --cleanup-plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --summary-json build/refactor-state/cleanup-apply-summary.json --prune-summary-json build/refactor-state/cleanup-prune-summary.json --run-summary-json build/refactor-state/cleanup-converge-summary.json --max-passes "$${CLEANUP_MAX_PASSES:-8}" --drift-warn-ratio "$${CLEANUP_DRIFT_WARN_RATIO:-0.90}" $${CLEANUP_DRIFT_FAIL_RATIO:+--drift-fail-ratio $$CLEANUP_DRIFT_FAIL_RATIO}
 
 build-cleanup-plan:
 	@$(REF_PY) -m tools.refactor.cleanup.candidate_detector --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/unified_cleanup_candidates.csv --out-graph client/refactor/.refactor-plan/generated/unified_cleanup_graph.json
 	@$(REF_PY) -m tools.refactor.cli.remap_cleanup_owners --plan-dir client/refactor/.refactor-plan --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --out-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --fail-on-warnings
-	@$(REF_PY) -m tools.refactor.cli.prune_cleanup_plan --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --summary-json build/refactor-state/cleanup-apply-summary.json
 
 preflight-cleanup-refactor:
 	@$(REF_PY) -m tools.refactor.cli.preflight_refactor_cleanup --src-dir client/refactor --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --drift-warn-ratio "$${CLEANUP_DRIFT_WARN_RATIO:-0.90}" $${CLEANUP_DRIFT_FAIL_RATIO:+--drift-fail-ratio $$CLEANUP_DRIFT_FAIL_RATIO}

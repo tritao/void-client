@@ -9,6 +9,7 @@ from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
+from tools.refactor.cleanup.safe_ast import drop_statement_contains_in_method_body
 from tools.refactor.common.cli import resolve_path_args
 from tools.refactor.common.constants import REFACTOR_PLAN_DIR, REFACTOR_SRC_DIR
 from tools.refactor.common.io import non_comment_csv_lines
@@ -83,6 +84,27 @@ class RuleStageStats:
     matched: int = 0
     unmatched: int = 0
     missing_file: int = 0
+    actionable: int = 0
+
+    @property
+    def effective_rules(self) -> int:
+        return max(self.actionable, self.matched)
+
+    @property
+    def stale(self) -> int:
+        return max(0, self.total - self.missing_file - self.effective_rules)
+
+    @property
+    def raw_match_rate(self) -> float:
+        if self.total <= 0:
+            return 0.0
+        return self.matched / float(self.total)
+
+    @property
+    def effective_match_rate(self) -> float:
+        if self.effective_rules <= 0:
+            return 0.0
+        return self.matched / float(self.effective_rules)
 
     def as_dict(self) -> dict[str, int]:
         return {
@@ -90,6 +112,11 @@ class RuleStageStats:
             "matched": self.matched,
             "unmatched": self.unmatched,
             "missing_file": self.missing_file,
+            "actionable": self.actionable,
+            "effective_rules": self.effective_rules,
+            "stale": self.stale,
+            "raw_match_rate": round(self.raw_match_rate, 6),
+            "effective_match_rate": round(self.effective_match_rate, 6),
         }
 
 
@@ -622,6 +649,14 @@ def _rewrite_signature_semantic(text: str, rule: SignatureRewriteRule) -> tuple[
         body_end = target["body_end"]
         if body_start is None or body_end is None:
             return text, False
+        ast_out, ast_changed = drop_statement_contains_in_method_body(
+            text,
+            body_start=int(body_start),
+            body_end=int(body_end),
+            match_text=rule.match_text,
+        )
+        if ast_changed:
+            return ast_out, True
         body = text[body_start:body_end]
         kept: list[str] = []
         changed = False
@@ -638,9 +673,89 @@ def _rewrite_signature_semantic(text: str, rule: SignatureRewriteRule) -> tuple[
     return text, False
 
 
+def _method_has_signature(text: str, method_name: str, signature: tuple[str, ...] | None) -> bool:
+    if signature is None:
+        return False
+    spans = _find_method_spans(text, method_name)
+    for span in spans:
+        if span["sig"] == signature:
+            return True
+    return False
+
+
 def _identifier_tail_token(text: str) -> str:
     m = re.search(r"([A-Za-z_$][\w$]*)\s*$", text.strip())
     return m.group(1) if m else ""
+
+
+def _infer_identifier_type_from_prefix(data: bytes, *, identifier: str, upto: int) -> str:
+    if not identifier or upto <= 0:
+        return ""
+    try:
+        prefix = data[:upto].decode("utf-8", errors="replace")
+    except Exception:
+        return ""
+    ident = re.escape(identifier)
+    # Heuristic: nearest declaration-like pattern before the invocation.
+    # Covers local vars, fields, and enhanced-for loop variables.
+    rx = re.compile(
+        rf"(?:^|[;{{}}\n(,])\s*(?:final\s+)?([A-Za-z_$][\w$]*(?:\s*<[^>]+>)?(?:\[\])?)\s+{ident}\b",
+        re.MULTILINE,
+    )
+    matches = list(rx.finditer(prefix))
+    if not matches:
+        return ""
+    raw_type = matches[-1].group(1)
+    return _normalize_type_name(raw_type)
+
+
+def _class_and_field_from_object_expr(object_text: str) -> tuple[str, str]:
+    text = (object_text or "").strip()
+    if not text:
+        return "", ""
+    parts = [p.strip() for p in text.split(".") if p.strip()]
+    if len(parts) < 2:
+        return "", ""
+    owner_class = parts[0]
+    field_name = parts[1]
+    if not re.fullmatch(r"[A-Za-z_$][\w$]*", owner_class):
+        return "", ""
+    if not re.fullmatch(r"[A-Za-z_$][\w$]*", field_name):
+        return "", ""
+    return owner_class, field_name
+
+
+def _build_class_field_type_index(src_dir: Path) -> dict[tuple[str, str], str]:
+    index: dict[tuple[str, str], str] = {}
+    field_rx = re.compile(
+        r"^\s*(?:public|protected|private|static|final|transient|volatile|\s)+"
+        r"([A-Za-z_$][\w$]*(?:\s*<[^>]+>)?(?:\[\])?)\s+([A-Za-z_$][\w$]*)\s*(?:=\s*[^;]*)?;\s*$"
+    )
+    for path in sorted(src_dir.rglob("*.java")):
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        owner_class = path.stem
+        for line in text.splitlines():
+            m = field_rx.match(line)
+            if not m:
+                continue
+            field_type = _normalize_type_name(m.group(1))
+            field_name = m.group(2)
+            if not field_type:
+                continue
+            index[(owner_class, field_name)] = field_type
+    return index
+
+
+def _infer_qualified_field_type_from_object_expr(
+    object_text: str,
+    class_field_types: dict[tuple[str, str], str],
+) -> str:
+    owner_class, field_name = _class_and_field_from_object_expr(object_text)
+    if not owner_class or not field_name:
+        return ""
+    return class_field_types.get((owner_class, field_name), "")
 
 
 def _build_signature_callsite_drop_rules(signature_rules: list[SignatureRewriteRule]) -> list[SignatureCallsiteDropRule]:
@@ -704,6 +819,8 @@ def _drop_invocation_arg(
 def _rewrite_calls_for_signature_drop_rules(
     text: str,
     rules: list[SignatureCallsiteDropRule],
+    *,
+    class_field_types: dict[tuple[str, str], str] | None = None,
 ) -> tuple[str, bool, set[tuple[str, str, int, int]]]:
     if not rules:
         return text, False, set()
@@ -746,14 +863,39 @@ def _rewrite_calls_for_signature_drop_rules(
             continue
         object_node = node.child_by_field_name("object")
         owner_tail = ""
+        object_identifier = ""
+        object_text = ""
         if object_node is not None:
             object_text = data[object_node.start_byte : object_node.end_byte].decode("utf-8", errors="replace")
             owner_tail = _identifier_tail_token(object_text)
+            object_identifier = owner_tail
+
+        if object_identifier:
+            inferred_type = _infer_identifier_type_from_prefix(
+                data,
+                identifier=object_identifier,
+                upto=node.start_byte,
+            )
+            if inferred_type:
+                owner_tail = inferred_type
+        if (
+            object_node is not None
+            and class_field_types
+            and (not owner_tail or (object_identifier and owner_tail == object_identifier))
+        ):
+            inferred_type = _infer_qualified_field_type_from_object_expr(object_text, class_field_types)
+            if inferred_type:
+                owner_tail = inferred_type
 
         same_arity = [rule for rule in candidates if rule.arg_arity == argc]
         scoped = [rule for rule in same_arity if rule.owner_class and rule.owner_class == owner_tail]
         unscoped = [rule for rule in same_arity if not rule.owner_class]
-        active = scoped or unscoped
+        fallback: list[SignatureCallsiteDropRule] = []
+        if not scoped and not unscoped:
+            owner_set = {rule.owner_class for rule in same_arity if rule.owner_class}
+            if len(same_arity) == 1 or len(owner_set) == 1:
+                fallback = same_arity
+        active = scoped or unscoped or fallback
         if not active:
             continue
         arg_indexes = {rule.arg_index for rule in active}
@@ -1031,6 +1173,19 @@ def main() -> int:
             )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        baseline_desired_body = [f"        {rule.field_name} = {rule.reset_value};"]
+        _, baseline_rewrite_changed = _rewrite_method_body(text, rule.reset_method, baseline_desired_body)
+        baseline_changed = baseline_rewrite_changed
+        if not baseline_changed:
+            baseline_method_src = (
+                f"    static final void {rule.reset_method}() {{\n"
+                f"{baseline_desired_body[0]}\n"
+                f"    }}"
+            )
+            _, baseline_ensure_changed = _ensure_method(text, rule.reset_method, baseline_method_src)
+            baseline_changed = baseline_ensure_changed
+        if baseline_changed:
+            stage_stats["reset_methods"].actionable += 1
         desired_body = [f"        {rule.field_name} = {rule.reset_value};"]
         out, changed = _rewrite_method_body(text, rule.reset_method, desired_body)
         if not changed:
@@ -1088,12 +1243,19 @@ def main() -> int:
                 )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        baseline_text = text
         out = text
         any_changed = False
         for rule in rules:
-            out, changed = _apply_delegation_rewrite(out, rule)
-            any_changed = any_changed or changed
-            if changed:
+            _, baseline_changed = _apply_delegation_rewrite(baseline_text, rule)
+            if baseline_changed:
+                stage_stats["delegation_rewrites"].actionable += 1
+            prev_out = out
+            next_out, changed = _apply_delegation_rewrite(prev_out, rule)
+            out = next_out
+            effective_changed = changed and next_out != prev_out
+            any_changed = any_changed or effective_changed
+            if effective_changed:
                 stage_stats["delegation_rewrites"].matched += 1
             else:
                 stage_stats["delegation_rewrites"].unmatched += 1
@@ -1146,12 +1308,25 @@ def main() -> int:
                 )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        baseline_text = text
         out = text
         any_changed = False
         for rule in rules:
-            out, changed = _rewrite_signature_semantic(out, rule)
-            any_changed = any_changed or changed
-            if changed:
+            _, baseline_changed = _rewrite_signature_semantic(baseline_text, rule)
+            if baseline_changed:
+                stage_stats["signature_rewrites"].actionable += 1
+            prev_out = out
+            next_out, changed = _rewrite_signature_semantic(prev_out, rule)
+            out = next_out
+            effective_changed = changed and next_out != prev_out
+            any_changed = any_changed or effective_changed
+            signature_after = _parse_signature_types(rule.signature_after)
+            keeps_callsite_drop_active = (
+                rule.op == "drop_param"
+                and (not effective_changed)
+                and _method_has_signature(prev_out, rule.method, signature_after)
+            )
+            if effective_changed or keeps_callsite_drop_active:
                 stage_stats["signature_rewrites"].matched += 1
             else:
                 stage_stats["signature_rewrites"].unmatched += 1
@@ -1179,14 +1354,34 @@ def main() -> int:
                 path.write_text(out, encoding="utf-8")
             changed_files += 1
 
+    class_field_types = _build_class_field_type_index(src_dir)
+
+    baseline_signature_callsite_rules: set[tuple[str, str, int, int]] = set()
+    for path in sorted(src_dir.rglob("*.java")):
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        _, _, baseline_rules = _rewrite_calls_for_signature_drop_rules(
+            text,
+            signature_callsite_drop_rules,
+            class_field_types=class_field_types,
+        )
+        baseline_signature_callsite_rules.update(baseline_rules)
+    stage_stats["signature_callsite_drop"].actionable = len(baseline_signature_callsite_rules)
+
     matched_signature_callsite_rules: set[tuple[str, str, int, int]] = set()
     for path in sorted(src_dir.rglob("*.java")):
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
-        out, changed, matched_rules = _rewrite_calls_for_signature_drop_rules(text, signature_callsite_drop_rules)
-        matched_signature_callsite_rules.update(matched_rules)
-        if changed and out != text:
+        out, changed, matched_rules = _rewrite_calls_for_signature_drop_rules(
+            text,
+            signature_callsite_drop_rules,
+            class_field_types=class_field_types,
+        )
+        effective_changed = changed and out != text
+        if effective_changed:
+            matched_signature_callsite_rules.update(matched_rules)
             if not args.dry_run:
                 path.write_text(out, encoding="utf-8")
             changed_files += 1
@@ -1228,12 +1423,19 @@ def main() -> int:
                 )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        baseline_text = text
         out = text
         any_changed = False
         for rule in rules:
-            out, changed = _rewrite_noarg_calls(out, rule)
-            any_changed = any_changed or changed
-            if changed:
+            _, baseline_changed = _rewrite_noarg_calls(baseline_text, rule)
+            if baseline_changed:
+                stage_stats["call_rewrites"].actionable += 1
+            prev_out = out
+            next_out, changed = _rewrite_noarg_calls(prev_out, rule)
+            out = next_out
+            effective_changed = changed and next_out != prev_out
+            any_changed = any_changed or effective_changed
+            if effective_changed:
                 stage_stats["call_rewrites"].matched += 1
             else:
                 stage_stats["call_rewrites"].unmatched += 1
@@ -1278,12 +1480,19 @@ def main() -> int:
                 )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        baseline_text = text
         out = text
         any_changed = False
         for rule in rules:
-            out, changed = _rewrite_drop_first_arg_calls(out, rule)
-            any_changed = any_changed or changed
-            if changed:
+            _, baseline_changed = _rewrite_drop_first_arg_calls(baseline_text, rule)
+            if baseline_changed:
+                stage_stats["call_arg_rewrites"].actionable += 1
+            prev_out = out
+            next_out, changed = _rewrite_drop_first_arg_calls(prev_out, rule)
+            out = next_out
+            effective_changed = changed and next_out != prev_out
+            any_changed = any_changed or effective_changed
+            if effective_changed:
                 stage_stats["call_arg_rewrites"].matched += 1
             else:
                 stage_stats["call_arg_rewrites"].unmatched += 1
@@ -1329,11 +1538,17 @@ def main() -> int:
                 )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
+        baseline_text = text
         out = text
         any_changed = False
         for rule in rules:
-            next_text, changed = _drop_members(out, [rule])
-            if changed:
+            _, baseline_changed = _drop_members(baseline_text, [rule])
+            if baseline_changed:
+                stage_stats["drop_members"].actionable += 1
+            prev_out = out
+            next_text, changed = _drop_members(prev_out, [rule])
+            effective_changed = changed and next_text != prev_out
+            if effective_changed:
                 stage_stats["drop_members"].matched += 1
                 out = next_text
             else:
@@ -1351,7 +1566,7 @@ def main() -> int:
                         "name": rule.name,
                     },
                 )
-            any_changed = any_changed or changed
+            any_changed = any_changed or effective_changed
         if any_changed and out != text:
             if not args.dry_run:
                 path.write_text(out, encoding="utf-8")
@@ -1363,6 +1578,7 @@ def main() -> int:
         totals.matched += stats.matched
         totals.unmatched += stats.unmatched
         totals.missing_file += stats.missing_file
+        totals.actionable += stats.actionable
     unmatched_file_counts = Counter((entry.get("file") or "<all-files>") for entry in unmatched_entries)
     unmatched_top_files = [
         {"file": file, "count": count}
@@ -1372,6 +1588,12 @@ def main() -> int:
         "dry_run": args.dry_run,
         "changed_files": changed_files,
         "totals": totals.as_dict(),
+        "kpis": {
+            "effective_rules": totals.effective_rules,
+            "stale_rules": totals.stale,
+            "raw_match_rate": round(totals.raw_match_rate, 6),
+            "effective_match_rate": round(totals.effective_match_rate, 6),
+        },
         "stages": {name: stats.as_dict() for name, stats in stage_stats.items()},
         "unmatched_top_files": unmatched_top_files,
         "unmatched_rows": unmatched_entries,
@@ -1383,12 +1605,16 @@ def main() -> int:
     print(
         "Applied refactor cleanup rules. "
         f"dry_run={args.dry_run} changed_files={changed_files} total_rules={totals.total} matched={totals.matched} "
-        f"unmatched={totals.unmatched} missing_file={totals.missing_file}"
+        f"unmatched={totals.unmatched} missing_file={totals.missing_file} actionable={totals.actionable} "
+        f"effective={totals.effective_rules} stale={totals.stale} raw_rate={totals.raw_match_rate:.3f} "
+        f"effective_rate={totals.effective_match_rate:.3f}"
     )
     for stage_name, stats in stage_stats.items():
         print(
             f"  {stage_name}: total={stats.total} matched={stats.matched} "
-            f"unmatched={stats.unmatched} missing_file={stats.missing_file}"
+            f"unmatched={stats.unmatched} missing_file={stats.missing_file} actionable={stats.actionable} "
+            f"effective={stats.effective_rules} stale={stats.stale} raw_rate={stats.raw_match_rate:.3f} "
+            f"effective_rate={stats.effective_match_rate:.3f}"
         )
     print(f"  summary_json={args.summary_json}")
     return 0

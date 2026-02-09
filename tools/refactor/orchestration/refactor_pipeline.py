@@ -79,13 +79,13 @@ def _build_steps(args) -> list[Step]:
     rename_csv = args.rename_csv or args.symbols_csv
     rename_csv_dir = args.rename_csv_dir or args.symbols_csv_dir
     cleanup_plan_dir = args.cleanup_plan_dir
-    cleanup_candidates_csv = args.plan_dir / "generated" / "unified_cleanup_candidates.csv"
-    cleanup_graph_json = args.plan_dir / "generated" / "unified_cleanup_graph.json"
     selected_csv = state_dir / "selected-renames.csv"
     empty_csv_dir = state_dir / "empty-csv-dir"
     extract_touched_files = state_dir / "02-extract-touched-files.txt"
     extract_state_file = state_dir / "02-extract-state.json"
     cleanup_apply_summary_json = args.cleanup_apply_summary_json
+    cleanup_prune_summary_json = args.cleanup_prune_summary_json
+    cleanup_converge_summary_json = args.cleanup_converge_summary_json
 
     steps: list[Step] = []
     steps.append(
@@ -243,118 +243,40 @@ def _build_steps(args) -> list[Step]:
             log_path=logs_dir / "04-symbol-renames.log",
         )
     )
-    if not args.skip_cleanup:
-        steps.append(
-            Step(
-                name="cleanup_candidates",
-                cmd=[
-                    py,
-                    "-m",
-                    "tools.refactor.cleanup.candidate_detector",
-                    "--src-dir",
-                    str(args.refactor_src_dir),
-                    "--out-csv",
-                    str(cleanup_candidates_csv),
-                    "--out-graph",
-                    str(cleanup_graph_json),
-                ],
-                marker=state_dir / "05-cleanup-candidates.json",
-                log_path=logs_dir / "05-cleanup-candidates.log",
-            )
-        )
-        steps.append(
-            Step(
-                name="cleanup_remap_plan",
-                cmd=[
-                    py,
-                    "-m",
-                    "tools.refactor.cli.remap_cleanup_owners",
-                    "--plan-dir",
-                    str(args.plan_dir),
-                    "--manifest-dir",
-                    str(args.extract_manifest_dir),
-                    "--out-dir",
-                    str(cleanup_plan_dir),
-                    "--fail-on-warnings",
-                ],
-                marker=state_dir / "06-cleanup-remap-plan.json",
-                log_path=logs_dir / "06-cleanup-remap-plan.log",
-            )
-        )
-        if not args.dry_run:
-            steps.append(
-                Step(
-                    name="cleanup_prune_plan",
-                    cmd=[
-                        py,
-                        "-m",
-                        "tools.refactor.cli.prune_cleanup_plan",
-                        "--plan-dir",
-                        str(cleanup_plan_dir),
-                        "--summary-json",
-                        str(cleanup_apply_summary_json),
-                    ],
-                    marker=state_dir / "07-cleanup-prune-plan.json",
-                    log_path=logs_dir / "07-cleanup-prune-plan.log",
-                )
-            )
-        preflight_cmd = [
+    if not args.skip_cleanup and not args.dry_run:
+        cleanup_cmd = [
             py,
             "-m",
-            "tools.refactor.cli.preflight_refactor_cleanup",
+            "tools.refactor.orchestration.cleanup_refactor_converge",
             "--src-dir",
             str(args.refactor_src_dir),
             "--plan-dir",
+            str(args.plan_dir),
+            "--manifest-dir",
+            str(args.extract_manifest_dir),
+            "--cleanup-plan-dir",
             str(cleanup_plan_dir),
+            "--summary-json",
+            str(cleanup_apply_summary_json),
+            "--prune-summary-json",
+            str(cleanup_prune_summary_json),
+            "--run-summary-json",
+            str(cleanup_converge_summary_json),
+            "--max-passes",
+            str(args.cleanup_max_passes),
             "--drift-warn-ratio",
             str(args.cleanup_drift_warn_ratio),
         ]
         if args.cleanup_drift_fail_ratio >= 0:
-            preflight_cmd.extend(["--drift-fail-ratio", str(args.cleanup_drift_fail_ratio)])
+            cleanup_cmd.extend(["--drift-fail-ratio", str(args.cleanup_drift_fail_ratio)])
         steps.append(
             Step(
-                name="cleanup_preflight",
-                cmd=preflight_cmd,
-                marker=state_dir / "08-cleanup-preflight.json",
-                log_path=logs_dir / "08-cleanup-preflight.log",
+                name="cleanup_converge",
+                cmd=cleanup_cmd,
+                marker=state_dir / "05-cleanup-converge.json",
+                log_path=logs_dir / "05-cleanup-converge.log",
             )
         )
-        steps.append(
-            Step(
-                name="cleanup_apply",
-                cmd=[
-                    py,
-                    "-m",
-                    "tools.refactor.cli.apply_refactor_cleanup",
-                    "--src-dir",
-                    str(args.refactor_src_dir),
-                    "--plan-dir",
-                    str(cleanup_plan_dir),
-                    "--summary-json",
-                    str(cleanup_apply_summary_json),
-                ]
-                + (["--dry-run"] if args.dry_run else []),
-                marker=state_dir / "09-cleanup-apply.json",
-                log_path=logs_dir / "09-cleanup-apply.log",
-            )
-        )
-        if not args.dry_run:
-            steps.append(
-                Step(
-                    name="cleanup_prune_after_apply",
-                    cmd=[
-                        py,
-                        "-m",
-                        "tools.refactor.cli.prune_cleanup_plan",
-                        "--plan-dir",
-                        str(cleanup_plan_dir),
-                        "--summary-json",
-                        str(cleanup_apply_summary_json),
-                    ],
-                    marker=state_dir / "10-cleanup-prune-after-apply.json",
-                    log_path=logs_dir / "10-cleanup-prune-after-apply.log",
-                )
-            )
     if not args.dry_run and not args.skip_compile:
         steps.append(
             Step(
@@ -366,8 +288,8 @@ def _build_steps(args) -> list[Step]:
                     "CLASSES_DIR=build/classes-refactor-layout",
                     "SOURCES_FILE=build/sources-refactor-layout.txt",
                 ]),
-                marker=state_dir / "11-compile-refactor.json",
-                log_path=logs_dir / "11-compile-refactor.log",
+                marker=state_dir / "10-compile-refactor.json",
+                log_path=logs_dir / "10-compile-refactor.log",
             )
         )
     return steps
@@ -417,6 +339,8 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--state-dir", type=Path, default=REFACTOR_STATE_DIR)
     ap.add_argument("--report", type=Path, default=REFACTOR_PIPELINE_REPORT_MD)
     ap.add_argument("--cleanup-apply-summary-json", type=Path, default=REFACTOR_STATE_DIR / "cleanup-apply-summary.json")
+    ap.add_argument("--cleanup-prune-summary-json", type=Path, default=REFACTOR_STATE_DIR / "cleanup-prune-summary.json")
+    ap.add_argument("--cleanup-converge-summary-json", type=Path, default=REFACTOR_STATE_DIR / "cleanup-converge-summary.json")
     ap.add_argument("--max-renames", type=int, default=int(os.environ.get("MAX_RENAMES", str(DEFAULT_MAX_RENAMES))))
     ap.add_argument("--max-manifests", type=int, default=int(os.environ.get("MAX_MANIFESTS", str(DEFAULT_MAX_MANIFESTS))))
     ap.add_argument("--extract-jobs", type=int, default=int(os.environ.get("EXTRACT_JOBS", "1")))
@@ -463,6 +387,12 @@ def main(argv: list[str]) -> int:
         type=float,
         default=float(os.environ.get("CLEANUP_DRIFT_FAIL_RATIO", "-1.0")),
         help="Fail threshold for unmatched cleanup ratio during cleanup preflight (<0 disables).",
+    )
+    ap.add_argument(
+        "--cleanup-max-passes",
+        type=int,
+        default=int(os.environ.get("CLEANUP_MAX_PASSES", "8")),
+        help="Maximum cleanup convergence passes for each pipeline run.",
     )
     ap.add_argument("--skip-compile", action="store_true")
     ap.add_argument("--skip-cleanup", action="store_true")

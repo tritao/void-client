@@ -1044,6 +1044,17 @@ def _resolve_call_owner(
     if not owner_expr_norm and not owner_token_norm:
         return current_owner, "unqualified"
 
+    resolved_owner_from_token = ""
+    if owner_token_norm:
+        resolved_owner_from_token = _resolve_simple_owner_type(
+            token=owner_token_norm,
+            current_owner=current_owner,
+            local_types=local_types,
+            field_types=field_types,
+            known_class_names=known_class_names,
+            class_aliases=class_aliases,
+        )
+
     if owner_expr_norm:
         resolved_expr_owner = _resolve_owner_expr_type(
             owner_expr=owner_expr_norm,
@@ -1055,21 +1066,21 @@ def _resolve_call_owner(
             method_return_types_by_owner=method_return_types_by_owner,
             class_aliases=class_aliases,
         )
+        expr_without_cast = _strip_wrapping_parentheses(_strip_casts(owner_expr_norm))
+        if (
+            resolved_owner_from_token
+            and expr_without_cast == owner_token_norm
+        ):
+            # A cast on the call-result expression (e.g. "(ChatChannel) iterator")
+            # should not override the receiver type inferred from the token.
+            return resolved_owner_from_token, "resolved"
         if resolved_expr_owner:
             return resolved_expr_owner, "resolved"
         if not owner_token_norm:
             return "", "unresolved_qualified"
 
-    resolved_owner = _resolve_simple_owner_type(
-        token=owner_token_norm,
-        current_owner=current_owner,
-        local_types=local_types,
-        field_types=field_types,
-        known_class_names=known_class_names,
-        class_aliases=class_aliases,
-    )
-    if resolved_owner:
-        return resolved_owner, "resolved"
+    if resolved_owner_from_token:
+        return resolved_owner_from_token, "resolved"
     return "", "unresolved_qualified"
 
 
