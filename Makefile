@@ -125,7 +125,7 @@ help:
 	@echo "  make extract-statics-dry - dry-run static extraction"
 	@echo "  make check-static-extract - validate manifests are fully applied"
 	@echo "  make extract-statics-loop - extract + validate + compile client/refactor"
-	@echo "  make refactor-loop - incremental pipeline (select effective renames + extract + rename + compile)"
+	@echo "  make refactor-loop - incremental pipeline (select effective renames + extract + rename + cleanup + compile)"
 	@echo "  make refactor-loop-dry - dry-run incremental pipeline"
 	@echo "  make build-refactor-class-view - build generated class rename view only"
 	@echo "  make build-refactor-views - build generated symbol/extract/class views from .refactor-plan"
@@ -157,6 +157,7 @@ help:
 	@echo "  EXTRACT_RUST_CALLSITES=build (extract callsite backend: off|auto|build)"
 	@echo "  FAST_VALIDATE=1          (refactor-loop only: skip expensive global extract callsite validation)"
 	@echo "  LOOP_FAST_COMPILE=1      (refactor-loop only: use ECJ fast compile check)"
+	@echo "  LOOP_SKIP_CLEANUP=1      (refactor-loop only: skip cleanup stages for faster iteration)"
 	@echo "  CLEANUP_DRIFT_WARN_RATIO=0.90 (preflight warning threshold for unmatched cleanup ratio)"
 	@echo "  CLEANUP_DRIFT_FAIL_RATIO=0.98 (optional preflight failure threshold for unmatched cleanup ratio)"
 	@echo "  PROFILE=1                (write stage timings to $(PROFILE_FILE) for rebuild-refactor/refactor-loop)"
@@ -379,13 +380,13 @@ refactor-loop:
 		mkdir -p "$(PROFILE_DIR)"; \
 		printf 'stage\treal_s\tuser_s\tsys_s\tmaxrss_kb\n' > "$(PROFILE_FILE)"; \
 	fi
-	$(call RUN_WITH_PROFILE,refactor_pipeline,$(REF_PY) -m tools.refactor.orchestration.refactor_pipeline --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --extract-rust-callsites "$${EXTRACT_RUST_CALLSITES:-build}" --rename-rust-prefilter "$${RENAME_RUST_PREFILTER:-off}" --resume --skip-class-renames --incremental-rename --report build/refactor-pipeline-report.md $${ALLOW_CONFLICTS:+--allow-conflicts} $${FAST_VALIDATE:+--fast-validate} $${LOOP_FAST_COMPILE:+--fast-compile})
+	$(call RUN_WITH_PROFILE,refactor_pipeline,$(REF_PY) -m tools.refactor.orchestration.refactor_pipeline --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --extract-rust-callsites "$${EXTRACT_RUST_CALLSITES:-build}" --rename-rust-prefilter "$${RENAME_RUST_PREFILTER:-off}" --resume --skip-class-renames --incremental-rename --report build/refactor-pipeline-report.md $${ALLOW_CONFLICTS:+--allow-conflicts} $${FAST_VALIDATE:+--fast-validate} $${LOOP_FAST_COMPILE:+--fast-compile} $${LOOP_SKIP_CLEANUP:+--skip-cleanup})
 	@if [ "$${PROFILE:-0}" = "1" ]; then \
 		echo "Profile written: $(PROFILE_FILE)"; \
 	fi
 
 refactor-loop-dry:
-	@$(REF_PY) -m tools.refactor.orchestration.refactor_pipeline --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --extract-rust-callsites "$${EXTRACT_RUST_CALLSITES:-build}" --rename-rust-prefilter "$${RENAME_RUST_PREFILTER:-off}" --dry-run --resume --skip-class-renames --incremental-rename --report build/refactor-pipeline-report-dry.md $${ALLOW_CONFLICTS:+--allow-conflicts} $${LOOP_FAST_COMPILE:+--fast-compile}
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_pipeline --max-renames "$${MAX_RENAMES:-20}" --max-manifests "$${MAX_MANIFESTS:-10}" --extract-rust-callsites "$${EXTRACT_RUST_CALLSITES:-build}" --rename-rust-prefilter "$${RENAME_RUST_PREFILTER:-off}" --dry-run --resume --skip-class-renames --incremental-rename --report build/refactor-pipeline-report-dry.md $${ALLOW_CONFLICTS:+--allow-conflicts} $${LOOP_FAST_COMPILE:+--fast-compile} $${LOOP_SKIP_CLEANUP:+--skip-cleanup}
 
 build-refactor-views:
 	@$(REF_PY) -m tools.refactor.cli.build_refactor_views --plan-dir client/refactor/.refactor-plan --refactor-src client/refactor --out-symbol-root client/refactor/.refactor-plan/generated/symbol_renames.csv --out-symbol-dir client/refactor/.refactor-plan/symbol-renames/generated --out-class-csv client/refactor/.refactor-plan/generated/classes.csv --out-extract-dir client/refactor/.refactor-plan/extract-statics/generated --report docs/refactor-views-report.md $${ALLOW_CONFLICTS:+--allow-conflicts}

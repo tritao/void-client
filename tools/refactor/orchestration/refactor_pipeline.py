@@ -16,6 +16,7 @@ from tools.refactor.common.constants import (
     CLIENT_SRC_DIR,
     DEFAULT_MAX_MANIFESTS,
     DEFAULT_MAX_RENAMES,
+    REFACTOR_CLEANUP_PLAN_DIR,
     REFACTOR_CLASSES_CSV,
     REFACTOR_EXTRACT_MANIFEST_DIR,
     REFACTOR_PIPELINE_REPORT_MD,
@@ -77,9 +78,14 @@ def _build_steps(args) -> list[Step]:
 
     rename_csv = args.rename_csv or args.symbols_csv
     rename_csv_dir = args.rename_csv_dir or args.symbols_csv_dir
+    cleanup_plan_dir = args.cleanup_plan_dir
+    cleanup_candidates_csv = args.plan_dir / "generated" / "unified_cleanup_candidates.csv"
+    cleanup_graph_json = args.plan_dir / "generated" / "unified_cleanup_graph.json"
     selected_csv = state_dir / "selected-renames.csv"
+    empty_csv_dir = state_dir / "empty-csv-dir"
     extract_touched_files = state_dir / "02-extract-touched-files.txt"
     extract_state_file = state_dir / "02-extract-state.json"
+    cleanup_apply_summary_json = args.cleanup_apply_summary_json
 
     steps: list[Step] = []
     steps.append(
@@ -215,7 +221,7 @@ def _build_steps(args) -> list[Step]:
                 "--csv",
                 str(selected_csv if args.select_effective and args.max_renames >= 0 else rename_csv),
                 "--csv-dir",
-                str(Path("/tmp/void-empty-dir") if args.select_effective and args.max_renames >= 0 else rename_csv_dir),
+                str(empty_csv_dir if args.select_effective and args.max_renames >= 0 else rename_csv_dir),
                 "--src-dir",
                 str(args.refactor_src_dir),
                 "--extract-manifest-dir",
@@ -237,6 +243,118 @@ def _build_steps(args) -> list[Step]:
             log_path=logs_dir / "04-symbol-renames.log",
         )
     )
+    if not args.skip_cleanup:
+        steps.append(
+            Step(
+                name="cleanup_candidates",
+                cmd=[
+                    py,
+                    "-m",
+                    "tools.refactor.cleanup.candidate_detector",
+                    "--src-dir",
+                    str(args.refactor_src_dir),
+                    "--out-csv",
+                    str(cleanup_candidates_csv),
+                    "--out-graph",
+                    str(cleanup_graph_json),
+                ],
+                marker=state_dir / "05-cleanup-candidates.json",
+                log_path=logs_dir / "05-cleanup-candidates.log",
+            )
+        )
+        steps.append(
+            Step(
+                name="cleanup_remap_plan",
+                cmd=[
+                    py,
+                    "-m",
+                    "tools.refactor.cli.remap_cleanup_owners",
+                    "--plan-dir",
+                    str(args.plan_dir),
+                    "--manifest-dir",
+                    str(args.extract_manifest_dir),
+                    "--out-dir",
+                    str(cleanup_plan_dir),
+                    "--fail-on-warnings",
+                ],
+                marker=state_dir / "06-cleanup-remap-plan.json",
+                log_path=logs_dir / "06-cleanup-remap-plan.log",
+            )
+        )
+        if not args.dry_run:
+            steps.append(
+                Step(
+                    name="cleanup_prune_plan",
+                    cmd=[
+                        py,
+                        "-m",
+                        "tools.refactor.cli.prune_cleanup_plan",
+                        "--plan-dir",
+                        str(cleanup_plan_dir),
+                        "--summary-json",
+                        str(cleanup_apply_summary_json),
+                    ],
+                    marker=state_dir / "07-cleanup-prune-plan.json",
+                    log_path=logs_dir / "07-cleanup-prune-plan.log",
+                )
+            )
+        preflight_cmd = [
+            py,
+            "-m",
+            "tools.refactor.cli.preflight_refactor_cleanup",
+            "--src-dir",
+            str(args.refactor_src_dir),
+            "--plan-dir",
+            str(cleanup_plan_dir),
+            "--drift-warn-ratio",
+            str(args.cleanup_drift_warn_ratio),
+        ]
+        if args.cleanup_drift_fail_ratio >= 0:
+            preflight_cmd.extend(["--drift-fail-ratio", str(args.cleanup_drift_fail_ratio)])
+        steps.append(
+            Step(
+                name="cleanup_preflight",
+                cmd=preflight_cmd,
+                marker=state_dir / "08-cleanup-preflight.json",
+                log_path=logs_dir / "08-cleanup-preflight.log",
+            )
+        )
+        steps.append(
+            Step(
+                name="cleanup_apply",
+                cmd=[
+                    py,
+                    "-m",
+                    "tools.refactor.cli.apply_refactor_cleanup",
+                    "--src-dir",
+                    str(args.refactor_src_dir),
+                    "--plan-dir",
+                    str(cleanup_plan_dir),
+                    "--summary-json",
+                    str(cleanup_apply_summary_json),
+                ]
+                + (["--dry-run"] if args.dry_run else []),
+                marker=state_dir / "09-cleanup-apply.json",
+                log_path=logs_dir / "09-cleanup-apply.log",
+            )
+        )
+        if not args.dry_run:
+            steps.append(
+                Step(
+                    name="cleanup_prune_after_apply",
+                    cmd=[
+                        py,
+                        "-m",
+                        "tools.refactor.cli.prune_cleanup_plan",
+                        "--plan-dir",
+                        str(cleanup_plan_dir),
+                        "--summary-json",
+                        str(cleanup_apply_summary_json),
+                    ],
+                    marker=state_dir / "10-cleanup-prune-after-apply.json",
+                    log_path=logs_dir / "10-cleanup-prune-after-apply.log",
+                )
+            )
     if not args.dry_run and not args.skip_compile:
         steps.append(
             Step(
@@ -248,8 +366,8 @@ def _build_steps(args) -> list[Step]:
                     "CLASSES_DIR=build/classes-refactor-layout",
                     "SOURCES_FILE=build/sources-refactor-layout.txt",
                 ]),
-                marker=state_dir / "05-compile-refactor.json",
-                log_path=logs_dir / "05-compile-refactor.log",
+                marker=state_dir / "11-compile-refactor.json",
+                log_path=logs_dir / "11-compile-refactor.log",
             )
         )
     return steps
@@ -274,7 +392,7 @@ def _write_report(path: Path, rows: list[dict], *, dry_run: bool, state_dir: Pat
 
 
 def main(argv: list[str]) -> int:
-    ap = argparse.ArgumentParser(description="Unified pipeline for class/symbol renames + static extraction.")
+    ap = argparse.ArgumentParser(description="Unified pipeline for class/symbol renames, static extraction, and cleanup.")
     ap.add_argument("--python", default=sys.executable, help="Python interpreter for sub-tools")
     ap.add_argument("--classes-csv", type=Path, default=REFACTOR_CLASSES_CSV)
     ap.add_argument("--symbols-csv", type=Path, default=REFACTOR_SYMBOLS_CSV)
@@ -293,10 +411,12 @@ def main(argv: list[str]) -> int:
     )
     ap.add_argument("--extract-manifest-dir", type=Path, default=REFACTOR_EXTRACT_MANIFEST_DIR)
     ap.add_argument("--plan-dir", type=Path, default=REFACTOR_PLAN_DIR)
+    ap.add_argument("--cleanup-plan-dir", type=Path, default=REFACTOR_CLEANUP_PLAN_DIR)
     ap.add_argument("--class-src-dir", type=Path, default=CLIENT_SRC_DIR)
     ap.add_argument("--refactor-src-dir", type=Path, default=REFACTOR_SRC_DIR)
     ap.add_argument("--state-dir", type=Path, default=REFACTOR_STATE_DIR)
     ap.add_argument("--report", type=Path, default=REFACTOR_PIPELINE_REPORT_MD)
+    ap.add_argument("--cleanup-apply-summary-json", type=Path, default=REFACTOR_STATE_DIR / "cleanup-apply-summary.json")
     ap.add_argument("--max-renames", type=int, default=int(os.environ.get("MAX_RENAMES", str(DEFAULT_MAX_RENAMES))))
     ap.add_argument("--max-manifests", type=int, default=int(os.environ.get("MAX_MANIFESTS", str(DEFAULT_MAX_MANIFESTS))))
     ap.add_argument("--extract-jobs", type=int, default=int(os.environ.get("EXTRACT_JOBS", "1")))
@@ -332,7 +452,20 @@ def main(argv: list[str]) -> int:
         action="store_true",
         help="Use compile-refactor-fast (ECJ) instead of full javac recursive compile.",
     )
+    ap.add_argument(
+        "--cleanup-drift-warn-ratio",
+        type=float,
+        default=float(os.environ.get("CLEANUP_DRIFT_WARN_RATIO", "0.90")),
+        help="Warning threshold for unmatched cleanup ratio during cleanup preflight.",
+    )
+    ap.add_argument(
+        "--cleanup-drift-fail-ratio",
+        type=float,
+        default=float(os.environ.get("CLEANUP_DRIFT_FAIL_RATIO", "-1.0")),
+        help="Fail threshold for unmatched cleanup ratio during cleanup preflight (<0 disables).",
+    )
     ap.add_argument("--skip-compile", action="store_true")
+    ap.add_argument("--skip-cleanup", action="store_true")
     ap.add_argument("--skip-class-renames", action="store_true")
     ap.add_argument("--allow-conflicts", action="store_true")
     args = ap.parse_args(argv)
@@ -342,6 +475,8 @@ def main(argv: list[str]) -> int:
     state_dir = args.state_dir.resolve()
     rows: list[dict] = []
     env = dict(os.environ)
+    if args.select_effective and args.max_renames >= 0:
+        (state_dir / "empty-csv-dir").mkdir(parents=True, exist_ok=True)
 
     steps = _build_steps(args)
     for step in steps:
