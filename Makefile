@@ -114,7 +114,7 @@ help:
 	@echo "  make jar       - build runnable jar at $(OUT_JAR) (Main-Class: $(MAIN_CLASS))"
 	@echo "  make run       - run $(MAIN_CLASS) using $(OUT_JAR) + $(LIBS)"
 	@echo "  make reports   - regenerate docs/*.md reports"
-	@echo "  make rebuild-refactor - incremental refactor rebuild (layout + views + extract + rename + cleanup)"
+	@echo "  make rebuild-refactor - incremental refactor rebuild (plan + copy baseline + layout + views + extract + rename + cleanup)"
 	@echo "  make rebuild-refactor-compile - rebuild-refactor + compile client/refactor"
 	@echo "  make compile-refactor - compile current client/refactor only"
 	@echo "  make compile-refactor-fast - fast ECJ compile check for client/refactor"
@@ -280,6 +280,8 @@ REFACTOR_GIT_USER_NAME ?= Refactor Bot
 REFACTOR_GIT_USER_EMAIL ?= refactor-bot@local
 REFACTOR_GIT_HELPER ?= tools/refactor/orchestration/refactor_git.py
 REFACTOR_GIT_INIT_STAMP := $(REFACTOR_STAMP_DIR)/git-init.stamp
+REFACTOR_PLAN_STAMP := $(REFACTOR_STAMP_DIR)/plan.stamp
+REFACTOR_BASELINE_STAMP := $(REFACTOR_STAMP_DIR)/baseline.stamp
 REFACTOR_LAYOUT_STAMP := $(REFACTOR_STAMP_DIR)/layout.stamp
 REFACTOR_VIEWS_STAMP := $(REFACTOR_STAMP_DIR)/views.stamp
 REFACTOR_EXTRACT_STAMP := $(REFACTOR_STAMP_DIR)/extract.stamp
@@ -287,6 +289,8 @@ REFACTOR_CHECK_STAMP := $(REFACTOR_STAMP_DIR)/check_extract.stamp
 REFACTOR_RENAME_STAMP := $(REFACTOR_STAMP_DIR)/rename.stamp
 REFACTOR_CLEANUP_STAMP := $(REFACTOR_STAMP_DIR)/cleanup.stamp
 REFACTOR_CLEANUP_PLAN_DIR := client/refactor/.refactor-plan/generated/cleanup-plan
+REFACTOR_REPO_META_INPUTS := $(wildcard client/refactor/.gitignore client/refactor/.gitkeep)
+REFACTOR_PLAN_FILES := $(shell find client/refactor/.refactor-plan -type f ! -path '*/generated/*' ! -path '*/import/*')
 REFACTOR_PLAN_INPUTS := $(shell find client/refactor/.refactor-plan -type f \( -name '*.csv' -o -name '*.yaml' \) ! -path '*/generated/*' ! -path '*/import/*')
 REFACTOR_CLASS_PLAN_INPUTS := $(shell find client/refactor/.refactor-plan -type f -name '*.class_rename.csv' ! -path '*/generated/*' ! -path '*/import/*')
 REFACTOR_SRC_SOURCES := $(shell find client/src -name '*.java' -print)
@@ -300,7 +304,16 @@ $(REFACTOR_GIT_INIT_STAMP): $(REFACTOR_GIT_HELPER) Makefile | $(REFACTOR_STAMP_D
 	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --init --user-name "$(REFACTOR_GIT_USER_NAME)" --user-email "$(REFACTOR_GIT_USER_EMAIL)"
 	@touch "$@"
 
-$(REFACTOR_LAYOUT_STAMP): tools/refactor/orchestration/build_refactor_layout.py tools/refactor/cli/build_refactor_views.py client/refactor/.refactor-plan/layout_rules.csv $(REFACTOR_CLASS_PLAN_INPUTS) $(REFACTOR_SRC_SOURCES) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
+$(REFACTOR_PLAN_STAMP): $(REFACTOR_PLAN_FILES) $(REFACTOR_REPO_META_INPUTS) Makefile $(REFACTOR_GIT_INIT_STAMP) | $(REFACTOR_STAMP_DIR)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: sync plan"
+	@touch "$@"
+
+$(REFACTOR_BASELINE_STAMP): tools/refactor/orchestration/copy_refactor_baseline.py $(REFACTOR_SRC_SOURCES) Makefile $(REFACTOR_PLAN_STAMP) | $(REFACTOR_STAMP_DIR)
+	$(call RUN_WITH_PROFILE,copy_refactor_baseline,$(REF_PY) -m tools.refactor.orchestration.copy_refactor_baseline --src-dir client/src --dst-dir client/refactor)
+	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: copy baseline"
+	@touch "$@"
+
+$(REFACTOR_LAYOUT_STAMP): tools/refactor/orchestration/build_refactor_layout.py tools/refactor/cli/build_refactor_views.py client/refactor/.refactor-plan/layout_rules.csv $(REFACTOR_CLASS_PLAN_INPUTS) $(REFACTOR_SRC_SOURCES) Makefile $(REFACTOR_BASELINE_STAMP) | $(REFACTOR_STAMP_DIR)
 	$(call RUN_WITH_PROFILE,build_refactor_class_view,$(MAKE) build-refactor-class-view)
 	$(call RUN_WITH_PROFILE,build_refactor_layout,$(REF_PY) -m tools.refactor.orchestration.build_refactor_layout --csv "$(CLASSES_CSV)" --src-dir client/src --dst-dir client/refactor --rules client/refactor/.refactor-plan/layout_rules.csv --report build/refactor-layout-report.md --rename-report build/refactor-layout-rename-report.md)
 	@$(REF_PY) -m tools.refactor.orchestration.refactor_git --repo "$(REFACTOR_GIT_REPO)" --commit-message "refactor: layout"

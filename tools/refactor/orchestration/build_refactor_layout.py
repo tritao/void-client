@@ -53,13 +53,26 @@ def _remove_java_files_recursive(dst_dir: Path) -> int:
     return removed
 
 
-def _remove_empty_dirs(dst_dir: Path) -> None:
+def _is_protected_subpath(path: Path, *, root: Path, protected_top_dirs: set[str]) -> bool:
+    try:
+        rel = path.relative_to(root)
+    except ValueError:
+        return False
+    if not rel.parts:
+        return False
+    return rel.parts[0] in protected_top_dirs
+
+
+def _remove_empty_dirs(dst_dir: Path, *, protected_top_dirs: set[str] | None = None) -> None:
     if not dst_dir.exists():
         return
+    protected = protected_top_dirs or {".git"}
     # Bottom-up, keep root even if empty.
     dirs = [d for d in dst_dir.rglob("*") if d.is_dir()]
     for p in sorted(dirs, key=lambda d: len(d.parts), reverse=True):
         if p == dst_dir:
+            continue
+        if _is_protected_subpath(p, root=dst_dir, protected_top_dirs=protected):
             continue
         try:
             next(p.iterdir())
@@ -231,7 +244,7 @@ def main(argv: list[str]) -> int:
 
     dst_dir.mkdir(parents=True, exist_ok=True)
     removed = _remove_java_files_recursive(dst_dir)
-    _remove_empty_dirs(dst_dir)
+    _remove_empty_dirs(dst_dir, protected_top_dirs={".git", ".refactor-plan"})
 
     placed: dict[str, int] = {}
     unmatched: list[str] = []

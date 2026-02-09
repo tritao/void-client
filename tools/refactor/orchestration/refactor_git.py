@@ -7,18 +7,32 @@ from pathlib import Path
 
 
 def _run_git(repo: Path, args: list[str], *, capture: bool = False) -> subprocess.CompletedProcess[str]:
-    cmd = ["git", "-C", str(repo), *args]
+    git_dir = repo / ".git"
+    if git_dir.exists():
+        cmd = ["git", f"--git-dir={git_dir}", f"--work-tree={repo}", *args]
+    else:
+        cmd = ["git", "-C", str(repo), *args]
     return subprocess.run(cmd, check=False, text=True, capture_output=capture)
+
+
+def _repo_resolves_to(repo: Path) -> bool:
+    proc = _run_git(repo, ["rev-parse", "--show-toplevel"], capture=True)
+    if proc.returncode != 0:
+        return False
+    resolved = (proc.stdout or "").strip()
+    return resolved == str(repo.resolve())
 
 
 def _ensure_repo_initialized(repo: Path, *, user_name: str, user_email: str) -> None:
     repo.mkdir(parents=True, exist_ok=True)
     git_dir = repo / ".git"
-    if not git_dir.exists():
+    if not git_dir.exists() or not _repo_resolves_to(repo):
         init_proc = _run_git(repo, ["init"])
         if init_proc.returncode != 0:
             raise RuntimeError(f"git init failed in {repo}")
         print(f"Initialized git repo: {repo}")
+    if not _repo_resolves_to(repo):
+        raise RuntimeError(f"git repo at {repo} resolved to parent repository; refusing to continue")
 
     name_proc = _run_git(repo, ["config", "--get", "user.name"], capture=True)
     email_proc = _run_git(repo, ["config", "--get", "user.email"], capture=True)
@@ -38,14 +52,12 @@ def _ensure_repo_initialized(repo: Path, *, user_name: str, user_email: str) -> 
 
 
 def _commit_if_dirty(repo: Path, *, message: str) -> bool:
-    status_proc = _run_git(repo, ["status", "--porcelain"], capture=True)
-    if status_proc.returncode != 0:
-        raise RuntimeError(f"git status failed in {repo}")
-    if not (status_proc.stdout or "").strip():
-        print(f"No changes to commit for: {message}")
-        return False
+    if not _repo_resolves_to(repo):
+        raise RuntimeError(f"git repo at {repo} resolved to parent repository; commit aborted")
 
-    add_proc = _run_git(repo, ["add", "-A"])
+    # Force-add so newly generated Java files are committed even if repo-local
+    # ignore rules hide *.java by default for the parent repository workflow.
+    add_proc = _run_git(repo, ["add", "-A", "-f", "--", "."])
     if add_proc.returncode != 0:
         raise RuntimeError(f"git add failed in {repo}")
 
