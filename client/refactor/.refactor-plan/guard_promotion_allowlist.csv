@@ -1,0 +1,5 @@
+# file,owner,method,reason,notes
+file,owner,method,reason,notes
+client/Client.java,Client,method93,instance_inheritance_boundary,Final instance method; unique project usage pattern
+graphics/native/NativeToolkit.java,NativeToolkit,method3902,instance_external_callsite,Final method; external unqualified callsites are subclass/internal
+graphics/native/NativeToolkit.java,NativeToolkit,method3922,instance_external_callsite,Final method; external unqualified callsites are subclass/internal

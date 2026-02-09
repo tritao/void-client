@@ -5,7 +5,11 @@ import unittest
 from pathlib import Path
 
 from tools.refactor.common.java_index import JavaIndex
-from tools.refactor.cli.remap_cleanup_owners import _remap_owner_columns
+from tools.refactor.cli.remap_cleanup_owners import (
+    _append_signature_promotions,
+    _load_guard_promotion_rows,
+    _remap_owner_columns,
+)
 
 
 class RemapCleanupOwnersTests(unittest.TestCase):
@@ -88,6 +92,57 @@ class RemapCleanupOwnersTests(unittest.TestCase):
             self.assertEqual(warnings, [])
             self.assertEqual(out[0]["owner_class"], "NewOwner")
             self.assertEqual(out[0]["file"], "callsite/Caller.java")
+
+    def test_load_guard_promotion_rows_from_unified_candidates(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            plan_dir = Path(tmp) / ".refactor-plan"
+            generated = plan_dir / "generated"
+            generated.mkdir(parents=True)
+            (generated / "unified_cleanup_candidates.csv").write_text(
+                (
+                    "id,kind,file,owner,member,rule_type,match,dependency,confidence,action_hint,notes,gate_status,gate_reason\n"
+                    "root:1,method,client/Foo.java,Foo,bar,guard_param,if (i != 0) return;, ,high,signature_rewrites.drop_param+drop_statement_contains,n,auto,\n"
+                    "caller:1,line_contains,client/Foo.java,Foo,bar,guard_dead_by_callers,bar[0] != 0,root:1,high,signature_rewrites.drop_statement_contains,n,auto,\n"
+                ),
+                encoding="utf-8",
+            )
+            rows = _load_guard_promotion_rows(plan_dir)
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["file"], "client/Foo.java")
+            self.assertEqual(rows[0]["owner"], "Foo")
+            self.assertEqual(rows[0]["method"], "bar")
+            self.assertEqual(rows[0]["op"], "drop_statement_contains")
+            self.assertEqual(rows[0]["match_text"], "if (i != 0) return;")
+
+    def test_append_signature_promotions_dedupes(self) -> None:
+        existing = [
+            {
+                "file": "client/Foo.java",
+                "owner": "Foo",
+                "method": "bar",
+                "op": "drop_statement_contains",
+                "match_text": "if (i != 0) return;",
+            }
+        ]
+        promoted = [
+            {
+                "file": "client/Foo.java",
+                "owner": "Foo",
+                "method": "bar",
+                "op": "drop_statement_contains",
+                "match_text": "if (i != 0) return;",
+            },
+            {
+                "file": "client/Foo.java",
+                "owner": "Foo",
+                "method": "bar",
+                "op": "drop_statement_contains",
+                "match_text": "if (i != 1) return;",
+            },
+        ]
+        out, added = _append_signature_promotions(existing, promoted)
+        self.assertEqual(added, 1)
+        self.assertEqual(len(out), 2)
 
 
 if __name__ == "__main__":

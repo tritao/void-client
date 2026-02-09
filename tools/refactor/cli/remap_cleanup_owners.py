@@ -25,11 +25,87 @@ CLEANUP_PLAN_FILES = [
     "signature_rewrites.csv",
     "call_rewrites.csv",
     "call_arg_rewrites.csv",
-    "method_identifier_rewrites.csv",
-    "file_identifier_rewrites.csv",
-    "qualified_call_rewrites.csv",
     "drop_members.csv",
 ]
+
+
+def _load_guard_promotion_rows(plan_dir: Path) -> list[dict[str, str]]:
+    path = plan_dir / "generated" / "unified_cleanup_candidates.csv"
+    header, rows = read_csv_dict_rows(path)
+    if not header:
+        return []
+    by_id = {(row.get("id") or "").strip(): row for row in rows if (row.get("id") or "").strip()}
+    out: list[dict[str, str]] = []
+    for row in rows:
+        if (row.get("rule_type") or "").strip() != "guard_dead_by_callers":
+            continue
+        if (row.get("confidence") or "").strip().lower() != "high":
+            continue
+        gate_status = (row.get("gate_status") or "").strip().lower()
+        if gate_status and gate_status != "auto":
+            continue
+        dep = (row.get("dependency") or "").strip()
+        root = by_id.get(dep, {})
+        match_text = (root.get("match") or "").strip()
+        if not match_text:
+            continue
+        file = (row.get("file") or "").strip()
+        owner = (row.get("owner") or "").strip()
+        method = (row.get("member") or "").strip()
+        if not (file and owner and method):
+            continue
+        note_reason = (row.get("gate_reason") or "").strip() or "auto"
+        out.append(
+            {
+                "file": file,
+                "owner": owner,
+                "method": method,
+                "signature_before": "()",
+                "signature_after": "()",
+                "op": "drop_statement_contains",
+                "param_index": "",
+                "new_name": "",
+                "match_text": match_text,
+                "phase": "cleanup",
+                "status": "approved",
+                "notes": f"Auto-promoted from unified cleanup ({note_reason})",
+            }
+        )
+    return out
+
+
+def _append_signature_promotions(
+    rows: list[dict[str, str]],
+    promoted_rows: list[dict[str, str]],
+) -> tuple[list[dict[str, str]], int]:
+    keys = {
+        (
+            (row.get("file") or "").strip(),
+            (row.get("owner") or "").strip(),
+            (row.get("method") or "").strip(),
+            (row.get("op") or "").strip(),
+            (row.get("match_text") or "").strip(),
+        )
+        for row in rows
+    }
+    out = list(rows)
+    added = 0
+    for row in promoted_rows:
+        key = (
+            (row.get("file") or "").strip(),
+            (row.get("owner") or "").strip(),
+            (row.get("method") or "").strip(),
+            (row.get("op") or "").strip(),
+            (row.get("match_text") or "").strip(),
+        )
+        if not all(key):
+            continue
+        if key in keys:
+            continue
+        keys.add(key)
+        out.append(row)
+        added += 1
+    return out, added
 
 
 def _load_aliases(plan_dir: Path) -> dict[tuple[str, str, str], set[str]]:
@@ -190,21 +266,25 @@ def main() -> int:
     total_rows = 0
     total_remapped = 0
     total_file_remapped = 0
+    total_promoted = 0
     warnings: list[str] = []
+    promoted_rows = _load_guard_promotion_rows(args.plan_dir)
 
     for name in CLEANUP_PLAN_FILES:
         src = args.plan_dir / name
         header, rows = read_csv_dict_rows(src)
         if not header:
             continue
+        if name == "signature_rewrites.csv" and promoted_rows:
+            rows, added = _append_signature_promotions(rows, promoted_rows)
+            total_promoted += added
         total_rows += len(rows)
-        allow_file_remap = name not in {"call_rewrites.csv", "call_arg_rewrites.csv", "qualified_call_rewrites.csv"}
         remapped_rows, remapped, file_remapped, file_warnings = _remap_owner_columns(
             rows=rows,
             aliases=aliases,
             move_targets=move_targets,
             java_index=java_index,
-            allow_file_remap=allow_file_remap,
+            allow_file_remap=name not in {"call_rewrites.csv", "call_arg_rewrites.csv"},
         )
         total_remapped += remapped
         total_file_remapped += file_remapped
@@ -215,6 +295,7 @@ def main() -> int:
         "rows": total_rows,
         "owner_remaps": total_remapped,
         "file_remaps": total_file_remapped,
+        "promoted_signature_rows": total_promoted,
         "warnings": warnings,
         "out_dir": str(args.out_dir),
     }
@@ -228,6 +309,7 @@ def main() -> int:
         rows=total_rows,
         owner_remaps=total_remapped,
         file_remaps=total_file_remapped,
+        promoted_signature_rows=total_promoted,
         out=args.out_dir,
     )
     if warnings:

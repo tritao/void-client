@@ -21,7 +21,7 @@ SCHEMA = [
     "notes",
 ]
 
-VALID_ACTIONS = {"rename", "extract", "class_rename", "defer"}
+VALID_ACTIONS = {"rename", "extract", "class_rename", "defer", "scoped_fallback"}
 VALID_KINDS = {"type", "method", "field", "param", "local", "class", "static_init"}
 VALID_PHASES = {"core", "module", "cleanup", "split"}
 VALID_CONFIDENCE = {"low", "medium", "high"}

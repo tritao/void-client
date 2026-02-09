@@ -1,0 +1,20 @@
+# file,owner,method,reason,notes
+file,owner,method,reason,notes
+client/GameShell.java,GameShell,method87,instance_inheritance_boundary,Has descendant override
+game/entity/Actor.java,Actor,method2426,instance_inheritance_boundary,Has descendant override
+game/entity/Actor.java,Actor,method2436,instance_inheritance_boundary,Has descendant override
+graphics/directx/DirectXShaderEffect.java,DirectXShaderEffect,method3522,instance_inheritance_boundary,Polymorphic shader hierarchy
+graphics/directx/DirectXShaderEffect.java,DirectXShaderEffect,method3523,instance_inheritance_boundary,Polymorphic shader hierarchy
+graphics/directx/DirectXShaderEffect.java,DirectXShaderEffect,method3524,instance_inheritance_boundary,Polymorphic shader hierarchy
+graphics/directx/DirectXShaderEffect.java,DirectXShaderEffect,method3531,instance_inheritance_boundary,Polymorphic shader hierarchy
+graphics/native/NativeToolkit.java,NativeToolkit,method3832,instance_inheritance_boundary,Native toolkit subclasses override
+graphics/native/NativeToolkit.java,NativeToolkit,method3882,instance_inheritance_boundary,Native toolkit subclasses override
+graphics/opengl/OpenGLBuffer.java,OpenGLBuffer,method23,instance_inheritance_boundary,Buffer subclass override exists
+graphics/postfx/PostProcessor.java,PostProcessor,method2761,instance_inheritance_boundary,Subclass override exists
+graphics/procedural/PerlinNoiseAccumulatorGenerator.java,PerlinNoiseAccumulatorGenerator,method563,instance_inheritance_boundary,Subclasses diverge on guard behavior
+graphics/procedural/PerlinNoiseByteGenerator.java,PerlinNoiseByteGenerator,method550,instance_inheritance_boundary,Subclasses diverge on guard behavior
+graphics/textureops/TextureOp.java,TextureOp,method3044,instance_inheritance_boundary,Large subclass hierarchy with overrides
+graphics/textureops/TextureOp.java,TextureOp,method3046,instance_inheritance_boundary,Large subclass hierarchy with overrides
+graphics/textureops/TextureOp.java,TextureOp,method3047,instance_inheritance_boundary,Large subclass hierarchy with overrides
+graphics/textureops/TextureOp.java,TextureOp,method3049,instance_inheritance_boundary,Large subclass hierarchy with overrides
+world/scene/SceneGraphNode.java,SceneGraphNode,method2393,instance_inheritance_boundary,Scene node subclasses override

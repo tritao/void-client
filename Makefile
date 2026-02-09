@@ -80,8 +80,8 @@ endif
 .PHONY: static-split-candidates extract-statics extract-statics-dry check-static-extract extract-statics-loop
 .PHONY: refactor-loop refactor-loop-dry
 .PHONY: build-refactor-views build-refactor-class-view migrate-refactor-plan cleanup-refactor
-.PHONY: cleanup-candidates cleanup-apply-high cleanup-report
-.PHONY: build-cleanup-plan preflight-cleanup-refactor
+.PHONY: cleanup-candidates cleanup-unified-candidates cleanup-unified-medium-report cleanup-apply-high cleanup-report
+.PHONY: build-cleanup-plan preflight-cleanup-refactor promote-scoped-fallback
 .PHONY: clean-refactor-cache
 .PHONY: test-refactor-tools test-refactor-tools-fast test-refactor-tools-full verify-refactor-tooling
 
@@ -133,7 +133,10 @@ help:
 	@echo "  make cleanup-refactor - apply post-rebuild cleanup pass in client/refactor"
 	@echo "  make build-cleanup-plan - generate cleanup plan with owner remaps in generated/"
 	@echo "  make preflight-cleanup-refactor - fail-fast validation for generated cleanup plan"
+	@echo "  make promote-scoped-fallback - promote approved scoped fallback rows into module *.rename.csv"
 	@echo "  make cleanup-candidates - detect high-confidence cleanup candidates and write reports"
+	@echo "  make cleanup-unified-candidates - detect guard roots + fallout dependencies"
+	@echo "  make cleanup-unified-medium-report - summarize remaining medium caller-guard candidates by reason"
 	@echo "  make cleanup-apply-high - merge high-confidence candidates into drop_members.csv"
 	@echo "  make cleanup-report - regenerate docs/cleanup-candidates.md from detector output"
 	@echo "  make test-refactor-tools-fast - run fast core unit tests for refactor tooling"
@@ -154,6 +157,8 @@ help:
 	@echo "  EXTRACT_RUST_CALLSITES=build (extract callsite backend: off|auto|build)"
 	@echo "  FAST_VALIDATE=1          (refactor-loop only: skip expensive global extract callsite validation)"
 	@echo "  LOOP_FAST_COMPILE=1      (refactor-loop only: use ECJ fast compile check)"
+	@echo "  CLEANUP_DRIFT_WARN_RATIO=0.90 (preflight warning threshold for unmatched cleanup ratio)"
+	@echo "  CLEANUP_DRIFT_FAIL_RATIO=0.98 (optional preflight failure threshold for unmatched cleanup ratio)"
 	@echo "  PROFILE=1                (write stage timings to $(PROFILE_FILE) for rebuild-refactor/refactor-loop)"
 	@echo ""
 	@echo "Tip:"
@@ -311,15 +316,27 @@ $(REFACTOR_CLEANUP_STAMP): tools/refactor/cli/apply_refactor_cleanup.py $(REFACT
 
 cleanup-refactor:
 	@$(REF_PY) -m tools.refactor.cli.apply_refactor_cleanup --src-dir client/refactor --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)"
+	@$(REF_PY) -m tools.refactor.cli.prune_cleanup_plan --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --summary-json build/refactor-state/cleanup-apply-summary.json
 
 build-cleanup-plan:
+	@$(REF_PY) -m tools.refactor.cleanup.candidate_detector --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/unified_cleanup_candidates.csv --out-graph client/refactor/.refactor-plan/generated/unified_cleanup_graph.json
 	@$(REF_PY) -m tools.refactor.cli.remap_cleanup_owners --plan-dir client/refactor/.refactor-plan --manifest-dir client/refactor/.refactor-plan/extract-statics/generated --out-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --fail-on-warnings
+	@$(REF_PY) -m tools.refactor.cli.prune_cleanup_plan --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --summary-json build/refactor-state/cleanup-apply-summary.json
 
 preflight-cleanup-refactor:
-	@$(REF_PY) -m tools.refactor.cli.preflight_refactor_cleanup --src-dir client/refactor --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)"
+	@$(REF_PY) -m tools.refactor.cli.preflight_refactor_cleanup --src-dir client/refactor --plan-dir "$(REFACTOR_CLEANUP_PLAN_DIR)" --drift-warn-ratio "$${CLEANUP_DRIFT_WARN_RATIO:-0.90}" $${CLEANUP_DRIFT_FAIL_RATIO:+--drift-fail-ratio $$CLEANUP_DRIFT_FAIL_RATIO}
+
+promote-scoped-fallback:
+	@$(REF_PY) -m tools.refactor.orchestration.promote_scoped_fallbacks --plan-dir client/refactor/.refactor-plan
 
 cleanup-candidates:
 	@$(REF_PY) -m tools.refactor.cleanup.find_cleanup_candidates --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/cleanup_candidates.csv --out-md docs/cleanup-candidates.md
+
+cleanup-unified-candidates:
+	@$(REF_PY) -m tools.refactor.cleanup.candidate_detector --src-dir client/refactor --out-csv client/refactor/.refactor-plan/generated/unified_cleanup_candidates.csv --out-graph client/refactor/.refactor-plan/generated/unified_cleanup_graph.json
+
+cleanup-unified-medium-report:
+	@$(REF_PY) -m tools.refactor.cleanup.report_caller_guard_mediums --in-csv client/refactor/.refactor-plan/generated/unified_cleanup_candidates.csv --out-md docs/cleanup-unified-mediums.md
 
 cleanup-apply-high:
 	@$(REF_PY) -m tools.refactor.cleanup.apply_cleanup_candidates --candidates client/refactor/.refactor-plan/generated/cleanup_candidates.csv --drop-members client/refactor/.refactor-plan/drop_members.csv --confidence high
@@ -382,6 +399,8 @@ migrate-refactor-plan:
 test-refactor-tools-fast:
 	@$(REF_PY) -m unittest -v \
 		tools.refactor.tests.test_apply_cleanup_candidates \
+		tools.refactor.tests.test_manual_guard_regression \
+		tools.refactor.tests.test_report_caller_guard_mediums \
 		tools.refactor.tests.test_remap_cleanup_owners \
 		tools.refactor.tests.test_signature_rewrite_semantic
 

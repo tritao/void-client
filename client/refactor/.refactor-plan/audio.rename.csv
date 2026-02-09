@@ -48,6 +48,7 @@ field,RawSound,RawSound,,,,anInt8986,loopStart,RawSound,module,high,approved,
 field,RawSound,RawSound,,,,anInt8988,sampleRate,RawSound,module,high,approved,
 local,RawSound,RawSound,,,,class348_sub19_sub1,rawSound,RawSound,module,high,approved,
 method,RawSound,RawSound,,,,method2944,resample,RawSound,module,high,approved,
+method,MusicPatch,MusicPatch,,,,method2929,createTracedRuntimeException,MusicPatch,module,high,approved,Wrap throwable with traced runtime exception context and append callsite metadata
 field,SoundCache,SoundCache,,,,aClass356_374,vorbisSampleCache,SoundCache,module,high,approved,
 field,SoundCache,SoundCache,,,,aClass356_381,rawSoundCache,SoundCache,module,high,approved,
 field,SoundCache,SoundCache,,,,aClass45_377,vorbisSampleArchive,SoundCache,module,high,approved,[auto-conflict-resolve: SoundCache:aClass45_377 -> vorbisSampleArchive]
@@ -62,3 +63,9 @@ local,SoundEffectRequest,SoundEffectRequest,,,,class10,soundEffectRequestVar,Sou
 local,SoundEffectRequest,SoundEffectRequest,,,,class10s,soundEffectRequestVars,SoundEffectRequest,module,high,approved,
 local,TextureConfig,TextureConfig,,,,class12,textureConfigVar,TextureConfig,module,high,approved,
 local,TextureConfig,TextureConfig,,,,class12s,textureConfigVars,TextureConfig,module,high,approved,
+local,audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,,,i,delay,ClientHashAndSoundUtil,cleanup,high,approved,Delay before area sound plays [migrated:method_identifier_rewrites]
+local,audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,,,i_3_,packedPosition,ClientHashAndSoundUtil,cleanup,high,approved,Packed area-sound position and plane bits [migrated:method_identifier_rewrites]
+local,audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,,,i_4_,radius,ClientHashAndSoundUtil,cleanup,high,approved,Area-sound radius [migrated:method_identifier_rewrites]
+local,audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,,,i_5_,loops,ClientHashAndSoundUtil,cleanup,high,approved,Loop count for area sound [migrated:method_identifier_rewrites]
+local,audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,,,i_6_,area,ClientHashAndSoundUtil,cleanup,high,approved,Area attenuation/profile value [migrated:method_identifier_rewrites]
+local,audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,,,i_7_,soundEffectId,ClientHashAndSoundUtil,cleanup,high,approved,Sound effect id [migrated:method_identifier_rewrites]

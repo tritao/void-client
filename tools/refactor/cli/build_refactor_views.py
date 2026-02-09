@@ -196,14 +196,19 @@ def _validate(rows: list[PlanRow], refactor_src: Path) -> tuple[list[str], list[
                 if not (d["action"] == "extract" and d["file"] in extract_target_files):
                     errors.append(f"{prefix}: file path does not exist under refactor: '{d['file']}'")
 
-        if d["action"] == "rename":
+        if d["action"] in {"rename", "scoped_fallback"}:
             if not d["old"] or not d["new"]:
-                errors.append(f"{prefix}: rename requires old,new")
+                errors.append(f"{prefix}: {d['action']} requires old,new")
             scope = d["scope"] or d["file"] or "<global>"
             kind = (d["kind"] or "").strip().lower()
             member_scope = (d["member"] or "").strip() if kind in ("local", "param") else ""
             rename_conflicts[(scope, kind, member_scope, d["old"])].add(d["new"])
             rename_targets[(scope, kind, member_scope, d["new"])].add(d["old"])
+            if d["action"] == "scoped_fallback":
+                if not d["file"] or not d["owner"]:
+                    errors.append(f"{prefix}: scoped_fallback requires file,owner")
+                if kind in ("local", "param") and not d["member"]:
+                    errors.append(f"{prefix}: scoped_fallback kind={kind} requires member")
 
             if d["kind"] == "method" and not d["signature"] and d["old"] and refactor_has_java:
                 candidates = _resolve_java_file(d)
@@ -285,7 +290,7 @@ def _emit_symbol_views(rows: list[PlanRow], out_root_csv: Path, out_dir: Path, w
     latest_by_scope_old: dict[tuple[str, str, str, str], PlanRow] = {}
     for row in rows:
         d = row.data
-        if d["action"] != "rename":
+        if d["action"] not in {"rename", "scoped_fallback"}:
             continue
         if d["kind"] not in ("type", "method", "field", "param", "local"):
             continue

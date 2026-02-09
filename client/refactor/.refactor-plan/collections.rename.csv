@@ -143,6 +143,11 @@ field,LinkedNodeHashTable,LinkedNodeHashTable,,,,anInt448,bucketCount,LinkedNode
 method,LinkedNodeHashTable,LinkedNodeHashTable,,,,method334,get,LinkedNodeHashTable,module,high,approved,Lookup first secondary node by key
 method,LinkedNodeHashTable,LinkedNodeHashTable,,,,method335,put,LinkedNodeHashTable,module,high,approved,Insert secondary node by key
 method,LinkedNodeHashTable,LinkedNodeHashTable,,,,method336,nextWithKey,LinkedNodeHashTable,module,high,approved,Continue lookup for duplicate key
+local,LinkedNodeHashTable,LinkedNodeHashTable,get,,,class348_sub42,bucketNode,LinkedNodeHashTable,module,high,approved,Bucket sentinel/local node in get traversal
+local,LinkedNodeHashTable,LinkedNodeHashTable,get,,,class348_sub42_0_,foundNode,LinkedNodeHashTable,module,high,approved,Matched node returned by get
+local,LinkedNodeHashTable,LinkedNodeHashTable,put,,,class348_sub42_1_,bucketSentinel,LinkedNodeHashTable,module,high,approved,Target bucket sentinel in put
+local,LinkedNodeHashTable,LinkedNodeHashTable,nextWithKey,,,class348_sub42,bucketNode,LinkedNodeHashTable,module,high,approved,Bucket sentinel/local node in nextWithKey traversal
+local,LinkedNodeHashTable,LinkedNodeHashTable,nextWithKey,,,class348_sub42_3_,foundNode,LinkedNodeHashTable,module,high,approved,Matched node returned by nextWithKey
 field,Node,Node,,,,aClass348_4294,next,Node,module,high,approved,Next node in intrusive list
 field,Node,Node,,,,aClass348_4295,prev,Node,module,high,approved,Previous node in intrusive list
 field,Node,Node,,,,aLong4291,key,Node,module,high,approved,Node key used by HashTable/NodeDeque
@@ -191,102 +196,102 @@ field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aBoolean3174,worldMapInteract
 field,ReferenceNodeFactory,ReferenceNodeFactory,,,,anInt3176,activeWidgetParamId,ReferenceNodeFactory,module,high,approved,Selected widget param id used by debug/interaction filters
 field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aFloat3177,previousBrightnessValue,ReferenceNodeFactory,module,high,approved,Previous brightness value used for interpolation
 field,ReferenceNodeFactory,ReferenceNodeFactory,,,,aClass143_3179,loadingFontMetrics,ReferenceNodeFactory,module,high,approved,Font metrics used by loading/map overlay text rendering
-field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1647,sentinel,SecondaryLinkedList,module,high,approved,List sentinel node
-field,SecondaryLinkedList,SecondaryLinkedList,,,,aClass348_Sub42_1652,iterCursor,SecondaryLinkedList,module,high,approved,Iteration cursor
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1002,size,SecondaryLinkedList,module,high,approved,Count nodes in list
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1003,next,SecondaryLinkedList,module,high,approved,Get next secondary node from iterator cursor
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1004,clearStaticState,SecondaryLinkedList,module,high,approved,
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1005,addLast,SecondaryLinkedList,module,high,approved,Insert secondary node at tail
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1006,resetWorldMapRenderState,SecondaryLinkedList,module,high,approved,
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1007,renderMinimap,SecondaryLinkedList,module,high,approved,
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1008,removeFirst,SecondaryLinkedList,module,high,approved,Remove and return first secondary node
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1009,clear,SecondaryLinkedList,module,high,approved,Unlink all secondary nodes
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1010,applyProjectionViewportProfile,SecondaryLinkedList,module,high,approved,
-method,SecondaryLinkedList,SecondaryLinkedList,,,,method1011,first,SecondaryLinkedList,module,high,approved,Get first secondary node and set iterator cursor
-local,SecondaryLinkedList,SecondaryLinkedList,size,,,i,initialCount,SecondaryLinkedList,module,high,approved,Initial count offset before traversal
-local,SecondaryLinkedList,SecondaryLinkedList,next,,,i,guardByte,SecondaryLinkedList,module,medium,approved,Decompiler guard byte parameter
-local,SecondaryLinkedList,SecondaryLinkedList,clearStaticState,,,i,guardByte,SecondaryLinkedList,module,medium,approved,Decompiler guard byte parameter
-local,SecondaryLinkedList,SecondaryLinkedList,removeFirst,,,i,guardValue,SecondaryLinkedList,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedList,SecondaryLinkedList,clear,,,i,guardValue,SecondaryLinkedList,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedList,SecondaryLinkedList,first,,,i,guardValue,SecondaryLinkedList,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool,isFriend,SecondaryLinkedList,module,high,approved,Whether player is marked in friend list arrays
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool_30_,isIgnoreEntry,SecondaryLinkedList,module,high,approved,Whether player appears in ignore list array
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,bool_32_,isSameTeam,SecondaryLinkedList,module,high,approved,Whether player shares team id
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,class348_sub35,mapIconNode,SecondaryLinkedList,module,high,approved,Node containing map icon index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,class348_sub37,mapElementNode,SecondaryLinkedList,module,high,approved,Dynamic map element node
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_10_,iconTileX,SecondaryLinkedList,module,high,approved,Map icon tile X
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_11_,iconTileY,SecondaryLinkedList,module,high,approved,Map icon tile Y
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_12_,iconDeltaX,SecondaryLinkedList,module,high,approved,Map icon minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_13_,iconDeltaY,SecondaryLinkedList,module,high,approved,Map icon minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_14_,mapObjectIndex,SecondaryLinkedList,module,high,approved,Scene map object icon loop index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_15_,mapObjectDeltaX,SecondaryLinkedList,module,high,approved,Scene map object minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_16_,mapObjectDeltaY,SecondaryLinkedList,module,high,approved,Scene map object minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_17_,mapElementPlane,SecondaryLinkedList,module,high,approved,Dynamic map element plane
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_18_,mapElementTileX,SecondaryLinkedList,module,high,approved,Dynamic map element tile X
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_19_,mapElementTileY,SecondaryLinkedList,module,high,approved,Dynamic map element tile Y
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_20_,mapElementDeltaX,SecondaryLinkedList,module,high,approved,Dynamic map element minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_21_,mapElementDeltaY,SecondaryLinkedList,module,high,approved,Dynamic map element minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_22_,npcListIndex,SecondaryLinkedList,module,high,approved,NPC list iteration index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_23_,npcDeltaX,SecondaryLinkedList,module,high,approved,NPC minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_24_,npcDeltaY,SecondaryLinkedList,module,high,approved,NPC minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_25_,activePlayerCount,SecondaryLinkedList,module,high,approved,Active tracked player count
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_26_,playerListIndex,SecondaryLinkedList,module,high,approved,Player list iteration index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_27_,playerDeltaX,SecondaryLinkedList,module,high,approved,Player minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_28_,playerDeltaY,SecondaryLinkedList,module,high,approved,Player minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_29_,friendCheckIndex,SecondaryLinkedList,module,high,approved,Friend check loop index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_31_,ignoreCheckIndex,SecondaryLinkedList,module,high,approved,Ignore check loop index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_33_,hintArrowIndex,SecondaryLinkedList,module,high,approved,Hint arrow slot index
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_34_,hintNpcDeltaX,SecondaryLinkedList,module,high,approved,Hint NPC minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_35_,hintNpcDeltaY,SecondaryLinkedList,module,high,approved,Hint NPC minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_36_,hintWorldDeltaX,SecondaryLinkedList,module,high,approved,Hint world target minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_37_,hintWorldDeltaY,SecondaryLinkedList,module,high,approved,Hint world target minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_38_,hintPlayerDeltaX,SecondaryLinkedList,module,high,approved,Hint player minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_39_,hintPlayerDeltaY,SecondaryLinkedList,module,high,approved,Hint player minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_3_,cameraY,SecondaryLinkedList,module,high,approved,Current minimap camera Y world coord
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_40_,destinationDeltaX,SecondaryLinkedList,module,high,approved,Destination marker minimap X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_41_,destinationDeltaY,SecondaryLinkedList,module,high,approved,Destination marker minimap Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_4_,cameraX,SecondaryLinkedList,module,high,approved,Current minimap camera X world coord
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_5_,minimapZoom,SecondaryLinkedList,module,high,approved,Minimap zoom scalar
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_6_,cameraYaw,SecondaryLinkedList,module,high,approved,Minimap camera yaw
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_7_,mapCenterX,SecondaryLinkedList,module,high,approved,Minimap center X offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_8_,mapCenterY,SecondaryLinkedList,module,high,approved,Minimap center Y offset
-local,SecondaryLinkedList,SecondaryLinkedList,renderMinimap,,,i_9_,iconIndex,SecondaryLinkedList,module,high,approved,Map icon index into world map arrays
-field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aClass107_2118,list,SecondaryLinkedListIterator,module,high,approved,
-field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aClass348_Sub42_2115,cursor,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1238,hasBit0x800,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1239,clearStaticState,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1240,first,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1241,hasOverlayInteractionBits,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1242,reportClientError,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,method1243,next,SecondaryLinkedListIterator,module,high,approved,
-method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method720,clearClientCachesWithBudget,SecondaryLinkedNodeUtil,module,high,approved,
-method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method721,linkSecondaryBefore,SecondaryLinkedNodeUtil,module,high,approved,
-method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method722,clearStaticState,SecondaryLinkedNodeUtil,module,high,approved,
-method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method723,hasPrimaryOcclusionFlags,SecondaryLinkedNodeUtil,module,high,approved,
-method,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,method724,hasAnyOcclusionFlags,SecondaryLinkedNodeUtil,module,high,approved,
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1651,viewportHeight,SecondaryLinkedList,module,high,approved,Current viewport height used across rendering/layout code
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anIntArray1650,glDeleteHandleBuffer,SecondaryLinkedList,module,high,approved,Scratch int buffer used for batched GL object deletes
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1645,currentDisplayMode,SecondaryLinkedList,module,medium,approved,Current display/window mode value used by script and GL paths
-field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aStringArray2113,wrappedTextLines,SecondaryLinkedListIterator,module,high,approved,Shared wrapped-lines buffer used by font renderer
-field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,anIntArray2117,occluderDepthByColumn,SecondaryLinkedListIterator,module,medium,approved,Per-column occluder depth buffer used in scene visibility passes
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,anInt1200,activeOccluderCount,SecondaryLinkedNodeUtil,module,high,approved,Current active occluder count emitted for scene rendering
-local,SecondaryLinkedList,SecondaryLinkedList,size,,,i_0_,count,SecondaryLinkedList,module,high,approved,Current running node count
-local,SecondaryLinkedList,SecondaryLinkedList,size,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Secondary node iterator variable
-local,SecondaryLinkedList,SecondaryLinkedList,next,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Iterator return node
-local,SecondaryLinkedList,SecondaryLinkedList,addLast,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Node being inserted at list tail
-local,SecondaryLinkedList,SecondaryLinkedList,removeFirst,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,First node being removed
-local,SecondaryLinkedList,SecondaryLinkedList,clear,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,Node being unlinked during clear loop
-local,SecondaryLinkedList,SecondaryLinkedList,first,,,class348_sub42,node,SecondaryLinkedList,module,high,approved,First node returned by iterator reset
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,first,,,class348_sub42,node,SecondaryLinkedListIterator,module,high,approved,First node returned by iterator start
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,next,,,class348_sub42,node,SecondaryLinkedListIterator,module,high,approved,Next node returned by iterator
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,class348_sub42,beforeNode,SecondaryLinkedNodeUtil,module,high,approved,Anchor node that receives insertion before it
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,class348_sub42_1_,nodeToInsert,SecondaryLinkedNodeUtil,module,high,approved,Node inserted before anchor
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1195,indexProgressHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by IndexProgressProvider
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1197,billboardTypeHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by BillboardTypeList
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1198,indexGroupHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by IndexGroupLoader
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass69_1199,downloadTaskHandle,SecondaryLinkedNodeUtil,module,high,approved,Resource handle token returned by ResourceDownloadTask
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,aClass173_1201,blendModeAdditive,SecondaryLinkedNodeUtil,module,high,approved,Blend-mode token selecting additive blending in native toolkits
-field,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,,,,anInt1202,viewportCenterX,SecondaryLinkedNodeUtil,module,high,approved,Projected viewport center X used by scene/world-map screen coordinate transforms
+field,SecondaryNodeList,SecondaryNodeList,,,,aClass348_Sub42_1647,sentinel,SecondaryNodeList,module,high,approved,List sentinel node
+field,SecondaryNodeList,SecondaryNodeList,,,,aClass348_Sub42_1652,iterCursor,SecondaryNodeList,module,high,approved,Iteration cursor
+method,SecondaryNodeList,SecondaryNodeList,,,,method1002,size,SecondaryNodeList,module,high,approved,Count nodes in list
+method,SecondaryNodeList,SecondaryNodeList,,,,method1003,next,SecondaryNodeList,module,high,approved,Get next secondary node from iterator cursor
+method,SecondaryNodeList,SecondaryNodeList,,,,method1004,clearStaticState,SecondaryNodeList,module,high,approved,
+method,SecondaryNodeList,SecondaryNodeList,,,,method1005,addLast,SecondaryNodeList,module,high,approved,Insert secondary node at tail
+method,SecondaryNodeList,SecondaryNodeList,,,,method1006,resetWorldMapRenderState,SecondaryNodeList,module,high,approved,
+method,SecondaryNodeList,SecondaryNodeList,,,,method1007,renderMinimap,SecondaryNodeList,module,high,approved,
+method,SecondaryNodeList,SecondaryNodeList,,,,method1008,removeFirst,SecondaryNodeList,module,high,approved,Remove and return first secondary node
+method,SecondaryNodeList,SecondaryNodeList,,,,method1009,clear,SecondaryNodeList,module,high,approved,Unlink all secondary nodes
+method,SecondaryNodeList,SecondaryNodeList,,,,method1010,applyProjectionViewportProfile,SecondaryNodeList,module,high,approved,
+method,SecondaryNodeList,SecondaryNodeList,,,,method1011,first,SecondaryNodeList,module,high,approved,Get first secondary node and set iterator cursor
+local,SecondaryNodeList,SecondaryNodeList,size,,,i,initialCount,SecondaryNodeList,module,high,approved,Initial count offset before traversal
+local,SecondaryNodeList,SecondaryNodeList,next,,,i,guardByte,SecondaryNodeList,module,medium,approved,Decompiler guard byte parameter
+local,SecondaryNodeList,SecondaryNodeList,clearStaticState,,,i,guardByte,SecondaryNodeList,module,medium,approved,Decompiler guard byte parameter
+local,SecondaryNodeList,SecondaryNodeList,removeFirst,,,i,guardValue,SecondaryNodeList,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeList,SecondaryNodeList,clear,,,i,guardValue,SecondaryNodeList,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeList,SecondaryNodeList,first,,,i,guardValue,SecondaryNodeList,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,bool,isFriend,SecondaryNodeList,module,high,approved,Whether player is marked in friend list arrays
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,bool_30_,isIgnoreEntry,SecondaryNodeList,module,high,approved,Whether player appears in ignore list array
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,bool_32_,isSameTeam,SecondaryNodeList,module,high,approved,Whether player shares team id
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,class348_sub35,mapIconNode,SecondaryNodeList,module,high,approved,Node containing map icon index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,class348_sub37,mapElementNode,SecondaryNodeList,module,high,approved,Dynamic map element node
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_10_,iconTileX,SecondaryNodeList,module,high,approved,Map icon tile X
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_11_,iconTileY,SecondaryNodeList,module,high,approved,Map icon tile Y
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_12_,iconDeltaX,SecondaryNodeList,module,high,approved,Map icon minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_13_,iconDeltaY,SecondaryNodeList,module,high,approved,Map icon minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_14_,mapObjectIndex,SecondaryNodeList,module,high,approved,Scene map object icon loop index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_15_,mapObjectDeltaX,SecondaryNodeList,module,high,approved,Scene map object minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_16_,mapObjectDeltaY,SecondaryNodeList,module,high,approved,Scene map object minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_17_,mapElementPlane,SecondaryNodeList,module,high,approved,Dynamic map element plane
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_18_,mapElementTileX,SecondaryNodeList,module,high,approved,Dynamic map element tile X
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_19_,mapElementTileY,SecondaryNodeList,module,high,approved,Dynamic map element tile Y
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_20_,mapElementDeltaX,SecondaryNodeList,module,high,approved,Dynamic map element minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_21_,mapElementDeltaY,SecondaryNodeList,module,high,approved,Dynamic map element minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_22_,npcListIndex,SecondaryNodeList,module,high,approved,NPC list iteration index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_23_,npcDeltaX,SecondaryNodeList,module,high,approved,NPC minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_24_,npcDeltaY,SecondaryNodeList,module,high,approved,NPC minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_25_,activePlayerCount,SecondaryNodeList,module,high,approved,Active tracked player count
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_26_,playerListIndex,SecondaryNodeList,module,high,approved,Player list iteration index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_27_,playerDeltaX,SecondaryNodeList,module,high,approved,Player minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_28_,playerDeltaY,SecondaryNodeList,module,high,approved,Player minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_29_,friendCheckIndex,SecondaryNodeList,module,high,approved,Friend check loop index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_31_,ignoreCheckIndex,SecondaryNodeList,module,high,approved,Ignore check loop index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_33_,hintArrowIndex,SecondaryNodeList,module,high,approved,Hint arrow slot index
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_34_,hintNpcDeltaX,SecondaryNodeList,module,high,approved,Hint NPC minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_35_,hintNpcDeltaY,SecondaryNodeList,module,high,approved,Hint NPC minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_36_,hintWorldDeltaX,SecondaryNodeList,module,high,approved,Hint world target minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_37_,hintWorldDeltaY,SecondaryNodeList,module,high,approved,Hint world target minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_38_,hintPlayerDeltaX,SecondaryNodeList,module,high,approved,Hint player minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_39_,hintPlayerDeltaY,SecondaryNodeList,module,high,approved,Hint player minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_3_,cameraY,SecondaryNodeList,module,high,approved,Current minimap camera Y world coord
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_40_,destinationDeltaX,SecondaryNodeList,module,high,approved,Destination marker minimap X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_41_,destinationDeltaY,SecondaryNodeList,module,high,approved,Destination marker minimap Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_4_,cameraX,SecondaryNodeList,module,high,approved,Current minimap camera X world coord
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_5_,minimapZoom,SecondaryNodeList,module,high,approved,Minimap zoom scalar
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_6_,cameraYaw,SecondaryNodeList,module,high,approved,Minimap camera yaw
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_7_,mapCenterX,SecondaryNodeList,module,high,approved,Minimap center X offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_8_,mapCenterY,SecondaryNodeList,module,high,approved,Minimap center Y offset
+local,SecondaryNodeList,SecondaryNodeList,renderMinimap,,,i_9_,iconIndex,SecondaryNodeList,module,high,approved,Map icon index into world map arrays
+field,SecondaryNodeIterator,SecondaryNodeIterator,,,,aClass107_2118,list,SecondaryNodeIterator,module,high,approved,
+field,SecondaryNodeIterator,SecondaryNodeIterator,,,,aClass348_Sub42_2115,cursor,SecondaryNodeIterator,module,high,approved,
+method,SecondaryNodeIterator,SecondaryNodeIterator,,,,method1238,hasOcclusionFlag0x800,SecondaryNodeIterator,module,high,approved,
+method,SecondaryNodeIterator,SecondaryNodeIterator,,,,method1239,clearStaticState,SecondaryNodeIterator,module,high,approved,
+method,SecondaryNodeIterator,SecondaryNodeIterator,,,,method1240,first,SecondaryNodeIterator,module,high,approved,
+method,SecondaryNodeIterator,SecondaryNodeIterator,,,,method1241,hasOverlayInteractionBits,SecondaryNodeIterator,module,high,approved,
+method,SecondaryNodeIterator,SecondaryNodeIterator,,,,method1242,reportClientError,SecondaryNodeIterator,module,high,approved,
+method,SecondaryNodeIterator,SecondaryNodeIterator,,,,method1243,next,SecondaryNodeIterator,module,high,approved,
+method,LoadResourceHandle,LoadResourceHandle,,,,method720,clearClientCachesWithBudget,LoadResourceHandle,module,high,approved,
+method,LoadResourceHandle,LoadResourceHandle,,,,method721,linkSecondaryBefore,LoadResourceHandle,module,high,approved,
+method,LoadResourceHandle,LoadResourceHandle,,,,method722,clearStaticState,LoadResourceHandle,module,high,approved,
+method,LoadResourceHandle,LoadResourceHandle,,,,method723,hasPrimaryOcclusionFlags,LoadResourceHandle,module,high,approved,
+method,LoadResourceHandle,LoadResourceHandle,,,,method724,hasAnyOcclusionFlags,LoadResourceHandle,module,high,approved,
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1651,viewportHeight,SecondaryNodeList,module,high,approved,Current viewport height used across rendering/layout code
+field,SecondaryNodeList,SecondaryNodeList,,,,anIntArray1650,glDeleteHandleBuffer,SecondaryNodeList,module,high,approved,Scratch int buffer used for batched GL object deletes
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1645,currentDisplayMode,SecondaryNodeList,module,medium,approved,Current display/window mode value used by script and GL paths
+field,SecondaryNodeIterator,SecondaryNodeIterator,,,,aStringArray2113,wrappedTextLines,SecondaryNodeIterator,module,high,approved,Shared wrapped-lines buffer used by font renderer
+field,SecondaryNodeIterator,SecondaryNodeIterator,,,,anIntArray2117,occluderDepthByColumn,SecondaryNodeIterator,module,medium,approved,Per-column occluder depth buffer used in scene visibility passes
+field,LoadResourceHandle,LoadResourceHandle,,,,anInt1200,activeOccluderCount,LoadResourceHandle,module,high,approved,Current active occluder count emitted for scene rendering
+local,SecondaryNodeList,SecondaryNodeList,size,,,i_0_,count,SecondaryNodeList,module,high,approved,Current running node count
+local,SecondaryNodeList,SecondaryNodeList,size,,,class348_sub42,node,SecondaryNodeList,module,high,approved,Secondary node iterator variable
+local,SecondaryNodeList,SecondaryNodeList,next,,,class348_sub42,node,SecondaryNodeList,module,high,approved,Iterator return node
+local,SecondaryNodeList,SecondaryNodeList,addLast,,,class348_sub42,node,SecondaryNodeList,module,high,approved,Node being inserted at list tail
+local,SecondaryNodeList,SecondaryNodeList,removeFirst,,,class348_sub42,node,SecondaryNodeList,module,high,approved,First node being removed
+local,SecondaryNodeList,SecondaryNodeList,clear,,,class348_sub42,node,SecondaryNodeList,module,high,approved,Node being unlinked during clear loop
+local,SecondaryNodeList,SecondaryNodeList,first,,,class348_sub42,node,SecondaryNodeList,module,high,approved,First node returned by iterator reset
+local,SecondaryNodeIterator,SecondaryNodeIterator,first,,,class348_sub42,node,SecondaryNodeIterator,module,high,approved,First node returned by iterator start
+local,SecondaryNodeIterator,SecondaryNodeIterator,next,,,class348_sub42,node,SecondaryNodeIterator,module,high,approved,Next node returned by iterator
+local,LoadResourceHandle,LoadResourceHandle,linkSecondaryBefore,,,class348_sub42,beforeNode,LoadResourceHandle,module,high,approved,Anchor node that receives insertion before it
+local,LoadResourceHandle,LoadResourceHandle,linkSecondaryBefore,,,class348_sub42_1_,nodeToInsert,LoadResourceHandle,module,high,approved,Node inserted before anchor
+field,LoadResourceHandle,LoadResourceHandle,,,,aClass69_1195,indexProgressHandle,LoadResourceHandle,module,high,approved,Resource handle token returned by IndexProgressProvider
+field,LoadResourceHandle,LoadResourceHandle,,,,aClass69_1197,billboardTypeHandle,LoadResourceHandle,module,high,approved,Resource handle token returned by BillboardTypeList
+field,LoadResourceHandle,LoadResourceHandle,,,,aClass69_1198,indexGroupHandle,LoadResourceHandle,module,high,approved,Resource handle token returned by IndexGroupLoader
+field,LoadResourceHandle,LoadResourceHandle,,,,aClass69_1199,downloadTaskHandle,LoadResourceHandle,module,high,approved,Resource handle token returned by ResourceDownloadTask
+field,LoadResourceHandle,LoadResourceHandle,,,,aClass173_1201,blendModeAdditive,LoadResourceHandle,module,high,approved,Blend-mode token selecting additive blending in native toolkits
+field,LoadResourceHandle,LoadResourceHandle,,,,anInt1202,viewportCenterX,LoadResourceHandle,module,high,approved,Projected viewport center X used by scene/world-map screen coordinate transforms
 field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7060,secondaryPrev,SecondaryNode,module,high,approved,Previous node in secondary list
 field,SecondaryNode,SecondaryNode,,,,aClass348_Sub42_7063,secondaryNext,SecondaryNode,module,high,approved,Next node in secondary list
 field,SecondaryNode,SecondaryNode,,,,aLong7057,secondaryKey,SecondaryNode,module,high,approved,
@@ -314,37 +319,54 @@ method,StringNode,StringNode,,,,method3419,clearImageProcessingBuffers,StringNod
 method,StringNode,StringNode,,,,method3420,getLoadedResourceCount,StringNode,module,high,approved,Returns loaded resource-file count used by loading progress
 local,Widget,Widget,,,,class46,widget,Widget,module,high,approved,
 local,Widget,Widget,,,,class46s,widgets,Widget,module,high,approved,
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1642,applyProjectionViewportProfileCallCount,SecondaryLinkedList,module,high,approved,Call counter for projection viewport profile helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1643,sizeCallCount,SecondaryLinkedList,module,high,approved,Call counter for size helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1644,nextCallCount,SecondaryLinkedList,module,high,approved,Call counter for iterator next helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1646,clearCallCount,SecondaryLinkedList,module,high,approved,Call counter for clear helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1648,renderMinimapCallCount,SecondaryLinkedList,module,high,approved,Call counter for minimap render helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1649,firstCallCount,SecondaryLinkedList,module,high,approved,Call counter for first helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1653,removeFirstCallCount,SecondaryLinkedList,module,high,approved,Call counter for remove-first helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1654,addLastCallCount,SecondaryLinkedList,module,high,approved,Call counter for add-last helper
-field,SecondaryLinkedList,SecondaryLinkedList,,,,anInt1655,resetWorldMapRenderStateCallCount,SecondaryLinkedList,module,high,approved,Call counter for world-map reset helper
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasBit0x800,,,i,flags,SecondaryLinkedListIterator,module,high,approved,Bitfield value checked for 0x800 flag
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasBit0x800,,,i_0_,unusedValue,SecondaryLinkedListIterator,module,medium,approved,Unused decompiler parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasBit0x800,,,i_1_,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasOverlayInteractionBits,,,i,unusedValue,SecondaryLinkedListIterator,module,medium,approved,Unused decompiler parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasOverlayInteractionBits,,,i_2_,flags,SecondaryLinkedListIterator,module,high,approved,Bitfield value checked for overlay interaction bits
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,hasOverlayInteractionBits,,,i_3_,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,next,,,i,guardByte,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard byte parameter
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,clearClientCachesWithBudget,,,i,cacheBudget,SecondaryLinkedNodeUtil,module,high,approved,Cache clear budget value
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,clearClientCachesWithBudget,,,i_0_,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,,i,occlusionFlags,SecondaryLinkedNodeUtil,module,high,approved,Occlusion flag mask to evaluate
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,,i_2_,interactionFlags,SecondaryLinkedNodeUtil,module,high,approved,Interaction/collision flags used in occlusion checks
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasPrimaryOcclusionFlags,,,i_3_,guardByte,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard byte parameter
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i,occlusionFlags,SecondaryLinkedNodeUtil,module,high,approved,Occlusion flag mask to evaluate
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i_4_,interactionFlags,SecondaryLinkedNodeUtil,module,high,approved,Interaction/collision flags used in occlusion checks
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,hasAnyOcclusionFlags,,,i_5_,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,i,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,text4,errorText,SecondaryLinkedListIterator,module,high,approved,Encoded client error text payload
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,class144,errorReportRequest,SecondaryLinkedListIterator,module,high,approved,URL request handle for remote client error report
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,reportClientError,,,datainputstream,responseStream,SecondaryLinkedListIterator,module,high,approved,Response stream for error report acknowledgment
-local,SecondaryLinkedNodeUtil,SecondaryLinkedNodeUtil,linkSecondaryBefore,,,i,guardValue,SecondaryLinkedNodeUtil,module,medium,approved,Decompiler guard parameter
-field,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,aFloat2111,projectedDepthOffset,SecondaryLinkedListIterator,module,high,approved,Projected depth offset term reused in OpenGL model transform calculations
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,clearStaticState,,,i,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,first,,,i,guardValue,SecondaryLinkedListIterator,module,medium,approved,Decompiler guard parameter
-local,SecondaryLinkedList,SecondaryLinkedList,addLast,,,bool,shouldLink,SecondaryLinkedList,module,medium,approved,Decompiler boolean controlling list-link operation
-local,SecondaryLinkedListIterator,SecondaryLinkedListIterator,,,,secondaryLinkedListVar,secondaryList,SecondaryLinkedListIterator,module,high,approved,List instance injected into iterator constructor
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1642,applyProjectionViewportProfileCallCount,SecondaryNodeList,module,high,approved,Call counter for projection viewport profile helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1643,sizeCallCount,SecondaryNodeList,module,high,approved,Call counter for size helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1644,nextCallCount,SecondaryNodeList,module,high,approved,Call counter for iterator next helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1646,clearCallCount,SecondaryNodeList,module,high,approved,Call counter for clear helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1648,renderMinimapCallCount,SecondaryNodeList,module,high,approved,Call counter for minimap render helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1649,firstCallCount,SecondaryNodeList,module,high,approved,Call counter for first helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1653,removeFirstCallCount,SecondaryNodeList,module,high,approved,Call counter for remove-first helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1654,addLastCallCount,SecondaryNodeList,module,high,approved,Call counter for add-last helper
+field,SecondaryNodeList,SecondaryNodeList,,,,anInt1655,resetWorldMapRenderStateCallCount,SecondaryNodeList,module,high,approved,Call counter for world-map reset helper
+local,SecondaryNodeIterator,SecondaryNodeIterator,hasOcclusionFlag0x800,,,i,flags,SecondaryNodeIterator,module,high,approved,Bitfield value checked for 0x800 flag
+local,SecondaryNodeIterator,SecondaryNodeIterator,hasOcclusionFlag0x800,,,i_0_,unusedValue,SecondaryNodeIterator,module,medium,approved,Unused decompiler parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,hasOcclusionFlag0x800,,,i_1_,guardValue,SecondaryNodeIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,hasOverlayInteractionBits,,,i,unusedValue,SecondaryNodeIterator,module,medium,approved,Unused decompiler parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,hasOverlayInteractionBits,,,i_2_,flags,SecondaryNodeIterator,module,high,approved,Bitfield value checked for overlay interaction bits
+local,SecondaryNodeIterator,SecondaryNodeIterator,hasOverlayInteractionBits,,,i_3_,guardValue,SecondaryNodeIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,next,,,i,guardByte,SecondaryNodeIterator,module,medium,approved,Decompiler guard byte parameter
+local,LoadResourceHandle,LoadResourceHandle,clearClientCachesWithBudget,,,i,cacheBudget,LoadResourceHandle,module,high,approved,Cache clear budget value
+local,LoadResourceHandle,LoadResourceHandle,clearClientCachesWithBudget,,,i_0_,guardValue,LoadResourceHandle,module,medium,approved,Decompiler guard parameter
+local,LoadResourceHandle,LoadResourceHandle,hasPrimaryOcclusionFlags,,,i,occlusionFlags,LoadResourceHandle,module,high,approved,Occlusion flag mask to evaluate
+local,LoadResourceHandle,LoadResourceHandle,hasPrimaryOcclusionFlags,,,i_2_,interactionFlags,LoadResourceHandle,module,high,approved,Interaction/collision flags used in occlusion checks
+local,LoadResourceHandle,LoadResourceHandle,hasPrimaryOcclusionFlags,,,i_3_,guardByte,LoadResourceHandle,module,medium,approved,Decompiler guard byte parameter
+local,LoadResourceHandle,LoadResourceHandle,hasAnyOcclusionFlags,,,i,occlusionFlags,LoadResourceHandle,module,high,approved,Occlusion flag mask to evaluate
+local,LoadResourceHandle,LoadResourceHandle,hasAnyOcclusionFlags,,,i_4_,interactionFlags,LoadResourceHandle,module,high,approved,Interaction/collision flags used in occlusion checks
+local,LoadResourceHandle,LoadResourceHandle,hasAnyOcclusionFlags,,,i_5_,guardValue,LoadResourceHandle,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,reportClientError,,,i,guardValue,SecondaryNodeIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,reportClientError,,,text4,errorText,SecondaryNodeIterator,module,high,approved,Encoded client error text payload
+local,SecondaryNodeIterator,SecondaryNodeIterator,reportClientError,,,class144,errorReportRequest,SecondaryNodeIterator,module,high,approved,URL request handle for remote client error report
+local,SecondaryNodeIterator,SecondaryNodeIterator,reportClientError,,,datainputstream,responseStream,SecondaryNodeIterator,module,high,approved,Response stream for error report acknowledgment
+local,LoadResourceHandle,LoadResourceHandle,linkSecondaryBefore,,,i,guardValue,LoadResourceHandle,module,medium,approved,Decompiler guard parameter
+field,SecondaryNodeIterator,SecondaryNodeIterator,,,,aFloat2111,projectedDepthOffset,SecondaryNodeIterator,module,high,approved,Projected depth offset term reused in OpenGL model transform calculations
+local,SecondaryNodeIterator,SecondaryNodeIterator,clearStaticState,,,i,guardValue,SecondaryNodeIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeIterator,SecondaryNodeIterator,first,,,i,guardValue,SecondaryNodeIterator,module,medium,approved,Decompiler guard parameter
+local,SecondaryNodeList,SecondaryNodeList,addLast,,,bool,shouldLink,SecondaryNodeList,module,medium,approved,Decompiler boolean controlling list-link operation
+local,SecondaryNodeIterator,SecondaryNodeIterator,,,,secondaryLinkedListVar,secondaryList,SecondaryNodeIterator,module,high,approved,List instance injected into iterator constructor
+local,collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,,,is,bytes,ByteArrayPool,cleanup,high,approved,Released byte-array payload [migrated:method_identifier_rewrites]
+local,collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,,,i_2_,bucketIndex,ByteArrayPool,cleanup,high,approved,Custom pool bucket index [migrated:method_identifier_rewrites]
+local,collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,,,i,length,ByteArrayPool,cleanup,high,approved,Requested byte-array length [migrated:method_identifier_rewrites]
+local,collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,,,i_10_,bucketIndex,ByteArrayPool,cleanup,high,approved,Custom pool bucket index [migrated:method_identifier_rewrites]
+local,collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,,,is,bytes,ByteArrayPool,cleanup,high,approved,Acquired byte-array payload [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,size,,,i_0_,entryCount,HashTable,cleanup,high,approved,Number of entries encountered while walking all buckets [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,size,,,i_1_,bucketIndex,HashTable,cleanup,high,approved,Bucket index during full-table traversal [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,size,,,nodeVar2,entryNode,HashTable,cleanup,high,approved,Current entry node in bucket chain traversal [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,copyNodesToArray,,,i_4_,writeIndex,HashTable,cleanup,high,approved,Output array write index while copying nodes [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,copyNodesToArray,,,i_5_,bucketIndex,HashTable,cleanup,high,approved,Bucket index during copy traversal [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,copyNodesToArray,,,nodeVar6,entryNode,HashTable,cleanup,high,approved,Current entry node copied from bucket chain [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,clear,,,i_8_,bucketIndex,HashTable,cleanup,high,approved,Bucket index during clear traversal [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,clear,,,nodeVar9,entryNode,HashTable,cleanup,high,approved,Current entry node being unlinked during clear [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,next,,,node,entryNode,HashTable,cleanup,high,approved,Current entry node yielded by iterator progression [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,nextWithKey,,,nodeVar3,foundNode,HashTable,cleanup,high,approved,Node matched by current searchKey in nextWithKey [migrated:method_identifier_rewrites]
+local,collections/hash/HashTable.java,HashTable,get,,,nodeVar7,foundNode,HashTable,cleanup,high,approved,Node matched by key lookup in get [migrated:method_identifier_rewrites]
+local,collections/hash/HashTableIterator.java,HashTableIterator,next,,,node,entryNode,HashTableIterator,cleanup,high,approved,Current entry node yielded by hash-table iterator [migrated:method_identifier_rewrites]

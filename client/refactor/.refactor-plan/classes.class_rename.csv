@@ -20,7 +20,7 @@ Class105_Sub3_Sub1,SoftwareSprite24,core,high,approved,Imported from legacy clas
 Class105_Sub3_Sub2,SoftwareIndexedSprite,core,high,approved,Imported from legacy classes map
 Class105_Sub3_Sub3,SoftwareSprite32,core,high,approved,Imported from legacy classes map
 Class106,LoadingScreenElementFactory,core,high,approved,Imported from legacy classes map
-Class107,SecondaryLinkedList,core,high,approved,Imported from legacy classes map
+Class107,SecondaryNodeList,core,high,approved,Imported from legacy classes map
 Class108,GraphicsObjectUpdater,core,high,approved,Imported from legacy classes map
 Class109,SoftwareTriangleRasterizer,core,high,approved,Imported from legacy classes map
 Class11,PlayerTintUtil,core,high,approved,Imported from legacy classes map
@@ -85,7 +85,7 @@ Class152,GzipDecompressor,core,high,approved,Imported from legacy classes map
 Class153,MapElementTypeList,core,high,approved,Imported from legacy classes map
 Class154,PlayerModelOverrides,core,high,approved,Imported from legacy classes map
 Class155,WidgetActionPacketSender,core,high,approved,Imported from legacy classes map
-Class156,SecondaryLinkedListIterator,core,high,approved,Imported from legacy classes map
+Class156,SecondaryNodeIterator,core,high,approved,Iterator over SecondaryNodeList nodes; statics moved to domain owners
 Class157,CacheIndexCrcUtil,core,high,approved,Imported from legacy classes map
 Class158,LoadingScreenTextLayout,core,high,approved,Imported from legacy classes map
 Class159,VarPlayerType,core,high,approved,Imported from legacy classes map
@@ -649,7 +649,7 @@ Class65,ParamTableList,core,high,approved,Imported from legacy classes map
 Class66,ClientScriptInterpreter,core,high,approved,Imported from legacy classes map
 Class67,LoadingScreenTextOp,core,high,approved,Imported from legacy classes map
 Class68,IndexElementType,core,high,approved,Imported from legacy classes map
-Class69,SecondaryLinkedNodeUtil,core,high,approved,Imported from legacy classes map
+Class69,LoadResourceHandle,core,high,approved,Imported from legacy classes map
 Class7,AwtFullscreenAdapter,core,high,approved,Imported from legacy classes map
 Class70,TrigTables,core,high,approved,Imported from legacy classes map
 Class71,MovementAnimationSelector,core,high,approved,Imported from legacy classes map

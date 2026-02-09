@@ -35,19 +35,10 @@ ui/loading/LoadStateProcessor.java,LoadStateProcessor,getLoadedResourceCount,(),
 cache/ColorImageCacheSlot.java,ColorImageCacheSlot,updateAudioState,byte,(),drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg after move
 cache/ColorImageCacheSlot.java,ColorImageCacheSlot,updateAudioState,(),(),drop_statement_contains,,,if (i != 33),cleanup,approved,Drop decompiler guard branch after move
 util/text/AmountFormatUtil.java,AmountFormatUtil,formatAmountWithColorTags,"int,int",int,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from amount formatter
-util/text/AmountFormatUtil.java,AmountFormatUtil,formatAmountWithColorTags,int,int,rename_param,0,amount,,cleanup,approved,Rename retained argument to semantic name
 util/text/AmountFormatUtil.java,AmountFormatUtil,formatAmountWithColorTags,int,int,drop_statement_contains,,,if (i >= -109) return null;,cleanup,approved,Drop decompiler guard line
 collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,"int,byte",byte,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from release helper
-collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,byte,byte,rename_param,0,bytes,,cleanup,approved,Rename remaining byte-array parameter
 collections/pool/ByteArrayPool.java,ByteArrayPool,releaseByteArray,byte,byte,drop_statement_contains,,,if (i != 0) acquireByteArray(-119, -101);,cleanup,approved,Drop decompiler guard line
-collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,"int,int",int,drop_param,0,,,cleanup,approved,Drop decompiler sentinel arg from acquire helper
-collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,int,int,rename_param,0,length,,cleanup,approved,Rename retained length parameter
+collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,"int,int",int,drop_param,1,,,cleanup,approved,Drop decompiler sentinel arg from acquire helper
 collections/pool/ByteArrayPool.java,ByteArrayPool,acquireByteArray,int,int,drop_statement_contains,,,if (i_9_ != -1) acquireByteArray(-88, -45);,cleanup,approved,Drop decompiler guard line
 audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int,int","int,int,int,int,int,int",drop_param,6,,,cleanup,approved,Drop decompiler sentinel arg from area sound queue helper
-audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,0,delay,,cleanup,approved,Rename parameter for queueAreaSoundEffect
-audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,1,packedPosition,,cleanup,approved,Rename parameter for queueAreaSoundEffect
-audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,2,radius,,cleanup,approved,Rename parameter for queueAreaSoundEffect
-audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,3,loops,,cleanup,approved,Rename parameter for queueAreaSoundEffect
-audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,4,area,,cleanup,approved,Rename parameter for queueAreaSoundEffect
-audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",rename_param,5,soundEffectId,,cleanup,approved,Rename parameter for queueAreaSoundEffect
 audio/ClientHashAndSoundUtil.java,ClientHashAndSoundUtil,queueAreaSoundEffect,"int,int,int,int,int,int","int,int,int,int,int,int",drop_statement_contains,,,if (i_8_ != -29494),cleanup,approved,Drop decompiler guard line from area sound queue helper

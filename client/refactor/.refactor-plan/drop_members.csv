@@ -200,6 +200,11 @@ collections/hash/HashTable.java,line_contains,anInt4382++,cleanup,approved,Drop 
 collections/hash/HashTable.java,line_contains,anInt4384++,cleanup,approved,Drop orphan increment after removing unused debug counter
 collections/hash/HashTable.java,line_contains,anInt4386++,cleanup,approved,Drop orphan increment after removing unused debug counter
 collections/hash/HashTable.java,line_contains,anInt4387++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/hash/HashTable.java,line_contains,aClass114_4388 = null;,cleanup,approved,Drop stale null-assignment after moving packet constant field to PacketConstants
+collections/hash/HashTable.java,method,clearStaticState,cleanup,approved,Drop obsolete static reset wrapper that only mutated removed guard sink
+collections/hash/HashTable.java,line_contains,if (bool != true) clearStaticState(false);,cleanup,approved,Drop decompiler guard call in getBucketCount after removing clearStaticState
+collections/hash/HashTable.java,line_contains,if (i != 3) SceneViewportRenderer.anInt4383 = -76;,cleanup,approved,Drop decompiler guard side-effect in copyNodesToArray
+client/Client.java,line_contains,HashTable.clearStaticState(false);,cleanup,approved,Drop obsolete HashTable static reset call after moving remaining static state out
 client/ClientDebugCounters.java,line_contains,HashTable.anInt4375 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
 client/ClientDebugCounters.java,line_contains,HashTable.anInt4376 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
 client/ClientDebugCounters.java,line_contains,HashTable.anInt4378 = 0;,cleanup,approved,Drop reset for removed HashTable debug counter
@@ -225,21 +230,27 @@ client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3960 = 0;,cleanu
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3962 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3964 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3965 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
-collections/list/SecondaryLinkedListIterator.java,field,anInt2112,cleanup,approved,Unused debug counter for reportClientError invocations
-collections/list/SecondaryLinkedListIterator.java,field,anInt2114,cleanup,approved,Unused debug counter for first invocations
-collections/list/SecondaryLinkedListIterator.java,field,anInt2116,cleanup,approved,Unused debug counter for hasBit0x800 invocations
-collections/list/SecondaryLinkedListIterator.java,field,anInt2119,cleanup,approved,Unused debug counter for hasOverlayInteractionBits invocations
-collections/list/SecondaryLinkedListIterator.java,field,anInt2120,cleanup,approved,Unused debug counter for next invocations
-collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2112++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2114++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2116++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2119++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedListIterator.java,line_contains,anInt2120++,cleanup,approved,Drop orphan increment after removing unused debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2112 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2114 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2116 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2119 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedListIterator.anInt2120 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedListIterator debug counter
+collections/list/SecondaryNodeIterator.java,field,anInt2112,cleanup,approved,Unused debug counter for reportClientError invocations
+collections/list/SecondaryNodeIterator.java,field,anInt2114,cleanup,approved,Unused debug counter for first invocations
+collections/list/SecondaryNodeIterator.java,field,anInt2116,cleanup,approved,Unused debug counter for hasOcclusionFlag0x800 invocations
+collections/list/SecondaryNodeIterator.java,field,anInt2119,cleanup,approved,Unused debug counter for hasOverlayInteractionBits invocations
+collections/list/SecondaryNodeIterator.java,field,anInt2120,cleanup,approved,Unused debug counter for next invocations
+collections/list/SecondaryNodeIterator.java,line_contains,anInt2112++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeIterator.java,line_contains,anInt2114++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeIterator.java,line_contains,anInt2116++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeIterator.java,line_contains,anInt2119++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeIterator.java,line_contains,anInt2120++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeIterator.anInt2112 = 0;,cleanup,approved,Drop reset for removed SecondaryNodeIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeIterator.anInt2114 = 0;,cleanup,approved,Drop reset for removed SecondaryNodeIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeIterator.anInt2116 = 0;,cleanup,approved,Drop reset for removed SecondaryNodeIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeIterator.anInt2119 = 0;,cleanup,approved,Drop reset for removed SecondaryNodeIterator debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeIterator.anInt2120 = 0;,cleanup,approved,Drop reset for removed SecondaryNodeIterator debug counter
+collections/list/SecondaryNodeIterator.java,method,clearStaticState,cleanup,approved,Drop static reset wrapper after moving static members to domain owners
+client/Client.java,line_contains,SecondaryNodeIterator.clearStaticState(30114);,cleanup,approved,Drop obsolete iterator static reset call after static split
+client/ClientErrorReporter.java,line_contains,SecondaryNodeIterator.anInt2112++;,cleanup,approved,Drop orphan debug increment moved with reportClientError extraction
+graphics/opengl/OpenGLModel.java,line_contains,SecondaryNodeIterator.anInt2116++;,cleanup,approved,Drop orphan debug increment moved with hasOcclusionFlag0x800 extraction
+graphics/opengl/OpenGLModel.java,line_contains,SecondaryNodeIterator.clearStaticState(-81);,cleanup,approved,Drop orphan guard call moved with hasOverlayInteractionBits extraction
+graphics/opengl/OpenGLModel.java,line_contains,SecondaryNodeIterator.anInt2119++;,cleanup,approved,Drop orphan debug increment moved with hasOverlayInteractionBits extraction
 collections/deque/DequeIterator.java,field,anInt3924,cleanup,approved,Unused debug counter for resetInboundProtocolState invocations
 collections/deque/DequeIterator.java,field,anInt3926,cleanup,approved,Unused debug counter for hasBit0x20 invocations
 collections/deque/DequeIterator.java,field,anInt3927,cleanup,approved,Unused debug counter for setDeque invocations
@@ -267,21 +278,21 @@ collections/SecondaryNode.java,line_contains,anInt7064++,cleanup,approved,Drop o
 client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7061 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7062 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
 client/ClientDebugCounters.java,line_contains,SecondaryNode.anInt7064 = 0;,cleanup,approved,Drop reset for removed SecondaryNode debug counter
-collections/list/SecondaryLinkedNodeUtil.java,field,anInt1191,cleanup,approved,Unused debug counter for hasAnyOcclusionFlags invocations
-collections/list/SecondaryLinkedNodeUtil.java,field,anInt1192,cleanup,approved,Unused debug counter for toString invocations
-collections/list/SecondaryLinkedNodeUtil.java,field,anInt1193,cleanup,approved,Unused debug counter for clearClientCachesWithBudget invocations
-collections/list/SecondaryLinkedNodeUtil.java,field,anInt1194,cleanup,approved,Unused debug counter for linkSecondaryBefore invocations
-collections/list/SecondaryLinkedNodeUtil.java,field,anInt1196,cleanup,approved,Unused debug counter for hasPrimaryOcclusionFlags invocations
-collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1191++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1192++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1193++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1194++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedNodeUtil.java,line_contains,anInt1196++,cleanup,approved,Drop orphan increment after removing unused debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1191 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1192 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1193 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1194 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedNodeUtil.anInt1196 = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedNodeUtil debug counter
+cache/loading/LoadResourceHandle.java,field,anInt1191,cleanup,approved,Unused debug counter for hasAnyOcclusionFlags invocations
+cache/loading/LoadResourceHandle.java,field,anInt1192,cleanup,approved,Unused debug counter for toString invocations
+cache/loading/LoadResourceHandle.java,field,anInt1193,cleanup,approved,Unused debug counter for clearClientCachesWithBudget invocations
+cache/loading/LoadResourceHandle.java,field,anInt1194,cleanup,approved,Unused debug counter for linkSecondaryBefore invocations
+cache/loading/LoadResourceHandle.java,field,anInt1196,cleanup,approved,Unused debug counter for hasPrimaryOcclusionFlags invocations
+cache/loading/LoadResourceHandle.java,line_contains,anInt1191++,cleanup,approved,Drop orphan increment after removing unused debug counter
+cache/loading/LoadResourceHandle.java,line_contains,anInt1192++,cleanup,approved,Drop orphan increment after removing unused debug counter
+cache/loading/LoadResourceHandle.java,line_contains,anInt1193++,cleanup,approved,Drop orphan increment after removing unused debug counter
+cache/loading/LoadResourceHandle.java,line_contains,anInt1194++,cleanup,approved,Drop orphan increment after removing unused debug counter
+cache/loading/LoadResourceHandle.java,line_contains,anInt1196++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,LoadResourceHandle.anInt1191 = 0;,cleanup,approved,Drop reset for removed LoadResourceHandle debug counter
+client/ClientDebugCounters.java,line_contains,LoadResourceHandle.anInt1192 = 0;,cleanup,approved,Drop reset for removed LoadResourceHandle debug counter
+client/ClientDebugCounters.java,line_contains,LoadResourceHandle.anInt1193 = 0;,cleanup,approved,Drop reset for removed LoadResourceHandle debug counter
+client/ClientDebugCounters.java,line_contains,LoadResourceHandle.anInt1194 = 0;,cleanup,approved,Drop reset for removed LoadResourceHandle debug counter
+client/ClientDebugCounters.java,line_contains,LoadResourceHandle.anInt1196 = 0;,cleanup,approved,Drop reset for removed LoadResourceHandle debug counter
 collections/Node.java,field,anInt4285,cleanup,approved,Unused debug counter for unlink invocations
 collections/Node.java,field,anInt4287,cleanup,approved,Unused debug counter for hasBit0x21 invocations
 collections/Node.java,field,anInt4289,cleanup,approved,Unused debug counter for classifyThreshold96And128 invocations
@@ -303,33 +314,36 @@ client/ClientDebugCounters.java,line_contains,Node.anInt4298 = 0;,cleanup,approv
 collections/DoublyLinkedNodeUtil.java,field,anInt3171,cleanup,approved,Unused debug counter for linkBefore invocations
 collections/DoublyLinkedNodeUtil.java,line_contains,anInt3171++,cleanup,approved,Drop orphan increment after removing unused debug counter
 client/ClientDebugCounters.java,line_contains,DoublyLinkedNodeUtil.anInt3171 = 0;,cleanup,approved,Drop reset for removed DoublyLinkedNodeUtil debug counter
-collections/list/SecondaryLinkedList.java,field,sizeCallCount,cleanup,approved,Unused debug counter for size invocations
-collections/list/SecondaryLinkedList.java,field,nextCallCount,cleanup,approved,Unused debug counter for next invocations
-collections/list/SecondaryLinkedList.java,field,clearCallCount,cleanup,approved,Unused debug counter for clear invocations
-collections/list/SecondaryLinkedList.java,field,firstCallCount,cleanup,approved,Unused debug counter for first invocations
-collections/list/SecondaryLinkedList.java,field,removeFirstCallCount,cleanup,approved,Unused debug counter for removeFirst invocations
-collections/list/SecondaryLinkedList.java,field,addLastCallCount,cleanup,approved,Unused debug counter for addLast invocations
-collections/list/SecondaryLinkedList.java,line_contains,sizeCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedList.java,line_contains,nextCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedList.java,line_contains,clearCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedList.java,line_contains,firstCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedList.java,line_contains,removeFirstCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
-collections/list/SecondaryLinkedList.java,line_contains,addLastCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.sizeCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.nextCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.clearCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.firstCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.removeFirstCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.addLastCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-collections/list/SecondaryLinkedList.java,field,applyProjectionViewportProfileCallCount,cleanup,approved,Unused debug counter for applyProjectionViewportProfile helper
-collections/list/SecondaryLinkedList.java,field,renderMinimapCallCount,cleanup,approved,Unused debug counter for renderMinimap helper
-collections/list/SecondaryLinkedList.java,field,resetWorldMapRenderStateCallCount,cleanup,approved,Unused debug counter for resetWorldMapRenderState helper
-graphics/sprite/MinimapSpriteUtil.java,line_contains,SecondaryLinkedList.applyProjectionViewportProfileCallCount++,cleanup,approved,Drop orphan increment after removing SecondaryLinkedList counter
-graphics/sprite/MinimapSpriteUtil.java,line_contains,SecondaryLinkedList.renderMinimapCallCount++,cleanup,approved,Drop orphan increment after removing SecondaryLinkedList counter
-world/map/WorldMap.java,line_contains,SecondaryLinkedList.resetWorldMapRenderStateCallCount++,cleanup,approved,Drop orphan increment after removing SecondaryLinkedList counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.applyProjectionViewportProfileCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.renderMinimapCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
-client/ClientDebugCounters.java,line_contains,SecondaryLinkedList.resetWorldMapRenderStateCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryLinkedList debug counter
+collections/list/SecondaryNodeList.java,field,sizeCallCount,cleanup,approved,Unused debug counter for size invocations
+collections/list/SecondaryNodeList.java,field,nextCallCount,cleanup,approved,Unused debug counter for next invocations
+collections/list/SecondaryNodeList.java,field,clearCallCount,cleanup,approved,Unused debug counter for clear invocations
+collections/list/SecondaryNodeList.java,field,firstCallCount,cleanup,approved,Unused debug counter for first invocations
+collections/list/SecondaryNodeList.java,field,removeFirstCallCount,cleanup,approved,Unused debug counter for removeFirst invocations
+collections/list/SecondaryNodeList.java,field,addLastCallCount,cleanup,approved,Unused debug counter for addLast invocations
+collections/list/SecondaryNodeList.java,line_contains,sizeCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeList.java,line_contains,nextCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeList.java,line_contains,clearCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeList.java,line_contains,firstCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeList.java,line_contains,removeFirstCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+collections/list/SecondaryNodeList.java,line_contains,addLastCallCount++,cleanup,approved,Drop orphan increment after removing unused debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.sizeCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.nextCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.clearCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.firstCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.removeFirstCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.addLastCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+collections/list/SecondaryNodeList.java,field,applyProjectionViewportProfileCallCount,cleanup,approved,Unused debug counter for applyProjectionViewportProfile helper
+collections/list/SecondaryNodeList.java,field,renderMinimapCallCount,cleanup,approved,Unused debug counter for renderMinimap helper
+collections/list/SecondaryNodeList.java,field,resetWorldMapRenderStateCallCount,cleanup,approved,Unused debug counter for resetWorldMapRenderState helper
+graphics/sprite/MinimapSpriteUtil.java,line_contains,SecondaryNodeList.applyProjectionViewportProfileCallCount++,cleanup,approved,Drop orphan increment after removing SecondaryNodeList counter
+graphics/sprite/MinimapSpriteUtil.java,line_contains,SecondaryNodeList.renderMinimapCallCount++,cleanup,approved,Drop orphan increment after removing SecondaryNodeList counter
+world/map/WorldMap.java,line_contains,SecondaryNodeList.resetWorldMapRenderStateCallCount++,cleanup,approved,Drop orphan increment after removing SecondaryNodeList counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.applyProjectionViewportProfileCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.renderMinimapCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+client/ClientDebugCounters.java,line_contains,SecondaryNodeList.resetWorldMapRenderStateCallCount = 0;,cleanup,approved,Drop reset for removed SecondaryNodeList debug counter
+collections/list/SecondaryNodeList.java,method,clearStaticState,cleanup,approved,Drop obsolete static reset wrapper after moving GL delete scratch buffer to OpenGLNativeToolkit
+client/Client.java,line_contains,SecondaryNodeList.clearStaticState((byte) 16);,cleanup,approved,Drop obsolete clearStaticState call from client startup
+graphics/sprite/MinimapSpriteUtil.java,line_contains,if (i_2_ != 22960) OpenGLNativeToolkit.glDeleteHandleBuffer = null;,cleanup,approved,Drop decompiler guard side-effect after moving GL delete scratch buffer owner
 collections/hash/IntHashTable.java,field,anInt3966,cleanup,approved,Unused debug counter for object-action opcode dispatch branch
 graphics/gpu/VertexElementType.java,line_contains,IntHashTable.anInt3966++,cleanup,approved,Drop orphan increment after removing unused IntHashTable debug counter
 client/ClientDebugCounters.java,line_contains,IntHashTable.anInt3966 = 0;,cleanup,approved,Drop reset for removed IntHashTable debug counter
@@ -344,3 +358,6 @@ world/map/WorldMap.java,line_contains,HashTable.anInt4378++,cleanup,approved,Dro
 collections/Node.java,line_contains,if (i_1_ != -1) Actor.buildCachedModelVariant(,cleanup,approved,Drop decompiler guard call after extracting model-variant builder to Actor
 collections/Node.java,line_contains,if (i != 0) Actor.buildCachedModelVariant(,cleanup,approved,Drop decompiler guard call after extracting model-variant builder to Actor
 client/Client.java,line_contains,IntNode.method3028(-11677);,cleanup,approved,Drop callsite after removing IntNode static reset helper
+client/Client.java,line_contains,LoadResourceHandle.clearStaticState(13569);,cleanup,approved,Drop dead reset call after moving LoadResourceHandle state to domain owners
+cache/loading/LoadResourceHandle.java,method,clearStaticState,cleanup,approved,Drop dead static reset shim after moving all owned static state out
+cache/loading/LoadResourceHandle.java,method,toString,cleanup,approved,Drop unused decompiler-era toString override from dead utility shell

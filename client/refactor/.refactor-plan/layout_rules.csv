@@ -58,6 +58,7 @@ ui/awt,regex,.*Surface$
 ui/input,regex,^(Mouse|Key|Keyboard|Cursor).*
 ui/input,regex,.*(Input|Cursor).*
 ui/canvas,regex,.*Canvas.*
+cache/loading,exact,LoadResourceHandle
 ui/loading,prefix,LoadingScreen
 ui/loading,regex,^Load.*
 ui/screen,regex,.*Screen.*
@@ -182,8 +183,8 @@ util/keys,exact,IntKey
 # Collections / core utils
 collections/hash,regex,.*HashTable.*
 collections/deque,regex,.*Deque.*
-collections/list,prefix,SecondaryLinkedList
-collections/list,exact,SecondaryLinkedNodeUtil
+collections/list,prefix,SecondaryNodeList
+collections/list,exact,SecondaryNodeIterator
 collections/iter,regex,.*Iterator$
 collections/pool,suffix,Pool
 collections/value,exact,IntNode

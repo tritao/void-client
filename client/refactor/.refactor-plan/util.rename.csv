@@ -3,3 +3,6 @@ method,Base37Util,Base37Util,,,,method313,decodeBase37,Base37Util,module,high,ap
 method,Base37Util,Base37Util,,,,method315,indexOfIgnoreCase,Base37Util,module,high,approved,
 method,Base37Util,Base37Util,,,,method316,clearStaticState,Base37Util,module,high,approved,
 method,Base37Util,Base37Util,,,,method317,addFriendByName,Base37Util,module,high,approved,
+local,AmountFormatUtil,AmountFormatUtil,formatAmountWithColorTags,,,i_0_,amount,AmountFormatUtil,cleanup,high,approved,Amount value formatted with group separators and suffix color [migrated:method_identifier_rewrites]
+local,AmountFormatUtil,AmountFormatUtil,formatAmountWithColorTags,,,string,formattedAmount,AmountFormatUtil,cleanup,high,approved,Formatted amount string with grouping separators and color suffix [migrated:method_identifier_rewrites]
+local,AmountFormatUtil,AmountFormatUtil,formatAmountWithColorTags,,,i_1_,groupingInsertIndex,AmountFormatUtil,cleanup,high,approved,Insertion index when applying 3-digit grouping separators [migrated:method_identifier_rewrites]

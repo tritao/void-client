@@ -3,13 +3,16 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import re
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
 from tools.refactor.common.cli import resolve_path_args
 from tools.refactor.common.constants import REFACTOR_PLAN_DIR, REFACTOR_SRC_DIR
 from tools.refactor.common.io import non_comment_csv_lines
+from tools.refactor.common.ts_java import build_java_parser, iter_nodes
 
 
 @dataclass(frozen=True)
@@ -45,6 +48,14 @@ class SignatureRewriteRule:
 
 
 @dataclass(frozen=True)
+class SignatureCallsiteDropRule:
+    method: str
+    owner_class: str
+    arg_arity: int
+    arg_index: int
+
+
+@dataclass(frozen=True)
 class NoArgCallRewriteRule:
     file: str
     method: str
@@ -60,33 +71,49 @@ class DropFirstArgCallRewriteRule:
 
 
 @dataclass(frozen=True)
-class QualifiedCallRewriteRule:
-    file: str
-    owner_class: str
-    old_method: str
-    new_method: str
-
-
-@dataclass(frozen=True)
-class MethodIdentifierRewriteRule:
-    file: str
-    method: str
-    old: str
-    new: str
-
-
-@dataclass(frozen=True)
-class FileIdentifierRewriteRule:
-    file: str
-    old: str
-    new: str
-
-
-@dataclass(frozen=True)
 class DropMemberRule:
     file: str
     kind: str
     name: str
+
+
+@dataclass
+class RuleStageStats:
+    total: int = 0
+    matched: int = 0
+    unmatched: int = 0
+    missing_file: int = 0
+
+    def as_dict(self) -> dict[str, int]:
+        return {
+            "total": self.total,
+            "matched": self.matched,
+            "unmatched": self.unmatched,
+            "missing_file": self.missing_file,
+        }
+
+
+def _push_unmatched(
+    entries: list[dict[str, object]],
+    *,
+    stage: str,
+    file: str,
+    reason: str,
+    rule: str,
+    plan_file: str = "",
+    row_key: dict[str, str] | None = None,
+) -> None:
+    entry = {
+        "stage": stage,
+        "file": file,
+        "reason": reason,
+        "rule": rule,
+    }
+    if plan_file:
+        entry["plan_file"] = plan_file
+    if row_key:
+        entry["row_key"] = {k: (v or "") for k, v in row_key.items()}
+    entries.append(entry)
 
 
 def _load_reset_rules(path: Path) -> list[ResetMethodRule]:
@@ -241,68 +268,13 @@ def _load_drop_first_arg_call_rules(path: Path) -> list[DropFirstArgCallRewriteR
             continue
         if not (file and method and arg_text):
             continue
-        out.append(DropFirstArgCallRewriteRule(file=file, owner_class=owner_class, method=method, arg_text=arg_text, arg_index=arg_index))
-    return out
-
-
-def _load_method_identifier_rewrite_rules(path: Path) -> list[MethodIdentifierRewriteRule]:
-    if not path.exists():
-        return []
-    rows = non_comment_csv_lines(path)
-    if not rows:
-        return []
-    reader = csv.DictReader(rows)
-    out: list[MethodIdentifierRewriteRule] = []
-    for row in reader:
-        file = (row.get("file") or "").strip()
-        method = (row.get("method") or "").strip()
-        old = (row.get("old") or "").strip()
-        new = (row.get("new") or "").strip()
-        if not (file and method and old and new):
-            continue
-        out.append(MethodIdentifierRewriteRule(file=file, method=method, old=old, new=new))
-    return out
-
-
-def _load_file_identifier_rewrite_rules(path: Path) -> list[FileIdentifierRewriteRule]:
-    if not path.exists():
-        return []
-    rows = non_comment_csv_lines(path)
-    if not rows:
-        return []
-    reader = csv.DictReader(rows)
-    out: list[FileIdentifierRewriteRule] = []
-    for row in reader:
-        file = (row.get("file") or "").strip()
-        old = (row.get("old") or "").strip()
-        new = (row.get("new") or "").strip()
-        if not (file and old and new):
-            continue
-        out.append(FileIdentifierRewriteRule(file=file, old=old, new=new))
-    return out
-
-
-def _load_qualified_call_rewrite_rules(path: Path) -> list[QualifiedCallRewriteRule]:
-    if not path.exists():
-        return []
-    rows = non_comment_csv_lines(path)
-    if not rows:
-        return []
-    reader = csv.DictReader(rows)
-    out: list[QualifiedCallRewriteRule] = []
-    for row in reader:
-        file = (row.get("file") or "").strip()
-        owner_class = (row.get("owner_class") or "").strip()
-        old_method = (row.get("old_method") or "").strip()
-        new_method = (row.get("new_method") or "").strip()
-        if not (file and owner_class and old_method and new_method):
-            continue
         out.append(
-            QualifiedCallRewriteRule(
+            DropFirstArgCallRewriteRule(
                 file=file,
                 owner_class=owner_class,
-                old_method=old_method,
-                new_method=new_method,
+                method=method,
+                arg_text=arg_text,
+                arg_index=arg_index,
             )
         )
     return out
@@ -461,6 +433,57 @@ def _rename_param_decl(param_decl: str, new_name: str) -> str:
     return re.sub(r"([A-Za-z_$][\w$]*)\s*$", new_name, param_decl.strip())
 
 
+def _param_name_from_decl(param_decl: str) -> str:
+    m = re.search(r"([A-Za-z_$][\w$]*)\s*$", (param_decl or "").strip())
+    return m.group(1) if m else ""
+
+
+def _char_to_byte_offset(text: str, char_offset: int) -> int:
+    if char_offset <= 0:
+        return 0
+    return len(text[:char_offset].encode("utf-8"))
+
+
+def _rewrite_identifier_usages_in_span_ts(
+    text: str,
+    *,
+    body_start: int,
+    body_end: int,
+    old_name: str,
+    new_name: str,
+) -> tuple[str, bool]:
+    if not old_name or old_name == new_name:
+        return text, False
+    try:
+        data = text.encode("utf-8")
+        parser = build_java_parser(out_so=Path("build/ts-languages-java.so"))
+        tree = parser.parse(data)
+    except Exception:
+        return text, False
+
+    start_b = _char_to_byte_offset(text, body_start)
+    end_b = _char_to_byte_offset(text, body_end)
+    edits: list[tuple[int, int]] = []
+    for node in iter_nodes(tree.root_node):
+        if node.type != "identifier":
+            continue
+        if node.start_byte < start_b or node.end_byte > end_b:
+            continue
+        token = data[node.start_byte : node.end_byte].decode("utf-8", errors="replace")
+        if token != old_name:
+            continue
+        edits.append((node.start_byte, node.end_byte))
+
+    if not edits:
+        return text, False
+
+    out = bytearray(data)
+    repl = new_name.encode("utf-8")
+    for s, e in sorted(edits, key=lambda p: p[0], reverse=True):
+        out[s:e] = repl
+    return out.decode("utf-8", errors="replace"), True
+
+
 def _find_method_spans(text: str, method_name: str) -> list[dict[str, object]]:
     spans: list[dict[str, object]] = []
     rx = re.compile(rf"\b{re.escape(method_name)}\s*\(")
@@ -562,7 +585,9 @@ def _rewrite_signature_semantic(text: str, rule: SignatureRewriteRule) -> tuple[
             return text, False
         if rule.op == "drop_param":
             del params[idx]
+            old_param_name = ""
         else:
+            old_param_name = _param_name_from_decl(params[idx])
             renamed = _rename_param_decl(params[idx], rule.new_name)
             if renamed == params[idx]:
                 return text, False
@@ -572,7 +597,25 @@ def _rewrite_signature_semantic(text: str, rule: SignatureRewriteRule) -> tuple[
         end = int(target["params_end"])
         if text[start:end] == new_params:
             return text, False
-        return text[:start] + new_params + text[end:], True
+        out = text[:start] + new_params + text[end:]
+        changed = True
+        if rule.op == "rename_param" and old_param_name:
+            body_start = target["body_start"]
+            body_end = target["body_end"]
+            if body_start is not None and body_end is not None:
+                delta = len(new_params) - (end - start)
+                new_body_start = int(body_start) + delta
+                new_body_end = int(body_end) + delta
+                out2, body_changed = _rewrite_identifier_usages_in_span_ts(
+                    out,
+                    body_start=new_body_start,
+                    body_end=new_body_end,
+                    old_name=old_param_name,
+                    new_name=rule.new_name,
+                )
+                out = out2
+                changed = changed or body_changed
+        return out, changed
 
     if rule.op == "drop_statement_contains":
         body_start = target["body_start"]
@@ -593,6 +636,146 @@ def _rewrite_signature_semantic(text: str, rule: SignatureRewriteRule) -> tuple[
         return text[:body_start] + new_body + text[body_end:], True
 
     return text, False
+
+
+def _identifier_tail_token(text: str) -> str:
+    m = re.search(r"([A-Za-z_$][\w$]*)\s*$", text.strip())
+    return m.group(1) if m else ""
+
+
+def _build_signature_callsite_drop_rules(signature_rules: list[SignatureRewriteRule]) -> list[SignatureCallsiteDropRule]:
+    out: list[SignatureCallsiteDropRule] = []
+    seen: set[tuple[str, str, int, int]] = set()
+    for rule in signature_rules:
+        if rule.op != "drop_param":
+            continue
+        before_types = _parse_signature_types(rule.signature_before)
+        if before_types is None:
+            continue
+        arg_arity = len(before_types)
+        if rule.param_index < 0 or rule.param_index >= arg_arity:
+            continue
+        key = (rule.method, rule.owner, arg_arity, rule.param_index)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(
+            SignatureCallsiteDropRule(
+                method=rule.method,
+                owner_class=rule.owner,
+                arg_arity=arg_arity,
+                arg_index=rule.param_index,
+            )
+        )
+    return out
+
+
+def _drop_invocation_arg(
+    data: bytes,
+    arg_list_start: int,
+    arg_list_end: int,
+    arg_ranges: list[tuple[int, int]],
+    arg_index: int,
+) -> tuple[bytes, bool]:
+    if arg_index < 0 or arg_index >= len(arg_ranges):
+        return data, False
+    open_paren = data.find(b"(", arg_list_start, arg_list_end)
+    close_paren = data.rfind(b")", arg_list_start, arg_list_end)
+    if open_paren < 0 or close_paren < 0 or open_paren >= close_paren:
+        return data, False
+    if len(arg_ranges) == 1:
+        return data[: open_paren + 1] + data[close_paren:], True
+
+    if arg_index == 0:
+        cut_start = arg_ranges[0][0]
+        cut_end = arg_ranges[1][0]
+    elif arg_index == len(arg_ranges) - 1:
+        cut_start = arg_ranges[arg_index - 1][1]
+        cut_end = arg_ranges[arg_index][1]
+    else:
+        cut_start = arg_ranges[arg_index - 1][1]
+        cut_end = arg_ranges[arg_index + 1][0]
+
+    if cut_start >= cut_end:
+        return data, False
+    return data[:cut_start] + data[cut_end:], True
+
+
+def _rewrite_calls_for_signature_drop_rules(
+    text: str,
+    rules: list[SignatureCallsiteDropRule],
+) -> tuple[str, bool, set[tuple[str, str, int, int]]]:
+    if not rules:
+        return text, False, set()
+    try:
+        data = text.encode("utf-8")
+        parser = build_java_parser(out_so=Path("build/ts-languages-java.so"))
+        tree = parser.parse(data)
+    except Exception:
+        return text, False, set()
+
+    rules_by_method: dict[str, list[SignatureCallsiteDropRule]] = {}
+    for rule in rules:
+        rules_by_method.setdefault(rule.method, []).append(rule)
+
+    edits: list[tuple[int, int, list[tuple[int, int]], int]] = []
+    matched_rules: set[tuple[str, str, int, int]] = set()
+    for node in iter_nodes(tree.root_node):
+        if node.type != "method_invocation":
+            continue
+        name_node = node.child_by_field_name("name")
+        if name_node is None:
+            continue
+        method_name = data[name_node.start_byte : name_node.end_byte].decode("utf-8", errors="replace").strip()
+        if not method_name:
+            continue
+        candidates = rules_by_method.get(method_name)
+        if not candidates:
+            continue
+        args_node = node.child_by_field_name("arguments")
+        if args_node is None:
+            for child in node.children:
+                if child.type == "argument_list":
+                    args_node = child
+                    break
+        if args_node is None:
+            continue
+        arg_nodes = list(getattr(args_node, "named_children", []) or [])
+        argc = len(arg_nodes)
+        if argc == 0:
+            continue
+        object_node = node.child_by_field_name("object")
+        owner_tail = ""
+        if object_node is not None:
+            object_text = data[object_node.start_byte : object_node.end_byte].decode("utf-8", errors="replace")
+            owner_tail = _identifier_tail_token(object_text)
+
+        same_arity = [rule for rule in candidates if rule.arg_arity == argc]
+        scoped = [rule for rule in same_arity if rule.owner_class and rule.owner_class == owner_tail]
+        unscoped = [rule for rule in same_arity if not rule.owner_class]
+        active = scoped or unscoped
+        if not active:
+            continue
+        arg_indexes = {rule.arg_index for rule in active}
+        if len(arg_indexes) != 1:
+            continue
+        arg_index = next(iter(arg_indexes))
+        if arg_index < 0 or arg_index >= argc:
+            continue
+        for active_rule in active:
+            matched_rules.add((active_rule.method, active_rule.owner_class, active_rule.arg_arity, active_rule.arg_index))
+        arg_ranges = [(child.start_byte, child.end_byte) for child in arg_nodes]
+        edits.append((args_node.start_byte, args_node.end_byte, arg_ranges, arg_index))
+
+    if not edits:
+        return text, False, set()
+
+    out = data
+    changed = False
+    for args_start, args_end, arg_ranges, arg_index in sorted(edits, key=lambda x: x[0], reverse=True):
+        out, did_change = _drop_invocation_arg(out, args_start, args_end, arg_ranges, arg_index)
+        changed = changed or did_change
+    return out.decode("utf-8", errors="replace"), changed, matched_rules
 
 
 def _rewrite_noarg_calls(text: str, rule: NoArgCallRewriteRule) -> tuple[str, bool]:
@@ -740,45 +923,6 @@ def _find_method_block_span(text: str, method_name: str) -> tuple[int, int] | No
     return None
 
 
-def _rewrite_method_identifiers(text: str, rules: list[MethodIdentifierRewriteRule]) -> tuple[str, bool]:
-    out = text
-    any_changed = False
-    for rule in rules:
-        span = _find_method_block_span(out, rule.method)
-        if span is None:
-            continue
-        start, end = span
-        block = out[start:end]
-        rx = re.compile(rf"\b{re.escape(rule.old)}\b")
-        new_block, count = rx.subn(rule.new, block)
-        if count > 0:
-            out = out[:start] + new_block + out[end:]
-            any_changed = True
-    return out, any_changed
-
-
-def _rewrite_qualified_calls(text: str, rules: list[QualifiedCallRewriteRule]) -> tuple[str, bool]:
-    out = text
-    any_changed = False
-    for rule in rules:
-        rx = re.compile(rf"\b{re.escape(rule.owner_class)}\.{re.escape(rule.old_method)}\s*\(")
-        out, count = rx.subn(f"{rule.owner_class}.{rule.new_method}(", out)
-        if count > 0:
-            any_changed = True
-    return out, any_changed
-
-
-def _rewrite_file_identifiers(text: str, rules: list[FileIdentifierRewriteRule]) -> tuple[str, bool]:
-    out = text
-    any_changed = False
-    for rule in rules:
-        rx = re.compile(rf"\b{re.escape(rule.old)}\b")
-        out, count = rx.subn(rule.new, out)
-        if count > 0:
-            any_changed = True
-    return out, any_changed
-
-
 def _is_matching_field_declaration(line: str, member_name: str) -> bool:
     if not line.strip().endswith(";"):
         return False
@@ -839,26 +983,52 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Apply data-driven post-rebuild cleanups in client/refactor.")
     ap.add_argument("--src-dir", type=Path, default=REFACTOR_SRC_DIR)
     ap.add_argument("--plan-dir", type=Path, default=REFACTOR_PLAN_DIR)
+    ap.add_argument("--summary-json", type=Path, default=Path("build/refactor-state/cleanup-apply-summary.json"))
+    ap.add_argument("--dry-run", action="store_true", help="Analyze matches/unmatches without writing files.")
     args = ap.parse_args()
-    resolve_path_args(args, ("src_dir", "plan_dir"))
+    resolve_path_args(args, ("src_dir", "plan_dir", "summary_json"))
 
     src_dir = args.src_dir.resolve()
     plan_dir = args.plan_dir.resolve()
     reset_rules = _load_reset_rules(plan_dir / "reset_methods.csv")
     rewrite_rules = _load_rewrite_rules(plan_dir / "delegation_rewrites.csv")
     signature_rules = _load_signature_rules(plan_dir / "signature_rewrites.csv")
+    signature_callsite_drop_rules = _build_signature_callsite_drop_rules(signature_rules)
     noarg_call_rules = _load_noarg_call_rules(plan_dir / "call_rewrites.csv")
     drop_first_arg_call_rules = _load_drop_first_arg_call_rules(plan_dir / "call_arg_rewrites.csv")
-    method_identifier_rules = _load_method_identifier_rewrite_rules(plan_dir / "method_identifier_rewrites.csv")
-    file_identifier_rules = _load_file_identifier_rewrite_rules(plan_dir / "file_identifier_rewrites.csv")
-    qualified_call_rules = _load_qualified_call_rewrite_rules(plan_dir / "qualified_call_rewrites.csv")
     drop_member_rules = _load_drop_member_rules(plan_dir / "drop_members.csv")
 
     changed_files = 0
+    unmatched_entries: list[dict[str, object]] = []
+    stage_stats: dict[str, RuleStageStats] = {
+        "reset_methods": RuleStageStats(total=len(reset_rules)),
+        "delegation_rewrites": RuleStageStats(total=len(rewrite_rules)),
+        "signature_rewrites": RuleStageStats(total=len(signature_rules)),
+        "signature_callsite_drop": RuleStageStats(total=len(signature_callsite_drop_rules)),
+        "call_rewrites": RuleStageStats(total=len(noarg_call_rules)),
+        "call_arg_rewrites": RuleStageStats(total=len(drop_first_arg_call_rules)),
+        "drop_members": RuleStageStats(total=len(drop_member_rules)),
+    }
 
     for rule in reset_rules:
         path = (src_dir / rule.target_file).resolve()
         if not path.exists():
+            stage_stats["reset_methods"].missing_file += 1
+            _push_unmatched(
+                unmatched_entries,
+                stage="reset_methods",
+                file=rule.target_file,
+                reason="missing_file",
+                rule=f"{rule.owner_class}.{rule.reset_method} -> {rule.field_name}",
+                plan_file="reset_methods.csv",
+                row_key={
+                    "owner_class": rule.owner_class,
+                    "target_file": rule.target_file,
+                    "reset_method": rule.reset_method,
+                    "field_name": rule.field_name,
+                    "reset_value": rule.reset_value,
+                },
+            )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         desired_body = [f"        {rule.field_name} = {rule.reset_value};"]
@@ -871,14 +1041,51 @@ def main() -> int:
             )
             out, changed = _ensure_method(text, rule.reset_method, method_src)
         if changed and out != text:
-            path.write_text(out, encoding="utf-8")
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
             changed_files += 1
+            stage_stats["reset_methods"].matched += 1
+        else:
+            stage_stats["reset_methods"].unmatched += 1
+            _push_unmatched(
+                unmatched_entries,
+                stage="reset_methods",
+                file=rule.target_file,
+                reason="no_match",
+                rule=f"{rule.owner_class}.{rule.reset_method} -> {rule.field_name}",
+                plan_file="reset_methods.csv",
+                row_key={
+                    "owner_class": rule.owner_class,
+                    "target_file": rule.target_file,
+                    "reset_method": rule.reset_method,
+                    "field_name": rule.field_name,
+                    "reset_value": rule.reset_value,
+                },
+            )
 
     by_file: dict[Path, list[DelegationRewriteRule]] = {}
     for rule in rewrite_rules:
         by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
     for path, rules in sorted(by_file.items(), key=lambda item: str(item[0])):
         if not path.exists():
+            stage_stats["delegation_rewrites"].missing_file += len(rules)
+            for rule in rules:
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="delegation_rewrites",
+                    file=rule.file,
+                    reason="missing_file",
+                    rule=f"{rule.owner_class}.{rule.method}: {rule.field_name}={rule.reset_value}",
+                    plan_file="delegation_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "method": rule.method,
+                        "owner_class": rule.owner_class,
+                        "field_name": rule.field_name,
+                        "reset_value": rule.reset_value,
+                        "rewrite_to": rule.rewrite_to,
+                    },
+                )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         out = text
@@ -886,8 +1093,29 @@ def main() -> int:
         for rule in rules:
             out, changed = _apply_delegation_rewrite(out, rule)
             any_changed = any_changed or changed
+            if changed:
+                stage_stats["delegation_rewrites"].matched += 1
+            else:
+                stage_stats["delegation_rewrites"].unmatched += 1
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="delegation_rewrites",
+                    file=rule.file,
+                    reason="no_match",
+                    rule=f"{rule.owner_class}.{rule.method}: {rule.field_name}={rule.reset_value}",
+                    plan_file="delegation_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "method": rule.method,
+                        "owner_class": rule.owner_class,
+                        "field_name": rule.field_name,
+                        "reset_value": rule.reset_value,
+                        "rewrite_to": rule.rewrite_to,
+                    },
+                )
         if any_changed and out != text:
-            path.write_text(out, encoding="utf-8")
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
             changed_files += 1
 
     sig_by_file: dict[Path, list[SignatureRewriteRule]] = {}
@@ -895,6 +1123,27 @@ def main() -> int:
         sig_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
     for path, rules in sorted(sig_by_file.items(), key=lambda item: str(item[0])):
         if not path.exists():
+            stage_stats["signature_rewrites"].missing_file += len(rules)
+            for rule in rules:
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="signature_rewrites",
+                    file=rule.file,
+                    reason="missing_file",
+                    rule=f"{rule.owner}.{rule.method}:{rule.op}",
+                    plan_file="signature_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "owner": rule.owner,
+                        "method": rule.method,
+                        "signature_before": rule.signature_before,
+                        "signature_after": rule.signature_after,
+                        "op": rule.op,
+                        "param_index": str(rule.param_index if rule.param_index >= 0 else ""),
+                        "new_name": rule.new_name,
+                        "match_text": rule.match_text,
+                    },
+                )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         out = text
@@ -902,15 +1151,81 @@ def main() -> int:
         for rule in rules:
             out, changed = _rewrite_signature_semantic(out, rule)
             any_changed = any_changed or changed
+            if changed:
+                stage_stats["signature_rewrites"].matched += 1
+            else:
+                stage_stats["signature_rewrites"].unmatched += 1
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="signature_rewrites",
+                    file=rule.file,
+                    reason="no_match",
+                    rule=f"{rule.owner}.{rule.method}:{rule.op}",
+                    plan_file="signature_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "owner": rule.owner,
+                        "method": rule.method,
+                        "signature_before": rule.signature_before,
+                        "signature_after": rule.signature_after,
+                        "op": rule.op,
+                        "param_index": str(rule.param_index if rule.param_index >= 0 else ""),
+                        "new_name": rule.new_name,
+                        "match_text": rule.match_text,
+                    },
+                )
         if any_changed and out != text:
-            path.write_text(out, encoding="utf-8")
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
             changed_files += 1
+
+    matched_signature_callsite_rules: set[tuple[str, str, int, int]] = set()
+    for path in sorted(src_dir.rglob("*.java")):
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        out, changed, matched_rules = _rewrite_calls_for_signature_drop_rules(text, signature_callsite_drop_rules)
+        matched_signature_callsite_rules.update(matched_rules)
+        if changed and out != text:
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
+            changed_files += 1
+    stage_stats["signature_callsite_drop"].matched = len(matched_signature_callsite_rules)
+    stage_stats["signature_callsite_drop"].unmatched = (
+        max(0, stage_stats["signature_callsite_drop"].total - stage_stats["signature_callsite_drop"].matched)
+    )
+    for rule in signature_callsite_drop_rules:
+        key = (rule.method, rule.owner_class, rule.arg_arity, rule.arg_index)
+        if key in matched_signature_callsite_rules:
+            continue
+        _push_unmatched(
+            unmatched_entries,
+            stage="signature_callsite_drop",
+            file="",
+            reason="no_callsite_match",
+            rule=f"{rule.owner_class}.{rule.method}/{rule.arg_arity} drop_arg[{rule.arg_index}]",
+            plan_file="signature_rewrites.csv",
+        )
 
     calls_by_file: dict[Path, list[NoArgCallRewriteRule]] = {}
     for rule in noarg_call_rules:
         calls_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
     for path, rules in sorted(calls_by_file.items(), key=lambda item: str(item[0])):
         if not path.exists():
+            stage_stats["call_rewrites"].missing_file += len(rules)
+            for rule in rules:
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="call_rewrites",
+                    file=rule.file,
+                    reason="missing_file",
+                    rule=rule.method,
+                    plan_file="call_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "method": rule.method,
+                    },
+                )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         out = text
@@ -918,8 +1233,25 @@ def main() -> int:
         for rule in rules:
             out, changed = _rewrite_noarg_calls(out, rule)
             any_changed = any_changed or changed
+            if changed:
+                stage_stats["call_rewrites"].matched += 1
+            else:
+                stage_stats["call_rewrites"].unmatched += 1
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="call_rewrites",
+                    file=rule.file,
+                    reason="no_match",
+                    rule=rule.method,
+                    plan_file="call_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "method": rule.method,
+                    },
+                )
         if any_changed and out != text:
-            path.write_text(out, encoding="utf-8")
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
             changed_files += 1
 
     drop_first_by_file: dict[Path, list[DropFirstArgCallRewriteRule]] = {}
@@ -927,6 +1259,23 @@ def main() -> int:
         drop_first_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
     for path, rules in sorted(drop_first_by_file.items(), key=lambda item: str(item[0])):
         if not path.exists():
+            stage_stats["call_arg_rewrites"].missing_file += len(rules)
+            for rule in rules:
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="call_arg_rewrites",
+                    file=rule.file,
+                    reason="missing_file",
+                    rule=f"{rule.owner_class}.{rule.method} arg[{rule.arg_index}]={rule.arg_text}",
+                    plan_file="call_arg_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "owner_class": rule.owner_class,
+                        "method": rule.method,
+                        "arg_text": rule.arg_text,
+                        "arg_index": str(rule.arg_index),
+                    },
+                )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         out = text
@@ -934,44 +1283,28 @@ def main() -> int:
         for rule in rules:
             out, changed = _rewrite_drop_first_arg_calls(out, rule)
             any_changed = any_changed or changed
+            if changed:
+                stage_stats["call_arg_rewrites"].matched += 1
+            else:
+                stage_stats["call_arg_rewrites"].unmatched += 1
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="call_arg_rewrites",
+                    file=rule.file,
+                    reason="no_match",
+                    rule=f"{rule.owner_class}.{rule.method} arg[{rule.arg_index}]={rule.arg_text}",
+                    plan_file="call_arg_rewrites.csv",
+                    row_key={
+                        "file": rule.file,
+                        "owner_class": rule.owner_class,
+                        "method": rule.method,
+                        "arg_text": rule.arg_text,
+                        "arg_index": str(rule.arg_index),
+                    },
+                )
         if any_changed and out != text:
-            path.write_text(out, encoding="utf-8")
-            changed_files += 1
-
-    method_id_by_file: dict[Path, list[MethodIdentifierRewriteRule]] = {}
-    for rule in method_identifier_rules:
-        method_id_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
-    for path, rules in sorted(method_id_by_file.items(), key=lambda item: str(item[0])):
-        if not path.exists():
-            continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        out, changed = _rewrite_method_identifiers(text, rules)
-        if changed and out != text:
-            path.write_text(out, encoding="utf-8")
-            changed_files += 1
-
-    file_id_by_file: dict[Path, list[FileIdentifierRewriteRule]] = {}
-    for rule in file_identifier_rules:
-        file_id_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
-    for path, rules in sorted(file_id_by_file.items(), key=lambda item: str(item[0])):
-        if not path.exists():
-            continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        out, changed = _rewrite_file_identifiers(text, rules)
-        if changed and out != text:
-            path.write_text(out, encoding="utf-8")
-            changed_files += 1
-
-    qualified_calls_by_file: dict[Path, list[QualifiedCallRewriteRule]] = {}
-    for rule in qualified_call_rules:
-        qualified_calls_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
-    for path, rules in sorted(qualified_calls_by_file.items(), key=lambda item: str(item[0])):
-        if not path.exists():
-            continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        out, changed = _rewrite_qualified_calls(text, rules)
-        if changed and out != text:
-            path.write_text(out, encoding="utf-8")
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
             changed_files += 1
 
     drops_by_file: dict[Path, list[DropMemberRule]] = {}
@@ -979,14 +1312,85 @@ def main() -> int:
         drops_by_file.setdefault((src_dir / rule.file).resolve(), []).append(rule)
     for path, rules in sorted(drops_by_file.items(), key=lambda item: str(item[0])):
         if not path.exists():
+            stage_stats["drop_members"].missing_file += len(rules)
+            for rule in rules:
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="drop_members",
+                    file=rule.file,
+                    reason="missing_file",
+                    rule=f"{rule.kind}:{rule.name}",
+                    plan_file="drop_members.csv",
+                    row_key={
+                        "file": rule.file,
+                        "kind": rule.kind,
+                        "name": rule.name,
+                    },
+                )
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
-        out, changed = _drop_members(text, rules)
-        if changed and out != text:
-            path.write_text(out, encoding="utf-8")
+        out = text
+        any_changed = False
+        for rule in rules:
+            next_text, changed = _drop_members(out, [rule])
+            if changed:
+                stage_stats["drop_members"].matched += 1
+                out = next_text
+            else:
+                stage_stats["drop_members"].unmatched += 1
+                _push_unmatched(
+                    unmatched_entries,
+                    stage="drop_members",
+                    file=rule.file,
+                    reason="no_match",
+                    rule=f"{rule.kind}:{rule.name}",
+                    plan_file="drop_members.csv",
+                    row_key={
+                        "file": rule.file,
+                        "kind": rule.kind,
+                        "name": rule.name,
+                    },
+                )
+            any_changed = any_changed or changed
+        if any_changed and out != text:
+            if not args.dry_run:
+                path.write_text(out, encoding="utf-8")
             changed_files += 1
 
-    print(f"Applied refactor cleanup rules. changed_files={changed_files}")
+    totals = RuleStageStats()
+    for stats in stage_stats.values():
+        totals.total += stats.total
+        totals.matched += stats.matched
+        totals.unmatched += stats.unmatched
+        totals.missing_file += stats.missing_file
+    unmatched_file_counts = Counter((entry.get("file") or "<all-files>") for entry in unmatched_entries)
+    unmatched_top_files = [
+        {"file": file, "count": count}
+        for file, count in unmatched_file_counts.most_common(25)
+    ]
+    summary = {
+        "dry_run": args.dry_run,
+        "changed_files": changed_files,
+        "totals": totals.as_dict(),
+        "stages": {name: stats.as_dict() for name, stats in stage_stats.items()},
+        "unmatched_top_files": unmatched_top_files,
+        "unmatched_rows": unmatched_entries,
+        "unmatched_examples": unmatched_entries[:200],
+    }
+    args.summary_json.parent.mkdir(parents=True, exist_ok=True)
+    args.summary_json.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    print(
+        "Applied refactor cleanup rules. "
+        f"dry_run={args.dry_run} changed_files={changed_files} total_rules={totals.total} matched={totals.matched} "
+        f"unmatched={totals.unmatched} missing_file={totals.missing_file}"
+    )
+    for stage_name, stats in stage_stats.items():
+        print(
+            f"  {stage_name}: total={stats.total} matched={stats.matched} "
+            f"unmatched={stats.unmatched} missing_file={stats.missing_file}"
+        )
+    print(f"  summary_json={args.summary_json}")
     return 0
 
 

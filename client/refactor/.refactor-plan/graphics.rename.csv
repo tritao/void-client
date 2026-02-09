@@ -89,3 +89,22 @@ method,Toolkit,Toolkit,,,,method3689,resetViewportOrigin,Toolkit,module,high,app
 method,Toolkit,Toolkit,,,,method3692,createToolkit,Toolkit,module,high,approved,
 local,WidgetDragHandler,WidgetDragHandler,,,,class347,widgetDragHandlerVar,WidgetDragHandler,module,high,approved,
 local,WidgetDragHandler,WidgetDragHandler,,,,class347s,widgetDragHandlerVars,WidgetDragHandler,module,high,approved,
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i,originY,TextureProjectionUtil,cleanup,high,approved,Projection origin Y component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_0_,pointY,TextureProjectionUtil,cleanup,high,approved,Point Y component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_1_,rotationMode,TextureProjectionUtil,cleanup,high,approved,UV rotation mode selector [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_2_,depthAxisIndex,TextureProjectionUtil,cleanup,high,approved,Index of depth axis coefficient in transform array [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_3_,pointZ,TextureProjectionUtil,cleanup,high,approved,Point Z component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,fs,outUv,TextureProjectionUtil,cleanup,high,approved,Output UV array [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_4_,pointX,TextureProjectionUtil,cleanup,high,approved,Point X component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f,vOffset,TextureProjectionUtil,cleanup,high,approved,V coordinate offset [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_5_,originX,TextureProjectionUtil,cleanup,high,approved,Projection origin X component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,i_6_,originZ,TextureProjectionUtil,cleanup,high,approved,Projection origin Z component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_7_,uScale,TextureProjectionUtil,cleanup,high,approved,U coordinate scale factor [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,fs_8_,transformCoefficients,TextureProjectionUtil,cleanup,high,approved,3x3 transform coefficient array [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_9_,transformedX,TextureProjectionUtil,cleanup,high,approved,Transformed X component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_10_,transformedY,TextureProjectionUtil,cleanup,high,approved,Transformed Y component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_11_,transformedZ,TextureProjectionUtil,cleanup,high,approved,Transformed Z component [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_12_,u,TextureProjectionUtil,cleanup,high,approved,Computed U coordinate [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_13_,v,TextureProjectionUtil,cleanup,high,approved,Computed V coordinate [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_14_,swapTmp1,TextureProjectionUtil,cleanup,high,approved,Temporary for rotation remap branch 1 [migrated:method_identifier_rewrites]
+local,TextureProjectionUtil,TextureProjectionUtil,computeProjectedUv,,,f_15_,swapTmp2,TextureProjectionUtil,cleanup,high,approved,Temporary for rotation remap branch 3 [migrated:method_identifier_rewrites]
